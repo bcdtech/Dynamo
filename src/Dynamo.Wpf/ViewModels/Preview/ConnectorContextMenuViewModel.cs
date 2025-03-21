@@ -1,0 +1,190 @@
+using CommunityToolkit.Mvvm.Input;
+using Dynamo.Logging;
+using System.Windows;
+using System.Windows.Input;
+namespace Dynamo.ViewModels
+{
+    public class ConnectorContextMenuViewModel : ViewModelBase
+    {
+        #region Properties
+        private Point currentPosition;
+        private bool isCollapsed;
+        private ConnectorViewModel ViewModel { get; set; }
+
+        /// <summary>
+        /// Controls connector visibility: on/off. When wire is off, additional styling xaml turns off tooltips.
+        /// </summary>
+        public override bool IsCollapsed
+        {
+            get => isCollapsed;
+            set
+            {
+                if (isCollapsed == value)
+                {
+                    return;
+                }
+
+                isCollapsed = value;
+                RaisePropertyChanged(nameof(IsCollapsed));
+            }
+        }
+
+        /// <summary>
+        /// Location of this control.
+        /// </summary>
+        public Point CurrentPosition
+        {
+            get
+            {
+                return currentPosition;
+            }
+            set
+            {
+                currentPosition = value;
+                RaisePropertyChanged(nameof(CurrentPosition));
+            }
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="connectorViewModel"></param>
+        public ConnectorContextMenuViewModel(ConnectorViewModel connectorViewModel)
+        {
+            ViewModel = connectorViewModel;
+            InitCommands();
+        }
+
+        /// <summary>
+        /// Calls for ConnectorViewModel to dispose this instance.
+        /// </summary>
+        internal void RequestDisposeViewModel()
+        {
+            OnRequestDispose(this, EventArgs.Empty);
+        }
+        #region Events
+        public event EventHandler RequestDispose;
+        public virtual void OnRequestDispose(Object sender, EventArgs e)
+        {
+            RequestDispose(this, e);
+        }
+        #endregion
+
+        public override void Dispose()
+        {
+            base.Dispose();
+        }
+        #region Commands
+
+        /// <summary>
+        /// Alerts ConnectorViewModel to hide/show the connector.
+        /// </summary>
+        public ICommand HideConnectorSurrogateCommand { get; set; }
+
+        /// <summary>
+        /// Alerts ConnectorViewModel select connected nodes.
+        /// </summary>
+        public ICommand SelectConnectedSurrogateCommand { get; set; }
+        /// <summary>
+        /// Alerts ConnectorViewModel to break the current connection.
+        /// </summary>
+        public ICommand BreakConnectionsSurrogateCommand { get; set; }
+        /// <summary>
+        /// Alerts ConnectorViewModel to pin the connector
+        /// </summary>
+        public ICommand PinConnectedSurrogateCommand { get; set; }
+        /// <summary>
+        /// Alerts ConnectorViewModel to focus the view on start node
+        /// </summary>
+        public ICommand GoToStartNodeCommand { get; set; }
+        /// <summary>
+        /// Alerts ConnectorViewModel to focus the view on end node
+        /// </summary>
+        public ICommand GoToEndNodeCommand { get; set; }
+
+        private void InitCommands()
+        {
+            HideConnectorSurrogateCommand = new RelayCommand<object>(HideConnectorSurrogateCommandExecute, x => true);
+            SelectConnectedSurrogateCommand = new RelayCommand<object>(SelectConnectedSurrogateCommandExecute, x => true);
+            BreakConnectionsSurrogateCommand = new RelayCommand<object>(BreakConnectionsSurrogateCommandExecute, x => true);
+            PinConnectedSurrogateCommand = new RelayCommand<object>(PinConnectedSurrogateCommandExecute, x => true);
+            GoToStartNodeCommand = new RelayCommand<object>(GoToStartNodeCommandExecute, x => true);
+            GoToEndNodeCommand = new RelayCommand<object>(GoToEndNodeCommandExecute, x => true);
+        }
+
+        /// <summary>
+        /// Request disposal of this viewmodel after command has run.
+        /// </summary>
+        /// <param name="obj"></param>
+        private void BreakConnectionsSurrogateCommandExecute(object obj)
+        {
+            ViewModel.BreakConnectionCommand.Execute(null);
+            // Track break connection event, this is distinguished with break connections from input/output port.
+            // So sending connector and number of connector as 1
+            Analytics.TrackEvent(Actions.Break, Categories.ConnectorOperations, "Connector", 1);
+        }
+
+        /// <summary>
+        /// Request disposal of this viewmodel after command has run.
+        /// </summary>
+        /// <param name="obj"></param>
+        private void SelectConnectedSurrogateCommandExecute(object obj)
+        {
+            ViewModel.SelectConnectedCommand.Execute(null);
+            // Track select connected nodes event
+            Analytics.TrackEvent(Actions.Select, Categories.ConnectorOperations, "SelectConnected");
+        }
+        /// <summary>
+        /// Request disposal of this viewmodel after command has run.
+        /// </summary>
+        /// <param name="obj"></param>
+        private void HideConnectorSurrogateCommandExecute(object obj)
+        {
+            // Track Show or hide connected nodes event
+            if (ViewModel.IsHidden)
+            {
+                Analytics.TrackEvent(Actions.Show, Categories.ConnectorOperations, "Connector", 1);
+            }
+            else
+            {
+                Analytics.TrackEvent(Actions.Hide, Categories.ConnectorOperations, "Connector", 1);
+            }
+            ViewModel.ShowhideConnectorCommand.Execute(null);
+        }
+
+        /// <summary>
+        /// Request disposal of this viewmodel after command has run.
+        /// </summary>
+        /// <param name="obj"></param>
+        private void PinConnectedSurrogateCommandExecute(object obj)
+        {
+            ViewModel.PinConnectorCommand.Execute(null);
+            // Track pin connected nodes event
+            Analytics.TrackEvent(Actions.Pin, Categories.ConnectorOperations, "PinWire");
+        }
+
+        /// <summary>
+        /// Executes the start node command on connector view model
+        /// </summary>
+        /// <param name="obj"></param>
+        private void GoToStartNodeCommandExecute(object obj)
+        {
+            ViewModel.GoToStartNodeCommand.Execute(null);
+        }
+
+        /// <summary>
+        /// Executes the end node command on connector view model
+        /// </summary>
+        /// <param name="obj"></param>
+        private void GoToEndNodeCommandExecute(object obj)
+        {
+            ViewModel.GoToEndNodeCommand.Execute(null);
+        }
+
+        #endregion
+
+
+    }
+}

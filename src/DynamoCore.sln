@@ -123,6 +123,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSOfficeUtilities", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCodeBlockNodeSecurityIssue", "..\test\Engine\TestCodeBlockNodeSecurityIssue\TestCodeBlockNodeSecurityIssue.csproj", "{03E83DF3-097F-4710-832C-3CA4445D9917}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Wpf", "Dynamo.Wpf\Dynamo.Wpf.csproj", "{EF976CFB-18A0-0B9C-5258-071EA6D890E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -603,6 +605,18 @@ Global
 		{03E83DF3-097F-4710-832C-3CA4445D9917}.Release|NET_Linux.Build.0 = Release|NET_Linux
 		{03E83DF3-097F-4710-832C-3CA4445D9917}.Release|Publish_Linux.ActiveCfg = Release|Publish_Linux
 		{03E83DF3-097F-4710-832C-3CA4445D9917}.Release|Publish_Linux.Build.0 = Release|Publish_Linux
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|NET_Linux.ActiveCfg = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|NET_Linux.Build.0 = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|Publish_Linux.ActiveCfg = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Debug|Publish_Linux.Build.0 = Debug|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|NET_Linux.ActiveCfg = Release|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|NET_Linux.Build.0 = Release|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|Publish_Linux.ActiveCfg = Release|Any CPU
+		{EF976CFB-18A0-0B9C-5258-071EA6D890E9}.Release|Publish_Linux.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

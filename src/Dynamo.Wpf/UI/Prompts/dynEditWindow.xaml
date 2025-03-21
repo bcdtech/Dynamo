@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="Dynamo.Nodes.dynEditWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
+    Width="400"
+    MinHeight="160"
+    MaxHeight="240">
+
+    <StackPanel>
+
+        <StackPanel.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0.0" Color="#444" />
+                <GradientStop Offset="1.0" Color="#222" />
+            </LinearGradientBrush>
+        </StackPanel.Background>
+
+        <TextBox
+            Name="editText"
+            Height="80"
+            Margin="10"
+            Padding="10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            x:FieldModifier="public"
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            BorderThickness="0"
+            CaretBrush="White"
+            FontSize="20"
+            HorizontalScrollBarVisibility="Disabled"
+            MinLines="2"
+            Style="{DynamicResource ResourceKey=SDarkTextBox}"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto" />
+
+        <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+            <!--<Button Content="{x:Static p:Resources.CancelButton}" Style="{DynamicResource ResourceKey=STextButton}"  Margin="10" Name="button1" VerticalAlignment="Bottom" Click="button1_Click" />-->
+            <Button
+                Name="button2"
+                Width="75"
+                Margin="10"
+                VerticalAlignment="Bottom"
+                Click="button2_Click"
+                Content="OK"
+                Style="{DynamicResource ResourceKey=STextButton}" />
+        </StackPanel>
+
+    </StackPanel>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DynamoCore;component/UI/Themes/DynamoModern.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+</Window>

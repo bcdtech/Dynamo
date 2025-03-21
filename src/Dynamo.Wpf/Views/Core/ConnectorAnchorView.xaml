@@ -1,0 +1,171 @@
+<UserControl
+    x:Class="Dynamo.Controls.ConnectorAnchorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    MouseLeave="OnMouseLeave"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="TransparentButton" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="TransparentButtonWithTriggers" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding CanDisplayIcons}" Value="True">
+                        <Setter Property="Visibility" Value="Visible" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding CanDisplayIcons}" Value="False">
+                        <Setter Property="Visibility" Value="Hidden" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="ConnectorTooltip" TargetType="ToolTip">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding CanShowTooltip, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                        <Setter Property="Visibility" Value="Visible" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding CanShowTooltip, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                        <Setter Property="Visibility" Value="Hidden" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Canvas Canvas.Left="0" Canvas.Top="0">
+        <!--  wire anchor  -->
+        <Button
+            x:Name="AnchorButton"
+            Canvas.Left="{Binding CurrentPosition.X}"
+            Canvas.Top="{Binding CurrentPosition.Y}"
+            Width="{Binding ScaledAnchorSize}"
+            Height="{Binding ScaledAnchorSize}"
+            Style="{StaticResource TransparentButton}"
+            ToolTipService.ShowDuration="{x:Static Member=System:Int32.MaxValue}">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource ConnectorTooltip}" Visibility="{Binding DataToolTipText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource EmptyStringToCollapsedConverter}}">
+                    <StackPanel Margin="5">
+                        <TextBlock FontWeight="Bold" Text="{Binding DataToolTipText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ToolTipFirstLine}}" />
+                        <TextBlock FontWeight="Regular" Text="{Binding DataToolTipText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ToolTipFirstLineNot}}" />
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <StackPanel Background="Transparent">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/wire_anchor_48_48.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/wire_anchor_48_48.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </StackPanel>
+            <Button.RenderTransform>
+                <TranslateTransform X="{Binding AnchorOffset}" Y="{Binding AnchorOffset}" />
+            </Button.RenderTransform>
+        </Button>
+
+        <!--  watch icon  -->
+        <Button
+            x:Name="WatchIconButton"
+            Canvas.Left="{Binding CurrentPosition.X}"
+            Canvas.Top="{Binding CurrentPosition.Y}"
+            Width="{Binding ScaledMarkerSize}"
+            Height="{Binding ScaledMarkerSize}"
+            Command="{Binding PlaceWatchNodeCommand}"
+            MouseEnter="OnWatchIconHover"
+            MouseLeave="OnWatchIconUnhover"
+            Style="{StaticResource TransparentButtonWithTriggers}">
+            <StackPanel Background="Transparent">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_hidden_48_48.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_default_48_48.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=WatchIconPreviewOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_hover_48_48.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </StackPanel>
+            <Button.RenderTransform>
+                <TranslateTransform X="0" Y="{Binding MarkerOffsetY}" />
+            </Button.RenderTransform>
+        </Button>
+        <!--  pin icon  -->
+        <Button
+            x:Name="PinIconButton"
+            Canvas.Left="{Binding CurrentPosition.X}"
+            Canvas.Top="{Binding CurrentPosition.Y}"
+            Width="{Binding ScaledMarkerSize}"
+            Height="{Binding ScaledMarkerSize}"
+            Command="{Binding PinConnectorCommand}"
+            MouseEnter="OnPinIconHover"
+            MouseLeave="OnPinIconUnhover"
+            Style="{StaticResource TransparentButtonWithTriggers}">
+            <StackPanel Background="Transparent">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_hidden_48_48.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_default_48_48.png" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=PinIconPreviewOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_hover_48_48.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </StackPanel>
+            <Button.RenderTransform>
+                <TranslateTransform X="{Binding MarkerOffsetX}" Y="{Binding MarkerOffsetY}" />
+            </Button.RenderTransform>
+        </Button>
+    </Canvas>
+</UserControl>
+
+

@@ -1,0 +1,63 @@
+﻿<UserControl
+    x:Class="Dynamo.Wpf.Views.GuidedTour.GuideBackground"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Dynamo.Wpf.Views.GuidedTour"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <Canvas Name="RootLayout" Background="Transparent">
+            <Path
+                Fill="Black"
+                Opacity="0.5"
+                Stroke="Black"
+                StrokeThickness="1">
+                <Path.Data>
+                    <!--  Combines two geometries using the exclude combine mode.  -->
+                    <CombinedGeometry GeometryCombineMode="Exclude">
+                        <!--  This Geometry will draw (rectangle) the dark overlay  -->
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="{Binding OverlayRect}" />
+                        </CombinedGeometry.Geometry1>
+                        <!--  This Geometry will cut(exclude) a rectangle from the dark overlay  -->
+                        <CombinedGeometry.Geometry2>
+                            <RectangleGeometry Rect="{Binding CutOffBackgroundArea.CutOffRect}" />
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+
+            <!--  This Rectangle will draw a highlight rectangle (border) over a specific element (higligthing a control)  -->
+            <Rectangle
+                x:Name="GuideHighlightRectangle"
+                Canvas.Left="{Binding HighlightBackgroundArea.HighlightRectCanvasLeft}"
+                Canvas.Top="{Binding HighlightBackgroundArea.HighlightRectCanvasTop}"
+                Width="{Binding HighlightBackgroundArea.HighlightRectWidth}"
+                Height="{Binding HighlightBackgroundArea.HighlightRectHeight}"
+                Fill="Transparent"
+                StrokeThickness="2">
+                <Rectangle.Effect>
+                    <BlurEffect KernelType="Box" Radius="1.0" />
+                </Rectangle.Effect>
+                <!--  When the Rectangle is Loaded we will be showing a glow increasing a decreasing using the BlurEffect  -->
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="GuideHighlightRectangle"
+                                    Storyboard.TargetProperty="(Effect).Radius"
+                                    From="0.0"
+                                    To="4.0"
+                                    Duration="0:0:1" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+        </Canvas>
+    </Grid>
+</UserControl>

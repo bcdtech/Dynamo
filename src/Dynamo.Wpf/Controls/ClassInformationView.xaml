@@ -1,0 +1,234 @@
+<UserControl
+    x:Class="Dynamo.UI.Controls.ClassInformationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Dynamo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.com/icons/"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    xmlns:uicontrols="clr-namespace:Dynamo.UI.Controls"
+    MinWidth="100"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    Background="Transparent"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <controls:BooleanToBrushConverter
+                x:Key="BooleanToBrushConverter"
+                FalseBrush="{StaticResource LibraryItemHostBackground}"
+                TrueBrush="{StaticResource LibraryItemHostBackground}" />
+
+            <Style TargetType="{x:Type ScrollViewer}">
+                <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+                <EventSetter Event="PreviewMouseWheel" Handler="OnShiftMouseWheel" />
+            </Style>
+            <Style
+                x:Key="ListBoxItemStyle"
+                BasedOn="{StaticResource MemberGroupMemberStyle}"
+                TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Background" Value="{StaticResource LibraryItemHostBackground}" />
+
+                <EventSetter Event="PreviewMouseLeftButtonUp" Handler="OnMouseLeftButtonUp" />
+                <EventSetter Event="KeyDown" Handler="OnMemberButtonKeyDown" />
+                <EventSetter Event="MouseEnter" Handler="OnListBoxItemMouseEnter" />
+                <EventSetter Event="MouseLeave" Handler="OnPopupMouseLeave" />
+            </Style>
+            <Style x:Key="MoreButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid x:Name="container">
+                                <TextBlock
+                                    x:Name="text"
+                                    Margin="71,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="#4691CE"
+                                    TextAlignment="Center">
+                                    <TextBlock.Text>
+                                        <Binding Path="Content" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsMouseOver" Value="true">
+                                    <Setter TargetName="container" Property="Background" Value="#2F2F2F" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Visibility>
+        <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="ClassDetailsVisibility" />
+    </UserControl.Visibility>
+    <Border Margin="25,-10,10,0" Padding="0,10,0,3">
+
+        <Grid
+            Name="GridData"
+            Margin="-10,10,0,0"
+            DataContextChanged="GridDataContextChanged"
+            KeyDown="OnMainGridKeyDown">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="20"
+                Margin="-35,0,0,0">
+                <Grid.ToolTip>
+                    <ToolTip Content="{x:Static p:Resources.CreateMember}" Style="{StaticResource GenericToolTipLight}" />
+                </Grid.ToolTip>
+                <Rectangle Fill="Transparent" />
+                <fa:ImageAwesome
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Foreground="{StaticResource CreateMembersColor}"
+                    Icon="Solid_Plus" />
+            </Grid>
+
+            <ListBox
+                x:Name="primaryMembers"
+                Grid.Row="1"
+                Grid.Column="1"
+                Padding="0,-10,0,0"
+                Background="Transparent"
+                BorderBrush="{StaticResource CreateMembersColor}"
+                BorderThickness="2,0,0,0"
+                ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
+                ItemTemplate="{StaticResource MemberTemplate}" />
+            <Border
+                x:Name="secondaryBorder"
+                Grid.Row="2"
+                Padding="0,5,0,5"
+                HorizontalAlignment="Left"
+                Background="Transparent">
+                <Border.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreSecondaryHeadersVisible" />
+                </Border.Visibility>
+            </Border>
+            <Border
+                Grid.Row="3"
+                Grid.Column="0"
+                Padding="0,5,0,5"
+                HorizontalAlignment="Left"
+                Background="Transparent">
+                <Border.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreSecondaryHeadersVisible" />
+                </Border.Visibility>
+
+                <Grid Width="12" Margin="-40,0,0,0">
+                    <Grid.ToolTip>
+                        <ToolTip Content="{x:Static p:Resources.ActionMember}" Style="{StaticResource GenericToolTipLight}" />
+                    </Grid.ToolTip>
+                    <Rectangle Fill="Transparent" />
+                    <fa:ImageAwesome
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Foreground="{StaticResource ActionMembersColor}"
+                        Icon="Solid_Bolt" />
+                </Grid>
+            </Border>
+            <ListBox
+                x:Name="secondaryMembers"
+                Grid.Row="3"
+                Grid.Column="1"
+                Padding="0,-10,0,0"
+                Background="Transparent"
+                BorderBrush="{StaticResource ActionMembersColor}"
+                BorderThickness="2,0,0,0"
+                ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
+                ItemTemplate="{StaticResource MemberTemplate}"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListBox.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreSecondaryHeadersVisible" />
+                </ListBox.Visibility>
+            </ListBox>
+            <Border
+                x:Name="queryBorder"
+                Grid.Row="4"
+                Padding="0,5,0,5"
+                HorizontalAlignment="Left"
+                Background="Transparent">
+                <Border.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreQueryHeadersVisible" />
+                </Border.Visibility>
+            </Border>
+            <Border
+                Grid.Row="5"
+                Grid.Column="0"
+                Padding="0,5,0,5"
+                HorizontalAlignment="Left"
+                Background="Transparent">
+                <Border.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreQueryHeadersVisible" />
+                </Border.Visibility>
+
+                <Grid Width="12" Margin="-40,0,0,0">
+                    <Grid.ToolTip>
+                        <ToolTip Content="{x:Static p:Resources.QueryMember}" Style="{StaticResource GenericToolTipLight}" />
+                    </Grid.ToolTip>
+                    <Rectangle Fill="Transparent" />
+                    <fa:ImageAwesome
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Foreground="{StaticResource QueryMembersColor}"
+                        Icon="Solid_Question" />
+                </Grid>
+            </Border>
+            <ListBox
+                x:Name="queryMembers"
+                Grid.Row="5"
+                Grid.Column="1"
+                Padding="0,-10,0,0"
+                Background="Transparent"
+                BorderBrush="{StaticResource QueryMembersColor}"
+                BorderThickness="2,0,0,0"
+                ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
+                ItemTemplate="{StaticResource MemberTemplate}"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListBox.Visibility>
+                    <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreQueryHeadersVisible" />
+                </ListBox.Visibility>
+            </ListBox>
+
+
+            <uicontrols:LibraryToolTipPopup
+                x:Name="libraryToolTipPopup"
+                AllowsTransparency="True"
+                MouseLeave="OnPopupMouseLeave"
+                StaysOpen="True">
+                <uicontrols:LibraryToolTipPopup.IsOpen>
+                    <Binding
+                        Converter="{StaticResource NodeSearchElementVMToBoolConverter}"
+                        ElementName="libraryToolTipPopup"
+                        Mode="OneWay"
+                        Path="DataContext" />
+                </uicontrols:LibraryToolTipPopup.IsOpen>
+            </uicontrols:LibraryToolTipPopup>
+        </Grid>
+    </Border>
+</UserControl>

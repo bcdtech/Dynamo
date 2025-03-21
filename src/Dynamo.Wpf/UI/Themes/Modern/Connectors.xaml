@@ -1,0 +1,199 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:configuration="clr-namespace:Dynamo.Configuration;assembly=DynamoCore"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mouse="clr-namespace:Dynamo.Wpf.UI"
+    xmlns:nodes="clr-namespace:Dynamo.Nodes"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
+    xmlns:views="clr-namespace:Dynamo.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <DataTemplate DataType="{x:Type viewModels:ConnectorContextMenuViewModel}">
+        <views:ConnectorContextMenuView DataContext="{Binding}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ConnectorAnchorViewModel}">
+        <views:ConnectorAnchorView DataContext="{Binding}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ConnectorPinViewModel}">
+        <nodes:ConnectorPinView DataContext="{Binding}" />
+    </DataTemplate>
+    <!--  Template used for displaying connectorPins on canvas  -->
+    <DataTemplate x:Key="ShowPinCollection">
+        <!--  Defines how each item in the collection is displayed  -->
+        <ItemsControl x:Name="ic" ItemsSource="{Binding}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <!--  Presents each item bound to its Left,Top (x,y)  -->
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding Path=Left}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Path=Top}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+    </DataTemplate>
+
+    <Style x:Key="SConnector" TargetType="Path">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsConnecting, Mode=OneWay}" Value="True">
+                <Setter Property="StrokeDashArray" Value="2" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsFrozen, Mode=OneWay}" Value="True">
+                <Setter Property="StrokeDashArray" Value="2" />
+                <Setter Property="Opacity" Value="0.5" />
+            </DataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsTemporarilyDisplayed, Mode=OneWay}" Value="True" />
+                    <Condition Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="IsHitTestVisible" Value="True" />
+                    <Setter Property="Opacity" Value="0.4" />
+                    <Setter Property="ToolTipService.IsEnabled" Value="True" />
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsTemporarilyDisplayed, Mode=OneWay}" Value="False" />
+                    <Condition Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="IsHitTestVisible" Value="False" />
+                    <Setter Property="Opacity" Value="0.0" />
+                    <Setter Property="ToolTipService.IsEnabled" Value="False" />
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+            <DataTrigger Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="False">
+                <Setter Property="IsHitTestVisible" Value="True" />
+                <Setter Property="Opacity" Value="1.0" />
+                <Setter Property="ToolTipService.IsEnabled" Value="True" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SEllipses" TargetType="Ellipse">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsTemporarilyDisplayed, Mode=OneWay}" Value="True" />
+                    <Condition Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Opacity" Value="0.4" />
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsTemporarilyDisplayed, Mode=OneWay}" Value="False" />
+                    <Condition Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Opacity" Value="0.0" />
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+            <DataTrigger Binding="{Binding Path=IsHidden, Mode=OneWay}" Value="False">
+                <Setter Property="Opacity" Value="1.0" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <DataTemplate DataType="{x:Type viewModels:ConnectorViewModel}">
+        <Grid x:Name="MainGrid" Visibility="Visible">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseRightButtonDown">
+                    <i:InvokeCommandAction Command="{Binding InstantiateContextMenuCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Grid.Resources>
+                <SolidColorBrush x:Key="BConnectorSelection" Color="{Binding PreviewState, Converter={StaticResource ConnectionStateToColorConverter}, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid.Resources>
+
+            <Canvas
+                x:Name="MainCanvas"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                ZIndex="1">
+                <Ellipse
+                    Name="endDot"
+                    Canvas.Left="{Binding CurvePoint3.X}"
+                    Canvas.Top="{Binding CurvePoint3.Y}"
+                    Width="11"
+                    Height="11"
+                    Margin="-5"
+                    Canvas.ZIndex="1"
+                    Fill="{Binding PreviewState, Converter={StaticResource ConnectionStateToBrushConverter}}"
+                    IsHitTestVisible="False"
+                    Style="{StaticResource SEllipses}"
+                    Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                <Ellipse
+                    Name="startDot"
+                    Canvas.Left="{Binding CurvePoint0.X}"
+                    Canvas.Top="{Binding CurvePoint0.Y}"
+                    Width="11"
+                    Height="11"
+                    Margin="-5"
+                    Canvas.ZIndex="1"
+                    Fill="{Binding PreviewState, Converter={StaticResource ConnectionStateToBrushConverter}}"
+                    IsHitTestVisible="False"
+                    Style="{StaticResource SEllipses}"
+                    Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, UpdateSourceTrigger=PropertyChanged}" />
+            </Canvas>
+
+            <!--  Bezier Path  -->
+            <Path
+                Name="connector"
+                Canvas.ZIndex="-2"
+                Data="{Binding ComputedBezierPathGeometry, UpdateSourceTrigger=PropertyChanged}"
+                Stroke="{DynamicResource BConnectorSelection}"
+                StrokeThickness="3"
+                Style="{StaticResource SConnector}"
+                Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, UpdateSourceTrigger=PropertyChanged}" />
+            <Path
+                Canvas.ZIndex="-1"
+                Data="{Binding ComputedBezierPathGeometry, UpdateSourceTrigger=PropertyChanged}"
+                Stroke="Transparent"
+                StrokeThickness="{Binding DynamicStrokeThickness}"
+                Style="{StaticResource SConnector}"
+                Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Behaviors>
+                    <mouse:MouseBehaviour MouseX="{Binding PanelX, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" MouseY="{Binding PanelY, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+                </i:Interaction.Behaviors>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseEnter">
+                        <i:InvokeCommandAction Command="{Binding MouseHoverCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseLeave">
+                        <i:InvokeCommandAction Command="{Binding MouseUnhoverCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Path>
+            <ContentControl
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Content="{Binding ConnectorContextMenuViewModel}" />
+            <ContentControl
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Panel.ZIndex="3"
+                Content="{Binding ConnectorAnchorViewModel}" />
+            <ContentControl
+                Panel.ZIndex="2"
+                Content="{Binding ConnectorPinViewCollection}"
+                ContentTemplate="{StaticResource ShowPinCollection}" />
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsFrozen, Mode=OneWay}" Value="True">
+                <Setter TargetName="endDot" Property="Opacity" Value="0.5" />
+                <Setter TargetName="startDot" Property="Opacity" Value="0.5" />
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+</ResourceDictionary>

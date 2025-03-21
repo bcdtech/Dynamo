@@ -1,0 +1,89 @@
+<UserControl
+    x:Class="Dynamo.PackageManager.UI.FilterTagControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Dynamo.PackageManager.UI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <local:BooleanToBorderColorConverter x:Key="BooleanToBorderColorConverter" ToggleBrush="{StaticResource Blue400Brush}" />
+            <local:BooleanToColorConverter
+                x:Key="BooleanToColorConverter"
+                DefaultBrush="{StaticResource DarkGreyBrush}"
+                HoverBrush="{StaticResource DarkMidGreyBrush}"
+                PressedBrush="{StaticResource DarkMidGreyBrush}"
+                ToggleDefaultBrush="{StaticResource MidBlueBrush}"
+                ToggleHoverBrush="{StaticResource MidDarkBlueBrush}"
+                TogglePressedBrush="{StaticResource MidLightBlueBrush}" />
+            <ControlTemplate x:Key="ToggleTemplate" TargetType="{x:Type Button}">
+                <Border
+                    x:Name="border"
+                    Margin="3"
+                    Padding="4,2"
+                    Background="#494949"
+                    BorderBrush="Transparent"
+                    BorderThickness="2"
+                    CornerRadius="12"
+                    SnapsToDevicePixels="True"
+                    UseLayoutRounding="True">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentPresenter />
+                        <Border Background="Transparent">
+                            <Viewbox
+                                Width="12"
+                                Height="12"
+                                Margin="0,-1,5,2"
+                                VerticalAlignment="Stretch"
+                                SnapsToDevicePixels="True"
+                                UseLayoutRounding="True">
+                                <Path
+                                    x:Name="remove"
+                                    Data="M13.3996 3.39998L12.5996 2.59998L7.99961 7.29998L3.39961 2.59998L2.59961 3.39998L7.29961 7.99998L2.59961 12.6L3.39961 13.4L7.99961 8.69998L12.5996 13.4L13.3996 12.6L8.69961 7.99998L13.3996 3.39998Z"
+                                    Fill="#999999"
+                                    StrokeThickness="0" />
+                            </Viewbox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="border" Property="Background" Value="#5D5D5D" />
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="border" Property="BorderBrush" Value="#25576E" />
+                        <Setter TargetName="border" Property="Background" Value="#494949" />
+
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Button
+            Height="36"
+            Click="ButtonBase_OnClick"
+            Command="{Binding FilterCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+            CommandParameter="{Binding TagName, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+            Template="{StaticResource ToggleTemplate}">
+            <TextBlock
+                Padding="6,2,6,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource ArtifaktElementRegular}"
+                FontSize="12"
+                Foreground="{StaticResource DarkThemeBodyMediumBrush}"
+                Text="{Binding TagName, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                TextAlignment="Center" />
+        </Button>
+    </Grid>
+</UserControl>

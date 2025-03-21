@@ -1,0 +1,2327 @@
+<!--
+    The Preferences Modal Dialog was created following the screen design (width, height, colors, styles) located in the next site:
+    https://www.figma.com/file/i2e1g2calbisxZTadS8pOV/DynamoPreferencePalette?node-id=3%3A3353
+-->
+<Window
+    x:Class="Dynamo.Wpf.Views.PreferencesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Dynamo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="clr-namespace:FontAwesome5;assembly=FontAwesome5.Net"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
+    xmlns:packagemanager="clr-namespace:Dynamo.Wpf.Views.PackageManager"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:trustedpaths="clr-namespace:Dynamo.Wpf.Views"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
+    xmlns:wpfControls="clr-namespace:Dynamo.Wpf.Controls"
+    x:Name="DynamoPreferencesWindow"
+    Width="665"
+    Height="480"
+    d:DataContext="{d:DesignInstance Type=viewModels:PreferencesViewModel}"
+    AllowsTransparency="True"
+    Background="Transparent"
+    BorderThickness="0"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterOwner"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  Using the Styles from the SharedResourcesDictionary located in DynamoCoreWpf/UI/Themes/DynamoModern.xaml  -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <controls:BrushColorToStringConverter x:Key="BrushColorToStringConverter" />
+            <controls:StringToBrushColorConverter x:Key="StringToBrushColorConverter" />
+            <controls:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
+            <controls:BinaryRadioButtonCheckedConverter x:Key="BinaryRadioButtonCheckedConverter" />
+            <controls:ExpandersBindingConverter x:Key="ExpandersBindingConverter" />
+            <controls:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter " />
+            <controls:InverseBoolToEnablingConverter x:Key="InverseBoolToEnablingConverter " />
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <!--  This Template will be used for the controls generated in the Styles list when a new Style is saved  -->
+            <DataTemplate x:Key="styleViewItemTemplate">
+                <Border
+                    Width="203"
+                    Margin="0,0,0,5"
+                    Padding="0,0,0,10"
+                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                    BorderBrush="#FF97A0A5"
+                    BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Name="groupNameLabel"
+                                    Grid.Row="0"
+                                    MinWidth="110"
+                                    MaxWidth="135"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                                    Text="{Binding Name}"
+                                    TextTrimming="CharacterEllipsis">
+                                    <TextBlock.ToolTip>
+                                        <ToolTip Content="{Binding Name}" Style="{StaticResource GenericToolTipLight}" />
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                                <StackPanel
+                                    Grid.Row="1"
+                                    Width="auto"
+                                    Margin="10,0,20,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        Width="25"
+                                        Height="15"
+                                        Background="{Binding HexColorString, Converter={StaticResource StringToBrushColorConverter}}"
+                                        Click="onChangedGroupStyleColor_Click"
+                                        IsEnabled="{Binding Path=IsDefault, Converter={StaticResource InverseBoolToEnablingConverter}}"
+                                        Style="{StaticResource ButtonColorPickerStyle}" />
+                                    <Label
+                                        Name="colorHexVal"
+                                        Content="{Binding Background, ElementName=borderColor, Converter={StaticResource BrushColorToStringConverter}}"
+                                        FontSize="13"
+                                        Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Button
+                                    Name="removeStyle"
+                                    Grid.Row="0"
+                                    Width="20"
+                                    Height="30"
+                                    Margin="0,0,8,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Click="RemoveStyle_Click"
+                                    Style="{StaticResource FlatIconButtonStyle}"
+                                    Visibility="{Binding Path=IsDefault, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                                    <fa:ImageAwesome
+                                        Width="15"
+                                        Height="25"
+                                        Foreground="{StaticResource PreferencesWindowFontColor}"
+                                        Icon="Solid_Trash"
+                                        IsHitTestVisible="False" />
+                                </Button>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <Image
+                                        Width="24"
+                                        Height="24"
+                                        Margin="0,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Source="/DynamoCoreWpf;component/UI/Images/font-size.png">
+                                        <Image.ToolTip>
+                                            <ToolTip Content="{x:Static p:Resources.GroupStyleFontSizeToolTip}" Style="{StaticResource GenericToolTipLight}" />
+                                        </Image.ToolTip>
+                                    </Image>
+                                    <ComboBox
+                                        Grid.Row="1"
+                                        Margin="2,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        IsEnabled="{Binding Path=IsDefault, Converter={StaticResource InverseBoolToEnablingConverter}}"
+                                        ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.GroupStyleFontSizeList}"
+                                        SelectedItem="{Binding Path=FontSize}"
+                                        Style="{StaticResource NoBordersComboBoxStyle}" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <!--  This is the main row of the Preference Window  -->
+    <Border
+        x:Name="mainBorder"
+        Background="{StaticResource PreferencesWindowBackgroundColor}"
+        BorderBrush="{StaticResource WorkspaceBackgroundHomeBrush}"
+        BorderThickness="1"
+        CornerRadius="4">
+        <Grid x:Name="mainGrid" Background="Transparent">
+            <Grid.Resources>
+                <sys:Double x:Key="ToggleButtonWidth">40</sys:Double>
+                <sys:Double x:Key="ToggleButtonHeight">20</sys:Double>
+            </Grid.Resources>
+            <!--  The Window is divided basically in three rows, TitleBar, Content, and ButtonsBottomSection  -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <!--  Section/Row of the TitleBar it contains a TextBlock for the windows title and the close button  -->
+            <!--  The CloseButtonStyle and Color Styles are located in the DynamoModer.xaml file  -->
+            <Grid
+                x:Name="TitleBar"
+                Grid.Row="0"
+                Margin="0"
+                VerticalAlignment="Top"
+                MouseDown="PreferencesPanel_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="46" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Name="HeaderTitle"
+                    Grid.Column="0"
+                    Width="459"
+                    Margin="25,10,0,0"
+                    HorizontalAlignment="Left"
+                    FontFamily="Helvetica"
+                    FontSize="17"
+                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                    Text="{x:Static p:Resources.PreferencesViewTitle}"
+                    TextAlignment="Left" />
+                <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <Button
+                        x:Name="CloseButton"
+                        Margin="10,12,20,8"
+                        VerticalAlignment="Center"
+                        Click="CloseButton_Click"
+                        KeyboardNavigation.IsTabStop="False"
+                        Style="{DynamicResource CloseButtonStyle}" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Section/Row of the Tabs content, it contains all the tabs left side aligned and the controls in the right section for each tab  -->
+            <!--  The LeftTab Style is located in the DynamoModer.xaml file  -->
+            <Grid x:Name="TabsContent" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="ContentGrid" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TabControl
+                        x:Name="preferencesTabControl"
+                        Background="{StaticResource PreferencesWindowBackgroundColor}"
+                        TabStripPlacement="Left">
+
+                        <!--  General Tab  -->
+                        <TabItem Header="{x:Static p:Resources.PreferencesViewGeneralTab}" Style="{StaticResource LeftTab}">
+
+                            <ScrollViewer Height="Auto" VerticalScrollBarVisibility="Auto">
+                                <!--  This Grid contains controls for selecting the Language  -->
+                                <Grid
+                                    x:Name="GeneralTab"
+                                    Margin="4,0,0,0"
+                                    HorizontalAlignment="Left">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--  The first Grid Row will contain the Language label and combobox added in a StackPanel vertical  -->
+                                    <Grid Grid.Row="0" Margin="14,0,0,20">
+                                        <StackPanel Orientation="Vertical">
+                                            <WrapPanel Grid.Row="0">
+                                                <Label
+                                                    Margin="-3,0,10,0"
+                                                    Content="{x:Static p:Resources.PreferencesViewLanguageLabel}"
+                                                    FontWeight="Bold"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="LanguageSettingsInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="-5,0,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesViewLanguageSwitchHelp}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </WrapPanel>
+                                            <ComboBox
+                                                Name="LanguageCmb"
+                                                Grid.Row="1"
+                                                Width="213"
+                                                HorizontalAlignment="Left"
+                                                IsEnabled="True"
+                                                ItemsSource="{Binding Path=LanguagesList}"
+                                                SelectedItem="{Binding Path=SelectedLanguage}"
+                                                Style="{StaticResource NoBordersComboBoxStyle}" />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!--  This Grid contains controls for selecting Static Splash Screen Display options  -->
+                                    <Grid Grid.Row="1" Margin="14,0,0,20">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <ToggleButton
+                                                Grid.Column="0"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                Margin="2,0,0,0"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=StaticSplashScreenEnabled}"
+                                                IsEnabled="True"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Content="{x:Static p:Resources.DynamoViewSettingShowStaticSplashScreen}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Image
+                                                Name="PauseSplashScreenIcon"
+                                                Grid.Column="2"
+                                                Width="14"
+                                                Height="14"
+                                                Margin="10,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource QuestionIcon}">
+                                                <Image.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.PreferencesViewShowStaticSplashScreenTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </Grid>
+                                    </Grid>
+
+                                    <!--  This Grid contains controls for the Number Format  -->
+                                    <Grid Grid.Row="2" Margin="14,0,0,20">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Margin="-3,0,10,0"
+                                                Content="{x:Static p:Resources.DynamoViewSettingMenuNumberFormat}"
+                                                FontWeight="Bold"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <ComboBox
+                                                Name="numberFormatCmb"
+                                                Grid.Row="1"
+                                                Margin="2,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                ItemsSource="{Binding NumberFormatList}"
+                                                SelectedItem="{Binding Path=SelectedNumberFormat, Converter={StaticResource NumberFormatConverter}}"
+                                                Style="{StaticResource NoBordersComboBoxStyle}" />
+                                        </Grid>
+                                    </Grid>
+
+                                    <!--  This Grid contains controls for the maximum number of recent files  -->
+                                    <Grid Grid.Row="3" Margin="14,0,0,20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Margin="-3,0,10,0"
+                                                Content="{x:Static p:Resources.PreferencesSettingMaxRecentFiles}"
+                                                FontWeight="Bold"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <TextBox
+                                                Name="NumberBox"
+                                                Grid.Row="1"
+                                                Height="20"
+                                                MinWidth="25"
+                                                Margin="2,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                BorderThickness="0,0,0,2"
+                                                FontWeight="Regular"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                PreviewTextInput="NumberValidationTextBox"
+                                                Text="{Binding MaxNumRecentFiles}" />
+                                            <Image
+                                                Name="RecentFileNumberInfoIcon"
+                                                Grid.Row="1"
+                                                Width="14"
+                                                Height="14"
+                                                Margin="30,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource QuestionIcon}">
+                                                <Image.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.RecentFileNumberInfo}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </Grid>
+                                    </Grid>
+
+                                    <!--  This Grid contains controls for selecting to include timestamp for export path  -->
+                                    <Grid Grid.Row="4" Margin="14,0,0,20">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <ToggleButton
+                                                Grid.Column="0"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                Margin="2,0,0,0"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=IsTimeStampIncludedInExportFilePath}"
+                                                IsEnabled="True"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Content="{x:Static p:Resources.PreferencesViewSettingIncludeTimestampExportPath}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Image
+                                                Name="IncludeTimestampExportPathIcon"
+                                                Grid.Column="2"
+                                                Width="14"
+                                                Height="14"
+                                                Margin="10,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource QuestionIcon}">
+                                                <Image.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.PreferencesViewIncludeTimestampExportPathTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </Grid>
+                                    </Grid>
+
+                                    <!--  This Grid contains Expanders for Run, Default Geometry Scaling, Backup and Templates settings  -->
+                                    <Grid Grid.Row="5" Margin="-3,0,1,20">
+                                        <Grid HorizontalAlignment="Stretch">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <!--  Run Settings Expander  -->
+                                            <Expander
+                                                x:Name="RunSettingsExpander"
+                                                Grid.Row="0"
+                                                Header="{x:Static p:Resources.PreferencesViewGeneralSettingsRun}"
+                                                IsExpanded="{Binding PreferencesTabs[General].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=RunSettingsExpander}"
+                                                Style="{StaticResource MenuExpanderStyle}">
+                                                <StackPanel x:Name="RunSettingsPanel">
+                                                    <Grid Margin="4,0,0,0">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition Height="Auto" />
+                                                        </Grid.RowDefinitions>
+                                                        <!--  This Grid contains controls for selecting Default Run Setting and Number Format options  -->
+                                                        <Grid Grid.Row="0" Margin="0,0,0,15">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <!--  This Grid contains controls for selecting Run Settings options  -->
+                                                            <Grid Grid.Row="0">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                </Grid.RowDefinitions>
+                                                                <WrapPanel Grid.Row="0">
+                                                                    <Label
+                                                                        Margin="-3,0,10,0"
+                                                                        Content="{x:Static p:Resources.PreferencesViewRunSettingsLabel}"
+                                                                        FontWeight="Bold"
+                                                                        Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                                    <Label
+                                                                        Name="RunSettingsInfoLabel"
+                                                                        Width="53"
+                                                                        Height="26"
+                                                                        Margin="0,3,0,0"
+                                                                        HorizontalAlignment="Left"
+                                                                        VerticalAlignment="Center">
+                                                                        <Image
+                                                                            Width="14"
+                                                                            Height="14"
+                                                                            Margin="-5,0,0,0"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Style="{StaticResource QuestionIcon}"
+                                                                            ToolTipService.ShowDuration="30000">
+                                                                            <Image.ToolTip>
+                                                                                <ToolTip Content="{x:Static p:Resources.PreferencesViewDefaultRunSettingsInfoTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                            </Image.ToolTip>
+                                                                        </Image>
+                                                                    </Label>
+                                                                </WrapPanel>
+                                                                <Grid Grid.Row="1">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="Auto" />
+                                                                        <ColumnDefinition Width="Auto" />
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <RadioButton
+                                                                        Grid.Column="0"
+                                                                        MinWidth="80"
+                                                                        Margin="2,0,0,0"
+                                                                        Content="{x:Static p:Resources.Manual}"
+                                                                        IsChecked="{Binding Path=RunSettingsIsChecked, Converter={StaticResource BinaryRadioButtonCheckedConverter}, ConverterParameter=True}"
+                                                                        Style="{StaticResource RunSettingsRadioButtons}" />
+                                                                    <RadioButton
+                                                                        Grid.Column="1"
+                                                                        MinWidth="80"
+                                                                        Content="{x:Static p:Resources.Automatic}"
+                                                                        IsChecked="{Binding Path=RunSettingsIsChecked, Converter={StaticResource BinaryRadioButtonCheckedConverter}, ConverterParameter=False}"
+                                                                        Style="{StaticResource RunSettingsRadioButtons}" />
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Grid>
+                                                        <!--  This Grid contains controls for selecting Run Preview options  -->
+                                                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <ToggleButton
+                                                                    Grid.Column="0"
+                                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                                    Margin="2,0,0,0"
+                                                                    VerticalAlignment="Center"
+                                                                    IsChecked="{Binding Path=RunPreviewIsChecked}"
+                                                                    IsEnabled="{Binding Path=RunPreviewEnabled}"
+                                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                                <Label
+                                                                    Grid.Column="1"
+                                                                    Content="{x:Static p:Resources.DynamoViewSettingShowRunPreview}"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                                <Image
+                                                                    Name="RunPreviewIcon"
+                                                                    Grid.Column="2"
+                                                                    Width="14"
+                                                                    Height="14"
+                                                                    Margin="10,0,0,0"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center"
+                                                                    Style="{StaticResource QuestionIcon}">
+                                                                    <Image.ToolTip>
+                                                                        <ToolTip Content="{x:Static p:Resources.PreferencesViewShowRunPreviewTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                    </Image.ToolTip>
+                                                                </Image>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Expander>
+                                            <!--  Geometry Scaling Expander  -->
+                                            <Expander
+                                                x:Name="Scale"
+                                                Grid.Row="1"
+                                                Header="{x:Static p:Resources.PreferencesViewGeneralSettingsGeoScaling}"
+                                                IsExpanded="{Binding PreferencesTabs[General].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=Scale}"
+                                                Style="{StaticResource MenuExpanderStyle}">
+                                                <StackPanel
+                                                    x:Name="GeometryScalingRadiosPanel"
+                                                    Width="380"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top">
+                                                    <RadioButton
+                                                        x:Name="RadioSmall"
+                                                        MinWidth="80"
+                                                        Margin="3,10,0,0"
+                                                        Content="{x:Static p:Resources.ScalingSmallButton}"
+                                                        GroupName="GeometryScaling"
+                                                        IsChecked="{Binding DefaultGeometryScaling, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Small}}"
+                                                        Style="{StaticResource GeometryScaleRadioButtons}" />
+                                                    <TextBlock
+                                                        x:Name="RadioSmallDesc"
+                                                        Margin="25,5,0,0"
+                                                        Style="{StaticResource GeometryScaleDescTextBox}"
+                                                        Visibility="{Binding IsChecked, ElementName=RadioSmall, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                    <RadioButton
+                                                        x:Name="RadioMedium"
+                                                        MinWidth="80"
+                                                        Margin="3,10,0,0"
+                                                        Content="{x:Static p:Resources.ScalingMediumButton}"
+                                                        GroupName="GeometryScaling"
+                                                        IsChecked="{Binding DefaultGeometryScaling, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Medium}}"
+                                                        Style="{StaticResource GeometryScaleRadioButtons}" />
+                                                    <TextBlock
+                                                        x:Name="RadioMediumDesc"
+                                                        Margin="25,5,0,0"
+                                                        Style="{StaticResource GeometryScaleDescTextBox}"
+                                                        Visibility="{Binding IsChecked, ElementName=RadioMedium, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                    <RadioButton
+                                                        x:Name="RadioLarge"
+                                                        MinWidth="80"
+                                                        Margin="3,10,0,0"
+                                                        Content="{x:Static p:Resources.ScalingLargeButton}"
+                                                        GroupName="GeometryScaling"
+                                                        IsChecked="{Binding DefaultGeometryScaling, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Large}}"
+                                                        Style="{StaticResource GeometryScaleRadioButtons}" />
+                                                    <TextBlock
+                                                        x:Name="RadioLargeDesc"
+                                                        Margin="25,5,0,0"
+                                                        Style="{StaticResource GeometryScaleDescTextBox}"
+                                                        Visibility="{Binding IsChecked, ElementName=RadioLarge, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                    <RadioButton
+                                                        x:Name="RadioExtraLarge"
+                                                        MinWidth="80"
+                                                        Margin="3,10,0,0"
+                                                        Content="{x:Static p:Resources.ScalingExtraLargeButton}"
+                                                        GroupName="GeometryScaling"
+                                                        IsChecked="{Binding DefaultGeometryScaling, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.ExtraLarge}}"
+                                                        Style="{StaticResource GeometryScaleRadioButtons}" />
+                                                    <TextBlock
+                                                        x:Name="RadioExtraLargeDesc"
+                                                        Margin="25,5,0,0"
+                                                        Style="{StaticResource GeometryScaleDescTextBox}"
+                                                        Visibility="{Binding IsChecked, ElementName=RadioExtraLarge, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                </StackPanel>
+                                            </Expander>
+                                            <!--  Backup Settings Expander  -->
+                                            <Expander
+                                                x:Name="BackupSettingsExpander"
+                                                Grid.Row="2"
+                                                Header="{x:Static p:Resources.PreferencesViewGeneralSettingsBackup}"
+                                                IsExpanded="{Binding PreferencesTabs[General].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=BackupSettingsExpander}"
+                                                Style="{StaticResource MenuExpanderStyle}">
+                                                <StackPanel x:Name="BackupSettingsPanel">
+                                                    <Grid HorizontalAlignment="Stretch">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition Height="Auto" />
+                                                        </Grid.RowDefinitions>
+                                                        <!--  Controls for backup files time interval  -->
+                                                        <Grid Grid.Row="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Margin="-3,0,10,0"
+                                                                Content="{x:Static p:Resources.PreferencesSettingBackupInterval}"
+                                                                FontWeight="Bold"
+                                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                            <Grid Grid.Row="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBox
+                                                                    Name="NumberTextBox"
+                                                                    Grid.Column="0"
+                                                                    Height="20"
+                                                                    MinWidth="25"
+                                                                    Margin="2,0,0,0"
+                                                                    HorizontalAlignment="Left"
+                                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                                    BorderThickness="0,0,0,2"
+                                                                    FontWeight="Regular"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                                    PreviewTextInput="NumberValidationTextBox"
+                                                                    Text="{Binding BackupIntervalInMinutes}" />
+                                                                <Label
+                                                                    Grid.Column="1"
+                                                                    Content="{x:Static p:Resources.BackupInternalUnit}"
+                                                                    FontWeight="Regular"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                            </Grid>
+                                                        </Grid>
+                                                        <Grid Grid.Row="1">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Margin="-3,15,0,0"
+                                                                VerticalAlignment="Center"
+                                                                Content="{x:Static p:Resources.PreferencesSettingDefaultBackupLocation}"
+                                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                            <Grid Grid.Row="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="auto" />
+                                                                    <ColumnDefinition Width="auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <!--  the backup location text  -->
+                                                                <TextBlock
+                                                                    x:Name="BackupLocationTextBlock"
+                                                                    Grid.Column="0"
+                                                                    MinHeight="24"
+                                                                    Margin="0,4,7,4"
+                                                                    Padding="5,5,5,5"
+                                                                    Background="{StaticResource PreferencesWindowItemDarkerBackgroundColor}"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                                    Style="{StaticResource DarkTextBlock}"
+                                                                    Text="{Binding BackupLocation}" />
+                                                                <!--  the select backup location button  -->
+                                                                <Button
+                                                                    x:Name="UpdateBackupLocationButton"
+                                                                    Grid.Column="1"
+                                                                    Margin="7,7,7,7"
+                                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                                    Click="SelectBackupLocation"
+                                                                    Style="{StaticResource EditFolderButtonStyle}">
+                                                                    <Button.ToolTip>
+                                                                        <ToolTip Content="{x:Static p:Resources.PreferencesSettingUpdateBackupLocationTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                    </Button.ToolTip>
+                                                                </Button>
+                                                                <!--  the Reset backup location button  -->
+                                                                <Button
+                                                                    x:Name="ResetBackupLocationButton"
+                                                                    Grid.Column="2"
+                                                                    Margin="7,7,7,7"
+                                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                                    Click="ResetBackupLocation"
+                                                                    IsEnabled="{Binding Path=CanResetBackupLocation}"
+                                                                    Style="{StaticResource ResetButtonStyle}">
+                                                                    <Button.ToolTip>
+                                                                        <ToolTip Content="{x:Static p:Resources.PreferencesSettingResetBackupLocationTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                    </Button.ToolTip>
+                                                                </Button>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Expander>
+                                            <!--  Template Settings Expander  -->
+                                            <Expander
+                                                x:Name="TemplateSettingsExpander"
+                                                Grid.Row="3"
+                                                Header="{x:Static p:Resources.PreferencesViewGeneralSettingsTemplate}"
+                                                IsExpanded="{Binding PreferencesTabs[General].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=TemplateSettingsExpander}"
+                                                Style="{StaticResource MenuExpanderStyle}">
+                                                <StackPanel x:Name="TemplateSettingsPanel">
+                                                    <Grid HorizontalAlignment="Stretch">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition Height="Auto" />
+                                                        </Grid.RowDefinitions>
+                                                        <Grid Grid.Row="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Margin="-3,15,0,0"
+                                                                VerticalAlignment="Center"
+                                                                Content="{x:Static p:Resources.PreferencesSettingTemplateLocationLabel}"
+                                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                            <Grid Grid.Row="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="auto" />
+                                                                    <ColumnDefinition Width="auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <!--  the backup location text  -->
+                                                                <TextBlock
+                                                                    x:Name="TemplateLocationTextBlock"
+                                                                    Grid.Column="0"
+                                                                    MinHeight="24"
+                                                                    Margin="0,4,7,4"
+                                                                    Padding="5,5,5,5"
+                                                                    Background="{StaticResource PreferencesWindowItemDarkerBackgroundColor}"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                                    Style="{StaticResource DarkTextBlock}"
+                                                                    Text="{Binding TemplateLocation}" />
+                                                                <Button
+                                                                    x:Name="UpdateTemplateLocationButton"
+                                                                    Grid.Column="1"
+                                                                    Margin="7,7,7,7"
+                                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                                    Click="UpdateTemplateLocationButton_Click"
+                                                                    Style="{StaticResource EditFolderButtonStyle}">
+                                                                    <Button.ToolTip>
+                                                                        <ToolTip Content="{x:Static p:Resources.PreferencesSettingUpdateTemplateLocationTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                    </Button.ToolTip>
+                                                                </Button>
+                                                                <!--  the Reset backup location button  -->
+                                                                <Button
+                                                                    x:Name="ResetTemplateLocationButton"
+                                                                    Grid.Column="2"
+                                                                    Margin="7,7,7,7"
+                                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                                    Click="ResetTemplateLocationButton_Click"
+                                                                    IsEnabled="{Binding Path=CanResetTemplateLocation}"
+                                                                    Style="{StaticResource ResetButtonStyle}">
+                                                                    <Button.ToolTip>
+                                                                        <ToolTip Content="{x:Static p:Resources.PreferencesSettingResetTemplateLocationTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                                    </Button.ToolTip>
+                                                                </Button>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Expander>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </ScrollViewer>
+                        </TabItem>
+
+                        <!--  Features Tab  -->
+                        <TabItem Header="{x:Static p:Resources.PreferencesViewFeaturesTab}" Style="{StaticResource LeftTab}">
+                            <!--  This Grid contains the features tab  -->
+                            <Grid
+                                x:Name="FeaturesTab"
+                                Margin="1"
+                                HorizontalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  This Grid row contains the Python section  -->
+                                <Expander
+                                    x:Name="PythonExpander"
+                                    Grid.Row="0"
+                                    Header="{x:Static p:Resources.PreferencesViewPython}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=PythonExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <StackPanel Margin="0,6,0,0" Orientation="Vertical">
+                                        <Label
+                                            Padding="0,5,5,5"
+                                            Content="{x:Static p:Resources.PreferencesViewDefaultPythonEngine}"
+                                            FontSize="13"
+                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                        <ComboBox
+                                            Name="PythonEngineManager"
+                                            Width="213"
+                                            HorizontalAlignment="Left"
+                                            ItemsSource="{Binding Path=PythonEnginesList}"
+                                            SelectedItem="{Binding Path=SelectedPythonEngine}"
+                                            Style="{StaticResource NoBordersComboBoxStyle}" />
+
+                                        <!--  Python Template File Path  -->
+                                        <StackPanel Margin="0,12,0,5" Orientation="Vertical">
+                                            <Label
+                                                Padding="0,5,5,5"
+                                                Content="{x:Static p:Resources.PreferencesSettingCustomPythomTemplate}"
+                                                FontSize="13"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Button
+                                                x:Name="AddPaths"
+                                                Margin="0"
+                                                HorizontalAlignment="Left"
+                                                Command="{Binding Path=AddPythonPathCommand}"
+                                                Content="{x:Static p:Resources.AddFilePathButtonName}"
+                                                Visibility="{Binding PythonTemplateFilePath, Converter={StaticResource NonEmptyStringToCollapsedConverter}}">
+                                                <Button.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.PythonTemplateAddPathTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Button.ToolTip>
+                                                <Button.Style>
+                                                    <Style BasedOn="{StaticResource SolidButtonStyle}" TargetType="{x:Type Button}">
+                                                        <Setter Property="IsEnabled" Value="True" />
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                            <Grid Visibility="{Binding PythonTemplateFilePath, Converter={StaticResource EmptyStringToCollapsedConverter}}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition MaxWidth="250" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    x:Name="PathTextBlock"
+                                                    Grid.Column="0"
+                                                    MinHeight="24"
+                                                    Margin="0,4,7,4"
+                                                    Padding="5,5,5,5"
+                                                    Background="{StaticResource PreferencesWindowItemDarkerBackgroundColor}"
+                                                    FontWeight="Regular"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                    Style="{StaticResource DarkTextBlock}"
+                                                    Text="{Binding PythonTemplateFilePath}" />
+                                                <Button
+                                                    x:Name="UpdatePathButton"
+                                                    Grid.Column="1"
+                                                    Margin="7,7,7,7"
+                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                    Command="{Binding Path=UpdatePythonPathCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    Style="{StaticResource EditFolderButtonStyle}"
+                                                    ToolTipService.ShowOnDisabled="True">
+                                                    <Button.ToolTip>
+                                                        <ToolTip Content="{x:Static p:Resources.PackagePathUpdatePathTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                    </Button.ToolTip>
+                                                </Button>
+                                                <Button
+                                                    x:Name="DeletePathButton"
+                                                    Grid.Column="2"
+                                                    Margin="7,7,7,7"
+                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                    Command="{Binding Path=DeletePythonPathCommand}"
+                                                    Style="{StaticResource CloseButtonStyle}"
+                                                    ToolTipService.ShowOnDisabled="True">
+                                                    <Button.ToolTip>
+                                                        <ToolTip Content="{x:Static p:Resources.PackagePathViewToolTipMinus}" Style="{StaticResource GenericToolTipLight}" />
+                                                    </Button.ToolTip>
+                                                </Button>
+                                            </Grid>
+                                        </StackPanel>
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <StackPanel
+                                                Grid.Row="0"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="ShowWhitespaceToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=ShowWhitespaceIsChecked}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewShowWhitespaceInPythonEditor}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            </StackPanel>
+                                        </Grid>
+                                        <!--  Reset CPython  -->
+                                        <Button
+                                            x:Name="ReloadCPython"
+                                            Grid.Row="0"
+                                            Margin="0,10,0,0"
+                                            HorizontalAlignment="Left"
+                                            Click="ReloadCPython_Click"
+                                            Content="{x:Static p:Resources.ResetCPythonButtonText}"
+                                            Style="{StaticResource SolidButtonStyle}">
+                                            <Button.ToolTip>
+                                                <ToolTip Content="{x:Static p:Resources.ResetCPythonButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
+                                            </Button.ToolTip>
+                                        </Button>
+
+                                    </StackPanel>
+                                </Expander>
+
+                                <!--  This Grid row contains the Notification Center section  -->
+                                <Expander
+                                    x:Name="NotificationCenterExpander"
+                                    Grid.Row="1"
+                                    Header="{x:Static p:Resources.PreferencesViewNotificationCenter}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=NotificationCenterExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="NotificationCenterToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=NotificationCenterIsChecked}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Content="{x:Static p:Resources.PreferencesViewEnableNotificationCenter}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+
+                                <!--  This Grid row contains the Node Autocomplete section  -->
+                                <Expander
+                                    x:Name="NodeAutocompleteExpander"
+                                    Grid.Row="2"
+                                    Header="{x:Static p:Resources.PreferencesViewNodeAutocomplete}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=NodeAutocompleteExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="NodeAutocompleteToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=NodeAutocompleteIsChecked}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Content="{x:Static p:Resources.PreferencesViewEnableNodeAutoComplete}"
+                                                FontWeight="Normal"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Label Name="MLNodeAutocompleteLabel" MouseLeftButtonDown="OnMoreInfoClicked">
+                                                <Image
+                                                    Name="MLNodeAutocompleteToolTip"
+                                                    Width="14"
+                                                    Height="14"
+                                                    Margin="5,3,0,0"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Style="{StaticResource QuestionIconClickable}"
+                                                    ToolTipService.ShowDuration="30000">
+                                                    <Image.ToolTip>
+                                                        <ToolTip Content="{x:Static p:Resources.PreferencesViewEnableNodeAutoCompleteTooltipText}" Style="{StaticResource GenericToolTipLight}" />
+                                                    </Image.ToolTip>
+                                                </Image>
+                                            </Label>
+                                        </StackPanel>
+
+                                        <StackPanel
+                                            Grid.Row="1"
+                                            Margin="0,-5,0,0"
+                                            Orientation="Horizontal"
+                                            Visibility="{Binding HideAutocompleteMethodOptions, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}}">
+                                            <!--  This Grid contains controls for selecting the Node autocomplete method  -->
+                                            <Grid Margin="60,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Label
+                                                    Grid.Row="0"
+                                                    Margin="-8,15,10,3"
+                                                    Content="{x:Static p:Resources.PreferencesNodeAutocompleteMethod}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Grid Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition x:Name="colObjectType" Width="Auto" />
+                                                        <ColumnDefinition x:Name="colMachineLearning" Width="Auto" />
+                                                        <ColumnDefinition x:Name="colMLbetaTag" Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <RadioButton
+                                                        x:Name="ObjectTypeRadioButton"
+                                                        Grid.Column="0"
+                                                        MinWidth="90"
+                                                        Margin="-3,0,20,0"
+                                                        Content="{x:Static p:Resources.ObjectType}"
+                                                        IsChecked="{Binding Path=NodeAutocompleteMachineLearningIsChecked, Converter={StaticResource BinaryRadioButtonCheckedConverter}, ConverterParameter=False}"
+                                                        IsEnabled="{Binding Path=NodeAutocompleteIsChecked}"
+                                                        Style="{StaticResource RunSettingsRadioButtons}" />
+                                                    <RadioButton
+                                                        x:Name="RecommendedNodesRadioButton"
+                                                        Grid.Column="1"
+                                                        MinWidth="90"
+                                                        Click="RecommendedNodesRadioButton_Click"
+                                                        Content="{x:Static p:Resources.RecommendedNodes}"
+                                                        IsChecked="{Binding Path=NodeAutocompleteMachineLearningIsChecked, Converter={StaticResource BinaryRadioButtonCheckedConverter}, ConverterParameter=True}"
+                                                        IsEnabled="{Binding Path=NodeAutocompleteIsChecked}"
+                                                        Style="{StaticResource RunSettingsRadioButtons}" />
+                                                    <!--  Beta tag  -->
+                                                    <Label
+                                                        Name="NodeRecommendationBetaTag"
+                                                        Grid.Column="2"
+                                                        Margin="10,-5,0,0"
+                                                        Background="{StaticResource SecondaryGray}"
+                                                        Content="{x:Static p:Resources.PreferencesViewBetaTag}"
+                                                        FontSize="10"
+                                                        FontWeight="SemiBold"
+                                                        Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                        Visibility="{Binding NodeAutocompleteMachineLearningIsBeta, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <Label.Resources>
+                                                            <Style TargetType="Border">
+                                                                <Setter Property="CornerRadius" Value="10" />
+                                                            </Style>
+                                                        </Label.Resources>
+                                                    </Label>
+                                                </Grid>
+                                                <Grid Grid.Row="2">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <StackPanel
+                                                        Grid.Row="0"
+                                                        Margin="-10,5,0,0"
+                                                        Orientation="Horizontal">
+                                                        <Label
+                                                            VerticalAlignment="Center"
+                                                            Content="{x:Static p:Resources.MLRecommendationNumberOfResults}"
+                                                            FontWeight="Normal"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                        <TextBox
+                                                            Name="MLRecommendationResultsNumber"
+                                                            Height="20"
+                                                            MinWidth="25"
+                                                            Margin="2,0,0,0"
+                                                            HorizontalAlignment="Left"
+                                                            Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                            BorderThickness="0,0,0,2"
+                                                            FontWeight="Regular"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}"
+                                                            IsEnabled="{Binding Path=NodeAutocompleteMachineLearningIsChecked}"
+                                                            PreviewTextInput="NumberValidationTextBox"
+                                                            Text="{Binding MLRecommendationNumberOfResults}" />
+                                                    </StackPanel>
+                                                    <StackPanel
+                                                        Grid.Row="1"
+                                                        Margin="-60,10,0,0"
+                                                        Orientation="Horizontal">
+                                                        <ToggleButton
+                                                            Name="MLRecommendationConfidenceThresholdToogle"
+                                                            Width="{StaticResource ToggleButtonWidth}"
+                                                            Height="{StaticResource ToggleButtonHeight}"
+                                                            VerticalAlignment="Center"
+                                                            IsChecked="{Binding Path=HideNodesBelowSpecificConfidenceLevelIsChecked}"
+                                                            IsEnabled="{Binding Path=EnableHideNodesToggle}"
+                                                            Style="{StaticResource EllipseToggleButton1}" />
+                                                        <Label
+                                                            Margin="10,0,0,0"
+                                                            VerticalAlignment="Center"
+                                                            Content="{x:Static p:Resources.PreferredConfidenceLevel}"
+                                                            FontWeight="Regular"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                        <Image
+                                                            Name="MLRecommendationConfidenceThresholdToolTip"
+                                                            Width="14"
+                                                            Height="14"
+                                                            Margin="5,3,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Style="{StaticResource QuestionIcon}"
+                                                            ToolTipService.ShowDuration="30000">
+                                                            <Image.ToolTip>
+                                                                <ToolTip Content="{x:Static p:Resources.PreferredConfidenceLevelInfo}" Style="{StaticResource GenericToolTipLight}" />
+                                                            </Image.ToolTip>
+                                                        </Image>
+                                                    </StackPanel>
+                                                    <StackPanel
+                                                        Grid.Row="2"
+                                                        Margin="-10,5,0,0"
+                                                        Orientation="Horizontal">
+                                                        <Label
+                                                            Name="lblConfidenceLevelLabelStart"
+                                                            VerticalAlignment="Center"
+                                                            Content="{x:Static p:Resources.PreferencesViewZoomScaling0Percent}"
+                                                            FontWeight="Regular"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                        <Slider
+                                                            Width="300"
+                                                            IsEnabled="{Binding Path=EnableConfidenceLevelSlider}"
+                                                            Maximum="100"
+                                                            Minimum="0"
+                                                            ValueChanged="sliderConfidenceLevel_ValueChanged"
+                                                            Value="{Binding Path=MLRecommendationConfidenceLevel, Mode=TwoWay}" />
+                                                        <Label
+                                                            Margin="0,-5,0,0"
+                                                            VerticalAlignment="Center"
+                                                            Content="{x:Static p:Resources.PreferencesViewZoomScaling100Percent}"
+                                                            FontWeight="Regular"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                    </StackPanel>
+                                                    <StackPanel
+                                                        Grid.Row="3"
+                                                        Margin="-10,5,0,0"
+                                                        Orientation="Horizontal">
+                                                        <Label
+                                                            Name="lblConfidenceLevel"
+                                                            Width="30"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalContentAlignment="Center"
+                                                            Content="{Binding Path=MLRecommendationConfidenceLevel, Mode=TwoWay}"
+                                                            FontWeight="Regular"
+                                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+
+                                <!--  This Grid row contains the Experimental section  -->
+                                <Expander
+                                    x:Name="ExperimentalExpander"
+                                    Grid.Row="3"
+                                    Header="{x:Static p:Resources.PreferencesViewExperimentalLabel}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=ExperimentalExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal"
+                                            Visibility="{Binding IsTSplineNodesExperimentToggleVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <ToggleButton
+                                                Name="EnableTSplineToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=EnableTSplineIsChecked}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <StackPanel VerticalAlignment="Center">
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    Padding="5,5,5,0"
+                                                    Content="{x:Static p:Resources.PreferencesViewEnableTSplineNodes}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    Padding="5,0,5,5"
+                                                    Content="{x:Static p:Resources.PreferencesViewRequiresRelaunchOfDynamo}"
+                                                    FontSize="10"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Row="1"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="EnablePanelToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=EnablePanelingIsChecked}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <StackPanel VerticalAlignment="Center">
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    Padding="5,5,5,0"
+                                                    Content="{x:Static p:Resources.PreferencesViewEnablePanelingNodes}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    Padding="5,0,5,5"
+                                                    Content="{x:Static p:Resources.PreferencesViewRequiresRelaunchOfDynamo}"
+                                                    FontSize="10"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+
+                                <!--  This Grid row contains the Extensions section  -->
+                                <Expander
+                                    x:Name="ExtentionsExpander"
+                                    Grid.Row="4"
+                                    Header="{x:Static p:Resources.PreferencesViewExtensions}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=ExtentionsExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="ExtensionsToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=PersistExtensionsIsChecked}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Content="{x:Static p:Resources.PreferencesViewEnablePersistExtensions}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+                            </Grid>
+                        </TabItem>
+
+                        <!--  Visual Settings Tab  -->
+                        <TabItem Header="{x:Static p:Resources.PreferencesViewVisualSettingsTab}" Style="{StaticResource LeftTab}">
+
+                            <ScrollViewer Height="Auto" VerticalScrollBarVisibility="Auto">
+
+                                <Grid
+                                    x:Name="VisualSettingsTab"
+                                    Margin="1"
+                                    HorizontalAlignment="Left"
+                                    Background="{StaticResource PreferencesWindowVisualSettingsBackground}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <!--  Group Styles Expander  -->
+                                    <Expander
+                                        x:Name="Styles"
+                                        Grid.Row="0"
+                                        Header="{x:Static p:Resources.PreferencesViewVisualSettingsGroupStyles}"
+                                        IsExpanded="{Binding PreferencesTabs[VisualSettings].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=Styles}"
+                                        Style="{StaticResource MenuExpanderStyle}"
+                                        Visibility="Visible">
+                                        <ScrollViewer
+                                            x:Name="GroupStyleScrollViewer"
+                                            MaxHeight="260"
+                                            PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                                            VerticalScrollBarVisibility="Auto">
+                                            <Grid Margin="0,0,0,-2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Button
+                                                    x:Name="AddStyleButton"
+                                                    Grid.Row="0"
+                                                    MinWidth="100"
+                                                    MaxWidth="120"
+                                                    Margin="0,5,0,5"
+                                                    HorizontalAlignment="Left"
+                                                    Click="AddStyleButton_Click"
+                                                    Content="{x:Static p:Resources.AddStyleButton}"
+                                                    IsEnabled="{Binding IsEnabledAddStyleButton}"
+                                                    Style="{StaticResource SolidButtonStyleSmaller}" />
+                                                <Border
+                                                    x:Name="AddStyleBorder"
+                                                    Grid.Row="1"
+                                                    MinWidth="335"
+                                                    MinHeight="100"
+                                                    Margin="3,0,72,5"
+                                                    Background="{StaticResource PreferencesWindowVisualSettingsAddStyleBackground}"
+                                                    CornerRadius="4"
+                                                    Visibility="{Binding IsVisibleAddStyleBorder, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                                                        <TextBox
+                                                            x:Name="groupNameBox"
+                                                            Grid.Row="0"
+                                                            MinWidth="300"
+                                                            MinHeight="25"
+                                                            Margin="10"
+                                                            CaretBrush="{StaticResource PreferencesWindowButtonColor}"
+                                                            PreviewKeyUp="groupNameBox_PreviewKeyUp"
+                                                            Style="{StaticResource TextBoxWaterMarkStyle}"
+                                                            Tag="{x:Static p:Resources.PreferencesViewVisualSettingsGroupStyleInput}"
+                                                            Text="{Binding AddStyleControl.Name}" />
+                                                        <Grid
+                                                            Grid.Row="1"
+                                                            Margin="10,0,10,0"
+                                                            Background="{StaticResource PreferencesWindowVisualSettingsAddStyleBackground}">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <StackPanel
+                                                                Grid.Column="0"
+                                                                Height="30"
+                                                                Orientation="Horizontal">
+                                                                <Button
+                                                                    x:Name="buttonColorPicker"
+                                                                    Width="25"
+                                                                    Height="15"
+                                                                    Background="{Binding AddStyleControl.HexColorString, Converter={StaticResource StringToBrushColorConverter}}"
+                                                                    Click="ButtonColorPicker_Click"
+                                                                    Style="{StaticResource ButtonColorPickerStyle}" />
+                                                                <Label
+                                                                    x:Name="colorHexVal"
+                                                                    Margin="0,0,20,0"
+                                                                    Content="{Binding Background, ElementName=buttonColorPicker, Converter={StaticResource BrushColorToStringConverter}}"
+                                                                    FontSize="13"
+                                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                                <Image
+                                                                    Width="24"
+                                                                    Height="24"
+                                                                    Margin="0,0,0,0"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center"
+                                                                    Source="/DynamoCoreWpf;component/UI/Images/font-size.png" />
+                                                                <ComboBox
+                                                                    x:Name="groupStyleFontSize"
+                                                                    Margin="2,0,0,0"
+                                                                    HorizontalAlignment="Left"
+                                                                    ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.GroupStyleFontSizeList}"
+                                                                    SelectedItem="{Binding Path=AddStyleControl.FontSize}"
+                                                                    Style="{StaticResource NoBordersComboBoxStyle}" />
+                                                            </StackPanel>
+                                                            <Grid Grid.Column="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <Button
+                                                                    x:Name="AddStyle_SaveButton"
+                                                                    Grid.Column="0"
+                                                                    Height="30"
+                                                                    HorizontalAlignment="Right"
+                                                                    Click="AddStyle_SaveButton_Click"
+                                                                    Content="{x:Static p:Resources.GroupStylesSaveButtonText}"
+                                                                    IsEnabled="{Binding IsSaveButtonEnabled}"
+                                                                    Style="{StaticResource OutlinedButtonStyle}" />
+                                                                <Button
+                                                                    x:Name="AddStyle_CancelButton"
+                                                                    Grid.Column="1"
+                                                                    Height="30"
+                                                                    HorizontalAlignment="Right"
+                                                                    Click="AddStyle_CancelButton_Click"
+                                                                    Content="{x:Static p:Resources.GroupStylesCancelButtonText}"
+                                                                    Style="{StaticResource OutlinedButtonStyle}" />
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Border>
+                                                <ListBox
+                                                    x:Name="GroupStylesListBox"
+                                                    Grid.Row="2"
+                                                    Margin="0"
+                                                    HorizontalAlignment="Left"
+                                                    Background="{StaticResource PreferencesWindowVisualSettingsBackground}"
+                                                    BorderBrush="Transparent"
+                                                    BorderThickness="1"
+                                                    ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                                    ItemTemplate="{StaticResource styleViewItemTemplate}"
+                                                    ItemsSource="{Binding StyleItemsList}"
+                                                    LostFocus="GroupStylesListBox_LostFocus"
+                                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel Orientation="Horizontal" />
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListBox>
+                                            </Grid>
+                                        </ScrollViewer>
+                                    </Expander>
+
+                                    <!--  Render Precision Expander  -->
+                                    <Expander
+                                        x:Name="Precision"
+                                        Grid.Row="1"
+                                        Header="{x:Static p:Resources.PreferencesViewVisualSettingsRenderPrecision}"
+                                        IsExpanded="{Binding PreferencesTabs[VisualSettings].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=Precision}"
+                                        Style="{StaticResource MenuExpanderStyle}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackPanel
+                                                Grid.Row="0"
+                                                Width="Auto"
+                                                Margin="10"
+                                                Orientation="Horizontal">
+                                                <TextBlock Margin="0,0,10,0" Text="{x:Static p:Resources.DynamoViewSettingMenuLowRenderPrecision}" />
+                                                <Slider
+                                                    Width="100"
+                                                    Maximum="512"
+                                                    Minimum="8"
+                                                    Value="{Binding Path=TessellationDivisions, Mode=TwoWay}" />
+                                                <TextBlock Margin="10,0,0,0" Text="{x:Static p:Resources.DynamoViewSettingMenuHighRenderPrecision}" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Expander>
+
+                                    <!--  Display Settings Expander  -->
+                                    <Expander
+                                        x:Name="Display"
+                                        Grid.Row="2"
+                                        Header="{x:Static p:Resources.PreferencesViewVisualSettingsDisplaySettings}"
+                                        IsExpanded="{Binding PreferencesTabs[VisualSettings].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=Display}"
+                                        Style="{StaticResource MenuExpanderStyle}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackPanel
+                                                Grid.Row="0"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="HardwareAcceleration"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=UseHardwareAcceleration}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesSettingHardwareAcceleration}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="HardwareAccelerationInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowHardwareAccelerationTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                                Grid.Row="1"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="IsolateSelectedGeoToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=IsolateSelectedGeometry}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewVisualSettingsIsolateSelectedGeo}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="IsolateSelectedGeoInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowIsolateSelectedGeoTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                                Grid.Row="2"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="ShowEdgesToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=ShowEdges}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewVisualSettingShowEdges}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="ShowEdgesInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowShowEdgesTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                                Grid.Row="3"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="UserRenderInstancingToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=UseRenderInstancing}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewVisualSettingUseInstancing}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="UseRenderInstancingInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowUseInstancingTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                                Grid.Row="4"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="CodeBlockNodeLineNumbersToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=ShowCodeBlockLineNumber}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewShowCodeBlockNodeLineNumber}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="ShowCodeBlockNodeLineNumberInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowShowCodeBlockNodeLineNumberTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                                Grid.Row="5"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="ShowPreviewBubblesToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    IsChecked="{Binding Path=ShowPreviewBubbles}"
+                                                    Style="{StaticResource EllipseToggleButton1}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewShowPreviewBubbles}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="ShowPreviewBubblesInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIcon}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesWindowShowPreviewBubblesTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+
+                                            <Grid
+                                                x:Name="GraphicHelpersScale"
+                                                Grid.Row="6"
+                                                Margin="0,12,0,5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <StackPanel
+                                                    Grid.Row="0"
+                                                    Margin="0,0,0,5"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        FontSize="12"
+                                                        Text="{x:Static p:Resources.PreferencesGrahicHelpersScale}" />
+                                                    <Label
+                                                        Name="GraphicHelpersScaleInfoLabel"
+                                                        Width="53"
+                                                        Height="26"
+                                                        Margin="0,2,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Bottom">
+                                                        <Image
+                                                            Grid.Column="1"
+                                                            Width="14"
+                                                            Height="14"
+                                                            Margin="0,0,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Style="{StaticResource QuestionIcon}"
+                                                            ToolTipService.ShowDuration="30000">
+                                                            <Image.ToolTip>
+                                                                <ToolTip Content="{x:Static p:Resources.PreferencesGrahicHelpersScaleTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                            </Image.ToolTip>
+                                                        </Image>
+                                                    </Label>
+                                                </StackPanel>
+
+                                                <ComboBox
+                                                    Grid.Row="1"
+                                                    Width="213"
+                                                    HorizontalAlignment="Left"
+                                                    IsEnabled="{Binding EnableManualScaleOverrides}"
+                                                    ItemsSource="{Binding Path=UnitList}"
+                                                    SelectedItem="{Binding Path=SelectedUnits}"
+                                                    Style="{StaticResource NoBordersComboBoxStyle}" />
+                                                <TextBlock
+                                                    x:Name="HostUnitsTextBlock"
+                                                    Grid.Row="1"
+                                                    Width="190"
+                                                    Margin="0,2"
+                                                    Padding="2"
+                                                    HorizontalAlignment="Left"
+                                                    Background="{StaticResource PreferencesWindowBackgroundColor}"
+                                                    FontWeight="Regular"
+                                                    Foreground="#888888"
+                                                    Text="{Binding HostGenericScaleUnits}"
+                                                    Visibility="{Binding EnableManualScaleOverrides, Converter={StaticResource InverseBoolToVisibilityConverter}}" />
+
+                                                <!--  Use Revit scale toggle (only visible in DynamoRevit)  -->
+                                                <StackPanel
+                                                    Grid.Row="2"
+                                                    Margin="0,8,0,8"
+                                                    Orientation="Horizontal"
+                                                    Visibility="{Binding IsDynamoRevit, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <ToggleButton
+                                                        Name="UseHostScaleUnitsToggle"
+                                                        Width="{StaticResource ToggleButtonWidth}"
+                                                        Height="{StaticResource ToggleButtonHeight}"
+                                                        VerticalAlignment="Center"
+                                                        IsChecked="{Binding Path=UseHostScaleUnits}"
+                                                        Style="{StaticResource EllipseToggleButton1}" />
+                                                    <Label
+                                                        Margin="10,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        Content="{x:Static p:Resources.PreferencesUseHostScaleUnits}"
+                                                        Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                    <Label
+                                                        Name="UseHostScaleUnitsInfoLabel"
+                                                        Width="53"
+                                                        Height="26"
+                                                        Margin="0,3,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Center">
+                                                        <Image
+                                                            Width="14"
+                                                            Height="14"
+                                                            Margin="5,3,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Style="{StaticResource QuestionIcon}"
+                                                            ToolTipService.ShowDuration="30000">
+                                                            <Image.ToolTip>
+                                                                <ToolTip Content="{x:Static p:Resources.PreferencesUseHostScaleUnitsToolTip}" Style="{StaticResource GenericToolTipLight}" />
+                                                            </Image.ToolTip>
+                                                        </Image>
+                                                    </Label>
+                                                </StackPanel>
+
+                                            </Grid>
+
+                                        </Grid>
+                                    </Expander>
+
+                                    <!--  Render Zoom Scaling Expander  -->
+                                    <Expander
+                                        x:Name="ZoomScaling"
+                                        Grid.Row="3"
+                                        Header="{x:Static p:Resources.PreferencesViewZoomScalingSettings}"
+                                        IsExpanded="{Binding PreferencesTabs[VisualSettings].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=ZoomScaling}"
+                                        Style="{StaticResource MenuExpanderStyle}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid x:Name="LibraryZoomScale" Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <StackPanel
+                                                    Grid.Row="0"
+                                                    Margin="0,10,0,5"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        FontSize="12"
+                                                        Text="{x:Static p:Resources.DynamoViewSettingLibraryZoomScale}" />
+                                                    <Label
+                                                        Name="LibraryZoomScaleInfoLabel"
+                                                        Width="53"
+                                                        Height="26"
+                                                        Margin="0,2,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Bottom">
+                                                        <Image
+                                                            Grid.Column="1"
+                                                            Width="14"
+                                                            Height="14"
+                                                            Margin="0,0,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Style="{StaticResource QuestionIcon}"
+                                                            ToolTipService.ShowDuration="30000">
+                                                            <Image.ToolTip>
+                                                                <ToolTip Content="{x:Static p:Resources.LibraryZoomScaleTooltipText}" Style="{StaticResource GenericToolTipLight}" />
+                                                            </Image.ToolTip>
+                                                        </Image>
+                                                    </Label>
+                                                </StackPanel>
+
+                                                <StackPanel
+                                                    Grid.Row="1"
+                                                    Margin="0,0,0,3"
+                                                    HorizontalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock Text="{x:Static p:Resources.PreferencesViewZoomScaling25Percent}" />
+
+                                                    <Slider
+                                                        x:Name="LibraryZoomScalingSlider"
+                                                        Width="400"
+                                                        Margin="5,0,5,0"
+                                                        IsSnapToTickEnabled="True"
+                                                        Maximum="300"
+                                                        Minimum="25"
+                                                        Style="{StaticResource SliderStyle}"
+                                                        TickFrequency="1"
+                                                        ValueChanged="ZoomScaleLevel_ValueChanged" />
+                                                    <TextBlock Text="{x:Static p:Resources.PreferencesViewZoomScaling300Percent}" />
+
+                                                </StackPanel>
+                                                <StackPanel Grid.Row="2" Width="550">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="125" />
+                                                            <ColumnDefinition Width="*" />
+                                                        </Grid.ColumnDefinitions>
+                                                    </Grid>
+                                                    <Label
+                                                        Name="lblZoomScalingValue"
+                                                        Width="50"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalContentAlignment="Center"
+                                                        FontWeight="Regular"
+                                                        Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                </StackPanel>
+                                            </Grid>
+                                            <Grid x:Name="PythonZoomScale" Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <StackPanel
+                                                    Grid.Row="0"
+                                                    Margin="0,10,0,5"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        FontSize="12"
+                                                        Text="{x:Static p:Resources.PreferencesViewPythonEditorLable}" />
+                                                    <Label
+                                                        Name="PythonZoomScaleInfoLabel"
+                                                        Width="53"
+                                                        Height="26"
+                                                        Margin="0,2,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Bottom">
+                                                        <Image
+                                                            Grid.Column="1"
+                                                            Width="14"
+                                                            Height="14"
+                                                            Margin="0,0,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Style="{StaticResource QuestionIcon}"
+                                                            ToolTipService.ShowDuration="30000">
+                                                            <Image.ToolTip>
+                                                                <ToolTip Content="{x:Static p:Resources.PythonZoomScaleTooltipText}" Style="{StaticResource GenericToolTipLight}" />
+                                                            </Image.ToolTip>
+                                                        </Image>
+                                                    </Label>
+                                                </StackPanel>
+                                                <StackPanel
+                                                    Grid.Row="1"
+                                                    Margin="0,0,0,3"
+                                                    HorizontalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                                    <TextBlock Text="{x:Static p:Resources.PreferencesViewZoomScaling25Percent}" />
+                                                    <Slider
+                                                        x:Name="PythonZoomScalingSlider"
+                                                        Width="400"
+                                                        Margin="5,0,5,0"
+                                                        IsSnapToTickEnabled="True"
+                                                        Maximum="300"
+                                                        Minimum="25"
+                                                        Style="{StaticResource SliderStyle}"
+                                                        TickFrequency="1"
+                                                        ValueChanged="PythonZoomScalingSlider_ValueChanged" />
+                                                    <TextBlock Text="{x:Static p:Resources.PreferencesViewZoomScaling300Percent}" />
+
+                                                </StackPanel>
+                                                <StackPanel Grid.Row="2" Width="550">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="125" />
+                                                            <ColumnDefinition Width="*" />
+                                                        </Grid.ColumnDefinitions>
+                                                    </Grid>
+                                                    <Label
+                                                        Name="lblPythonScalingValue"
+                                                        Width="50"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalContentAlignment="Center"
+                                                        FontWeight="Regular"
+                                                        Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                </StackPanel>
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Expander>
+                                </Grid>
+
+                            </ScrollViewer>
+                        </TabItem>
+
+                        <!--  Package Manager Settings Tab  -->
+                        <TabItem Header="{x:Static p:Resources.PreferencesPackageManagerSettingsTab}" Style="{StaticResource LeftTab}">
+                            <!--  This Grid contains the package manager settings tab  -->
+                            <Grid
+                                x:Name="PackageSettingsTab"
+                                Margin="1"
+                                HorizontalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  This Grid row contains the Node and Package Paths section  -->
+                                <Expander
+                                    x:Name="PackagePathsExpander"
+                                    Grid.Row="0"
+                                    Header="{x:Static p:Resources.PackagePathsExpanderName}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=PackagePathsExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,6,0,0"
+                                            Orientation="Vertical">
+                                            <Label
+                                                Padding="5,5,5,5"
+                                                Content="{x:Static p:Resources.PreferencesViewPackageDownloadDirectory}"
+                                                FontSize="13"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}">
+                                                <Label.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.PreferencesPackageDownloadDirectoryTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Label.ToolTip>
+                                            </Label>
+                                            <ComboBox
+                                                x:Name="PackageDownloadDirectoryComboBox"
+                                                Grid.Row="1"
+                                                Width="Auto"
+                                                Margin="0,5,0,5"
+                                                HorizontalAlignment="Left"
+                                                ItemsSource="{Binding Path=PackagePathsForInstall}"
+                                                SelectedItem="{Binding Path=SelectedPackagePathForInstall}"
+                                                Style="{StaticResource NoBordersComboBoxStyle}">
+                                                <ComboBox.ToolTip>
+                                                    <ToolTip Content="{Binding Path=SelectedPackagePathForInstall}" Style="{StaticResource GenericToolTipLight}" />
+                                                </ComboBox.ToolTip>
+                                                <!--  Allows copy to clipboard of the download location  -->
+                                                <ComboBox.InputBindings>
+                                                    <KeyBinding
+                                                        Key="C"
+                                                        Command="{Binding CopyToClipboardCommand}"
+                                                        CommandParameter="{Binding SelectedItem, ElementName=PackageDownloadDirectoryComboBox}"
+                                                        Modifiers="Ctrl" />
+                                                </ComboBox.InputBindings>
+                                            </ComboBox>
+                                            <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto">
+                                                <packagemanager:PackagePathView x:Name="PackagePathView" DataContext="{Binding PackagePathsViewModel}" />
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Row="1"
+                                            Margin="0,0,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="DisableBuiltInPackagesToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=DisableBuiltInPackages}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Content="{x:Static p:Resources.PreferencesViewDisableBuiltInPackages}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Image
+                                                Name="DisableBuiltInPackageToggleInfoIcon"
+                                                Width="16"
+                                                Height="16"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource QuestionIcon}">
+                                                <Image.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.DisableBuiltInPackageToggleInfo}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Image.ToolTip>
+                                            </Image>
+
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Row="2"
+                                            Margin="0,12,0,0"
+                                            Orientation="Horizontal">
+                                            <ToggleButton
+                                                Name="DisableCustomPackagesToggle"
+                                                Width="{StaticResource ToggleButtonWidth}"
+                                                Height="{StaticResource ToggleButtonHeight}"
+                                                VerticalAlignment="Center"
+                                                IsChecked="{Binding Path=DisableCustomPackages}"
+                                                Style="{StaticResource EllipseToggleButton1}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Content="{x:Static p:Resources.PreferencesViewDisableCustomPackages}"
+                                                Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                            <Image
+                                                Name="DisableCustomPackageToggleInfoIcon"
+                                                Width="16"
+                                                Height="16"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource QuestionIcon}">
+                                                <Image.ToolTip>
+                                                    <ToolTip Content="{x:Static p:Resources.DisableCustomPackageToggleInfo}" Style="{StaticResource GenericToolTipLight}" />
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+
+                                <!--  This Grid row contains the Installed Packages section  -->
+                                <Expander
+                                    x:Name="InstalledPackagesExpander"
+                                    Grid.Row="1"
+                                    Collapsed="InstalledPackagesExpander_OnCollapsed"
+                                    Expanded="InstalledPackagesExpander_OnExpanded"
+                                    Header="{x:Static p:Resources.InstalledPackageViewTitle}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=InstalledPackagesExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <StackPanel Margin="0,6,0,0" Orientation="Vertical">
+                                        <TextBlock>
+                                            <Run FontWeight="Regular" Text="{x:Static p:Resources.InstalledPackagePartialTextMessage}" />
+                                            <Hyperlink Click="OnInstalledPackagesHyperlinkClicked" Foreground="{StaticResource TextBlockLinkForegroundColor}">
+                                                <TextBlock Name="PackageManagerLink" Text="{x:Static p:Resources.InstalledPackagePartialHyperlinkMessage}" />
+                                            </Hyperlink>
+                                            <Run>.</Run>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Expander>
+                            </Grid>
+                        </TabItem>
+
+                        <!--  Security Settings Tab  -->
+                        <TabItem Header="{x:Static p:Resources.PreferencesSecuritySettingsTab}" Style="{StaticResource LeftTab}">
+                            <!--  This Grid contains the package manager settings tab  -->
+                            <Grid
+                                x:Name="SecurityTab"
+                                Margin="1"
+                                HorizontalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Expander
+                                    x:Name="SecurityWarningExpander"
+                                    Grid.Row="0"
+                                    Header="{x:Static p:Resources.SecurityWarningExpanderName}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=SecurityWarningExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <StackPanel Margin="0,6,0,0" Orientation="Vertical">
+                                        <Label
+                                            Padding="0,5,5,5"
+                                            Content="{x:Static p:Resources.PreferencesViewTrustWarningHeader}"
+                                            FontSize="13"
+                                            Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackPanel
+                                                Grid.Row="0"
+                                                Margin="0,12,0,0"
+                                                Orientation="Horizontal">
+                                                <ToggleButton
+                                                    Name="TrustWarningToggle"
+                                                    Width="{StaticResource ToggleButtonWidth}"
+                                                    Height="{StaticResource ToggleButtonHeight}"
+                                                    VerticalAlignment="Center"
+                                                    Checked="DisableTrustWarningsChecked"
+                                                    IsChecked="{Binding Path=DisableTrustWarnings, Mode=OneWay}"
+                                                    Style="{StaticResource EllipseToggleButton1}"
+                                                    Unchecked="DisableTrustWarningsChecked" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Content="{x:Static p:Resources.PreferencesViewTrustWarningLabel}"
+                                                    Foreground="{StaticResource PreferencesWindowFontColor}" />
+                                                <Label
+                                                    Name="TrustWarningInfoLabel"
+                                                    Width="53"
+                                                    Height="26"
+                                                    Margin="0,3,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    MouseLeftButtonDown="OnMoreInfoClicked">
+                                                    <Image
+                                                        Width="14"
+                                                        Height="14"
+                                                        Margin="5,3,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Style="{StaticResource QuestionIconClickable}"
+                                                        ToolTipService.ShowDuration="30000">
+                                                        <Image.ToolTip>
+                                                            <ToolTip Content="{x:Static p:Resources.PreferencesViewTrustWarningTooltipText}" Style="{StaticResource GenericToolTipLight}" />
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </Label>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
+
+                                <!--  This Grid row contains the Trusted Paths section  -->
+                                <Expander
+                                    x:Name="TrustedPathsExpander"
+                                    Grid.Row="1"
+                                    Header="{x:Static p:Resources.TrustedPathsExpanderName}"
+                                    IsExpanded="{Binding PreferencesTabs[Features].ExpanderActive, Converter={StaticResource ExpandersBindingConverter}, ConverterParameter=TrustedPathsExpander}"
+                                    Style="{StaticResource MenuExpanderStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Margin="0,6,0,0"
+                                            Orientation="Vertical">
+                                            <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto">
+                                                <trustedpaths:TrustedPathView x:Name="TrustedPathView" DataContext="{Binding TrustedPathsViewModel}" />
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Grid>
+                                </Expander>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Grid>
+
+            <!--  This Section/Row is the bottom one and it contains all the buttons in the window.  -->
+            <!--  The NormalButtonStyle Style is located in the DynamoModer.xaml file  -->
+            <Grid x:Name="ButtonsBottomGrid" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid
+                        Grid.Column="0"
+                        Margin="14,0,0,0"
+                        HorizontalAlignment="Left">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="16" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Name="importLabel"
+                                        Grid.Column="0"
+                                        Margin="0,-7,3,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        MouseLeftButtonDown="importTextBlock_MouseLeftButtonDown"
+                                        Style="{StaticResource TextBlockLink}"
+                                        Text="{x:Static p:Resources.ImportPreferencesText}" />
+                                    <Image
+                                        Name="importToolTipIcon"
+                                        Grid.Column="1"
+                                        Width="14"
+                                        Height="14"
+                                        Margin="0,-5,3,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource QuestionIcon}"
+                                        ToolTipService.ShowDuration="10000">
+                                        <Image.ToolTip>
+                                            <ToolTip Content="{x:Static p:Resources.ImportPreferencesInfo}" Style="{StaticResource GenericToolTipLight}" />
+                                        </Image.ToolTip>
+                                    </Image>
+                                    <TextBlock
+                                        Grid.Column="2"
+                                        Margin="0,-10,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource TextBlockLink}"
+                                        Text="|" />
+                                    <TextBlock
+                                        Name="exportLabel"
+                                        Grid.Column="2"
+                                        Margin="7,-7,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        MouseLeftButtonDown="exportTextBlock_MouseLeftButtonDown"
+                                        Style="{StaticResource TextBlockLink}"
+                                        Text="{x:Static p:Resources.ExportPreferencesText}" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalAlignment="Right">
+                        <Label
+                            Name="SavedChanges"
+                            Grid.Row="1"
+                            Margin="0,0,14,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Content="{Binding SavedChangesLabel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Foreground="{StaticResource PreferencesWindowFontColor}">
+                            <Label.ToolTip>
+                                <ToolTip Content="{Binding SavedChangesTooltip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource GenericToolTipLight}" />
+                            </Label.ToolTip>
+                        </Label>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,145 @@
+<Popup
+    x:Class="Dynamo.Views.GeometryScalingPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Dynamo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="clr-namespace:FontAwesome5;assembly=FontAwesome5.Net"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
+    xmlns:ui="clr-namespace:Dynamo.UI"
+    xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
+    d:DesignHeight="300"
+    d:DesignWidth="100"
+    AllowsTransparency="True"
+    Focusable="True"
+    IsEnabled="True"
+    PopupAnimation="Fade"
+    StaysOpen="False"
+    mc:Ignorable="d">
+    <Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <controls:ScaleSizeBackgroundConverter x:Key="ScaleSizeBackgroundConverter" />
+        </ResourceDictionary>
+    </Popup.Resources>
+    <Grid Name="BaseGrid" Background="#474747">
+        <StackPanel
+            x:Name="GeometryScalingRadiosPanel"
+            Width="100"
+            Margin="0,5,0,5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#474747">
+            <Button x:Name="Small" Click="Geometry_Scaling_Checked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border x:Name="ButtonBorder">
+                            <StackPanel Margin="0,5,0,5" Orientation="Horizontal">
+                                <fa:ImageAwesome
+                                    Width="10"
+                                    Height="10"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ScaleSize, Converter={StaticResource ScaleSizeBackgroundConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Small}}"
+                                    Icon="Solid_Check" />
+                                <TextBlock
+                                    x:Name="RadioSmallDesc"
+                                    Margin="10,5,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource GeometryScaleDescTextBox}"
+                                    Text="{x:Static p:Resources.ScalingSmallButton}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+            <Button x:Name="Medium" Click="Geometry_Scaling_Checked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border x:Name="ButtonBorder">
+                            <StackPanel Margin="0,5,0,5" Orientation="Horizontal">
+                                <fa:ImageAwesome
+                                    Width="10"
+                                    Height="10"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ScaleSize, Converter={StaticResource ScaleSizeBackgroundConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Medium}}"
+                                    Icon="Solid_Check" />
+                                <TextBlock
+                                    x:Name="RadioMediumDesc"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource GeometryScaleDescTextBox}"
+                                    Text="{x:Static p:Resources.ScalingMediumButton}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="Large" Click="Geometry_Scaling_Checked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border x:Name="ButtonBorder">
+                            <StackPanel Margin="0,5,0,5" Orientation="Horizontal">
+                                <fa:ImageAwesome
+                                    Width="10"
+                                    Height="10"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ScaleSize, Converter={StaticResource ScaleSizeBackgroundConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.Large}}"
+                                    Icon="Solid_Check" />
+                                <TextBlock
+                                    x:Name="RadioLargeDesc"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource GeometryScaleDescTextBox}"
+                                    Text="{x:Static p:Resources.ScalingLargeButton}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="ExtraLarge" Click="Geometry_Scaling_Checked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border x:Name="ButtonBorder">
+                            <StackPanel Margin="0,5,0,5" Orientation="Horizontal">
+                                <fa:ImageAwesome
+                                    Width="10"
+                                    Height="10"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ScaleSize, Converter={StaticResource ScaleSizeBackgroundConverter}, ConverterParameter={x:Static viewModels:GeometryScaleSize.ExtraLarge}}"
+                                    Icon="Solid_Check" />
+
+                                <TextBlock
+                                    x:Name="RadioExtraLargeDesc"
+                                    Width="Auto"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource GeometryScaleDescTextBox}"
+                                    Text="{x:Static p:Resources.ScalingExtraLargeButton}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Popup>
