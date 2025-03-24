@@ -28,7 +28,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -100,7 +100,7 @@
                         Name="TitleTextBlock"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        FontFamily="{StaticResource ArtifaktElementRegular}"
+                        FontFamily="宋体"
                         FontSize="20px"
                         Foreground="#3C3C3C"
                         TextWrapping="Wrap" />

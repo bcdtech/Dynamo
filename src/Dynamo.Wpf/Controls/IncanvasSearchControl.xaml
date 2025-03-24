@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style
@@ -71,7 +71,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
-                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                            FontFamily="宋体"
                             FontSize="14"
                             Foreground="{StaticResource DefaultSearchTextBlockText}"
                             IsHitTestVisible="False"
@@ -86,7 +86,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         CaretBrush="{StaticResource CommonSidebarTextColor}"
-                        FontFamily="{StaticResource ArtifaktElementRegular}"
+                        FontFamily="宋体"
                         FontSize="14"
                         Foreground="{StaticResource DefaultSearchTextBlockText}"
                         IsEnabled="True"

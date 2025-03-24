@@ -20,8 +20,8 @@
         <Border.Resources>
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/ToolbarStyleDictionary.xaml" />
-                    <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                    <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/ToolbarStyleDictionary.xaml" />
+                    <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
@@ -260,7 +260,7 @@
                                     x:Name="HeaderText"
                                     Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     Foreground="#DCDCDC"
                                     Text="{x:Static p:Resources.ShortcutExportAsImageMainMenu}"
                                     Visibility="{Binding ShowMenuItemText, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
@@ -340,7 +340,7 @@
                                         Visibility="{Binding IsNotificationsCounterVisible, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}">
                                         <TextBlock
                                             Name="NotificationCount"
-                                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                                            FontFamily="宋体"
                                             FontSize="9"
                                             FontWeight="DemiBold"
                                             Foreground="White"

@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="backgroundColorBrush" Color="#343434" />
@@ -108,7 +108,7 @@
                 <Setter Property="Background" Value="{StaticResource backgroundColorBrush}" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="#F5F5F5" />
                 <Setter Property="Padding" Value="10,5" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -118,7 +118,7 @@
                 <Setter Property="Background" Value="{StaticResource backgroundColorBrush}" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="#818181" />
                 <Setter Property="Padding" Value="10,5" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -173,7 +173,7 @@
             Grid.Row="1"
             Background="Transparent"
             Content="{Binding Label, RelativeSource={RelativeSource AncestorType=UserControl}}"
-            FontFamily="{StaticResource ArtifaktElementRegular}"
+            FontFamily="宋体"
             FontSize="12"
             Foreground="{StaticResource TextColorBrush}" />
     </Grid>

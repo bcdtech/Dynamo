@@ -9,7 +9,7 @@
     xmlns:viewModels="clr-namespace:Dynamo.ViewModels">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">

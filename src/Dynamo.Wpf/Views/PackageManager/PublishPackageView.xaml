@@ -28,7 +28,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <controls:EmptyStringToFalseConverter x:Key="EmptyStringToFalseConverter" />
@@ -92,7 +92,7 @@
                 <Setter Property="Height" Value="29px" />
                 <Setter Property="Foreground" Value="#DCDCDC" />
                 <Setter Property="FontSize" Value="12px" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -120,7 +120,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Focusable="True"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="10px"
                                     Foreground="#F5F5F5"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -191,7 +191,7 @@
                                     Margin="2,3,2,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
-                                    TextElement.FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    TextElement.FontFamily="宋体"
                                     TextElement.FontSize="10px"
                                     TextElement.FontWeight="Regular"
                                     TextElement.Foreground="Blue"
@@ -216,7 +216,7 @@
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Padding" Value="0" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="#F5F5F5" />
                 <Setter Property="Height" Value="25" />
                 <Setter Property="Background" Value="#353535" />
@@ -241,7 +241,7 @@
                                     Padding="10,8,10,0"
                                     VerticalAlignment="Center"
                                     Background="#434343"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="10px"
                                     FontWeight="Regular"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -273,7 +273,7 @@
                                 Padding="10,8,10,0"
                                 VerticalAlignment="Center"
                                 Background="#434343"
-                                FontFamily="{StaticResource ArtifaktElementRegular}"
+                                FontFamily="宋体"
                                 FontSize="10px"
                                 FontWeight="Regular"
                                 Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -313,7 +313,7 @@
                 <Setter Property="EnableRowVirtualization" Value="False" />
             </Style>
             <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="FontSize" Value="14px" />
@@ -404,7 +404,7 @@
                     Margin="25,16,10,16"
                     VerticalAlignment="Top"
                     DockPanel.Dock="Left"
-                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                    FontFamily="宋体"
                     FontSize="20px"
                     FontWeight="Regular"
                     Foreground="{StaticResource PreferencesWindowFontColor}"
@@ -693,7 +693,7 @@
                                     <Hyperlink.Style>
                                         <Style TargetType="Hyperlink">
                                             <Setter Property="Foreground" Value="#6AC0E7" />
-                                            <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                                            <Setter Property="FontFamily" Value="宋体" />
                                             <Setter Property="FontSize" Value="12px" />
                                         </Style>
                                     </Hyperlink.Style>
@@ -988,7 +988,7 @@
                 Name="statusLabel"
                 Margin="0,4,0,0"
                 VerticalAlignment="Center"
-                FontFamily="{StaticResource ArtifaktElementRegular}"
+                FontFamily="宋体"
                 Style="{StaticResource LabelStyle}"
                 Text="{Binding ErrorString, UpdateSourceTrigger=PropertyChanged}"
                 TextTrimming="CharacterEllipsis">

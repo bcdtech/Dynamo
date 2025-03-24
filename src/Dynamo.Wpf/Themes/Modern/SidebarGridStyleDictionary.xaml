@@ -4,8 +4,8 @@
     xmlns:ui="clr-namespace:Dynamo.UI">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
-        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoColorsAndBrushes.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Region Control Templates  -->

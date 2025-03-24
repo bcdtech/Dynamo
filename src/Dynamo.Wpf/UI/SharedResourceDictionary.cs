@@ -1,56 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows;
 
 namespace Dynamo.UI
 {
-    /// <summary>
-    /// The shared resource dictionary is a specialized resource dictionary
-    /// that loads it content only once. If a second instance with the same source
-    /// is created, it only merges the resources from the cache.
-    /// </summary>
-    public class SharedResourceDictionary : ResourceDictionary
-    {
-        /// <summary>
-        /// Internal cache of loaded dictionaries 
-        /// </summary>
-        public static Dictionary<Uri, ResourceDictionary> _sharedDictionaries =
-            new Dictionary<Uri, ResourceDictionary>();
 
-        /// <summary>
-        /// Local member of the source uri
-        /// </summary>
-        private Uri _sourceUri;
-
-        /// <summary>
-        /// Returns or sets the uniform resource identifier (URI) to load resources from.
-        /// </summary>
-        public new Uri Source
-        {
-            get { return _sourceUri; }
-            set
-            {
-                _sourceUri = value;
-
-                if (!_sharedDictionaries.ContainsKey(value))
-                {
-                    // If the dictionary is not yet loaded, load it by setting
-                    // the source of the base class
-                    base.Source = value;
-
-                    // add it to the cache
-                    _sharedDictionaries.Add(value, this);
-                }
-                else
-                {
-                    // If the dictionary is already loaded, get it from the cache
-                    MergedDictionaries.Add(_sharedDictionaries[value]);
-                }
-            }
-        }
-    }
 
     public static class SharedDictionaryManager
     {
@@ -68,7 +22,7 @@ namespace Dynamo.UI
         private static ResourceDictionary inPortsDictionary;
         private static ResourceDictionary _liveChartDictionary;
 
-        public static string ThemesDirectory 
+        public static string ThemesDirectory
         {
             get
             {
@@ -79,7 +33,7 @@ namespace Dynamo.UI
 
         public static Uri DynamoModernDictionaryUri
         {
-            get {return new Uri(Path.Combine(ThemesDirectory, "DynamoModern.xaml")); }
+            get { return new Uri(Path.Combine(ThemesDirectory, "DynamoModern.xaml")); }
         }
 
         public static Uri DataTemplatesDictionaryUri
@@ -153,23 +107,26 @@ namespace Dynamo.UI
 
         public static ResourceDictionary DynamoModernDictionary
         {
-            get {
+            get
+            {
                 return _dynamoModernDictionary ??
-                       (_dynamoModernDictionary = new ResourceDictionary() {Source = DynamoModernDictionaryUri});
+                       (_dynamoModernDictionary = new ResourceDictionary() { Source = DynamoModernDictionaryUri });
             }
         }
 
         public static ResourceDictionary DataTemplatesDictionary
         {
-            get {
+            get
+            {
                 return _dataTemplatesDictionary ??
-                       (_dataTemplatesDictionary = new ResourceDictionary() {Source = DataTemplatesDictionaryUri});
+                       (_dataTemplatesDictionary = new ResourceDictionary() { Source = DataTemplatesDictionaryUri });
             }
         }
 
         public static ResourceDictionary DynamoColorsAndBrushesDictionary
         {
-            get {
+            get
+            {
                 return _dynamoColorsAndBrushesDictionary ??
                        (_dynamoColorsAndBrushesDictionary = new ResourceDictionary() { Source = DynamoColorsAndBrushesDictionaryUri });
             }
@@ -177,31 +134,35 @@ namespace Dynamo.UI
 
         public static ResourceDictionary DynamoConvertersDictionary
         {
-            get {
+            get
+            {
                 return _dynamoConvertersDictionary ??
-                       (_dynamoConvertersDictionary = new ResourceDictionary() {Source = DynamoConvertersDictionaryUri});
+                       (_dynamoConvertersDictionary = new ResourceDictionary() { Source = DynamoConvertersDictionaryUri });
             }
         }
 
         public static ResourceDictionary DynamoTextDictionary
         {
-            get {
+            get
+            {
                 return _dynamoTextDictionary ??
-                       (_dynamoTextDictionary = new ResourceDictionary() {Source = DynamoTextDictionaryUri});
+                       (_dynamoTextDictionary = new ResourceDictionary() { Source = DynamoTextDictionaryUri });
             }
         }
 
         public static ResourceDictionary MenuStyleDictionary
         {
-            get {
+            get
+            {
                 return _menuStyleDictionary ??
-                       (_menuStyleDictionary = new ResourceDictionary() {Source = MenuStyleDictionaryUri});
+                       (_menuStyleDictionary = new ResourceDictionary() { Source = MenuStyleDictionaryUri });
             }
         }
 
         public static ResourceDictionary ToolbarStyleDictionary
         {
-            get {
+            get
+            {
                 return _toolbarStyleDictionary ??
                        (_toolbarStyleDictionary = new ResourceDictionary() { Source = ToolbarStyleDictionaryUri });
             }
@@ -209,9 +170,10 @@ namespace Dynamo.UI
 
         public static ResourceDictionary ConnectorsDictionary
         {
-            get {
+            get
+            {
                 return _connectorsDictionary ??
-                       (_connectorsDictionary = new ResourceDictionary() {Source = ConnectorsDictionaryUri});            
+                       (_connectorsDictionary = new ResourceDictionary() { Source = ConnectorsDictionaryUri });
             }
         }
 

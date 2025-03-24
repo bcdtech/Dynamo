@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style
@@ -162,7 +162,7 @@
                         Orientation="Vertical">
                         <TextBlock
                             Height="auto"
-                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                            FontFamily="宋体"
                             FontSize="11"
                             Foreground="#F5F5F5"
                             TextWrapping="Wrap">

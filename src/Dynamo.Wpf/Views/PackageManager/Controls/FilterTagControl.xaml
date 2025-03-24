@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <local:BooleanToBorderColorConverter x:Key="BooleanToBorderColorConverter" ToggleBrush="{StaticResource Blue400Brush}" />
@@ -79,7 +79,7 @@
                 Padding="6,2,6,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                FontFamily="{StaticResource ArtifaktElementRegular}"
+                FontFamily="宋体"
                 FontSize="12"
                 Foreground="{StaticResource DarkThemeBodyMediumBrush}"
                 Text="{Binding TagName, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"

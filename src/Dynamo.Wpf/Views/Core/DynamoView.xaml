@@ -40,7 +40,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -309,7 +309,7 @@
                                                 VerticalAlignment="Center"
                                                 ContentSource="Header"
                                                 RecognizesAccessKey="False"
-                                                TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
+                                                TextBlock.FontFamily="宋体"
                                                 TextBlock.FontSize="14px"
                                                 TextBlock.Foreground="{StaticResource NormalForegroundBrush}" />
                                         </Grid>
@@ -1273,7 +1273,7 @@
                                                         </TextBlock>
                                                         <TextBlock
                                                             x:Name="bottomMessage"
-                                                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                                                            FontFamily="宋体"
                                                             FontSize="11px"
                                                             Foreground="Black">
                                                             <Run Text="{x:Static p:Resources.PreferencesViewSavedChangesTooltip}" />
@@ -1419,7 +1419,7 @@
                                     Margin="0,7,0,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="16px"
                                     TextTrimming="CharacterEllipsis">
                                     <TextBlock.Style>

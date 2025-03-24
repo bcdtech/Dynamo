@@ -1,7 +1,6 @@
-﻿using Dynamo.Controls;
+using Dynamo.Controls;
 using Dynamo.Graph.Nodes;
 using Dynamo.Models;
-using Dynamo.UI;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using System.Windows;
@@ -100,7 +99,7 @@ namespace Dynamo.Nodes
             Padding = new Thickness(5, 3, 5, 3);
             base.Text = initialText;
             Pending = false;
-            Style = (Style)SharedDictionaryManager.DynamoModernDictionary["SZoomFadeTextBox"];
+            //Style = (Style)SharedDictionaryManager.DynamoModernDictionary["SZoomFadeTextBox"];
             MinHeight = 29;
             MinWidth = 100;
         }

@@ -14,7 +14,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="HintingInputStyle" TargetType="TextBox">
@@ -33,7 +33,7 @@
                                     BorderThickness="0"
                                     CaretBrush="{StaticResource Blue300Brush}"
                                     Focusable="True"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     MaxLength="{TemplateBinding MaxLength}"
@@ -43,7 +43,7 @@
                                 <TextBlock
                                     x:Name="WatermarkLabel"
                                     Padding="10"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     IsHitTestVisible="False"
@@ -149,7 +149,7 @@
                 <Setter Property="Height" Value="29px" />
                 <Setter Property="Foreground" Value="#DCDCDC" />
                 <Setter Property="FontSize" Value="12px" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -178,7 +178,7 @@
                                     Background="#353535"
                                     BorderThickness="0"
                                     Focusable="True"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="12px"
                                     Foreground="#F5F5F5"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -268,7 +268,7 @@
                     Margin="25,16"
                     VerticalAlignment="Top"
                     DockPanel.Dock="Left"
-                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                    FontFamily="宋体"
                     FontSize="20px"
                     FontWeight="Regular"
                     Foreground="{StaticResource PreferencesWindowFontColor}"

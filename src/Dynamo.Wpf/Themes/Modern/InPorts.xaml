@@ -100,7 +100,7 @@
                 Width="Auto"
                 Margin="0,1,5,0"
                 VerticalAlignment="Center"
-                FontFamily="{StaticResource ArtifaktElementRegular}"
+                FontFamily="宋体"
                 FontSize="12px"
                 Foreground="#DCDCDC"
                 IsHitTestVisible="False"

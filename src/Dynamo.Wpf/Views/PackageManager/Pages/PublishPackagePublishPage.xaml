@@ -18,7 +18,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <controls:EmptyStringToFalseConverter x:Key="EmptyStringToFalseConverter" />
@@ -138,7 +138,7 @@
                 <Setter Property="Background" Value="#353535" />
                 <Setter Property="FontSize" Value="12px" />
                 <Setter Property="Padding" Value="5" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -166,7 +166,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Focusable="True"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="10px"
                                     Foreground="#F5F5F5"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -384,7 +384,7 @@
                                     <TextBlock
                                         Margin="10,5,0,0"
                                         VerticalAlignment="Center"
-                                        FontFamily="{StaticResource ArtifaktElementRegular}"
+                                        FontFamily="宋体"
                                         FontSize="10"
                                         Foreground="{StaticResource TextColorBrush}"
                                         Text="{x:Static p:Resources.NameNeedMoreCharacters}" />
@@ -530,7 +530,7 @@
                             MaxWidth="255"
                             Margin="10,5,0,0"
                             VerticalAlignment="Center"
-                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                            FontFamily="宋体"
                             FontSize="10"
                             Foreground="{StaticResource TextColorBrush}"
                             Text="{x:Static p:Resources.MajorVersionNonNegative}"
@@ -751,7 +751,7 @@
                                     <Hyperlink.Style>
                                         <Style TargetType="Hyperlink">
                                             <Setter Property="Foreground" Value="#6AC0E7" />
-                                            <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                                            <Setter Property="FontFamily" Value="宋体" />
                                             <Setter Property="FontSize" Value="12px" />
                                         </Style>
                                     </Hyperlink.Style>
@@ -841,7 +841,7 @@
                             Click="NavigationButton_Click"
                             Content="Edit"
                             DockPanel.Dock="Right"
-                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                            FontFamily="宋体"
                             FontSize="12"
                             Foreground="#38ABDF"
                             Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"

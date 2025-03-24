@@ -19,7 +19,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="HintingInputStyle" TargetType="TextBox">
                 <Setter Property="Margin" Value="0,0,0,12" />
@@ -37,7 +37,7 @@
                                     BorderThickness="0"
                                     CaretBrush="{StaticResource Blue300Brush}"
                                     Focusable="True"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     MaxLength="{TemplateBinding MaxLength}"
@@ -47,7 +47,7 @@
                                 <TextBlock
                                     x:Name="WatermarkLabel"
                                     Padding="10"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                                    FontFamily="宋体"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     IsHitTestVisible="False"
@@ -162,7 +162,7 @@
                     Margin="25,16"
                     VerticalAlignment="Top"
                     DockPanel.Dock="Left"
-                    FontFamily="{StaticResource ArtifaktElementRegular}"
+                    FontFamily="宋体"
                     FontSize="20px"
                     FontWeight="Regular"
                     Foreground="{StaticResource PreferencesWindowFontColor}"
@@ -241,7 +241,7 @@
                             Name="statusLabel"
                             Margin="10,6,5,0"
                             VerticalAlignment="Top"
-                            FontFamily="{StaticResource ArtifaktElementRegular}"
+                            FontFamily="宋体"
                             FontSize="10"
                             Style="{StaticResource LabelStyle}"
                             Text="{Binding ErrorString, UpdateSourceTrigger=PropertyChanged}"

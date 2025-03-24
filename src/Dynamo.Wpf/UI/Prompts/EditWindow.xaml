@@ -21,7 +21,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="InputStyle" TargetType="TextBox">
@@ -30,7 +30,7 @@
                 <Setter Property="Cursor" Value="IBeam" />
                 <Setter Property="Background" Value="{StaticResource DarkThemeInputBoxBackgroundBrush}" />
                 <Setter Property="Foreground" Value="{StaticResource PrimaryCharcoal200Brush}" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="CaretBrush" Value="{StaticResource Blue300Brush}" />
                 <Setter Property="BorderBrush" Value="{StaticResource DarkMidGreyBrush}" />
@@ -171,7 +171,7 @@
                         Name="TitleTextBlock"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        FontFamily="{StaticResource ArtifaktElementRegular}"
+                        FontFamily="宋体"
                         FontSize="20px"
                         Foreground="{StaticResource DarkThemeBodyMediumBrush}"
                         Text="{x:Static p:Resources.EditNodeWindowTitle}"

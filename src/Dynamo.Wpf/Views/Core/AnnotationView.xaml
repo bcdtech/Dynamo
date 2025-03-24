@@ -405,12 +405,12 @@
                                                 Height="15"
                                                 Margin="5,0,5,0"
                                                 Background="{Binding HexColorString, Converter={StaticResource StringToBrushColorConverter}}"
-                                                FontFamily="{StaticResource ArtifaktElementRegular}"
+                                                FontFamily="宋体"
                                                 FontSize="14px" />
                                             <TextBlock
                                                 MaxWidth="148"
                                                 Margin="5,0,5,0"
-                                                FontFamily="{StaticResource ArtifaktElementRegular}"
+                                                FontFamily="宋体"
                                                 FontSize="14px"
                                                 FontWeight="Medium"
                                                 Foreground="{StaticResource NodeContextMenuForeground}"

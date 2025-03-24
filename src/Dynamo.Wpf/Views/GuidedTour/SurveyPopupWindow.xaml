@@ -15,7 +15,7 @@
     <Popup.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -145,7 +145,7 @@
                         Name="NextGuidelabel"
                         Grid.Column="0"
                         HorizontalAlignment="Right"
-                        FontFamily="{StaticResource ArtifaktElementRegular}"
+                        FontFamily="宋体"
                         FontSize="14px"
                         Text="{x:Static prop:Resources.NextGuideText}"
                         TextAlignment="Center" />

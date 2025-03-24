@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoModern.xaml" />
 
                 <ResourceDictionary Source="ControlColorsAndBrushes.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -24,14 +24,14 @@
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Padding" Value="15,10,5,5" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="{StaticResource DarkThemeBodyMediumBrush}" />
             </Style>
             <Style x:Key="TextBlockStyle" TargetType="TextBlock">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Padding" Value="15,10,5,5" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
+                <Setter Property="FontFamily" Value="宋体" />
                 <Setter Property="Foreground" Value="{StaticResource DarkThemeBodyMediumBrush}" />
             </Style>
             <Style x:Key="BorderStyle" TargetType="Border">
