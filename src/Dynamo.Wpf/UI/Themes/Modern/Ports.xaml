@@ -31,7 +31,7 @@
     <!--  Add your resources here  -->
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <DataTemplate DataType="{x:Type viewModels:PortViewModel}">
         <!--  Grid that contains the entire port  -->

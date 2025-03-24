@@ -235,11 +235,11 @@ namespace Dynamo.PackageManager.UI
             if (value is not DependencyType.Folder)
             {
                 // Return visible only if the item is a Folder
-                return "/DynamoCoreWpf;component/UI/Images/file-generic-16px.png";
+                return "/Dynamo.Wpf;component/UI/Images/file-generic-16px.png";
             }
 
             // If the item is anything else (Assembly, File, Custom Node) return collapsed
-            return "/DynamoCoreWpf;component/UI/Images/folder-generic-16px.png";
+            return "/Dynamo.Wpf;component/UI/Images/folder-generic-16px.png";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

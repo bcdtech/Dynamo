@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -52,6 +52,6 @@
             Height="6"
             Margin="0,5,5,5"
             VerticalAlignment="Bottom"
-            Source="/DynamoCoreWpf;component/UI/Images/bubble-arrow.png" />
+            Source="/Dynamo.Wpf;component/UI/Images/bubble-arrow.png" />
     </Grid>
 </UserControl>

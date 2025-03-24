@@ -72,7 +72,7 @@
                 <Setter Property="Fill" Value="#4d4d4d" />
             </Style>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -131,7 +131,7 @@
                                         Height="16"
                                         Visibility="{Binding Path=InitialResultsLoaded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityCollapsedConverter}}">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/sort.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/sort.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>
@@ -258,7 +258,7 @@
                                         Height="16"
                                         Visibility="{Binding Path=InitialResultsLoaded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityCollapsedConverter}}">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Filter.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Filter.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>

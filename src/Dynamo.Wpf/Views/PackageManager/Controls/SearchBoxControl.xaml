@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
                 <ResourceDictionary Source="ControlColorsAndBrushes.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -93,7 +93,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         SnapsToDevicePixels="True"
-                        Source="/DynamoCoreWpf;component/UI/Images/search_icon_20px.png"
+                        Source="/Dynamo.Wpf;component/UI/Images/search_icon_20px.png"
                         Stretch="UniformToFill" />
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>

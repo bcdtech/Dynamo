@@ -12,8 +12,8 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoConverters.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="TransparentButton" TargetType="Button">
                 <Setter Property="Template">
@@ -82,10 +82,10 @@
                         <Style TargetType="{x:Type Image}">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/wire_anchor_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/wire_anchor_48_48.png" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/wire_anchor_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/wire_anchor_48_48.png" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
@@ -114,13 +114,13 @@
                         <Style TargetType="{x:Type Image}">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_hidden_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/watch_hidden_48_48.png" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_default_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/watch_default_48_48.png" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Path=WatchIconPreviewOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/watch_hover_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/watch_hover_48_48.png" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
@@ -148,13 +148,13 @@
                         <Style TargetType="{x:Type Image}">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_hidden_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/pin_hidden_48_48.png" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Path=IsHalftone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_default_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/pin_default_48_48.png" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding Path=PinIconPreviewOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/pin_hover_48_48.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/pin_hover_48_48.png" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>

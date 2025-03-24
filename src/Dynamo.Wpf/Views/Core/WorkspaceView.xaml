@@ -23,7 +23,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="WorkspaceContextMenuStyle" TargetType="{x:Type ItemsControl}">
                 <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -216,8 +216,8 @@
                     Width="56"
                     Height="30"
                     Margin="4,4,0,4"
-                    CheckImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-geom-check.png"
-                    StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-geom-states.png">
+                    CheckImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-geom-check.png"
+                    StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-geom-states.png">
                     <ui:ImageCheckBox.ToolTip>
                         <ToolTip
                             Width="200"
@@ -232,8 +232,8 @@
                     Width="55"
                     Height="30"
                     Margin="0,4,0,4"
-                    CheckImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-node-check.png"
-                    StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-node-states.png">
+                    CheckImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-node-check.png"
+                    StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-node-states.png">
                     <ui:ImageCheckBox.ToolTip>
                         <ToolTip Content="{x:Static p:Resources.InCanvasNodeButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                     </ui:ImageCheckBox.ToolTip>
@@ -251,7 +251,7 @@
                 Width="30"
                 Height="28"
                 HorizontalAlignment="Right"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-fit-view-states.png">
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-fit-view-states.png">
                 <ui:ImageButton.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasFitViewButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageButton.ToolTip>
@@ -264,7 +264,7 @@
                 Width="30"
                 Height="24"
                 HorizontalAlignment="Right"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-zoom-in-states.png">
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-zoom-in-states.png">
                 <ui:ImageRepeatButton.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasZoomInButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageRepeatButton.ToolTip>
@@ -277,7 +277,7 @@
                 Width="30"
                 Height="28"
                 HorizontalAlignment="Right"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-zoom-out-states.png">
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-zoom-out-states.png">
                 <ui:ImageRepeatButton.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasZoomOutButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageRepeatButton.ToolTip>
@@ -290,8 +290,8 @@
                 Width="30"
                 Height="30"
                 HorizontalAlignment="Right"
-                CheckImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-pan-check.png"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-pan-states.png">
+                CheckImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-pan-check.png"
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-pan-states.png">
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasPanButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
@@ -307,8 +307,8 @@
                 Width="30"
                 Height="30"
                 HorizontalAlignment="Right"
-                CheckImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-orbit-check.png"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-orbit-states.png">
+                CheckImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-orbit-check.png"
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-orbit-states.png">
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasOrbitButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
@@ -335,7 +335,7 @@
                 Height="30"
                 HorizontalAlignment="Right"
                 Click="OnGeometryScaling_Click"
-                StateImage="/DynamoCoreWpf;component/UI/Images/Canvas/canvas-button-geometry-scaling.png">
+                StateImage="/Dynamo.Wpf;component/UI/Images/Canvas/canvas-button-geometry-scaling.png">
                 <ui:ImageRepeatButton.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasGeometryScalingToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageRepeatButton.ToolTip>
@@ -650,7 +650,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_x_average.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_x_average.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignXAverage}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -661,7 +661,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_left.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_left.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignLeft}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -672,7 +672,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_right.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_right.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignRight}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -683,7 +683,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_y_average.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_y_average.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignYAverage}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -694,7 +694,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_top.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_top.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignTop}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -705,7 +705,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_bottom.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_bottom.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlighBottom}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -716,7 +716,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_y_distribute.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_y_distribute.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignYDistribute}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>
@@ -727,7 +727,7 @@
                                     <Image
                                         Width="14"
                                         Height="14"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_X_distribute.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_X_distribute.png" />
                                     <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignXDistribute}" Foreground="White" />
                                 </StackPanel>
                             </MenuItem.Header>

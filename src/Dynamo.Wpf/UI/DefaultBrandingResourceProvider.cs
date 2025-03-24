@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
@@ -20,7 +20,7 @@ namespace Dynamo.Wpf.UI
             {
                 case ResourceNames.ConsentForm.Image:
                     image = new BitmapImage(
-                        new Uri(@"pack://application:,,,/DynamoCoreWpf;component/UI/Images/consent_form_image.png",
+                        new Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/consent_form_image.png",
                             UriKind.Absolute));
                     break;
             }
@@ -34,7 +34,7 @@ namespace Dynamo.Wpf.UI
             {
                 case ResourceNames.StartPage.Image:
                     image = new BitmapImage(
-                        new Uri("pack://application:,,,/DynamoCoreWpf;component/UI/Images/StartPage/dynamo-logo.png",
+                        new Uri("pack://application:,,,/Dynamo.Wpf;component/UI/Images/StartPage/dynamo-logo.png",
                             UriKind.Absolute));
                     break;
             }

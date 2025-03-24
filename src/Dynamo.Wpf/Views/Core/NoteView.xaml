@@ -1,4 +1,4 @@
-﻿<UserControl
+<UserControl
     x:Class="Dynamo.Nodes.NoteView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,7 +22,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
                 <ResourceDictionary>
                     <controls:NullToVisibiltyConverter x:Key="nullToVisibiltyConverter" />
@@ -158,7 +158,7 @@
             BorderThickness="0"
             Command="{Binding Path=UnpinFromNodeCommand}"
             Visibility="{Binding Path=PinnedNode, Converter={StaticResource nullToVisibiltyConverter}, UpdateSourceTrigger=PropertyChanged}">
-            <Image Width="10" Source="/DynamoCoreWpf;component/UI/Images/Pin_NoBackground_16px.png" />
+            <Image Width="10" Source="/Dynamo.Wpf;component/UI/Images/Pin_NoBackground_16px.png" />
         </Button>
     </Grid>
 </UserControl>

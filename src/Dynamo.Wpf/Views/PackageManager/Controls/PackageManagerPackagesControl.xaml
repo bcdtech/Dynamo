@@ -128,7 +128,7 @@
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -279,7 +279,7 @@
                                                                     VerticalAlignment="Center"
                                                                     DockPanel.Dock="Left">
                                                                     <Rectangle.Fill>
-                                                                        <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Add - default.png" />
+                                                                        <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Add - default.png" />
                                                                     </Rectangle.Fill>
                                                                 </Rectangle>
                                                             </DockPanel>
@@ -356,7 +356,7 @@
                                                                     <Image
                                                                         Width="7"
                                                                         Height="5"
-                                                                        Source=" /DynamoCoreWpf;component/UI/Images/caret_drop_down.png" />
+                                                                        Source=" /Dynamo.Wpf;component/UI/Images/caret_drop_down.png" />
                                                                 </Button>
                                                                 <TextBlock
                                                                     Name="textBlock"
@@ -378,7 +378,7 @@
                                                                                 <DataTrigger Binding="{Binding Path=IsDeprecated}" Value="True">
                                                                                     <Setter Property="Fill">
                                                                                         <Setter.Value>
-                                                                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Add - default.png" />
+                                                                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Add - default.png" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                     <Setter Property="Opacity" Value="0.5" />
@@ -386,7 +386,7 @@
                                                                                 <DataTrigger Binding="{Binding Path=CanInstall}" Value="False">
                                                                                     <Setter Property="Fill">
                                                                                         <Setter.Value>
-                                                                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/checkmark - grey.png" />
+                                                                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/checkmark - grey.png" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                     <Setter Property="Opacity" Value="1" />
@@ -394,7 +394,7 @@
                                                                                 <DataTrigger Binding="{Binding Path=IsEnabledForInstall}" Value="False">
                                                                                     <Setter Property="Fill">
                                                                                         <Setter.Value>
-                                                                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Add - disabled.png" />
+                                                                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Add - disabled.png" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                     <Setter Property="Opacity" Value="1" />
@@ -407,7 +407,7 @@
                                                                                     </MultiDataTrigger.Conditions>
                                                                                     <Setter Property="Fill">
                                                                                         <Setter.Value>
-                                                                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Add - default.png" />
+                                                                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Add - default.png" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                 </MultiDataTrigger>
@@ -590,7 +590,7 @@
                                 DockPanel.Dock="Left"
                                 Visibility="{Binding Path=Hosts, Converter={StaticResource ListHasMoreThanNItemsToVisibilityConverter}}">
                                 <Rectangle.Fill>
-                                    <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Requirements - disabled.png" />
+                                    <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Requirements - disabled.png" />
                                 </Rectangle.Fill>
                             </Rectangle>
                             <TextBlock
@@ -650,7 +650,7 @@
                                         Margin="5,0,0,2"
                                         VerticalAlignment="Center">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Download.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Download.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                     <TextBlock
@@ -668,7 +668,7 @@
                                         Margin="5,0,0,2"
                                         VerticalAlignment="Center">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Date.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Date.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                     <TextBlock
@@ -744,7 +744,7 @@
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Left">
                                 <Rectangle.Fill>
-                                    <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Profile.png" />
+                                    <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Profile.png" />
                                 </Rectangle.Fill>
                             </Rectangle>
                             <TextBlock
@@ -824,7 +824,7 @@
                                     Height="16"
                                     Margin="0,0,0,14"
                                     VerticalAlignment="Center"
-                                    Source="/DynamoCoreWpf;component/UI/Images/icon-shape.png"
+                                    Source="/Dynamo.Wpf;component/UI/Images/icon-shape.png"
                                     Visibility="Collapsed" />
                                 <Image
                                     Name="downloadingIcon"
@@ -836,7 +836,7 @@
                                     Margin="0,0,0,14"
                                     VerticalAlignment="Center"
                                     RenderTransformOrigin="0.5,0.5"
-                                    Source="/DynamoCoreWpf;component/UI/Images/Progress circle.png"
+                                    Source="/Dynamo.Wpf;component/UI/Images/Progress circle.png"
                                     Visibility="Visible">
                                     <Image.RenderTransform>
                                         <RotateTransform x:Name="AnimatedRotateTransform" Angle="0" />
@@ -950,7 +950,7 @@
                         <DataTrigger Binding="{Binding ElementName=downloadState, Path=Text}" Value="{x:Static p:Resources.PackageDownloadStateError}">
                             <DataTrigger.Setters>
                                 <Setter TargetName="downloadStatusFlag" Property="Background" Value="#DD2222" />
-                                <Setter TargetName="downloadCompletedIcon" Property="Source" Value="/DynamoCoreWpf;component/UI/Images/package_error.png" />
+                                <Setter TargetName="downloadCompletedIcon" Property="Source" Value="/Dynamo.Wpf;component/UI/Images/package_error.png" />
                             </DataTrigger.Setters>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=downloadState, Path=Text}" Value="{x:Static p:Resources.PackageDownloadStateInstalled}">
@@ -1019,7 +1019,7 @@
                                     Height="16"
                                     Margin="0,0,0,14"
                                     VerticalAlignment="Center"
-                                    Source="/DynamoCoreWpf;component/UI/Images/package_error.png"
+                                    Source="/Dynamo.Wpf;component/UI/Images/package_error.png"
                                     Visibility="Visible" />
                                 <!--  Package Name  -->
                                 <TextBlock

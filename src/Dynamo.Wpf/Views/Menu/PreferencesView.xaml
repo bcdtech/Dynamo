@@ -33,7 +33,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <controls:BrushColorToStringConverter x:Key="BrushColorToStringConverter" />
@@ -131,7 +131,7 @@
                                         Margin="0,0,0,0"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Source="/DynamoCoreWpf;component/UI/Images/font-size.png">
+                                        Source="/Dynamo.Wpf;component/UI/Images/font-size.png">
                                         <Image.ToolTip>
                                             <ToolTip Content="{x:Static p:Resources.GroupStyleFontSizeToolTip}" Style="{StaticResource GenericToolTipLight}" />
                                         </Image.ToolTip>
@@ -1392,7 +1392,7 @@
                                                                     Margin="0,0,0,0"
                                                                     HorizontalAlignment="Left"
                                                                     VerticalAlignment="Center"
-                                                                    Source="/DynamoCoreWpf;component/UI/Images/font-size.png" />
+                                                                    Source="/Dynamo.Wpf;component/UI/Images/font-size.png" />
                                                                 <ComboBox
                                                                     x:Name="groupStyleFontSize"
                                                                     Margin="2,0,0,0"

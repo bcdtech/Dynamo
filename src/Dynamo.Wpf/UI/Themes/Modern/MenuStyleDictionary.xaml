@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="clr-namespace:Dynamo.UI;assembly=DynamoCoreWpf">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Separator  -->
@@ -280,7 +280,7 @@
                                 Height="8"
                                 Margin="5,0,5,0"
                                 SnapsToDevicePixels="False"
-                                Source="pack://application:,,,/DynamoCoreWpf;component/UI/Images/tick_selected.png"
+                                Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/tick_selected.png"
                                 Visibility="Hidden" />
                         </Border>
                         <ContentPresenter
@@ -318,7 +318,7 @@
                         <Setter TargetName="Border" Property="Background" Value="{StaticResource HighlightedBrush}" />
                         <Setter TargetName="HeaderHost" Property="TextBlock.Foreground" Value="{StaticResource ActiveForegroundBrush}" />
                         <Setter TargetName="InputGestureText" Property="Foreground" Value="{StaticResource ActiveForegroundBrush}" />
-                        <Setter TargetName="CheckMark" Property="Source" Value="pack://application:,,,/DynamoCoreWpf;component/UI/Images/tick_selected.png" />
+                        <Setter TargetName="CheckMark" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/tick_selected.png" />
                         <!--<Setter TargetName="HeaderHost" Property="TextBlock.FontWeight" Value="Bold"/>-->
                         <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
                     </Trigger>

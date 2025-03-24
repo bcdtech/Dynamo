@@ -28,7 +28,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <controls:EmptyStringToFalseConverter x:Key="EmptyStringToFalseConverter" />
@@ -838,7 +838,7 @@
                                                 <ControlTemplate>
                                                     <Rectangle Width="16" Height="16">
                                                         <Rectangle.Fill>
-                                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/remove - default.png" />
+                                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/remove - default.png" />
                                                         </Rectangle.Fill>
                                                     </Rectangle>
                                                 </ControlTemplate>
@@ -877,7 +877,7 @@
                             Margin="5,0,0,0"
                             VerticalAlignment="Top"
                             DockPanel.Dock="Left"
-                            Source="/DynamoCoreWpf;component/UI/Images/info-grey.png" />
+                            Source="/Dynamo.Wpf;component/UI/Images/info-grey.png" />
                         <Button
                             Command="{Binding Path=ClearMarkdownDirectoryCommand}"
                             Content="{x:Static p:Resources.PublishPackageViewResetMarkdownDirectoryButton}"
@@ -926,7 +926,7 @@
                                 <ControlTemplate>
                                     <Rectangle Width="16" Height="16">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/Folder.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Folder.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </ControlTemplate>

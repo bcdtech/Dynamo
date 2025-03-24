@@ -18,7 +18,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush
@@ -664,7 +664,7 @@
                     Height="16"
                     VerticalAlignment="Center">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/help-16px.png" />
+                        <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/help-16px.png" />
                     </Rectangle.Fill>
                     <Rectangle.ToolTip>
                         <ToolTip Content="{x:Static p:Resources.PublishPackageRetainFolderStructureTooltip}" Style="{StaticResource GenericToolTipLight}" />

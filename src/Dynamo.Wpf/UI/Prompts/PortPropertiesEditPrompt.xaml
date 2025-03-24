@@ -19,7 +19,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="HintingInputStyle" TargetType="TextBox">
                 <Setter Property="Margin" Value="0,0,0,12" />
@@ -234,7 +234,7 @@
                             Margin="5,4,0,0"
                             VerticalAlignment="Top"
                             DockPanel.Dock="Right"
-                            Source="/DynamoCoreWpf;component/UI/Images/error.png" />
+                            Source="/Dynamo.Wpf;component/UI/Images/error.png" />
 
                         <!--  Status Label  -->
                         <TextBlock

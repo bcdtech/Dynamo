@@ -22,7 +22,7 @@
             <controls:ListHasMoreThanNItemsToVisibilityConverter x:Key="ListHasMoreThanNItemsToVisibilityConverter" />
 
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

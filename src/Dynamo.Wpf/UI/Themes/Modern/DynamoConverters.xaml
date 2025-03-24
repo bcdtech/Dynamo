@@ -5,7 +5,7 @@
     xmlns:ui="clr-namespace:Dynamo.UI">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoColorsAndBrushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <controls:ToolTipFirstLineOnly x:Key="ToolTipFirstLine" />

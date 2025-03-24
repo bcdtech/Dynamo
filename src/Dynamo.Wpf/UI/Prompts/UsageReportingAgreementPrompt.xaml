@@ -22,7 +22,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="CheckBox">
@@ -130,7 +130,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        Source="/DynamoCoreWpf;component/UI/Images/dynamonotext.png" />
+                        Source="/Dynamo.Wpf;component/UI/Images/dynamonotext.png" />
 
                     <Button
                         Name="CloseButton"

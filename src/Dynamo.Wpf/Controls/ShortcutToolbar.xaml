@@ -20,8 +20,8 @@
         <Border.Resources>
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/ToolbarStyleDictionary.xaml" />
-                    <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                    <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/ToolbarStyleDictionary.xaml" />
+                    <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
 
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
@@ -155,7 +155,7 @@
                                     <Image
                                         Width="16"
                                         Height="16"
-                                        Source="/DynamoCoreWpf;component/UI/Images/Profile_48px.png" />
+                                        Source="/Dynamo.Wpf;component/UI/Images/Profile_48px.png" />
 
                                     <TextBlock
                                         Name="txtSignIn"
@@ -255,7 +255,7 @@
                                 <Image
                                     x:Name="Icon"
                                     Width="14px"
-                                    Source="/DynamoCoreWpf;component/UI/Images/image-icon-default.png" />
+                                    Source="/Dynamo.Wpf;component/UI/Images/image-icon-default.png" />
                                 <TextBlock
                                     x:Name="HeaderText"
                                     Margin="10,0,0,0"

@@ -112,13 +112,13 @@ namespace Dynamo.UI.Controls
         private void exportMenu_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             this.HeaderText.FontFamily = SharedDictionaryManager.DynamoModernDictionary["ArtifaktElementRegular"] as FontFamily;
-            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/DynamoCoreWpf;component/UI/Images/image-icon.png"));
+            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/image-icon.png"));
         }
 
         private void exportMenu_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             this.HeaderText.FontFamily = SharedDictionaryManager.DynamoModernDictionary["ArtifaktElementRegular"] as FontFamily;
-            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/DynamoCoreWpf;component/UI/Images/image-icon-default.png"));
+            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/image-icon-default.png"));
         }
 
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)

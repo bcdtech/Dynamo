@@ -40,7 +40,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -511,7 +511,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_x_average.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_x_average.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignXAverage}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -522,7 +522,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_left.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_left.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignLeft}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -533,7 +533,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_right.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_right.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignRight}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -544,7 +544,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_y_average.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_y_average.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignYAverage}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -555,7 +555,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_top.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_top.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignTop}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -566,7 +566,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_bottom.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_bottom.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlighBottom}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -577,7 +577,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_y_distribute.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_y_distribute.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignYDistribute}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -588,7 +588,7 @@
                                         <Image
                                             Width="14"
                                             Height="14"
-                                            Source="/DynamoCoreWpf;component/UI/Images/Alignment/align_X_distribute.png" />
+                                            Source="/Dynamo.Wpf;component/UI/Images/Alignment/align_X_distribute.png" />
                                         <Label Content="{x:Static p:Resources.DynamoViewEditMenuAlignXDistribute}" Foreground="White" />
                                     </StackPanel>
                                 </MenuItem.Header>
@@ -771,7 +771,7 @@
                             <Image
                                 Width="14"
                                 Height="14"
-                                Source="/DynamoCoreWpf;component/UI/Images/pin.png" />
+                                Source="/Dynamo.Wpf;component/UI/Images/pin.png" />
                         </MenuItem.Icon>
                     </MenuItem>
 
@@ -1338,10 +1338,10 @@
                                                             <Style TargetType="{x:Type Image}">
                                                                 <Style.Triggers>
                                                                     <Trigger Property="IsMouseOver" Value="False">
-                                                                        <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/closetab_normal.png" />
+                                                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/closetab_normal.png" />
                                                                     </Trigger>
                                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                                        <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/closetab_hover.png" />
+                                                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/closetab_hover.png" />
                                                                     </Trigger>
                                                                 </Style.Triggers>
                                                             </Style>
@@ -1398,7 +1398,7 @@
                                     Margin="0,5,7,0"
                                     VerticalAlignment="Center">
                                     <Rectangle.Fill>
-                                        <ImageBrush ImageSource="/DynamoCoreWpf;component/UI/Images/custom-node.png" />
+                                        <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/custom-node.png" />
                                     </Rectangle.Fill>
                                     <Rectangle.Style>
                                         <Style TargetType="Rectangle">
@@ -1536,7 +1536,7 @@
                                 Height="10"
                                 Margin="5,5,5,5"
                                 RenderTransformOrigin="0.5, 0.5"
-                                Source="/DynamoCoreWpf;component/UI/Images/expand_normal.png"
+                                Source="/Dynamo.Wpf;component/UI/Images/expand_normal.png"
                                 Visibility="Visible">
                                 <Image.RenderTransform>
                                     <RotateTransform Angle="-90" />
@@ -1595,7 +1595,7 @@
                                 Height="10"
                                 Margin="5,5,5,5"
                                 RenderTransformOrigin="0.5, 0.5"
-                                Source="/DynamoCoreWpf;component/UI/Images/expand_normal.png"
+                                Source="/Dynamo.Wpf;component/UI/Images/expand_normal.png"
                                 Visibility="Visible">
                                 <Image.RenderTransform>
                                     <RotateTransform Angle="-90" />
@@ -1743,10 +1743,10 @@
                                         <Style TargetType="{x:Type Image}">
                                             <Style.Triggers>
                                                 <Trigger Property="IsMouseOver" Value="False">
-                                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/closetab_normal.png" />
+                                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/closetab_normal.png" />
                                                 </Trigger>
                                                 <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/closetab_hover.png" />
+                                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/closetab_hover.png" />
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -1770,10 +1770,10 @@
                                         <Style TargetType="{x:Type Image}">
                                             <Style.Triggers>
                                                 <Trigger Property="IsMouseOver" Value="False">
-                                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/undock_normal.png" />
+                                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/undock_normal.png" />
                                                 </Trigger>
                                                 <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/undock_hover.png" />
+                                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/undock_hover.png" />
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -1877,7 +1877,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="#999"
-            Cursor="/DynamoCoreWpf;component/UI/Images/resize_vertical.cur"
+            Cursor="/Dynamo.Wpf;component/UI/Images/resize_vertical.cur"
             ResizeDirection="Rows" />
 
         <!--  Split Between Library and Canvas  -->
@@ -1892,7 +1892,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="Transparent"
-            Cursor="/DynamoCoreWpf;component/UI/Images/resize_horizontal.cur"
+            Cursor="/Dynamo.Wpf;component/UI/Images/resize_horizontal.cur"
             ResizeDirection="Auto" />
 
         <!--  Split Between Right Sidebar panel and Canvas  -->
@@ -1907,7 +1907,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="Transparent"
-            Cursor="/DynamoCoreWpf;component/UI/Images/resize_horizontal.cur"
+            Cursor="/Dynamo.Wpf;component/UI/Images/resize_horizontal.cur"
             DragCompleted="RightExtensionSidebar_DragCompleted"
             ResizeDirection="Auto" />
 

@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/DynamoCoreWpf;component/UI/Themes/Modern/DynamoModern.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style
@@ -96,10 +96,10 @@
                                 <Style TargetType="{x:Type Image}">
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="False">
-                                            <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/TitleBarButtons/close-darktheme-default-16px.png" />
+                                            <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-darktheme-default-16px.png" />
                                         </Trigger>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/TitleBarButtons/close-darktheme-hover-16px.png" />
+                                            <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-darktheme-hover-16px.png" />
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
@@ -185,7 +185,7 @@
                         Margin="18,0,15,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="pack://application:,,,/DynamoCoreWpf;component/UI/Images/caret_down.png" />
+                        Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/caret_down.png" />
                     <TextBlock
                         HorizontalAlignment="Left"
                         FontSize="14"
@@ -326,7 +326,7 @@
                                 VerticalAlignment="Center">
                                 <Image.Style>
                                     <Style TargetType="{x:Type Image}">
-                                        <Setter Property="Source" Value="/DynamoCoreWpf;component/UI/Images/search_normal.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/search_normal.png" />
                                     </Style>
                                 </Image.Style>
                             </Image>
@@ -390,11 +390,11 @@
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="{StaticResource NodeOptionsButtonBackground}" />
-                                                <Setter TargetName="DotsImage" Property="Source" Value="/DynamoCoreWpf;component/UI/Images/switch-hover-16px.png" />
+                                                <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/UI/Images/switch-hover-16px.png" />
                                             </Trigger>
                                             <Trigger Property="IsMouseOver" Value="False">
                                                 <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="Transparent" />
-                                                <Setter TargetName="DotsImage" Property="Source" Value="/DynamoCoreWpf;component/UI/Images/switch.png" />
+                                                <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/UI/Images/switch.png" />
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
