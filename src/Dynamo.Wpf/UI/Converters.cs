@@ -1,16 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using Dynamo.Configuration;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
@@ -25,6 +12,16 @@ using Dynamo.Wpf.Properties;
 using Dynamo.Wpf.ViewModels;
 using DynamoUnits;
 using FontAwesome5;
+using System.Collections;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Color = System.Windows.Media.Color;
 using FlowDirection = System.Windows.FlowDirection;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
@@ -45,7 +42,7 @@ namespace Dynamo.Controls
         public Style TrueStyle { get; set; }
         public Style FalseStyle { get; set; }
 
-        public object Convert(object value, Type targetType, object parameter,CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is bool v && v)
             {
@@ -1509,7 +1506,7 @@ namespace Dynamo.Controls
         {
             if (value is int zero)
             {
-                return zero == 0 ? Visibility.Collapsed : Visibility.Visible;   
+                return zero == 0 ? Visibility.Collapsed : Visibility.Visible;
             }
 
             return Visibility.Collapsed; // If not int or int not zero, return collapsed.
@@ -1871,7 +1868,7 @@ namespace Dynamo.Controls
             throw new NotSupportedException();
         }
     }
-    
+
     public class ZoomToOpacityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -1902,7 +1899,7 @@ namespace Dynamo.Controls
             if (number > Configurations.ZoomThreshold)
                 return Visibility.Collapsed;
 
-            return Visibility.Visible;    
+            return Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -1995,9 +1992,9 @@ namespace Dynamo.Controls
             double dbl;
             if (double.TryParse(value as string, NumberStyles.Any, CultureInfo.InvariantCulture, out dbl))
             {
-                return (dbl.ToString(DynamoUnits.Display.PrecisionFormat, CultureInfo.InvariantCulture));
+                return (dbl.ToString(PreferenceSettings.Instance.NumberFormat, CultureInfo.InvariantCulture));
             }
-            return value ?? 0.ToString(DynamoUnits.Display.PrecisionFormat);
+            return value ?? 0.ToString(PreferenceSettings.Instance.NumberFormat);
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -2228,7 +2225,7 @@ namespace Dynamo.Controls
             if (values != null && values.Count() > 0)
             {
                 if (!string.IsNullOrEmpty((string)values[0]) || !string.IsNullOrEmpty((string)values[1]))
-                return Visibility.Visible; ;
+                    return Visibility.Visible; ;
             }
             return Visibility.Collapsed;
         }
@@ -2825,7 +2822,7 @@ namespace Dynamo.Controls
 
             catch (Exception e)
             {
-                Console.WriteLine($"problem attempting to parse fontsize or param {value} {parameter} { e.Message}");
+                Console.WriteLine($"problem attempting to parse fontsize or param {value} {parameter} {e.Message}");
                 return false;
             }
 
@@ -2904,7 +2901,7 @@ namespace Dynamo.Controls
             //just use defaults, this will enable the text editor.
             catch (Exception e)
             {
-                Console.WriteLine($"problem attempting to parse fontsize or zoom {values[1]} {values[0]}. { e.Message}");
+                Console.WriteLine($"problem attempting to parse fontsize or zoom {values[1]} {values[0]}. {e.Message}");
             }
 
             var factor = zoom * fontsize;
@@ -3580,7 +3577,7 @@ namespace Dynamo.Controls
         {
             throw new NotImplementedException();
         }
-    }    
+    }
 
     /// <summary>
     /// Converts the object type to forground color for the object.
@@ -3606,7 +3603,7 @@ namespace Dynamo.Controls
                     case nameof(TypeCode.String):
                         return resourceDictionary["stringLabelBackground"] as SolidColorBrush;
                     case nameof(TypeCode.Boolean):
-                        return resourceDictionary["boolLabelBackground"] as SolidColorBrush;                                        
+                        return resourceDictionary["boolLabelBackground"] as SolidColorBrush;
                     default:
                         if (values[1].ToString() == "List")
                         {
@@ -3616,14 +3613,15 @@ namespace Dynamo.Controls
                         {
                             return resourceDictionary["nullLabelBackground"] as SolidColorBrush;
                         }
-                };
+                }
+                ;
             }
             else
             {
                 return resourceDictionary["PrimaryCharcoal200Brush"] as SolidColorBrush;
             }
         }
-        
+
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
@@ -3676,9 +3674,9 @@ namespace Dynamo.Controls
             if (value.Equals(parameter))
             {
                 return new SolidColorBrush(Color.FromRgb(217, 217, 217));
-            }          
+            }
             return new SolidColorBrush(Color.FromRgb(71, 71, 71));
-            
+
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -4042,7 +4040,7 @@ namespace Dynamo.Controls
             CultureInfo culture)
         {
             if (value is string nullOrEmptyString && String.IsNullOrEmpty(nullOrEmptyString)) return Visibility.Visible;
-            
+
             return Visibility.Collapsed;
         }
 

@@ -75,7 +75,7 @@ namespace Autodesk.DesignScript.Runtime
 
         public Type Type { get; private set; }
     }
-    
+
     /// <summary>
     /// This attribute is used to specify the Type of class that implements
     /// IContextDataProvider interface in the specified assembly. This 
@@ -99,7 +99,7 @@ namespace Autodesk.DesignScript.Runtime
         public ContextDataProviderAttribute(Type dataProviderType, Func<bool> capturesData)
         {
             Type = dataProviderType;
-            if(null != capturesData)
+            if (null != capturesData)
                 mCapturesData = capturesData;
         }
 
@@ -121,7 +121,7 @@ namespace Autodesk.DesignScript.Runtime
         /// <summary>
         /// Checks if this type can capture data interactively
         /// </summary>
-        public bool CapturesData 
+        public bool CapturesData
         {
             get { return mCapturesData(); }
         }
@@ -223,7 +223,7 @@ namespace Autodesk.DesignScript.Runtime
     /// This attribute describes keys in the returned dictionary of a method.
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-    public sealed class MultiReturnAttribute: Attribute
+    public sealed class MultiReturnAttribute : Attribute
     {
         public MultiReturnAttribute(params string[] returnKeys)
         {
@@ -242,7 +242,7 @@ namespace Autodesk.DesignScript.Runtime
     /// support from DesignScript, e.g., tracing. 
     /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
-    public sealed class RuntimeRequirementAttribute: Attribute
+    public sealed class RuntimeRequirementAttribute : Attribute
     {
         public bool RequireTracing { get; set; }
     }
@@ -278,7 +278,7 @@ namespace Autodesk.DesignScript.Runtime
     /// for Vector.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public sealed class PreferredShortNameAttribute: Attribute
+    public sealed class PreferredShortNameAttribute : Attribute
     {
         public string PreferredShortName { get; private set; }
         public PreferredShortNameAttribute(string preferredShortName)
@@ -290,7 +290,7 @@ namespace Autodesk.DesignScript.Runtime
     /// <summary> 
     /// This attribute indicates the node is obsolete
     /// </summary> 
-    [AttributeUsage(AttributeTargets.Method| AttributeTargets.Constructor | AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property)]
     public class IsObsoleteAttribute : Attribute
     {
         public string Message { get; protected set; }
@@ -413,7 +413,7 @@ namespace Autodesk.DesignScript.Runtime
     /// when these methods change.
     /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
-    internal class DynamoJSInvokable : Attribute
+    public class DynamoJSInvokable : Attribute
     {
 
     }

@@ -1,9 +1,9 @@
+using Dynamo.Configuration;
+using Dynamo.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Dynamo.Configuration;
-using Dynamo.Interfaces;
 
 namespace Dynamo.Applications
 {
@@ -28,7 +28,7 @@ namespace Dynamo.Applications
             preloadedLibraryPaths = new List<string>
             {
                 "VMDataBridge.dll",
-                "ProtoGeometry.dll",
+                //"ProtoGeometry.dll",
                 "DesignScriptBuiltin.dll",
                 "DSCoreNodes.dll",
                 "DSOffice.dll",
@@ -39,7 +39,7 @@ namespace Dynamo.Applications
                 "DynamoUnits.dll",
                 "Tessellation.dll",
                 "Analysis.dll",
-                "GeometryColor.dll"
+               // "GeometryColor.dll"
             };
 
         }
@@ -61,9 +61,12 @@ namespace Dynamo.Applications
 
         public string UserDataRootFolder
         {
-            get { return Path.Combine(Environment.GetFolderPath(
+            get
+            {
+                return Path.Combine(Environment.GetFolderPath(
                 Environment.SpecialFolder.ApplicationData),
-                Configurations.DynamoAsString, "Dynamo Core").ToString(); }
+                Configurations.DynamoAsString, "Dynamo Core").ToString();
+            }
         }
 
         public string CommonDataRootFolder
@@ -120,7 +123,7 @@ namespace Dynamo.Applications
             preloadedLibraryPaths = new List<string>
             {
                 "VMDataBridge.dll",
-                "ProtoGeometry.dll",
+                //"ProtoGeometry.dll",
                 "DesignScriptBuiltin.dll",
                 "DSCoreNodes.dll",
                 "DSOffice.dll",

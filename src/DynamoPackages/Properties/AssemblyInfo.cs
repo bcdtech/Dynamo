@@ -19,3 +19,4 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("DynamoCoreWpf2Tests")]
 [assembly: InternalsVisibleTo("DynamoCoreWpf3Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+[assembly: InternalsVisibleTo("Dynamo.Wpf")]
