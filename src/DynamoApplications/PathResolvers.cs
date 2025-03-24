@@ -31,13 +31,13 @@ namespace Dynamo.Applications
                 //"ProtoGeometry.dll",
                 "DesignScriptBuiltin.dll",
                 "DSCoreNodes.dll",
-                "DSOffice.dll",
-                "DSCPython.dll",
+                //"DSOffice.dll",
+                //"DSCPython.dll",
                 "FunctionObject.ds",
                 "BuiltIn.ds",
                 "DynamoConversions.dll",
                 "DynamoUnits.dll",
-                "Tessellation.dll",
+                //"Tessellation.dll",
                 "Analysis.dll",
                // "GeometryColor.dll"
             };
