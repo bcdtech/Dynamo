@@ -41,10 +41,10 @@
     <Resource Include="**\*.ttf" />
     <Resource Include="**\*.cur" />
     <Resource Include="**\*.psd" />
-    <Resource Include="**\*.otf" />
-    <Resource Include="**\*.ttf" />
-
+      <Resource Include="**\*.otf" />
+      <Resource Include="**\*.ttf" />
   </ItemGroup>
+ 
   <ItemGroup>
     <ProjectReference Include="..\DynamoCore\DynamoCore.csproj" />
     <ProjectReference Include="..\DynamoPackages\DynamoPackages.csproj" />
