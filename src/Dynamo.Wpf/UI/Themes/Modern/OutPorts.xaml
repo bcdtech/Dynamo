@@ -7,10 +7,7 @@
     xmlns:ui="clr-namespace:Dynamo.UI"
     xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
     xmlns:views="clr-namespace:Dynamo.UI.Views">
-    <ResourceDictionary.MergedDictionaries>
-
-        <ResourceDictionary Source="/Dynamo.Wpf;component/UI/Themes/Modern/DynamoModern.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary.MergedDictionaries />
 
     <DataTemplate DataType="{x:Type viewModels:OutPortViewModel}">
 

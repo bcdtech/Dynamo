@@ -26,7 +26,7 @@ public partial class App : Application
         base.OnStartup(e);
         _putenv(GetLocale());
 
-        var model = StartupUtils.MakeModel(false, "", false, string.Empty, new HostAnalyticsInfo { });
+        var model = StartupUtils.MakeModel(false, "", true, string.Empty, new HostAnalyticsInfo { });
         var startConfiguration = new DynamoViewModel.StartConfiguration()
         {
             DynamoModel = model,

@@ -41,6 +41,8 @@
     <Resource Include="**\*.ttf" />
     <Resource Include="**\*.cur" />
     <Resource Include="**\*.psd" />
+    <Resource Include="**\*.otf" />
+    <Resource Include="**\*.ttf" />
 
   </ItemGroup>
   <ItemGroup>
@@ -57,10 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.en-US.resx">
-      <Generator></Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
