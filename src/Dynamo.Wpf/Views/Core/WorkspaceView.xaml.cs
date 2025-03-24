@@ -8,7 +8,6 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Models;
 using Dynamo.Search.SearchElements;
 using Dynamo.Selection;
-using Dynamo.UI;
 using Dynamo.UI.Controls;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
@@ -98,11 +97,10 @@ namespace Dynamo.Views
 
             // view of items to drag
             draggedSelectionTemplate = (DataTemplate)FindResource("DraggedSelectionTemplate");
-            var dictionaries = draggedSelectionTemplate.Resources.MergedDictionaries;
 
             // let draggedSelectionTemplate know about views of node, note, annotation, connector
-            dictionaries.Add(SharedDictionaryManager.ConnectorsDictionary);
-            dictionaries.Add(SharedDictionaryManager.DataTemplatesDictionary);
+            //dictionaries.Add(SharedDictionaryManager.ConnectorsDictionary);
+            //dictionaries.Add(SharedDictionaryManager.DataTemplatesDictionary);
         }
 
         void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)

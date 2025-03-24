@@ -35,7 +35,6 @@ namespace Dynamo.UI.Controls
         {
             get { return shortcutBarRightSideItems; }
         }
-        private readonly Core.AuthenticationManager authManager;
         public readonly DynamoViewModel DynamoViewModel;
 
         /// <summary>
@@ -52,22 +51,7 @@ namespace Dynamo.UI.Controls
 
             var shortcutToolbar = new ShortcutToolbarViewModel(dynamoViewModel);
             DataContext = shortcutToolbar;
-            authManager = dynamoViewModel.Model.AuthenticationManager;
-            if (authManager != null)
-            {
-                authManager.LoginStateChanged += AuthChangeHandler;
-                if (authManager.LoginState == LoginState.LoggedIn)
-                {
-                    if (loginMenu.Items.Count == 0)
-                    {
-                        loginMenu.Items.Add(logoutOption);
-                    }
-                }
-                else
-                {
-                    loginMenu.Items.Remove(logoutOption);
-                }
-            }
+
 
             this.Loaded += ShortcutToolbar_Loaded;
         }
@@ -81,32 +65,13 @@ namespace Dynamo.UI.Controls
 
         public void Dispose()
         {
-            if (authManager != null)
-            {
-                authManager.LoginStateChanged -= AuthChangeHandler;
-            }
+
             this.Loaded -= ShortcutToolbar_Loaded;
         }
 
         private void AuthChangeHandler(LoginState status)
         {
-            if (status == LoginState.LoggedOut)
-            {
-                LoginButton.ToolTip = Wpf.Properties.Resources.SignInButtonContentToolTip;
-                txtSignIn.Text = Wpf.Properties.Resources.SignInButtonText;
-                logoutOption.Visibility = Visibility.Collapsed;
-                loginMenu.Items.Remove(logoutOption);
-            }
-            else if (status == LoginState.LoggedIn)
-            {
-                txtSignIn.Text = authManager.Username;
-                LoginButton.ToolTip = null;
-                if (loginMenu.Items.Count == 0)
-                {
-                    loginMenu.Items.Add(logoutOption);
-                }
-                logoutOption.Visibility = Visibility.Visible;
-            }
+
         }
 
         private void exportMenu_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
@@ -124,40 +89,10 @@ namespace Dynamo.UI.Controls
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
             if (!DynamoViewModel.IsIDSDKInitialized()) return;
-            if (authManager.LoginState == LoginState.LoggedIn)
-            {
-                var button = (Button)sender;
-                MenuItem mi = button.Parent as MenuItem;
-                if (mi != null)
-                {
-                    mi.IsSubmenuOpen = !mi.IsSubmenuOpen;
-                }
-            }
-            else if (authManager.LoginState == LoginState.LoggedOut)
-            {
-                authManager.ToggleLoginState(null);
-                if (authManager.IsLoggedIn())
-                {
-                    var tb = (((sender as Button).Content as StackPanel).Children.OfType<TextBlock>().FirstOrDefault() as TextBlock);
-                    tb.Text = authManager.Username;
-                    logoutOption.Visibility = Visibility.Visible;
-                    LoginButton.ToolTip = null;
-                }
-            }
+
         }
 
-        private void LogoutOption_Click(object sender, RoutedEventArgs e)
-        {
-            if (!DynamoViewModel.IsIDSDKInitialized()) return;
-            if (authManager.LoginState == LoginState.LoggedIn)
-            {
-                var result = Wpf.Utilities.MessageBoxService.Show(Application.Current?.MainWindow, Wpf.Properties.Resources.SignOutConfirmationDialogText, Wpf.Properties.Resources.SignOutConfirmationDialogTitle, MessageBoxButton.OKCancel, new List<string>() { "Sign Out", "Cancel" }, MessageBoxImage.Information);
-                if (result == MessageBoxResult.OK)
-                {
-                    authManager.ToggleLoginState(null);
-                }
-            }
-        }
+
 
         public List<Control> AllChildren(DependencyObject parent)
         {
@@ -240,8 +175,7 @@ namespace Dynamo.UI.Controls
         {
             set
             {
-                this.loginMenu.IsEnabled = value;
-                this.loginMenu.Opacity = value ? 1 : 0.5;
+
             }
         }
 
