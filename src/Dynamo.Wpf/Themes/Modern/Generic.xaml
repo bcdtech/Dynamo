@@ -21,9 +21,9 @@
 
     </ResourceDictionary.MergedDictionaries>
 
-  
 
-  
+
+
 
     <!--  Window Common Styling  -->
     <Style x:Key="DynamoWindowStyle" TargetType="{x:Type Window}">

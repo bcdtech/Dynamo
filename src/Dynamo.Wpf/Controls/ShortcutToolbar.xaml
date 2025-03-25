@@ -144,7 +144,7 @@
                     HorizontalAlignment="Right"
                     IsMainMenu="True"
                     Style="{StaticResource MainMenu}">
-                   
+
                     <MenuItem
                         Name="exportMenu"
                         Margin="10,-3,-10,0"
