@@ -134,7 +134,7 @@
 
     <!--  Window Common Styling  -->
     <Style x:Key="DynamoWindowStyle" TargetType="{x:Type Window}">
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Background" Value="#343434" />
     </Style>
@@ -194,7 +194,7 @@
                 <Style.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="TextWrapping" Value="Wrap" />
-                        <Setter Property="FontFamily" Value="宋体" />
+                        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                         <Setter Property="FontSize" Value="12px" />
                         <Setter Property="Foreground" Value="#232323" />
                     </Style>
@@ -1131,7 +1131,7 @@
                         Name="textBlock"
                         HorizontalAlignment="Left"
                         Background="Transparent"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="14px"
                         Foreground="#006FB4"
                         Text="{TemplateBinding Content}" />
@@ -1150,7 +1150,7 @@
         <Setter Property="MinWidth" Value="62px" />
         <Setter Property="CaretBrush" Value="{StaticResource PrimaryCharcoal200Brush}" />
         <Setter Property="Padding" Value="10,12,10,8" />
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="FontSize" Value="14px" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryCharcoal200Brush}" />
         <Setter Property="TextWrapping" Value="Wrap" />
@@ -1169,7 +1169,7 @@
                             Padding="13,13,10,8"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding Tag}"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="12px"
                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
                             IsHitTestVisible="False"
@@ -1197,7 +1197,7 @@
         <Setter Property="MinWidth" Value="62px" />
         <Setter Property="CaretBrush" Value="{StaticResource PrimaryCharcoal200Brush}" />
         <Setter Property="Padding" Value="10,12,10,8" />
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="FontSize" Value="12px" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryCharcoal200Brush}" />
         <Setter Property="TextWrapping" Value="Wrap" />
@@ -1223,7 +1223,7 @@
                             Padding="13,13,10,8"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding Tag}"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="12px"
                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
                             IsHitTestVisible="False"
@@ -1296,7 +1296,7 @@
     </Style>
 
     <Style x:Key="SubLabelStyle" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="FontSize" Value="12px" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryCharcoal200Brush}" />
         <Setter Property="Margin" Value="0,0,0,5" />
@@ -2039,7 +2039,7 @@
                         <!--  Text element  -->
                         <TextBlock
                             Margin="3,1,6,0"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="16px"
                             Foreground="#EEEEEE">
                             <ContentPresenter />
@@ -2150,7 +2150,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Focusable="True"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="18px"
                             Foreground="#F5F5F5"
                             IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -2620,13 +2620,13 @@
                             <TextBlock
                                 Margin="6,7,0,8"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="16"
                                 Text="{Binding Caption}" />
                             <TextBlock
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="12"
                                 Foreground="#888"
                                 Text="{Binding SubScript}" />
@@ -2685,7 +2685,7 @@
                             <Label
                                 x:Name="label"
                                 Content="{TemplateBinding Content}"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="16"
                                 Foreground="#888888" />
                         </StackPanel>
@@ -3299,7 +3299,7 @@
                             Background="{TemplateBinding Background}"
                             BorderThickness="0"
                             CaretBrush="Transparent"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="10px"
                             FontWeight="Medium"
                             Foreground="White"
@@ -3816,7 +3816,7 @@
                                 Margin="0,1,0,0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="14px"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{TemplateBinding Content}" />
@@ -3881,7 +3881,7 @@
                                 x:Name="textBlock"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="14px"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{TemplateBinding Content}" />
@@ -3941,7 +3941,7 @@
                                 x:Name="textBlock"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="12px"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{TemplateBinding Content}" />
@@ -4259,7 +4259,7 @@
                             VerticalAlignment="Center"
                             Content="&gt;"
                             DockPanel.Dock="Right"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13px"
                             Foreground="{StaticResource Blue300Brush}">
                             <Label.RenderTransform>
@@ -4367,7 +4367,7 @@
                             VerticalAlignment="Center"
                             Content="&gt;"
                             DockPanel.Dock="Right"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13px"
                             Foreground="{StaticResource Blue300Brush}">
                             <Label.RenderTransform>
@@ -4476,7 +4476,7 @@
                             VerticalAlignment="Center"
                             Content="&gt;"
                             DockPanel.Dock="Right"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13px"
                             Foreground="{StaticResource Blue300Brush}">
                             <Label.RenderTransform>
@@ -4558,7 +4558,7 @@
         <Setter Property="Placement" Value="MousePoint" />
         <Setter Property="Foreground" Value="{StaticResource NodeContextMenuForeground}" />
         <Setter Property="FontSize" Value="13px" />
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -4638,7 +4638,7 @@
                                     <ContentPresenter
                                         ContentSource="Header"
                                         RecognizesAccessKey="True"
-                                        TextBlock.FontFamily="宋体" />
+                                        TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}" />
                                 </ToggleButton.Content>
                             </ToggleButton>
                         </Border>
@@ -5461,7 +5461,7 @@
                                 Padding="10,0,10,0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="14">
                                 <ContentPresenter />
                             </TextBlock>
@@ -5930,7 +5930,7 @@
                                 Padding="0,0,0,0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 Foreground="white"
                                 Opacity="1"
                                 Text="{TemplateBinding Content}" />
@@ -5995,7 +5995,7 @@
                             VerticalAlignment="Center"
                             Content="&gt;"
                             DockPanel.Dock="Right"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13px"
                             Foreground="{StaticResource Blue300Brush}">
                             <Label.RenderTransform>
@@ -6201,7 +6201,7 @@
 
     <!--  The default style for a TextBox in the Dark Theme  -->
     <Style x:Key="InputBoxDarkThemeStyle" TargetType="{x:Type TextBox}">
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="Foreground" Value="{StaticResource DarkThemeBodyMediumBrush}" />
         <Setter Property="Background" Value="#353535" />
         <Setter Property="UseLayoutRounding" Value="True" />
@@ -6299,7 +6299,7 @@
                             BorderThickness="0"
                             CaretBrush="{StaticResource Blue300Brush}"
                             Focusable="True"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="12px"
                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
                             MaxLength="{TemplateBinding MaxLength}"
@@ -6309,7 +6309,7 @@
                         <TextBlock
                             x:Name="WatermarkLabel"
                             Padding="10"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="12px"
                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
                             IsHitTestVisible="False"
@@ -6725,7 +6725,7 @@
                             Padding="10,7,10,0"
                             VerticalAlignment="Center"
                             Background="#434343"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="14px"
                             FontWeight="Regular"
                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -6974,7 +6974,7 @@
     <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
         <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}" />
         <Setter Property="RowStyle" Value="{x:Null}" />
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="CellStyle" Value="{DynamicResource CellStyle1}" />
         <Setter Property="RowHeaderWidth" Value="0" />
         <Setter Property="BorderThickness" Value="0.5" />
