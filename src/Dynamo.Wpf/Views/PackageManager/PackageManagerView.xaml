@@ -41,7 +41,7 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Background" Value="#2F2E30" />
                 <Setter Property="Foreground" Value="#EEEEEE" />
-                <Setter Property="FontFamily" Value="宋体" />
+                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                 <Setter Property="FontStyle" Value="Normal" />
                 <Setter Property="FontSize" Value="12px " />
                 <Setter Property="Focusable" Value="False" />
@@ -53,7 +53,7 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Background" Value="#2F2E30" />
                 <Setter Property="Foreground" Value="#EEEEEE" />
-                <Setter Property="FontFamily" Value="宋体" />
+                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                 <Setter Property="FontStyle" Value="Normal" />
                 <Setter Property="FontSize" Value="12px " />
                 <Setter Property="BorderThickness" Value="0" />
@@ -566,7 +566,7 @@
                                         Orientation="Vertical">
                                         <TextBlock
                                             Margin="0,5,0,20"
-                                            FontFamily="宋体"
+                                            FontFamily="{StaticResource ArtifaktElementRegular}"
                                             FontSize="14"
                                             Foreground="{StaticResource PreferencesWindowFontColor}">
                                             <Run Text="{x:Static p:Resources.PackageManagerSettingsRunPrefix}" />

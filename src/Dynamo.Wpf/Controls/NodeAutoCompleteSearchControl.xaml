@@ -162,7 +162,7 @@
                         Orientation="Vertical">
                         <TextBlock
                             Height="auto"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="11"
                             Foreground="#F5F5F5"
                             TextWrapping="Wrap">

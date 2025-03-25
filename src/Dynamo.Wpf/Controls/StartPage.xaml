@@ -125,7 +125,7 @@
                             Margin="0,0,0,0"
                             HorizontalAlignment="Right"
                             Content="{x:Static p:Resources.StartPageBackupLocation}"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             MouseLeftButtonUp="ShowBackupFilesInFolder"
                             Style="{StaticResource StartPageLabel}" />
                     </Grid>

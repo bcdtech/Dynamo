@@ -117,7 +117,7 @@
                                                     HorizontalContentAlignment="Center"
                                                     VerticalContentAlignment="Center"
                                                     Content="{Binding NumberOfDismissedAlerts, UpdateSourceTrigger=PropertyChanged}"
-                                                    FontFamily="宋体"
+                                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                                     FontSize="9px"
                                                     Foreground="{StaticResource NodeDismissedWarningsGlyphForeground}" />
                                             </Border>
@@ -128,7 +128,7 @@
                                                 VerticalAlignment="Center"
                                                 Content="&gt;"
                                                 DockPanel.Dock="Right"
-                                                FontFamily="宋体"
+                                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                                 FontSize="13px"
                                                 Foreground="{StaticResource Blue300Brush}">
                                                 <Label.RenderTransform>
@@ -152,7 +152,7 @@
                                                 VerticalAlignment="Center"
                                                 DockPanel.Dock="Right"
                                                 Text="{TemplateBinding InputGestureText}"
-                                                TextBlock.FontFamily="宋体"
+                                                TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                                                 TextBlock.FontSize="13px" />
                                             <Popup
                                                 x:Name="PART_Popup"
@@ -299,14 +299,14 @@
                                 Orientation="Vertical">
                                 <StackPanel>
                                     <TextBlock
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontWeight="Medium"
                                         TextWrapping="Wrap">
                                         <Run Text="{x:Static p:Resources.NodeTooltipOriginalName}" />
                                         <Run Text="{Binding Path=OriginalName, Mode=OneWay}" />
                                     </TextBlock>
                                     <TextBlock
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontWeight="Light"
                                         TextWrapping="Wrap"
                                         Visibility="{Binding IsCustomFunction, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}">
@@ -315,7 +315,7 @@
                                     </TextBlock>
                                     <TextBlock Text="&#x0a;" />
                                     <TextBlock
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontWeight="Medium"
                                         TextWrapping="Wrap">
                                         <Run Text="{x:Static p:Resources.NodeTooltipDescription}" />
@@ -375,7 +375,7 @@
                 Margin="6,3,6,0"
                 VerticalAlignment="Center"
                 Background="{x:Null}"
-                FontFamily="宋体"
+                FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="16px"
                 FontWeight="Medium"
                 Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -390,7 +390,7 @@
                 VerticalAlignment="Center"
                 Background="{x:Null}"
                 BorderThickness="0"
-                FontFamily="宋体"
+                FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="16px"
                 FontWeight="Medium"
                 Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -420,7 +420,7 @@
                         <Grid>
                             <TextBlock
                                 Padding="8,10"
-                                FontFamily="宋体"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                 FontSize="14"
                                 FontWeight="Medium"
                                 Text="{Binding Path=OriginalName, UpdateSourceTrigger=PropertyChanged, StringFormat={x:Static p:Resources.NodeTooltipRenamed}}"
@@ -543,7 +543,7 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Content="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToAbbreviationConverter}}"
-                FontFamily="宋体"
+                FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="10px"
                 Foreground="{StaticResource NodeLacingGlyphBackground}"
                 Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
@@ -565,7 +565,7 @@
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Content="{Binding NumberOfDismissedAlerts, UpdateSourceTrigger=PropertyChanged}"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="10px"
                         Foreground="Black"
                         Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}" />

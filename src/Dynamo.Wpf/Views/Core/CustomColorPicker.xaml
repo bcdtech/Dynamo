@@ -307,7 +307,7 @@
                                     Margin="-4,5,0,20"
                                     Padding="2"
                                     Background="Transparent"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="20"
                                     Foreground="Black"
                                     Text="{x:Static p:Resources.CustomColorsPopupTitle}" />
@@ -414,7 +414,7 @@
                                         MinHeight="22"
                                         Margin="2,0,5,0"
                                         VerticalAlignment="Center"
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         Style="{StaticResource ColorCanvasTextBoxStyle}" />
                                 </Grid>
                             </Border>
@@ -455,7 +455,7 @@
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="R" />
                                 <Slider
                                     x:Name="PART_RSlider"
@@ -473,14 +473,14 @@
                                     Grid.Column="2"
                                     VerticalAlignment="Center"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="{Binding Value, ElementName=PART_RSlider}" />
 
                                 <TextBlock
                                     Grid.Row="1"
                                     Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="G" />
                                 <Slider
                                     x:Name="PART_GSlider"
@@ -498,14 +498,14 @@
                                     Grid.Column="2"
                                     VerticalAlignment="Center"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="{Binding Value, ElementName=PART_GSlider}" />
 
                                 <TextBlock
                                     Grid.Row="2"
                                     Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="B" />
                                 <Slider
                                     x:Name="PART_BSlider"
@@ -523,14 +523,14 @@
                                     Grid.Column="2"
                                     VerticalAlignment="Center"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="{Binding Value, ElementName=PART_BSlider}" />
 
                                 <TextBlock
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="A"
                                     Visibility="{Binding Path=UsingAlphaChannel, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                 <Slider
@@ -549,7 +549,7 @@
                                     Grid.Column="2"
                                     VerticalAlignment="Center"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Text="{Binding Value, ElementName=PART_OpacitySlider}" />
                             </Grid>
                         </Border>
@@ -571,7 +571,7 @@
                                     Grid.Column="0"
                                     Click="CustomColorsCancelBtn_Click"
                                     Content="{x:Static p:Resources.CustomColorPickerCancelBtn}"
-                                    FontFamily="宋体">
+                                    FontFamily="{StaticResource ArtifaktElementRegular}">
                                     <Button.Style>
                                         <Style BasedOn="{StaticResource OutlinedButtonStyleInverted}" TargetType="{x:Type Button}">
                                             <Setter Property="IsEnabled" Value="True" />
@@ -583,7 +583,7 @@
                                     Grid.Column="1"
                                     Click="CustomColorsApplyBtn_Click"
                                     Content="{x:Static p:Resources.CustomColorPickerApplyBtn}"
-                                    FontFamily="宋体">
+                                    FontFamily="{StaticResource ArtifaktElementRegular}">
                                     <Button.Style>
                                         <Style BasedOn="{StaticResource SolidButtonStyle}" TargetType="{x:Type Button}">
                                             <Setter Property="IsEnabled" Value="True" />
@@ -664,7 +664,7 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock
                                     Margin="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="20"
                                     FontWeight="Bold"
                                     Foreground="Black"
@@ -675,7 +675,7 @@
                                     Width="12.8"
                                     Height="12.8"
                                     Click="NormalColorsCloseButton_Click"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Style="{StaticResource PopupCloseButtonStyle}" />
                             </Grid>
 
@@ -693,7 +693,7 @@
                                     Margin="0,10,0,0"
                                     Padding="2"
                                     Background="Transparent"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="14"
                                     Foreground="Black"
                                     Text="{x:Static p:Resources.CustomColorPickerBasicColors}" />
@@ -720,7 +720,7 @@
                                     Margin="0,10,0,-9"
                                     Padding="2"
                                     Background="Transparent"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="14"
                                     Foreground="Black"
                                     Text="{x:Static p:Resources.CustomColorPickerCustomColors}" />
@@ -772,7 +772,7 @@
                                     Padding="10,5,10,5"
                                     Click="NormalColorsCancelBtn_Click"
                                     Content="{x:Static p:Resources.CustomColorPickerCancelBtn}"
-                                    FontFamily="宋体">
+                                    FontFamily="{StaticResource ArtifaktElementRegular}">
                                     <Button.Style>
                                         <Style BasedOn="{StaticResource OutlinedButtonStyleInverted}" TargetType="{x:Type Button}">
                                             <Setter Property="IsEnabled" Value="True" />
@@ -785,7 +785,7 @@
                                     Padding="10,5,10,5"
                                     Click="NormalColorsApplyBtn_Click"
                                     Content="{x:Static p:Resources.CustomColorPickerApplyBtn}"
-                                    FontFamily="宋体">
+                                    FontFamily="{StaticResource ArtifaktElementRegular}">
                                     <Button.Style>
                                         <Style BasedOn="{StaticResource SolidButtonStyle}" TargetType="{x:Type Button}">
                                             <Setter Property="IsEnabled" Value="True" />

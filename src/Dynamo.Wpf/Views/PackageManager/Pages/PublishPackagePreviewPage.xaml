@@ -44,7 +44,7 @@
                                     Margin="2,3,2,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
-                                    TextElement.FontFamily="宋体"
+                                    TextElement.FontFamily="{StaticResource ArtifaktElementRegular}"
                                     TextElement.FontSize="10px"
                                     TextElement.FontWeight="Regular"
                                     TextElement.Foreground="Blue"
@@ -65,7 +65,7 @@
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Padding" Value="0" />
-                <Setter Property="FontFamily" Value="宋体" />
+                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                 <Setter Property="Foreground" Value="#F5F5F5" />
                 <Setter Property="Height" Value="25" />
                 <Setter Property="Background" Value="#353535" />
@@ -93,7 +93,7 @@
                                     Padding="40,7,10,0"
                                     VerticalAlignment="Center"
                                     Background="#434343"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="14px"
                                     FontWeight="Regular"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
@@ -361,7 +361,7 @@
                                     <TextBlock
                                         Margin="5,0"
                                         VerticalAlignment="Center"
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontSize="14"
                                         Text="{Binding Path=DisplayName, UpdateSourceTrigger=PropertyChanged}"
                                         TextTrimming="CharacterEllipsis">
@@ -423,7 +423,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 DataContext="{Binding ElementName=PreviewPackagePage}"
-                FontFamily="宋体"
+                FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="10"
                 Foreground="#F5F5F5"
                 Text="{Binding FilesAndFoldersCounterPreview, UpdateSourceTrigger=PropertyChanged}" />

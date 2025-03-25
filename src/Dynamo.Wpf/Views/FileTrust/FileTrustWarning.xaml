@@ -119,7 +119,7 @@
                             x:Name="TitleLabel"
                             Grid.Column="1"
                             Content="{x:Static p:Resources.FileTrustWarningPopupTitle}"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="16"
                             Foreground="Black"
                             Style="{StaticResource PoupTitleLabelStyle}" />
@@ -159,7 +159,7 @@
                         Grid.Row="0"
                         MaxWidth="500"
                         Margin="22,0,0,0"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="13"
                         Text="{x:Static p:Resources.FileTrustWarningPopupText}"
                         TextWrapping="Wrap" />
@@ -171,7 +171,7 @@
                         <CheckBox
                             Name="FileTrustWarningCheckBox"
                             Content="{x:Static p:Resources.FileTrustWarningCheckBoxText}"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13"
                             Style="{StaticResource CheckBoxFileTrustStyle}" />
                         <Label

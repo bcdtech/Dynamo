@@ -145,7 +145,7 @@
                                     Margin="0,5,0,0"
                                     Background="Transparent"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="Black"
                                     ItemsSource="{Binding NodeErrorsToDisplay, UpdateSourceTrigger=PropertyChanged}"
@@ -187,7 +187,7 @@
                                                                                 Margin="30,0,0,0"
                                                                                 Background="Transparent"
                                                                                 BorderThickness="0"
-                                                                                FontFamily="宋体"
+                                                                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                                                                 IsReadOnly="True"
                                                                                 Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
                                                                                 TextWrapping="Wrap" />
@@ -400,7 +400,7 @@
                                     Name="WarningsListBox"
                                     Margin="0,5,0,0"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="Black"
                                     ItemsSource="{Binding NodeWarningsToDisplay, UpdateSourceTrigger=PropertyChanged}"
@@ -442,7 +442,7 @@
                                                                                 Margin="30,0,0,0"
                                                                                 Background="Transparent"
                                                                                 BorderThickness="0"
-                                                                                FontFamily="宋体"
+                                                                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                                                                 IsReadOnly="True"
                                                                                 Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
                                                                                 TextWrapping="Wrap" />
@@ -704,7 +704,7 @@
                                 <ListBox
                                     Margin="0,5,0,0"
                                     BorderThickness="0"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="Black"
                                     ItemsSource="{Binding NodeInfoToDisplay, UpdateSourceTrigger=PropertyChanged}"
@@ -746,7 +746,7 @@
                                                                                 Margin="30,0,0,0"
                                                                                 Background="Transparent"
                                                                                 BorderThickness="0"
-                                                                                FontFamily="宋体"
+                                                                                FontFamily="{StaticResource ArtifaktElementRegular}"
                                                                                 IsReadOnly="True"
                                                                                 Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
                                                                                 TextWrapping="Wrap" />

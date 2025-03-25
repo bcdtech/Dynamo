@@ -3,7 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="clr-namespace:Dynamo.UI">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoColorsAndBrushes.xaml" />
+
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Separator  -->
@@ -42,7 +44,7 @@
                             VerticalAlignment="Center"
                             ContentSource="Header"
                             RecognizesAccessKey="True"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="14px" />
                         <Path
                             Name="DownArrow"
@@ -118,7 +120,7 @@
                             VerticalAlignment="Center"
                             ContentSource="Header"
                             RecognizesAccessKey="True"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="14px"
                             TextBlock.Foreground="#AFAFAF" />
                     </Grid>
@@ -174,7 +176,7 @@
                             VerticalAlignment="Center"
                             ContentSource="Header"
                             RecognizesAccessKey="True"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="14px" />
                         <TextBlock
                             x:Name="InputGestureText"
@@ -183,7 +185,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Text="{TemplateBinding InputGestureText}"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="13px" />
                         <Label
                             x:Name="Indicator"
@@ -192,7 +194,7 @@
                             Padding="0"
                             VerticalAlignment="Center"
                             Content="&gt;"
-                            FontFamily="宋体"
+                            FontFamily="{StaticResource ArtifaktElementRegular}"
                             FontSize="13px"
                             Foreground="#6AC0E7">
                             <Label.RenderTransform>
@@ -266,7 +268,7 @@
                             Margin="6,0,6,0"
                             VerticalAlignment="Center"
                             ContentSource="Icon"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="14px" />
                         <Border
                             Name="CheckMarkBackground"
@@ -291,7 +293,7 @@
                             VerticalAlignment="Center"
                             ContentSource="Header"
                             RecognizesAccessKey="True"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="14px" />
                         <TextBlock
                             x:Name="InputGestureText"
@@ -300,7 +302,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Text="{TemplateBinding InputGestureText}"
-                            TextBlock.FontFamily="宋体"
+                            TextBlock.FontFamily="{StaticResource ArtifaktElementRegular}"
                             TextBlock.FontSize="13px" />
                     </Grid>
                 </Border>
@@ -356,7 +358,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0,0,0,0" />

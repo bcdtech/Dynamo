@@ -484,7 +484,7 @@
                                         VerticalAlignment="Center"
                                         Content="&gt;"
                                         DockPanel.Dock="Right"
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontSize="13px"
                                         Foreground="{StaticResource Blue300Brush}">
                                         <Label.RenderTransform>

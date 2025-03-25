@@ -145,7 +145,7 @@
                         Name="NextGuidelabel"
                         Grid.Column="0"
                         HorizontalAlignment="Right"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="14px"
                         Text="{x:Static prop:Resources.NextGuideText}"
                         TextAlignment="Center" />

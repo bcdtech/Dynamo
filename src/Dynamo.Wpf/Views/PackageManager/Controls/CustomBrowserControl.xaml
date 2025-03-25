@@ -488,7 +488,7 @@
                 <HierarchicalDataTemplate DataType="{x:Type local:PackageItemRootViewModel}" ItemsSource="{Binding ChildItems, Converter={StaticResource SortingConverter}, ConverterParameter=DisplayName}">
                     <TextBlock
                         MaxWidth="180"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="14"
                         SnapsToDevicePixels="True"
                         Text="{Binding DisplayName}"

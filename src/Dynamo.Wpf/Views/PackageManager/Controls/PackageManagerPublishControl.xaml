@@ -86,7 +86,7 @@
                 <Setter Property="Height" Value="29px" />
                 <Setter Property="Foreground" Value="#DCDCDC" />
                 <Setter Property="FontSize" Value="12px" />
-                <Setter Property="FontFamily" Value="宋体" />
+                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -114,7 +114,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Focusable="True"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="10px"
                                     Foreground="#F5F5F5"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -333,7 +333,7 @@
                                 <Button
                                     Click="BreadcrumbButton_Click"
                                     Content="{Binding}"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12"
                                     Foreground="#F5F5F5"
                                     Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
@@ -418,7 +418,7 @@
                     x:Name="statusLabel"
                     Margin="0,4,0,0"
                     VerticalAlignment="Center"
-                    FontFamily="宋体"
+                    FontFamily="{StaticResource ArtifaktElementRegular}"
                     Style="{StaticResource LabelStyle}"
                     Text="{Binding ErrorString, UpdateSourceTrigger=PropertyChanged}"
                     TextTrimming="CharacterEllipsis">
@@ -469,7 +469,7 @@
                 <TextBlock
                     Margin="0,4,0,0"
                     VerticalAlignment="Center"
-                    FontFamily="宋体"
+                    FontFamily="{StaticResource ArtifaktElementRegular}"
                     Style="{StaticResource LabelStyle}"
                     Text="{x:Static p:Resources.PublishPackageSelectPackageContentsMessage}"
                     TextTrimming="CharacterEllipsis" />
@@ -526,7 +526,7 @@
                 <TextBlock
                     Margin="0,4,0,0"
                     VerticalAlignment="Center"
-                    FontFamily="宋体"
+                    FontFamily="{StaticResource ArtifaktElementRegular}"
                     Style="{StaticResource LabelStyle}"
                     Text="{x:Static p:Resources.PublishPackagePreviewPackageContentsMessage}"
                     TextTrimming="CharacterEllipsis" />

@@ -33,7 +33,7 @@
                                     BorderThickness="0"
                                     CaretBrush="{StaticResource Blue300Brush}"
                                     Focusable="True"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     MaxLength="{TemplateBinding MaxLength}"
@@ -43,7 +43,7 @@
                                 <TextBlock
                                     x:Name="WatermarkLabel"
                                     Padding="10"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                     IsHitTestVisible="False"
@@ -149,7 +149,7 @@
                 <Setter Property="Height" Value="29px" />
                 <Setter Property="Foreground" Value="#DCDCDC" />
                 <Setter Property="FontSize" Value="12px" />
-                <Setter Property="FontFamily" Value="宋体" />
+                <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -178,7 +178,7 @@
                                     Background="#353535"
                                     BorderThickness="0"
                                     Focusable="True"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="12px"
                                     Foreground="#F5F5F5"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -268,7 +268,7 @@
                     Margin="25,16"
                     VerticalAlignment="Top"
                     DockPanel.Dock="Left"
-                    FontFamily="宋体"
+                    FontFamily="{StaticResource ArtifaktElementRegular}"
                     FontSize="20px"
                     FontWeight="Regular"
                     Foreground="{StaticResource PreferencesWindowFontColor}"

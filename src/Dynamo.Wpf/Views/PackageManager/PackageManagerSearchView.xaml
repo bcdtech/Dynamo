@@ -120,7 +120,7 @@
                     Margin="25,16"
                     VerticalAlignment="Top"
                     DockPanel.Dock="Left"
-                    FontFamily="宋体"
+                    FontFamily="{StaticResource ArtifaktElementRegular}"
                     FontSize="20px"
                     FontWeight="Regular"
                     Foreground="{StaticResource PreferencesWindowFontColor}"
@@ -336,7 +336,7 @@
                         Background="#353535"
                         BorderThickness="0"
                         CaretBrush="White"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="14px"
                         Foreground="#F5F5F5"
                         KeyboardNavigation.TabIndex="0"
@@ -349,7 +349,7 @@
                         Name="searchTextBoxWatermark"
                         Padding="17,11,5,10"
                         Background="Transparent"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="14px"
                         Foreground="#F5F5F5"
                         IsHitTestVisible="False"
@@ -402,7 +402,7 @@
                 <ListBox.Resources>
                     <!--  Local style used for labels on result, e.g. Number of Installs  -->
                     <Style x:Key="resultLabelStyle" TargetType="TextBlock">
-                        <Setter Property="FontFamily" Value="宋体" />
+                        <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
                         <Setter Property="FontSize" Value="10" />
                         <Setter Property="Foreground" Value="#C7C7C7" />
                         <Setter Property="VerticalAlignment" Value="Center" />
@@ -472,7 +472,7 @@
                                                             VerticalAlignment="Center"
                                                             Cursor="Hand"
                                                             DockPanel.Dock="Right"
-                                                            FontFamily="宋体"
+                                                            FontFamily="{StaticResource ArtifaktElementRegular}"
                                                             FontSize="11"
                                                             Foreground="#84D7CE"
                                                             Text="{TemplateBinding Content}" />
@@ -522,7 +522,7 @@
                                                                         VerticalAlignment="Center"
                                                                         Cursor="Hand"
                                                                         DockPanel.Dock="Right"
-                                                                        FontFamily="宋体"
+                                                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                                                         FontSize="11"
                                                                         Text="{TemplateBinding Content}" />
                                                                     <Rectangle
@@ -623,7 +623,7 @@
                                         Name="packageName"
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
-                                        FontFamily="宋体"
+                                        FontFamily="{StaticResource ArtifaktElementRegular}"
                                         FontSize="14"
                                         FontWeight="SemiBold"
                                         Text="{Binding Path=Model.Name}"
@@ -666,7 +666,7 @@
                                             Padding="0,2,0,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            FontFamily="宋体"
+                                            FontFamily="{StaticResource ArtifaktElementRegular}"
                                             FontSize="11"
                                             Foreground="{StaticResource PrimaryCharcoal200Brush}"
                                             Text="{Binding Path=Model, Converter={StaticResource DateToPackageLabelCollapsedConverter}}">
@@ -904,7 +904,7 @@
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
                                     VerticalAlignment="Bottom"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="14"
                                     Foreground="#F5F5F5"
                                     Text="{Binding Path=Name}"
@@ -930,7 +930,7 @@
                                     Margin="0,0,0,2"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Bottom"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="10"
                                     Foreground="#F5F5F5"
                                     Text="{Binding Path=DownloadState, Converter={StaticResource PackageDownloadStateToStringConverter}}" />
@@ -941,7 +941,7 @@
                                     Grid.Row="1"
                                     Grid.Column="2"
                                     VerticalAlignment="Top"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="10"
                                     Foreground="#F5F5F5"
                                     Text="{Binding Path=VersionName}" />
@@ -1065,7 +1065,7 @@
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
                                     VerticalAlignment="Bottom"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="14"
                                     Foreground="#F5F5F5"
                                     Text="{Binding Path=InfectedPackageName}"
@@ -1090,7 +1090,7 @@
                                     Margin="0,0,0,2"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Bottom"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="10"
                                     Foreground="#F5F5F5"
                                     Text="{x:Static p:Resources.InfectedPackageErrorString}" />
@@ -1101,7 +1101,7 @@
                                     Grid.Row="1"
                                     Grid.Column="2"
                                     VerticalAlignment="Top"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     FontSize="10"
                                     Foreground="#F5F5F5"
                                     Text="{Binding Path=InfectedPackageVersion}" />

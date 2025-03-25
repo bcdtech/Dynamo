@@ -74,7 +74,7 @@
                         Name="TitleTextBlock"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        FontFamily="宋体"
+                        FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="20px"
                         Foreground="#3C3C3C"
                         Text="{x:Static p:Resources.GenericTaskDialogTitle}"

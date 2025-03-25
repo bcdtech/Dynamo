@@ -162,7 +162,7 @@
                                     x:Name="HeaderText"
                                     Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    FontFamily="宋体"
+                                    FontFamily="{StaticResource ArtifaktElementRegular}"
                                     Foreground="#DCDCDC"
                                     Text="{x:Static p:Resources.ShortcutExportAsImageMainMenu}"
                                     Visibility="{Binding ShowMenuItemText, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
@@ -242,7 +242,7 @@
                                         Visibility="{Binding IsNotificationsCounterVisible, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}">
                                         <TextBlock
                                             Name="NotificationCount"
-                                            FontFamily="宋体"
+                                            FontFamily="{StaticResource ArtifaktElementRegular}"
                                             FontSize="9"
                                             FontWeight="DemiBold"
                                             Foreground="White"
