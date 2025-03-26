@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+using Dynamo.Logging;
+using DynamoUtilities;
 using System.IO;
 using System.Reflection;
 using System.Xml;
-using Dynamo.Logging;
-using DynamoUtilities;
 
 namespace Dynamo.Wpf.Extensions
 {
@@ -21,6 +19,9 @@ namespace Dynamo.Wpf.Extensions
                         CertificateVerification.CheckAssemblyForValidCertificate(viewExtension.AssemblyPath);
                     }
                     var assembly = Assembly.LoadFrom(viewExtension.AssemblyPath);
+                    var types = assembly.GetTypes();
+                    var t = assembly.CreateInstance(viewExtension.TypeName);
+
                     var result = assembly.CreateInstance(viewExtension.TypeName) as IViewExtension;
                     ExtensionLoading?.Invoke(result);
 
@@ -32,7 +33,7 @@ namespace Dynamo.Wpf.Extensions
                 }
                 return null;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var name = viewExtension.TypeName == null ? "null" : viewExtension.TypeName;
                 Log("Could not create an instance of " + name);
