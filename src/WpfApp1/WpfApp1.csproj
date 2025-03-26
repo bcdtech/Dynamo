@@ -11,6 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
     <ProjectReference Include="..\DynamoApplications\DynamoApplications.csproj" />
+    <ProjectReference Include="..\GraphNodeManagerViewExtension\GraphNodeManagerViewExtension.csproj" />
+    <ProjectReference Include="..\LibraryViewExtensionWebView2\LibraryViewExtensionWebView2.csproj" />
   </ItemGroup>
 
 </Project>

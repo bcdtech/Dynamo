@@ -13,16 +13,16 @@ namespace Dynamo.GraphNodeManager.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            switch ((ElementState) value)
+            switch ((ElementState)value)
             {
                 case ElementState.Info:
                 case ElementState.PersistentInfo:
-                    return SharedDictionaryManager.DynamoColorsAndBrushesDictionary["Blue400Brush"];
+                    return SharedDictionaryManager.Resoures["Blue400Brush"];
                 case ElementState.Warning:
                 case ElementState.PersistentWarning:
-                    return SharedDictionaryManager.DynamoColorsAndBrushesDictionary["YellowOrange500Brush"];
+                    return SharedDictionaryManager.Resoures["YellowOrange500Brush"];
                 case ElementState.Error:
-                    return SharedDictionaryManager.DynamoColorsAndBrushesDictionary["Red500Brush"];
+                    return SharedDictionaryManager.Resoures["Red500Brush"];
                 default:
                     return new SolidColorBrush(Colors.Transparent);
             }
@@ -95,9 +95,9 @@ namespace Dynamo.GraphNodeManager.Converters
             {
                 return Visibility.Visible;
             }
-            else if ((ElementState) value == ElementState.Warning ||
-                     (ElementState) value == ElementState.PersistentWarning ||
-                     (ElementState) value == ElementState.Error)
+            else if ((ElementState)value == ElementState.Warning ||
+                     (ElementState)value == ElementState.PersistentWarning ||
+                     (ElementState)value == ElementState.Error)
             {
                 if (parameter.Equals("WarningOrError")) return Visibility.Visible;
             }
@@ -128,14 +128,14 @@ namespace Dynamo.GraphNodeManager.Converters
             throw new NotImplementedException();
         }
     }
-    
+
     internal class BooleanToToolTipTextConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if ((bool)value)
             {
-                return Resources.ToolTip_ExportToExcelFiltered;    
+                return Resources.ToolTip_ExportToExcelFiltered;
             }
 
             return Resources.ToolTip_ExportToExcel;
