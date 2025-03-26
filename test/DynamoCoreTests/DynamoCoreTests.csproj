@@ -22,30 +22,44 @@
     <None Remove="TestResource.txt" />
   </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="NUnit" Version="3.13.3" ExcludeAssets="none" />
-        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-        <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
-        <PackageReference Include="coverlet.collector" Version="3.1.2" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" ExcludeAssets="none" />
-        <PackageReference Include="JunitXml.TestLogger" Version="3.0.124" />
+        <PackageReference Include="NUnit" Version="4.3.2" ExcludeAssets="none" />
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NUnit.Analyzers" Version="4.6.0">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.4">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" ExcludeAssets="none" />
+        <PackageReference Include="JunitXml.TestLogger" Version="6.1.0">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="DynamoVisualProgramming.Analytics" Version="4.2.1.6685">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Greg" Version="3.0.2.6533">
+        <PackageReference Include="Greg" Version="3.0.2.8145">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
 
         <!--moq and deps - copied to test_dependencies folder-->
-        <PackageReference Include="Moq" Version="4.18.4" GeneratePathProperty="true" />
-        <PackageReference Include="Castle.Core" Version=" 5.1.1" GeneratePathProperty="true" />
+        <PackageReference Include="Moq" Version="4.20.72" GeneratePathProperty="true">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Castle.Core" Version="5.2.1" GeneratePathProperty="true">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
 
         <PackageReference Include="JUnitTestLogger" Version="1.1.0" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <PackageReference Include="RestSharp" Version="112.0.0">
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3">
+          <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="RestSharp" Version="112.1.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

@@ -1,3 +1,4 @@
+using Dynamo.GraphNodeManager.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -5,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using Dynamo.GraphNodeManager.ViewModels;
 
 namespace Dynamo.GraphNodeManager
 {
@@ -55,6 +55,7 @@ namespace Dynamo.GraphNodeManager
             viewModel.PropertyChanged += ViewModel_OnPropertyChanged;
             viewModel.RequestExportGraph += ViewModel_RequestExportGraph;
             NodesInfoDataGrid.Sorting += NodesInfoDataGrid_Sorting;
+
         }
 
         private void ViewModel_RequestExportGraph(object parameter)
