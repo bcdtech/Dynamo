@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Data;
 using Dynamo.Core;
 using Dynamo.Extensions;
 using Dynamo.Graph.Nodes;
@@ -12,11 +7,14 @@ using Dynamo.GraphNodeManager.ViewModels;
 using Dynamo.Models;
 using Dynamo.PackageManager;
 using Dynamo.Utilities;
-using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 using Newtonsoft.Json;
 using Prism.Commands;
-using DelegateCommand = Dynamo.UI.Commands.DelegateCommand;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Data;
 using GridNodeViewModel = Dynamo.GraphNodeManager.ViewModels.GridNodeViewModel;
 
 namespace Dynamo.GraphNodeManager
@@ -89,8 +87,8 @@ namespace Dynamo.GraphNodeManager
         /// </summary>
         public CollectionViewSource NodesCollection { get; set; }
 
-        public DelegateCommand NodeSelectCommand { get; set; }
-        public DelegateCommand ClearFiltersCommand { get; set; }
+        public DelegateCommand<object> NodeSelectCommand { get; set; }
+        public DelegateCommand<object> ClearFiltersCommand { get; set; }
         public DelegateCommand<string> ExportCommand { get; set; }
 
 
@@ -107,7 +105,7 @@ namespace Dynamo.GraphNodeManager
                 searchText = value;
 
                 // Every time we type in the Search Box, we will be updating the Filter
-                NodesCollectionFilter_Changed();    
+                NodesCollectionFilter_Changed();
                 RaisePropertyChanged(nameof(SearchText));
             }
         }
@@ -175,7 +173,7 @@ namespace Dynamo.GraphNodeManager
 
             p.CurrentWorkspaceChanged += OnCurrentWorkspaceChanged;
             p.CurrentWorkspaceCleared += OnCurrentWorkspaceCleared;
-            
+
             if (p.CurrentWorkspaceModel is HomeWorkspaceModel)
             {
                 CurrentWorkspace = p.CurrentWorkspaceModel as HomeWorkspaceModel;
@@ -187,8 +185,8 @@ namespace Dynamo.GraphNodeManager
 
             InitializeFilters();
 
-            NodeSelectCommand = new DelegateCommand(NodeSelect);
-            ClearFiltersCommand = new DelegateCommand(ClearAllFilters);
+            NodeSelectCommand = new DelegateCommand<object>(NodeSelect);
+            ClearFiltersCommand = new DelegateCommand<object>(ClearAllFilters);
             ExportCommand = new DelegateCommand<string>(ExportGraph);
 
             DynamoVersion = p.StartupParams.DynamoVersion.ToString();
@@ -202,18 +200,18 @@ namespace Dynamo.GraphNodeManager
 
 
         private void InitializeFilters()
-        {   
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_EmptyList, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.EmptyList)  }); 
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Error, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Error) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Frozen, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Frozen) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Function, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Function) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Information, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Info) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_IsInput, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.IsInput) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_IsOutput, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.IsOutput) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_MissingContent, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.MissingNode) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Null, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Null) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_Warning, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Alert) });
-            FilterItems.Add(new FilterViewModel(this){Name = Resources.Title_PreviewOff, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Hidden) });
+        {
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_EmptyList, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.EmptyList) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Error, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Error) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Frozen, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Frozen) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Function, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Function) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Information, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Info) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_IsInput, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.IsInput) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_IsOutput, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.IsOutput) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_MissingContent, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.MissingNode) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Null, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Null) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_Warning, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Alert) });
+            FilterItems.Add(new FilterViewModel(this) { Name = Resources.Title_PreviewOff, FilterImage = ResourceUtilities.ConvertToImageSource(Properties.Resources.Hidden) });
 
             filterDictionary = new Dictionary<string, FilterViewModel>(FilterItems.ToDictionary(fi => fi.Name));
         }
@@ -289,7 +287,7 @@ namespace Dynamo.GraphNodeManager
             if (nodeViewModel == null) return;
 
             // Select
-            var command = new DynamoModel.SelectModelCommand(nodeViewModel.NodeModel.GUID, ModifierKeys.None);  
+            var command = new DynamoModel.SelectModelCommand(nodeViewModel.NodeModel.GUID, ModifierKeys.None);
             commandExecutive.ExecuteCommand(command, uniqueId, "GraphNodeManager");
 
             // Focus on selected
@@ -405,7 +403,7 @@ namespace Dynamo.GraphNodeManager
                     return;
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 logMessage(Logging.LogMessage.Error(err));
             }
@@ -558,7 +556,7 @@ namespace Dynamo.GraphNodeManager
         /// </summary>
         private void DisposeNodes()
         {
-            foreach(var nvm in Nodes)
+            foreach (var nvm in Nodes)
             {
                 nvm.BubbleUpdate -= (sender, args) => { RefreshNodesView(); };
                 nvm.Dispose();

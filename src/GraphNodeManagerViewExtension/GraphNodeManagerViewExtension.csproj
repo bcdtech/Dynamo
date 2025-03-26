@@ -12,12 +12,14 @@
     <RootNamespace>Dynamo.GraphNodeManager</RootNamespace>
     <AssemblyName>GraphNodeManagerViewExtension</AssemblyName>
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FontAwesome5" Version="2.1.11" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
     <ProjectReference Include="..\DynamoCore\DynamoCore.csproj">
       <Project>{7858fa8c-475f-4b8e-b468-1f8200778cf8}</Project>
       <Name>DynamoCore</Name>

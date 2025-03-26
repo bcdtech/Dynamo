@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:Dynamo.GraphNodeManager.Converters"
-             xmlns:dynconverters="clr-namespace:Dynamo.Controls;assembly=DynamoCoreWpf"
+             xmlns:dynconverters="clr-namespace:Dynamo.Controls;assembly=Dynamo.Wpf"
              xmlns:controls="clr-namespace:Dynamo.GraphNodeManager.Controls"
-             xmlns:ui="clr-namespace:Dynamo.UI;assembly=DynamoCoreWpf"
+             xmlns:ui="clr-namespace:Dynamo.UI;assembly=Dynamo.Wpf"
              xmlns:p="clr-namespace:Dynamo.GraphNodeManager.Properties"
-             xmlns:controls1="clr-namespace:Dynamo.UI.Controls;assembly=DynamoCoreWpf"
+             xmlns:controls1="clr-namespace:Dynamo.UI.Controls;assembly=Dynamo.Wpf"
              x:Name="UserControl"
              UseLayoutRounding="True"
              SnapsToDevicePixels="True"
@@ -17,8 +17,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoConvertersDictionaryUri}" />
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoModernDictionaryUri}" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml" />
                 <ResourceDictionary Source="Controls/ControlColorsAndBrushes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <dynconverters:BoolToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
