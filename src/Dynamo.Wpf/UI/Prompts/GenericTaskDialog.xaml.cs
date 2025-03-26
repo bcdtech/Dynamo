@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -68,7 +68,7 @@ namespace Dynamo.UI.Prompts
             if (buttons == null)
                 return;
 
-            var style = SharedDictionaryManager.DynamoModernDictionary["CtaButtonStyle"];
+            var style = Resources["CtaButtonStyle"];
 
             foreach (var button in buttons)
             {

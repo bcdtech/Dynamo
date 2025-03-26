@@ -471,7 +471,7 @@ namespace Dynamo.Controls
             textBox.FontWeight = ContentFontWeight;
             textBox.FontSize = ContentFontSize;
 
-            var font = SharedDictionaryManager.DynamoModernDictionary["OpenSansRegular"];
+            var font = Resources["OpenSansRegular"];
             textBox.FontFamily = font as FontFamily;
 
             textBox.Background = Brushes.Transparent;
@@ -506,7 +506,7 @@ namespace Dynamo.Controls
         {
             this.UpdateHyperlink();
 
-            var font = SharedDictionaryManager.DynamoModernDictionary["OpenSansRegular"];
+            var font = Resources["OpenSansRegular"];
             TextBlock linkBlock = new TextBlock
             {
                 TextWrapping = TextWrapping.Wrap,

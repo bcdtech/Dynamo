@@ -1,9 +1,8 @@
-using System.Windows;
-using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.Graph.Nodes;
 using Dynamo.Nodes;
-using Dynamo.UI;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Dynamo.Wpf
 {
@@ -14,13 +13,13 @@ namespace Dynamo.Wpf
             var addButton = new DynamoNodeButton(nodeView.ViewModel.NodeModel, "AddInPort")
             {
                 Content = "+",
-                Style = (Style)SharedDictionaryManager.DynamoModernDictionary["AddRemoveButton"]
+                Style = (Style)nodeView.Resources["AddRemoveButton"]
             };
 
             var subButton = new DynamoNodeButton(nodeView.ViewModel.NodeModel, "RemoveInPort")
             {
                 Content = "-",
-                Style = (Style)SharedDictionaryManager.DynamoModernDictionary["AddRemoveButton"]
+                Style = (Style)nodeView.Resources["AddRemoveButton"]
             };
 
             var wp = new WrapPanel

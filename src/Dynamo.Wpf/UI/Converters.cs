@@ -2853,8 +2853,8 @@ namespace Dynamo.Controls
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var homeColor = (System.Windows.Media.Color)SharedDictionaryManager.DynamoColorsAndBrushesDictionary["WorkspaceBackgroundHome"];
-            var customColor = (System.Windows.Media.Color)SharedDictionaryManager.DynamoColorsAndBrushesDictionary["WorkspaceBackgroundCustom"];
+            var homeColor = (System.Windows.Media.Color)SharedDictionaryManager.Resoures["WorkspaceBackgroundHome"];
+            var customColor = (System.Windows.Media.Color)SharedDictionaryManager.Resoures["WorkspaceBackgroundCustom"];
 
             //parameter will contain a true or false
             //whether this is the home space
@@ -3392,7 +3392,7 @@ namespace Dynamo.Controls
 
             var type = (SearchElementGroup)value;
 
-            var resourceDictionary = SharedDictionaryManager.DynamoColorsAndBrushesDictionary;
+            var resourceDictionary = SharedDictionaryManager.Resoures;
 
             switch (type)
             {
@@ -3586,7 +3586,7 @@ namespace Dynamo.Controls
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var resourceDictionary = SharedDictionaryManager.DynamoColorsAndBrushesDictionary;
+            var resourceDictionary = SharedDictionaryManager.Resoures;
 
             if (values != null)
             {
@@ -3862,8 +3862,8 @@ namespace Dynamo.Controls
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var lightColor = (System.Windows.Media.Color)SharedDictionaryManager.DynamoColorsAndBrushesDictionary["WhiteColor"];
-            var darkColor = (System.Windows.Media.Color)SharedDictionaryManager.DynamoColorsAndBrushesDictionary["DarkerGrey"];
+            var lightColor = (System.Windows.Media.Color)SharedDictionaryManager.Resoures["WhiteColor"];
+            var darkColor = (System.Windows.Media.Color)SharedDictionaryManager.Resoures["DarkerGrey"];
 
             var backgroundColor = (System.Windows.Media.Color)value;
 
@@ -4108,7 +4108,7 @@ namespace Dynamo.Controls
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var darkColor = (System.Windows.Media.Color)SharedDictionaryManager.DynamoColorsAndBrushesDictionary["DarkerGrey"];
+            var darkColor = (System.Windows.Media.Color)SharedDictionaryManager.Resoures["DarkerGrey"];
 
             var backgroundColor = (System.Windows.Media.Color)value;
 

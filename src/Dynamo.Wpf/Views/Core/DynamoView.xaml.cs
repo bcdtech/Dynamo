@@ -12,6 +12,7 @@ using Dynamo.PackageManager.UI;
 using Dynamo.Search.SearchElements;
 using Dynamo.Selection;
 using Dynamo.Services;
+using Dynamo.UI;
 using Dynamo.UI.Controls;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
@@ -124,6 +125,7 @@ namespace Dynamo.Controls
 
             this.dynamoViewModel = dynamoViewModel;
             this.dynamoViewModel.UIDispatcher = Dispatcher;
+            SharedDictionaryManager.Resoures = Resources;
             nodeViewCustomizationLibrary = new NodeViewCustomizationLibrary(this.dynamoViewModel.Model.Logger);
 
             DataContext = dynamoViewModel;
@@ -271,6 +273,8 @@ namespace Dynamo.Controls
 
             DefaultMinWidth = MinWidth;
             PinHomeButton();
+            var fontFamily = Resources["ArtifaktElementRegular"] as FontFamily;
+
         }
         private void OnRequestCloseHomeWorkSpace()
         {

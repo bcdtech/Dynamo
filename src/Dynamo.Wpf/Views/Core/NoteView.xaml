@@ -24,11 +24,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml" />
 
-                <ResourceDictionary>
-                    <controls:NullToVisibiltyConverter x:Key="nullToVisibiltyConverter" />
-                    <controls:NullToPinWidthConverter x:Key="nullToPinWidthConverter" />
-                </ResourceDictionary>
+               
             </ResourceDictionary.MergedDictionaries>
+            <controls:NullToVisibiltyConverter x:Key="nullToVisibiltyConverter" />
+            <controls:NullToPinWidthConverter x:Key="nullToPinWidthConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 

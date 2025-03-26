@@ -11,21 +11,20 @@
     Width="Auto"
     Height="Auto"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml" />
 
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Border
         Panel.ZIndex="2000"
         BorderBrush="#FF3F4040"
         BorderThickness="0,0,0,0">
 
-        <Border.Resources>
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/ToolbarStyleDictionary.xaml" />
-                    <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml" />
-
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
-        </Border.Resources>
+       
 
         <Border
             Margin="11,4,0,0"

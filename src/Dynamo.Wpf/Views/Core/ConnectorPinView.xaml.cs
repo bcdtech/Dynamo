@@ -1,11 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 using Dynamo.Configuration;
 using Dynamo.Selection;
 using Dynamo.UI;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Dynamo.Nodes
 {
@@ -20,7 +20,6 @@ namespace Dynamo.Nodes
         {
             // Add DynamoConverters - currently using the InverseBoolToVisibilityCollapsedConverter
             // to be able to collapse pins
-            Resources.MergedDictionaries.Add(SharedDictionaryManager.DynamoConvertersDictionary);
 
             InitializeComponent();
             ViewModel = null;
@@ -51,7 +50,7 @@ namespace Dynamo.Nodes
             //Set all pins to -1 the current index
             foreach (var pin in ViewModel.WorkspaceViewModel.Pins)
             {
-                pin.ZIndex = ConnectorPinViewModel.StaticZIndex-1;
+                pin.ZIndex = ConnectorPinViewModel.StaticZIndex - 1;
             }
             //Sets active pin to an index higher
             ViewModel.ZIndex = ConnectorPinViewModel.StaticZIndex;

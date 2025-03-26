@@ -6,7 +6,6 @@ using Dynamo.Interfaces;
 using Dynamo.Models;
 using Dynamo.Search;
 using Dynamo.Search.SearchElements;
-using Dynamo.UI;
 using Dynamo.Utilities;
 using Dynamo.Wpf.Services;
 using Dynamo.Wpf.Utilities;
@@ -463,7 +462,8 @@ namespace Dynamo.ViewModels
             Visible = false;
             searchText = "";
 
-            var fontFamily = new FontFamily(SharedDictionaryManager.DynamoModernDictionaryUri, "../../Fonts/#Open Sans");
+            //var fontFamily = SharedDictionaryManager.Resoures["OpenSansRegular"] as FontFamily;
+            var fontFamily = new FontFamily("Open Sans");
             RegularTypeface = new Typeface(fontFamily, FontStyles.Normal, FontWeights.Normal,
                 FontStretches.Normal);
 
