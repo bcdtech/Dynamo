@@ -36,9 +36,9 @@
             <controls:TextForegroundSaturationColorConverter x:Key="TextForegroundSaturationColorConverter" />
             <controls:BackgroundConditionEvaluator x:Key="BackgroundConditionEvaluator" />
             <CornerRadius
-    x:Key="ExpanderCornerRadius"
-    TopLeft="10"
-    TopRight="10" />
+                x:Key="ExpanderCornerRadius"
+                TopLeft="10"
+                TopRight="10" />
             <Style x:Key="ColorSelectorListBox" TargetType="ListBox">
                 <Setter Property="SnapsToDevicePixels" Value="true" />
                 <Setter Property="OverridesDefaultStyle" Value="true" />
@@ -74,11 +74,11 @@
                                 </Grid.Background>
                                 <ContentPresenter />
                                 <Border
-                        x:Name="Border"
-                        Background="Transparent"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        Opacity="0.25" />
+                                    x:Name="Border"
+                                    Background="Transparent"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Opacity="0.25" />
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="CommonStates">
                                         <VisualState x:Name="Normal" />
@@ -110,21 +110,21 @@
 
             <ControlTemplate x:Key="GroupExpanderTemplate" TargetType="{x:Type ToggleButton}">
                 <Border
-        x:Name="expanderBorder"
-        Padding="{TemplateBinding Padding}"
-        Background="{TemplateBinding Background}"
-        BorderBrush="{TemplateBinding BorderBrush}"
-        BorderThickness="{TemplateBinding BorderThickness}">
+                    x:Name="expanderBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Rectangle Grid.ColumnSpan="1" Fill="Transparent" />
                         <Image
-                x:Name="sign"
-                Width="16"
-                Height="16"
-                Source="/Dynamo.Wpf;component/UI/Images/caret_down_grey_48px.png" />
+                            x:Name="sign"
+                            Width="16"
+                            Height="16"
+                            Source="/Dynamo.Wpf;component/UI/Images/caret_down_grey_48px.png" />
                     </Grid>
                 </Border>
                 <ControlTemplate.Triggers>
@@ -192,21 +192,21 @@
                                     <RowDefinition x:Name="ContentRow" Height="0" />
                                 </Grid.RowDefinitions>
                                 <Border
-                        x:Name="headerBorder"
-                        Grid.Row="0"
-                        Margin="0"
-                        Padding="0"
-                        CornerRadius="{StaticResource ExpanderCornerRadius}"
-                        ToolTipService.IsEnabled="{TemplateBinding IsExpanded,
-                                                                   Converter={StaticResource InverseBooleanConverter}}">
+                                    x:Name="headerBorder"
+                                    Grid.Row="0"
+                                    Margin="0"
+                                    Padding="0"
+                                    CornerRadius="{StaticResource ExpanderCornerRadius}"
+                                    ToolTipService.IsEnabled="{TemplateBinding IsExpanded,
+                                                                               Converter={StaticResource InverseBooleanConverter}}">
                                     <Border.Background>
                                         <SolidColorBrush Color="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.Background}" />
                                     </Border.Background>
                                     <Border.ToolTip>
                                         <dynui:DynamoToolTip
-                                Margin="5,0,0,0"
-                                AttachmentSide="Top"
-                                Style="{DynamicResource ResourceKey=SLightToolTip}">
+                                            Margin="5,0,0,0"
+                                            AttachmentSide="Top"
+                                            Style="{DynamicResource ResourceKey=SLightToolTip}">
                                             <StackPanel MaxWidth="320" Orientation="Vertical">
                                                 <TextBlock Margin="0,0,0,10" Text="{Binding AnnotationText}" />
                                                 <TextBlock Text="{Binding AnnotationDescriptionText}" TextWrapping="WrapWithOverflow" />
@@ -220,20 +220,20 @@
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <ContentPresenter
-                                Grid.ColumnSpan="3"
-                                Margin="4"
-                                HorizontalAlignment="Left"
-                                ContentSource="Header"
-                                RecognizesAccessKey="True" />
+                                            Grid.ColumnSpan="3"
+                                            Margin="4"
+                                            HorizontalAlignment="Left"
+                                            ContentSource="Header"
+                                            RecognizesAccessKey="True" />
 
                                         <!--  Warning/Error Icon  -->
                                         <Image
-                                Grid.Column="0"
-                                Width="16px"
-                                Height="16px"
-                                Margin="0,0,2.5,2.5"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom">
+                                            Grid.Column="0"
+                                            Width="16px"
+                                            Height="16px"
+                                            Margin="0,0,2.5,2.5"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom">
                                             <Image.Style>
                                                 <Style TargetType="Image">
                                                     <Style.Triggers>
@@ -250,24 +250,24 @@
 
                                         <!--  Expander button  -->
                                         <ToggleButton
-                                Grid.Column="1"
-                                Margin="0,0,0,2.5"
-                                VerticalAlignment="Bottom"
-                                IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                OverridesDefaultStyle="True"
-                                Template="{StaticResource GroupExpanderTemplate}" />
+                                            Grid.Column="1"
+                                            Margin="0,0,0,2.5"
+                                            VerticalAlignment="Bottom"
+                                            IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                            OverridesDefaultStyle="True"
+                                            Template="{StaticResource GroupExpanderTemplate}" />
 
                                         <!--  Group context menu  -->
                                         <Button
-                                x:Name="contextMenu"
-                                Grid.Column="2"
-                                Height="16"
-                                Margin="0,2.5,0,2.5"
-                                VerticalAlignment="Bottom"
-                                Background="Transparent"
-                                BorderBrush="Transparent"
-                                BorderThickness="0"
-                                Click="contextMenu_Click">
+                                            x:Name="contextMenu"
+                                            Grid.Column="2"
+                                            Height="16"
+                                            Margin="0,2.5,0,2.5"
+                                            VerticalAlignment="Bottom"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Click="contextMenu_Click">
                                             <Button.Style>
                                                 <Style TargetType="{x:Type Button}">
                                                     <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -275,13 +275,13 @@
                                                         <Setter.Value>
                                                             <ControlTemplate TargetType="Button">
                                                                 <Border
-                                                        Name="border"
-                                                        Background="{TemplateBinding Background}"
-                                                        BorderThickness="0">
+                                                                    Name="border"
+                                                                    Background="{TemplateBinding Background}"
+                                                                    BorderThickness="0">
                                                                     <Image
-                                                            x:Name="menuIcon"
-                                                            Width="16"
-                                                            Height="16" />
+                                                                        x:Name="menuIcon"
+                                                                        Width="16"
+                                                                        Height="16" />
                                                                 </Border>
                                                                 <ControlTemplate.Triggers>
                                                                     <MultiDataTrigger>
@@ -329,7 +329,7 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
-        
+
     </UserControl.Resources>
 
     <Grid
