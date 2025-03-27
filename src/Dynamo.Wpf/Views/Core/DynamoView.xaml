@@ -1671,7 +1671,9 @@
             Height="Auto"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            Visibility="Visible" />
+            >
+           
+        </Grid>
 
         <!--  Right Sidebar Panel  -->
         <Grid
@@ -1911,40 +1913,7 @@
             DragCompleted="RightExtensionSidebar_DragCompleted"
             ResizeDirection="Auto" />
 
-        <!--  Start Page  -->
-        <Grid
-            x:Name="oldHomePageContainer"
-            Grid.Row="2"
-            Grid.RowSpan="4"
-            Grid.Column="0"
-            Grid.ColumnSpan="5"
-            Visibility="{Binding IsNewAppHomeEnabled, Converter={StaticResource InverseBoolToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
-            <ItemsControl Name="startPageItemsControl">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="{x:Type uictrls:StartPageViewModel}">
-                        <Grid>
-                            <Grid.Height>
-                                <Binding
-                                    Mode="OneWay"
-                                    Path="ActualHeight"
-                                    RelativeSource="{RelativeSource FindAncestor,
-                                                                    AncestorType={x:Type ItemsControl}}" />
-                            </Grid.Height>
-                            <uictrls:StartPageView />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.Visibility>
-                    <Binding
-                        Converter="{StaticResource BooleanToVisibilityConverter}"
-                        Mode="OneWay"
-                        Path="DataContext.ShowStartPage"
-                        RelativeSource="{RelativeSource FindAncestor,
-                                                        AncestorType={x:Type controls:DynamoView}}"
-                        UpdateSourceTrigger="Explicit" />
-                </ItemsControl.Visibility>
-            </ItemsControl>
-        </Grid>
+      
         <!--  Do not delete newHomePageContainer grid as it is hosting the HomePage  -->
         <Grid
             x:Name="newHomePageContainer"
@@ -1952,7 +1921,9 @@
             Grid.RowSpan="4"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            Visibility="{Binding IsNewAppHomeEnabled, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+            Visibility="Visible"
+            d:Visibility="Hidden"
+             />
 
         <Grid
             Name="FocusableGrid"
