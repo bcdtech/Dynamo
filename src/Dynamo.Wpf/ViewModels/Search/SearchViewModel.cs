@@ -912,7 +912,7 @@ namespace Dynamo.ViewModels
 
             if (!String.IsNullOrEmpty(SearchText.Trim()))
             {
-                SearchAndUpdateResults(SearchText);
+                _ = SearchAndUpdateResultsTask(SearchText);
             }
 
             RaisePropertyChanged("IsAnySearchResult");
@@ -953,35 +953,7 @@ namespace Dynamo.ViewModels
             }, taskScheduler, TaskContinuationOptions.OnlyOnRanToCompletion);
         }
 
-        /// <summary>
-        ///     Performs a search and updates searchResults.
-        /// </summary>
-        /// <param name="query"> The search query </param>
-        [Obsolete(@"This method will be removed in a future release. The internal search operation is done asyncronously, so when this method call exits, the search operation might not be done yet.
-                    Please use the task based method SearchAndUpdateResultsTask instead.")]
-        public void SearchAndUpdateResults(string query)
-        {
-            if (enableSearchThreading)
-            {
-                SearchAndUpdateResultsTask(query);
-            }
-            else
-            {
-                if (Visible != true)
-                    return;
 
-                // if the search query is empty, go back to the default treeview
-                if (string.IsNullOrEmpty(query))
-                    return;
-
-                //Passing the second parameter as true will search using Lucene.NET
-                var foundNodes = Search(query);
-                searchResults = new List<NodeSearchElementViewModel>(foundNodes);
-
-                FilteredResults = searchResults;
-                UpdateSearchCategories();
-            }
-        }
 
         /// <summary>
         /// Select unique search categories, which are used in search UI.

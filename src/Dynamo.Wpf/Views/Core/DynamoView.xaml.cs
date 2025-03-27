@@ -14,6 +14,7 @@ using Dynamo.Selection;
 using Dynamo.Services;
 using Dynamo.UI;
 using Dynamo.UI.Controls;
+using Dynamo.UI.Views;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Views;
@@ -188,6 +189,11 @@ namespace Dynamo.Controls
 
 
             DynamoModel.OnRequestUpdateLoadBarStatus(new SplashScreenLoadEventArgs(Res.SplashScreenViewExtensions, 100));
+            //add library view
+            var libraryView = new LibraryView();
+            var libraryViewModel = new SearchViewModel(dynamoViewModel);
+            libraryView.DataContext = libraryViewModel;
+            sidebarGrid.Children.Add(libraryView);
             var viewExtensions = new List<IViewExtension>();
             foreach (var dir in dynamoViewModel.Model.PathManager.ViewExtensionsDirectories)
             {
