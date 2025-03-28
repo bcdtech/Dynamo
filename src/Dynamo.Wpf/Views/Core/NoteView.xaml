@@ -17,7 +17,7 @@
     d:DesignHeight="100"
     d:DesignWidth="200"
     MouseDown="OnNoteMouseDown"
-    Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}}"
+    
     mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -54,7 +54,7 @@
         </Style>
     </UserControl.Style>
 
-    <Grid Name="BaseGrid">
+    <Grid Name="BaseGrid" Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="{Binding Path=PinnedNode, Converter={StaticResource nullToPinWidthConverter}, UpdateSourceTrigger=PropertyChanged}" />

@@ -7,7 +7,10 @@
     xmlns:ui="clr-namespace:Dynamo.UI"
     xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
     xmlns:views="clr-namespace:Dynamo.UI.Views">
-    <ResourceDictionary.MergedDictionaries />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml"/>
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
     <DataTemplate DataType="{x:Type viewModels:InPortViewModel}">
 
         <!--  Grid that contains the entire port  -->
