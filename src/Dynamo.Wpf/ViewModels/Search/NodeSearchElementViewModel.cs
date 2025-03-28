@@ -167,11 +167,12 @@ namespace Dynamo.Wpf.ViewModels
         /// </summary>
         private void LoadFonts()
         {
-            FontAwesomeDict = new Dictionary<SearchElementGroup, EFontAwesomeIcon>();
-
-            FontAwesomeDict.Add(SearchElementGroup.Create, EFontAwesomeIcon.Solid_Plus);
-            FontAwesomeDict.Add(SearchElementGroup.Action, EFontAwesomeIcon.Solid_Bolt);
-            FontAwesomeDict.Add(SearchElementGroup.Query, EFontAwesomeIcon.Solid_Question);
+            FontAwesomeDict = new Dictionary<SearchElementGroup, EFontAwesomeIcon>
+            {
+                { SearchElementGroup.Create, EFontAwesomeIcon.Solid_Plus },
+                { SearchElementGroup.Action, EFontAwesomeIcon.Solid_Bolt },
+                { SearchElementGroup.Query, EFontAwesomeIcon.Solid_Question }
+            };
         }
 
         /// <summary>
