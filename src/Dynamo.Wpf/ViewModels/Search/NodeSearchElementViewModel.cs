@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.Input;
 using Dynamo.Configuration;
 using Dynamo.Controls;
 using Dynamo.Graph.Nodes;
@@ -5,10 +6,8 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Models;
 using Dynamo.Search.SearchElements;
 using Dynamo.Selection;
-using CommunityToolkit.Mvvm.Input;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
-using DynamoCoreWpf.Extensions;
 using FontAwesome5;
 using System.Windows;
 using System.Windows.Input;

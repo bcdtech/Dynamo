@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Input;
-using System.Windows.Threading;
 using Dynamo.Controls;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Dynamo.UI.Views
 {
@@ -30,7 +27,7 @@ namespace Dynamo.UI.Views
 
         public LibraryView()
         {
-            InitializeComponent(); 
+            InitializeComponent();
 
             // Invalidate the DataContext here because it will be set at a later 
             // time through data binding expression. This way debugger will not 
@@ -318,9 +315,9 @@ namespace Dynamo.UI.Views
                 return;
 
             var searchElementVm = GetDataContext(e.OriginalSource);
-            
+
             //sender can be RootSearchElementVM or ClassInformationViewModel. 
-                //And we should just fire HandleMouseMove, when ViewModel is NodeSearchElementViewModel
+            //And we should just fire HandleMouseMove, when ViewModel is NodeSearchElementViewModel
             if (searchElementVm != null)
             {
                 dragDropHelper.HandleMouseMove((DependencyObject)e.OriginalSource, e.GetPosition(null));
@@ -330,7 +327,7 @@ namespace Dynamo.UI.Views
         private NodeSearchElementViewModel GetDataContext(object source)
         {
             var frameworkElement = source as FrameworkElement;
-            
+
             if (frameworkElement != null)
             {
                 return frameworkElement.DataContext as NodeSearchElementViewModel;

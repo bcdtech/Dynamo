@@ -1670,10 +1670,7 @@
             Width="Auto"
             Height="Auto"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            >
-           
-        </Grid>
+            VerticalAlignment="Stretch" />
 
         <!--  Right Sidebar Panel  -->
         <Grid
@@ -1915,22 +1912,22 @@
 
         <!--  Start Page  -->
         <Grid
-     x:Name="oldHomePageContainer"
-     Grid.Row="2"
-     Grid.RowSpan="4"
-     Grid.Column="0"
-     Grid.ColumnSpan="5"
-     Visibility="{Binding IsNewAppHomeEnabled, Converter={StaticResource InverseBoolToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+            x:Name="oldHomePageContainer"
+            Grid.Row="2"
+            Grid.RowSpan="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            Visibility="{Binding IsNewAppHomeEnabled, Converter={StaticResource InverseBoolToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
             <ItemsControl Name="startPageItemsControl">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type uictrls:StartPageViewModel}">
                         <Grid>
                             <Grid.Height>
                                 <Binding
-                             Mode="OneWay"
-                             Path="ActualHeight"
-                             RelativeSource="{RelativeSource FindAncestor,
-                                                             AncestorType={x:Type ItemsControl}}" />
+                                    Mode="OneWay"
+                                    Path="ActualHeight"
+                                    RelativeSource="{RelativeSource FindAncestor,
+                                                                    AncestorType={x:Type ItemsControl}}" />
                             </Grid.Height>
                             <uictrls:StartPageView />
                         </Grid>
@@ -1938,12 +1935,12 @@
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.Visibility>
                     <Binding
-                 Converter="{StaticResource BooleanToVisibilityConverter}"
-                 Mode="OneWay"
-                 Path="DataContext.ShowStartPage"
-                 RelativeSource="{RelativeSource FindAncestor,
-                                                 AncestorType={x:Type controls:DynamoView}}"
-                 UpdateSourceTrigger="Explicit" />
+                        Converter="{StaticResource BooleanToVisibilityConverter}"
+                        Mode="OneWay"
+                        Path="DataContext.ShowStartPage"
+                        RelativeSource="{RelativeSource FindAncestor,
+                                                        AncestorType={x:Type controls:DynamoView}}"
+                        UpdateSourceTrigger="Explicit" />
                 </ItemsControl.Visibility>
             </ItemsControl>
         </Grid>
@@ -1954,9 +1951,8 @@
             Grid.RowSpan="4"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            Visibility="Visible"
             d:Visibility="Hidden"
-             />
+            Visibility="Visible" />
 
         <Grid
             Name="FocusableGrid"

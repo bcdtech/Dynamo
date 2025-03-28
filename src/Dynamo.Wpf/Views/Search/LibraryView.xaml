@@ -701,7 +701,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="60" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TreeView
                     Name="CategoryTreeView"
@@ -716,66 +716,7 @@
                         </ControlTemplate>
                     </TreeView.Template>
                 </TreeView>
-                <Button
-                    Grid.Row="2"
-                    Height="23"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Content="{x:Static p:Resources.AddToLibraryButton}"
-                    PreviewMouseUp="OnAddButtonPreviewMouseDown">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Border
-                                x:Name="container"
-                                BorderBrush="#555555"
-                                BorderThickness="1">
-                                <Grid x:Name="inner">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock
-                                        x:Name="text"
-                                        Margin="10,0,10,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="13"
-                                        Foreground="{StaticResource NestedMemberTextColor}"
-                                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
-
-                                    <TextBlock
-                                        x:Name="arrow"
-                                        Grid.Column="1"
-                                        Margin="0,0,10,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="14"
-                                        Foreground="#787879"
-                                        Text="&#x25BE;" />
-                                </Grid>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="Button.IsMouseOver" Value="True">
-                                    <Setter TargetName="container" Property="Background" Value="{StaticResource RootElementOnHover}" />
-                                    <Setter TargetName="arrow" Property="Foreground" Value="#AAABAB" />
-                                </Trigger>
-                                <DataTrigger Binding="{Binding ContextMenu.IsOpen, RelativeSource={RelativeSource Self}}" Value="True">
-                                    <Setter TargetName="container" Property="Background" Value="{StaticResource RootElementOnHover}" />
-                                </DataTrigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <Button.ContextMenu>
-                        <ContextMenu Style="{StaticResource AddButtonContextMenu}">
-                            <MenuItem
-                                Command="{Binding Path=ImportLibraryCommand}"
-                                Focusable="False"
-                                Header="{x:Static p:Resources.DynamoViewFileMenuImport}" />
-                            <MenuItem
-                                Command="{Binding Path=ShowPackageManagerSearchCommand}"
-                                Focusable="False"
-                                Header="{x:Static p:Resources.DynamoViewPackageMenuSearchPackage}" />
-                        </ContextMenu>
-                    </Button.ContextMenu>
-                </Button>
+                
             </Grid>
         </ScrollViewer>
 
