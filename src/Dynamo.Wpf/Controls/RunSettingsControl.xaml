@@ -149,7 +149,7 @@
 
             <Image
                 Width="14"
-                Source="/Dynamo.Wpf;component/UI/Images/clock-icon.png"
+                Source="/Dynamo.Wpf;component/Assets/Images/clock-icon.png"
                 Visibility="Collapsed" />
 
         </StackPanel>

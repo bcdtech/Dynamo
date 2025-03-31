@@ -93,7 +93,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         SnapsToDevicePixels="True"
-                        Source="/Dynamo.Wpf;component/UI/Images/search_icon_20px.png"
+                        Source="/Dynamo.Wpf;component/Assets/Images/search_icon_20px.png"
                         Stretch="UniformToFill" />
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>

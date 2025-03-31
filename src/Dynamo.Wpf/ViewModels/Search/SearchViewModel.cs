@@ -339,10 +339,7 @@ namespace Dynamo.ViewModels
 
         private readonly NodeCategoryViewModel libraryRoot = new NodeCategoryViewModel("");
 
-        public ObservableCollection<NodeCategoryViewModel> BrowserRootCategories
-        {
-            get { return LibraryRootCategories; }
-        }
+
 
         /// <summary>
         /// To get view model for a node based on its name
@@ -439,10 +436,7 @@ namespace Dynamo.ViewModels
             {
                 cate.DisposeTree();
             }
-            foreach (var cate in BrowserRootCategories)
-            {
-                cate.DisposeTree();
-            }
+
             Model.EntryAdded -= AddEntry;
             Model.EntryUpdated -= UpdateEntry;
             Model.EntryRemoved -= RemoveEntry;
@@ -467,7 +461,7 @@ namespace Dynamo.ViewModels
             RegularTypeface = new Typeface(fontFamily, FontStyles.Normal, FontWeights.Normal,
                 FontStretches.Normal);
 
-            searchIconAlignment = System.Windows.HorizontalAlignment.Left;
+            searchIconAlignment = HorizontalAlignment.Left;
 
             // When Library changes, sync up
             Model.EntryAdded += AddEntry;
@@ -1311,14 +1305,14 @@ namespace Dynamo.ViewModels
         {
             // Clear search text.
             SearchText = String.Empty;
-            CollapseAll(BrowserRootCategories);
+            CollapseAll(LibraryRootCategories);
             ClassNameToBeOpened = className;
 
             if (String.IsNullOrEmpty(className)) return;
 
             var categoryNames = className.Split(Configurations.CategoryDelimiterString.ToCharArray());
 
-            IEnumerable<NodeCategoryViewModel> categories = BrowserRootCategories;
+            IEnumerable<NodeCategoryViewModel> categories = LibraryRootCategories;
             foreach (var name in categoryNames)
             {
                 var category = categories.FirstOrDefault(cat => cat.Name == name);

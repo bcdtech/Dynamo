@@ -234,7 +234,7 @@
                             Margin="5,4,0,0"
                             VerticalAlignment="Top"
                             DockPanel.Dock="Right"
-                            Source="/Dynamo.Wpf;component/UI/Images/error.png" />
+                            Source="/Dynamo.Wpf;component/Assets/Images/error.png" />
 
                         <!--  Status Label  -->
                         <TextBlock

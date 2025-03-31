@@ -1397,10 +1397,10 @@ namespace Dynamo.Controls
 
             if (value is string && value.ToString().Equals(Properties.Resources.LoginNeededTitle))
             {
-                return "/Dynamo.Wpf;component/UI/Images/not-authenticated.png";
+                return "/Dynamo.Wpf;component/Assets/Images/not-authenticated.png";
             }
 
-            return "/Dynamo.Wpf;component/UI/Images/no-recommendations.png";
+            return "/Dynamo.Wpf;component/Assets/Images/no-recommendations.png";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,

@@ -157,7 +157,7 @@
             BorderThickness="0"
             Command="{Binding Path=UnpinFromNodeCommand}"
             Visibility="{Binding Path=PinnedNode, Converter={StaticResource nullToVisibiltyConverter}, UpdateSourceTrigger=PropertyChanged}">
-            <Image Width="10" Source="/Dynamo.Wpf;component/UI/Images/Pin_NoBackground_16px.png" />
+            <Image Width="10" Source="/Dynamo.Wpf;component/Assets/Images/Pin_NoBackground_16px.png" />
         </Button>
     </Grid>
 </UserControl>

@@ -361,7 +361,7 @@
                             <DataTrigger Binding="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
                                 <Setter Property="Fill">
                                     <Setter.Value>
-                                        <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/default-node-icon.png" Stretch="UniformToFill" />
+                                        <ImageBrush ImageSource="/Dynamo.Wpf;component/Assets/Images/default-node-icon.png" Stretch="UniformToFill" />
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
@@ -513,7 +513,7 @@
                     Height="16px"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="/Dynamo.Wpf;component/UI/Images/NodeStates/frozen-64px.png"
+                    Source="/Dynamo.Wpf;component/Assets/Images/NodeStates/frozen-64px.png"
                     Stretch="UniformToFill" />
             </Grid>
             <!--  Node transient state indication, light sparkle  -->
@@ -524,7 +524,7 @@
                     Height="16px"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="/Dynamo.Wpf;component/UI/Images/NodeStates/transient-64px.png"
+                    Source="/Dynamo.Wpf;component/Assets/Images/NodeStates/transient-64px.png"
                     Stretch="UniformToFill" />
             </Grid>
             <Grid x:Name="HiddenEyeGlyph" Visibility="{Binding Path=IsVisible, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, Mode=OneWay}">
@@ -534,7 +534,7 @@
                     Height="16px"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="/Dynamo.Wpf;component/UI/Images/hidden.png"
+                    Source="/Dynamo.Wpf;component/Assets/Images/hidden.png"
                     Stretch="UniformToFill" />
             </Grid>
             <Label
@@ -615,11 +615,11 @@
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="{StaticResource NodeOptionsButtonBackground}" />
-                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/UI/Images/more-vertical_selected_16px.png" />
+                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/more-vertical_selected_16px.png" />
                                         </Trigger>
                                         <Trigger Property="IsMouseOver" Value="False">
                                             <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="Transparent" />
-                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/UI/Images/more-vertical.png" />
+                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/more-vertical.png" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>

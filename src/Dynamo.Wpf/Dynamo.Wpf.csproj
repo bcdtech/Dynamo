@@ -30,6 +30,12 @@
     <Resource Include="**\*.otf" />
     <Resource Include="**\*.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\layoutSpecs.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\layoutSpecs.json" />
+  </ItemGroup>
  
   <ItemGroup>
     <ProjectReference Include="..\DynamoCore\DynamoCore.csproj" />

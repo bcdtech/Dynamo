@@ -60,7 +60,7 @@
                             DockPanel.Dock="Right">
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
-                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/searchmagnifier.png" />
+                                    <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/searchmagnifier.png" />
                                 </Style>
                             </Image.Style>
                         </Image>

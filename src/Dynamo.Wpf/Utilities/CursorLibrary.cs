@@ -59,7 +59,7 @@ namespace Dynamo.Wpf.Utilities
 
             foreach (KeyValuePair<CursorSet, string> resource in resources)
             {
-                const string baseUri = "pack://application:,,,/Dynamo.Wpf;component/UI/Images/";
+                const string baseUri = "pack://application:,,,/Dynamo.Wpf;component/Assets/Images/";
                 var cursorStream = Application.GetResourceStream(new Uri(baseUri + resource.Value));
                 cursors.Add(new Cursor(cursorStream.Stream));
             }

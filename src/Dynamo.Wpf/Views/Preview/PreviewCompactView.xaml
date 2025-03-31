@@ -52,6 +52,6 @@
             Height="6"
             Margin="0,5,5,5"
             VerticalAlignment="Bottom"
-            Source="/Dynamo.Wpf;component/UI/Images/bubble-arrow.png" />
+            Source="/Dynamo.Wpf;component/Assets/Images/bubble-arrow.png" />
     </Grid>
 </UserControl>

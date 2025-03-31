@@ -327,7 +327,7 @@
                             Margin="5,0,0,0"
                             VerticalAlignment="Center"
                             DockPanel.Dock="Right"
-                            Source="/Dynamo.Wpf;component/UI/Images/error.png"
+                            Source="/Dynamo.Wpf;component/Assets/Images/error.png"
                             Visibility="Collapsed" />
                         <StackPanel
                             x:Name="ErrorUnderline"

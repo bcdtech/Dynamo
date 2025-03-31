@@ -78,13 +78,13 @@ namespace Dynamo.UI.Controls
         {
 
             this.HeaderText.FontFamily = Resources["ArtifaktElementRegular"] as FontFamily;
-            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/image-icon.png"));
+            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/Assets/Images/image-icon.png"));
         }
 
         private void exportMenu_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             this.HeaderText.FontFamily = Resources["ArtifaktElementRegular"] as FontFamily;
-            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/image-icon-default.png"));
+            this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/Assets/Images/image-icon-default.png"));
         }
 
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)

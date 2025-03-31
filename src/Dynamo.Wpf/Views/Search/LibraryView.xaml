@@ -708,7 +708,7 @@
                     FocusManager.IsFocusScope="true"
                     ItemContainerStyle="{StaticResource LibraryTreeViewItem}"
                     ItemTemplateSelector="{StaticResource LibraryTreeTemplateSelector}"
-                    ItemsSource="{Binding BrowserRootCategories}"
+                    ItemsSource="{Binding LibraryRootCategories}"
                     TreeViewItem.Expanded="OnTreeViewItemExpanded">
                     <TreeView.Template>
                         <ControlTemplate>

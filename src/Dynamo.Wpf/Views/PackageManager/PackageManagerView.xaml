@@ -230,7 +230,7 @@
                                                     Width="18"
                                                     Height="18"
                                                     VerticalAlignment="Center"
-                                                    Source="/Dynamo.Wpf;component/UI/Images/alert_2.png"
+                                                    Source="/Dynamo.Wpf;component/Assets/Images/alert_2.png"
                                                     Visibility="Visible" />
 
                                                 <!--  Warning Message  -->
@@ -338,7 +338,7 @@
                                             Margin="0,0,0,50"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/PackageManager/empty-state-first-use-light-gray.png" />
+                                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/PackageManager/empty-state-first-use-light-gray.png" />
                                         <TextBlock
                                             HorizontalAlignment="Center"
                                             FontSize="18px"
@@ -431,7 +431,7 @@
                                             Margin="0,0,0,50"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/PackageManager/empty-state-first-use-light-gray.png" />
+                                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/PackageManager/empty-state-first-use-light-gray.png" />
                                         <TextBlock FontSize="18px">
                                             <TextBlock.Style>
                                                 <Style BasedOn="{StaticResource LabelStyle}" TargetType="TextBlock">
@@ -499,7 +499,7 @@
                                                     Width="18"
                                                     Height="18"
                                                     VerticalAlignment="Center"
-                                                    Source="/Dynamo.Wpf;component/UI/Images/alert_2.png"
+                                                    Source="/Dynamo.Wpf;component/Assets/Images/alert_2.png"
                                                     Visibility="Visible" />
 
                                                 <!--  Warning Message  -->

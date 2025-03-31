@@ -67,7 +67,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        Source="/Dynamo.Wpf;component/UI/Images/dynamonotext.png" />
+                        Source="/Dynamo.Wpf;component/Assets/Images/dynamonotext.png" />
 
                     <Button
                         Name="CloseButton"
@@ -163,7 +163,7 @@
                         Grid.Column="0"
                         Width="128"
                         Height="128"
-                        Source="/Dynamo.Wpf;component/UI/Images/AboutWindow/logo_about_dark.png" />
+                        Source="/Dynamo.Wpf;component/Assets/Images/AboutWindow/logo_about_dark.png" />
                 </Grid>
 
                 <Border

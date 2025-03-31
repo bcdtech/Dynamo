@@ -156,7 +156,7 @@
                                 <Image
                                     x:Name="Icon"
                                     Width="14px"
-                                    Source="/Dynamo.Wpf;component/UI/Images/image-icon-default.png" />
+                                    Source="/Dynamo.Wpf;component/Assets/Images/image-icon-default.png" />
                                 <TextBlock
                                     x:Name="HeaderText"
                                     Margin="10,0,0,0"

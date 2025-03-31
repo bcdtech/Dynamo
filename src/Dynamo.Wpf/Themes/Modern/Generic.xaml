@@ -159,7 +159,7 @@
         </Setter>
     </Style>
 
-    <Image x:Key="ComboDownIcon_normal" Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/tick_selected.png" />
+    <Image x:Key="ComboDownIcon_normal" Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/tick_selected.png" />
 
     <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
         <Grid>
@@ -2162,7 +2162,7 @@
                                     Height="7"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/tick_selected.png"
+                                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/tick_selected.png"
                                     Visibility="Hidden" />
                             </Border>
                         </BulletDecorator.Bullet>
@@ -3294,10 +3294,10 @@
     <Style x:Key="ToggleInfoStyle" TargetType="{x:Type Image}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/default_info_16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/default_info_16px.png" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/whiteinfotab.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/whiteinfotab.png" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -3333,11 +3333,11 @@
                             Name="closeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-darktheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/close-darktheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-darktheme-hover-16px.png" />
+                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/close-darktheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3358,14 +3358,14 @@
                             Name="closeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-lighttheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/close-lighttheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-lighttheme-hover-16px.png" />
+                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/close-lighttheme-hover-16px.png" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/close-darktheme-disabled-16px.png" />
+                            <Setter TargetName="closeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/close-darktheme-disabled-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3386,11 +3386,11 @@
                             Name="minimizeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/min-darktheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/min-darktheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="minimizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/min-darktheme-hover-16px.png" />
+                            <Setter TargetName="minimizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/min-darktheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3411,11 +3411,11 @@
                             Name="minimizeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/min-lighttheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/min-lighttheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="minimizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/min-lighttheme-hover-16px.png" />
+                            <Setter TargetName="minimizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/min-lighttheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3436,11 +3436,11 @@
                             Name="maximizeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/max-darktheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/max-darktheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="maximizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/max-darktheme-hover-16px.png" />
+                            <Setter TargetName="maximizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/max-darktheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3461,11 +3461,11 @@
                             Name="maximizeIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/max-lighttheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/max-lighttheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="maximizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/max-lighttheme-hover-16px.png" />
+                            <Setter TargetName="maximizeIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/max-lighttheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3486,11 +3486,11 @@
                             Name="restoreIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/restore-darktheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/restore-darktheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="restoreIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/restore-darktheme-hover-16px.png" />
+                            <Setter TargetName="restoreIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/restore-darktheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3511,11 +3511,11 @@
                             Name="restoreIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/restore-lighttheme-default-16px.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/restore-lighttheme-default-16px.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="restoreIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/restore-lighttheme-hover-16px.png" />
+                            <Setter TargetName="restoreIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/restore-lighttheme-hover-16px.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3536,11 +3536,11 @@
                             Name="dockIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/dock-darktheme-default.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/dock-darktheme-default.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="dockIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/TitleBarButtons/dock-darktheme-hover.png" />
+                            <Setter TargetName="dockIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/TitleBarButtons/dock-darktheme-hover.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3558,11 +3558,11 @@
                             Name="downIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/down_16_16.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/down_16_16.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="downIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/down-hover-16px.png" />
+                            <Setter TargetName="downIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/down-hover-16px.png" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".5" />
@@ -3583,11 +3583,11 @@
                             Name="upIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/up_16_16.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/up_16_16.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="upIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/up-hover-16px.png" />
+                            <Setter TargetName="upIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/up-hover-16px.png" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".5" />
@@ -3608,11 +3608,11 @@
                             Name="folderIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/edit_folder_16px_default.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/edit_folder_16px_default.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="folderIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/edit_folder_16px_hover.png" />
+                            <Setter TargetName="folderIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/edit_folder_16px_hover.png" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".5" />
@@ -3633,11 +3633,11 @@
                             Name="folderIcon"
                             Width="16"
                             Height="16"
-                            Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/reset-default.png" />
+                            Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/reset-default.png" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="folderIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/reset-hover.png" />
+                            <Setter TargetName="folderIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/reset-hover.png" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".5" />
@@ -3968,7 +3968,7 @@
                     Margin="5,10,0,10"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/Caret_Down.png" />
+                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/Caret_Down.png" />
                 <ContentPresenter
                     x:Name="HeaderContent"
                     Grid.Column="0"
@@ -3982,7 +3982,7 @@
             <Trigger Property="IsChecked" Value="true">
                 <!--  Sets the icon on the expander to caret up (-)  -->
                 <Setter TargetName="Border" Property="Background" Value="{StaticResource ExpanderCaretToggleButtonSelectedBackground}" />
-                <Setter TargetName="Caret" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/caret_up.png" />
+                <Setter TargetName="Caret" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/caret_up.png" />
             </Trigger>
             <Trigger Property="IsChecked" Value="false">
                 <Setter TargetName="Border" Property="Background" Value="{StaticResource ExpanderCaretToggleButtonBackground}" />
@@ -6044,7 +6044,7 @@
                                     Height="7"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/tick_selected.png"
+                                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/tick_selected.png"
                                     Visibility="Hidden" />
                             </Border>
                         </BulletDecorator.Bullet>
@@ -6454,10 +6454,10 @@
     <Style x:Key="InformationIcon" TargetType="{x:Type Image}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/info-default-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/info-default-16px.png" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/info-hover-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/info-hover-16px.png" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -6466,10 +6466,10 @@
     <Style x:Key="QuestionIconClickable" TargetType="{x:Type Image}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/question-default-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/question-default-16px.png" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/question-hover-blue-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/question-hover-blue-16px.png" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -6478,10 +6478,10 @@
     <Style x:Key="QuestionIcon" TargetType="{x:Type Image}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/question-default-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/question-default-16px.png" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/question-hover-16px.png" />
+                <Setter Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/question-hover-16px.png" />
             </Trigger>
         </Style.Triggers>
     </Style>

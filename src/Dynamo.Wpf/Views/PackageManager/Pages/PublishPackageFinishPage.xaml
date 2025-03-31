@@ -42,7 +42,7 @@
                 Margin="5,0,0,0"
                 VerticalAlignment="Top"
                 DockPanel.Dock="Left"
-                Source="/Dynamo.Wpf;component/UI/Images/finished_checkmark_30px.png" />
+                Source="/Dynamo.Wpf;component/Assets/Images/finished_checkmark_30px.png" />
 
             <TextBlock
                 Margin="0,5"

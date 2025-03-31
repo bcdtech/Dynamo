@@ -51,7 +51,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        Source="/Dynamo.Wpf;component/UI/Images/dynamonotext.png" />
+                        Source="/Dynamo.Wpf;component/Assets/Images/dynamonotext.png" />
 
                     <Button
                         Name="CloseButton"
@@ -89,7 +89,7 @@
                         Margin="30,20,30,20"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="/Dynamo.Wpf;component/UI/Images/task_dialog_crash.png" />
+                        Source="/Dynamo.Wpf;component/Assets/Images/task_dialog_crash.png" />
 
                     <StackPanel
                         Grid.Row="0"

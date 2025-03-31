@@ -61,7 +61,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left"
-                        Source="/Dynamo.Wpf;component/UI/Images/dynamonotext.png" />
+                        Source="/Dynamo.Wpf;component/Assets/Images/dynamonotext.png" />
 
                     <Button
                         Name="CloseButton"

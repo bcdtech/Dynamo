@@ -131,7 +131,7 @@
                                         Margin="0,0,0,0"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Source="/Dynamo.Wpf;component/UI/Images/font-size.png">
+                                        Source="/Dynamo.Wpf;component/Assets/Images/font-size.png">
                                         <Image.ToolTip>
                                             <ToolTip Content="{x:Static p:Resources.GroupStyleFontSizeToolTip}" Style="{StaticResource GenericToolTipLight}" />
                                         </Image.ToolTip>
@@ -1392,7 +1392,7 @@
                                                                     Margin="0,0,0,0"
                                                                     HorizontalAlignment="Left"
                                                                     VerticalAlignment="Center"
-                                                                    Source="/Dynamo.Wpf;component/UI/Images/font-size.png" />
+                                                                    Source="/Dynamo.Wpf;component/Assets/Images/font-size.png" />
                                                                 <ComboBox
                                                                     x:Name="groupStyleFontSize"
                                                                     Margin="2,0,0,0"

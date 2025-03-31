@@ -172,7 +172,7 @@
                     Width="16"
                     Height="32"
                     VerticalAlignment="Center"
-                    Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/collapsestate_normal.png" />
+                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/collapsestate_normal.png" />
                 <TextBlock
                     x:Name="HeaderContent"
                     Grid.Column="1"
@@ -191,7 +191,7 @@
                     <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Value="False" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.Setters>
-                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/collapsestate_hover.png" />
+                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/collapsestate_hover.png" />
                 </MultiDataTrigger.Setters>
             </MultiDataTrigger>
 
@@ -201,7 +201,7 @@
                     <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Value="True" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.Setters>
-                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/expandstate_hover.png" />
+                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/expandstate_hover.png" />
                     <Setter TargetName="HeaderContent" Property="TextBlock.FontWeight" Value="Semibold" />
                 </MultiDataTrigger.Setters>
             </MultiDataTrigger>
@@ -212,7 +212,7 @@
                     <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Value="True" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.Setters>
-                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/UI/Images/expandstate_normal.png" />
+                    <Setter TargetName="ExpandCollapseStateIcon" Property="Source" Value="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/expandstate_normal.png" />
                     <Setter TargetName="HeaderContent" Property="TextBlock.FontWeight" Value="Semibold" />
                 </MultiDataTrigger.Setters>
             </MultiDataTrigger>
@@ -241,7 +241,7 @@
                     Margin="7,10,8,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="pack://application:,,,/Dynamo.Wpf;component/UI/Images/clock-icon.png"
+                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/clock-icon.png"
                     Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.IsByUse, Converter={StaticResource BooleanToVisibilityConverter}}" />
             </StackPanel>
             <Image

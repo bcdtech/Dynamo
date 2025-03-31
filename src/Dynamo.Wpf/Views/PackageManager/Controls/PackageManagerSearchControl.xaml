@@ -131,7 +131,7 @@
                                         Height="16"
                                         Visibility="{Binding Path=InitialResultsLoaded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityCollapsedConverter}}">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/sort.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/Assets/Images/sort.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>
@@ -258,7 +258,7 @@
                                         Height="16"
                                         Visibility="{Binding Path=InitialResultsLoaded, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityCollapsedConverter}}">
                                         <Rectangle.Fill>
-                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/Filter.png" />
+                                            <ImageBrush ImageSource="/Dynamo.Wpf;component/Assets/Images/Filter.png" />
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>

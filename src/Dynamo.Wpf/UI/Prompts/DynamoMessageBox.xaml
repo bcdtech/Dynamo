@@ -72,23 +72,23 @@
                             <Style TargetType="Image">
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding Path=MessageBoxImage}" Value="{x:Static MessageBoxImage.Information}">
-                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/info_2.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/info_2.png" />
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding Path=MessageBoxImage}" Value="{x:Static MessageBoxImage.Question}">
-                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/info_2.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/info_2.png" />
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding Path=MessageBoxImage}" Value="{x:Static MessageBoxImage.Warning}">
-                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/alert_2.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/alert_2.png" />
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding Path=MessageBoxImage}" Value="{x:Static MessageBoxImage.Exclamation}">
-                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/alert_2.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/alert_2.png" />
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding Path=MessageBoxImage}" Value="{x:Static MessageBoxImage.Error}">
-                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/UI/Images/error-icon.png" />
+                                        <Setter Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/error-icon.png" />
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                 </Style.Triggers>

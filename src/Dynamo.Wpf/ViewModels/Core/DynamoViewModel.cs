@@ -2773,7 +2773,7 @@ namespace Dynamo.ViewModels
             }
             catch (PathTooLongException)
             {
-                string imageUri = "/Dynamo.Wpf;component/UI/Images/task_dialog_future_file.png";
+                string imageUri = "/Dynamo.Wpf;component/Assets/Images/task_dialog_future_file.png";
                 var args = new TaskDialogEventArgs(
                     new Uri(imageUri, UriKind.Relative),
                     WpfResources.GraphIssuesOnSavePath_Title,
@@ -2795,7 +2795,7 @@ namespace Dynamo.ViewModels
                 return true;
             }
 
-            string imageUri = "/Dynamo.Wpf;component/UI/Images/task_dialog_future_file.png";
+            string imageUri = "/Dynamo.Wpf;component/Assets/Images/task_dialog_future_file.png";
             var args = new TaskDialogEventArgs(
                 new Uri(imageUri, UriKind.Relative),
                 WpfResources.GraphIssuesOnSave_Title,

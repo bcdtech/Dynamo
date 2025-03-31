@@ -411,7 +411,7 @@
                     Margin="5,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="/Dynamo.Wpf;component/UI/Images/checkmark_16px.png"
+                    Source="/Dynamo.Wpf;component/Assets/Images/checkmark_16px.png"
                     UseLayoutRounding="True"
                     Visibility="{Binding ErrorString, Converter={StaticResource ReadyToPublishToVisibilityCollapsedConverter}}" />
                 <TextBlock
@@ -521,7 +521,7 @@
                     Margin="5,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="/Dynamo.Wpf;component/UI/Images/info.png"
+                    Source="/Dynamo.Wpf;component/Assets/Images/info.png"
                     UseLayoutRounding="True" />
                 <TextBlock
                     Margin="0,4,0,0"

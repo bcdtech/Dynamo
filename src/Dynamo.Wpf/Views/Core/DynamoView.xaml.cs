@@ -1054,9 +1054,9 @@ namespace Dynamo.Controls
                 ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarNewButtonTooltip,
                 ShortcutCommand = dynamoViewModel.NewHomeWorkspaceCommand,
                 ShortcutCommandParameter = null,
-                ImgNormalSource = "/Dynamo.Wpf;component/UI/Images/new_normal.png",
-                ImgDisabledSource = "/Dynamo.Wpf;component/UI/Images/new_disabled.png",
-                ImgHoverSource = "/Dynamo.Wpf;component/UI/Images/new_normal.png",
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/new_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/new_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/new_normal.png",
                 Name = "New"
             };
 
@@ -1065,9 +1065,9 @@ namespace Dynamo.Controls
                 ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarOpenButtonTooltip,
                 ShortcutCommand = dynamoViewModel.ShowOpenDialogAndOpenResultCommand,
                 ShortcutCommandParameter = null,
-                ImgNormalSource = "/Dynamo.Wpf;component/UI/Images/open_normal.png",
-                ImgDisabledSource = "/Dynamo.Wpf;component/UI/Images/open_disabled.png",
-                ImgHoverSource = "/Dynamo.Wpf;component/UI/Images/open_normal.png",
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/open_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/open_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/open_normal.png",
                 Name = "Open"
             };
 
@@ -1076,9 +1076,9 @@ namespace Dynamo.Controls
                 ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarSaveButtonTooltip,
                 ShortcutCommand = dynamoViewModel.ShowSaveDialogIfNeededAndSaveResultCommand,
                 ShortcutCommandParameter = null,
-                ImgNormalSource = "/Dynamo.Wpf;component/UI/Images/save_normal.png",
-                ImgDisabledSource = "/Dynamo.Wpf;component/UI/Images/save_disabled.png",
-                ImgHoverSource = "/Dynamo.Wpf;component/UI/Images/save_normal.png",
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/save_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/save_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/save_normal.png",
                 Name = "Save"
             };
 
@@ -1087,9 +1087,9 @@ namespace Dynamo.Controls
                 ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarUndoButtonTooltip,
                 ShortcutCommand = dynamoViewModel.UndoCommand,
                 ShortcutCommandParameter = null,
-                ImgNormalSource = "/Dynamo.Wpf;component/UI/Images/undo_normal.png",
-                ImgDisabledSource = "/Dynamo.Wpf;component/UI/Images/undo_disabled.png",
-                ImgHoverSource = "/Dynamo.Wpf;component/UI/Images/undo_normal.png",
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/undo_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/undo_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/undo_normal.png",
                 Name = "Undo"
             };
 
@@ -1098,9 +1098,9 @@ namespace Dynamo.Controls
                 ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarRedoButtonTooltip,
                 ShortcutCommand = dynamoViewModel.RedoCommand,
                 ShortcutCommandParameter = null,
-                ImgNormalSource = "/Dynamo.Wpf;component/UI/Images/redo_normal.png",
-                ImgDisabledSource = "/Dynamo.Wpf;component/UI/Images/redo_disabled.png",
-                ImgHoverSource = "/Dynamo.Wpf;component/UI/Images/redo_normal.png",
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/redo_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/redo_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/redo_normal.png",
                 Name = "Redo"
             };
 
@@ -2187,7 +2187,7 @@ namespace Dynamo.Controls
             if (LibraryCollapsed || ExtensionsCollapsed)
             {
                 Uri imageUri;
-                imageUri = new Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/expand_hover.png");
+                imageUri = new Uri(@"pack://application:,,,/Dynamo.Wpf;component/Assets/Images/expand_hover.png");
                 BitmapImage hover = new BitmapImage(imageUri);
                 icon.Source = hover;
             }
@@ -2375,7 +2375,7 @@ namespace Dynamo.Controls
             text.Foreground = (Brush)bc.ConvertFromString("#aaaaaa");
 
             Uri imageUri;
-            imageUri = new Uri(@"pack://application:,,,/Dynamo.Wpf;component/UI/Images/expand_normal.png");
+            imageUri = new Uri(@"pack://application:,,,/Dynamo.Wpf;component/Assets/Images/expand_normal.png");
             BitmapImage hover = new BitmapImage(imageUri);
             icon.Source = hover;
         }

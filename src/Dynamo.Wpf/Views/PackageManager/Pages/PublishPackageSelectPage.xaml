@@ -664,7 +664,7 @@
                     Height="16"
                     VerticalAlignment="Center">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Dynamo.Wpf;component/UI/Images/help-16px.png" />
+                        <ImageBrush ImageSource="/Dynamo.Wpf;component/Assets/Images/help-16px.png" />
                     </Rectangle.Fill>
                     <Rectangle.ToolTip>
                         <ToolTip Content="{x:Static p:Resources.PublishPackageRetainFolderStructureTooltip}" Style="{StaticResource GenericToolTipLight}" />
