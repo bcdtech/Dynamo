@@ -23,6 +23,8 @@ namespace WpfApp1
             var viewModel = DynamoViewModel.Start(startConfiguration);
 
             var dynamoView = new DynamoView(viewModel);
+            dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
+            dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);
         }
     }

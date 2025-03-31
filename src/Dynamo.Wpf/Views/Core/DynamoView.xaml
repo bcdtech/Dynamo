@@ -17,18 +17,21 @@
     xmlns:views="clr-namespace:Dynamo.Views"
     xmlns:workspaces="clr-namespace:Dynamo.Graph.Workspaces;assembly=DynamoCore"
     x:Name="_this"
-    Width="1024"
-    Height="768"
+    
+    
     MinWidth="800"
     MinHeight="600"
+    
     d:DataContext="{d:DesignInstance viewModels:DynamoViewModel,
                                      IsDesignTimeCreatable=False}"
+    d:Background="Red"
     Background="#3C3C3C"
     KeyDown="DynamoView_KeyDown"
     KeyUp="DynamoView_KeyUp"
     SnapsToDevicePixels="True"
     Style="{DynamicResource DynamoWindowStyle}"
     UseLayoutRounding="True"
+    
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -263,7 +266,9 @@
             Name="titleBar"
             Grid.Row="0"
             Grid.Column="0"
-            Grid.ColumnSpan="5">
+            Grid.ColumnSpan="5"
+
+            >
             <Grid Name="titleBarGrid" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
