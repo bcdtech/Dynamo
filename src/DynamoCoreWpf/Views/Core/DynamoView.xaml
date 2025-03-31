@@ -1232,17 +1232,15 @@
                                             CornerRadius="0,0,0,0">
                                             <Border.ToolTip>
                                                 <uictrls:DynamoToolTip AttachmentSide="Bottom" Style="{DynamicResource ResourceKey=SLightToolTip}">
-                                                    <StackPanel MaxWidth="250" Margin="5">
-                                                        <TextBlock
-                                                            x:Name="FileName"
-                                                            Margin="0,0,0,5"
-                                                            Text="{Binding Path=FileName, Converter={StaticResource PathToFileNameConverter}}"
-                                                            TextWrapping="Wrap" />
-                                                        <TextBlock
-                                                            x:Name="topMessage"
-                                                            FontFamily="{StaticResource ArtifaktElementBold}"
-                                                            FontSize="11px"
-                                                            Foreground="Black">
+                                                    <StackPanel MaxWidth="300" Margin="5">
+                                                        <TextBlock x:Name="FileName"
+                                                                   Margin="0,0,0,5"
+                                                                   Text="{Binding Path=FileName, Converter={StaticResource PathToFileNameConverter}}"
+                                                                   TextWrapping="Wrap" />
+                                                        <TextBlock x:Name="topMessage"
+                                                                   FontFamily="{StaticResource ArtifaktElementBold}"
+                                                                   FontSize="11px"
+                                                                   Foreground="Black">
                                                             <TextBlock.Style>
                                                                 <Style TargetType="TextBlock">
                                                                     <Style.Triggers>

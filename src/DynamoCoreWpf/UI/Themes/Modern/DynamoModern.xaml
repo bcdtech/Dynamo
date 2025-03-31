@@ -4768,25 +4768,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
-                    <Border
-                        Name="TabBorder"
-                        Margin="0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        CornerRadius="6">
-                        <StackPanel
-                            Margin="0,5,0,0"
+                    <Border Name="TabBorder"
+                            Margin="0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Orientation="Horizontal">
-                            <Grid
-                                Name="TabPanel"
-                                Width="165"
-                                Height="30"
-                                Margin="5">
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            CornerRadius="6">
+                        <StackPanel Margin="0,5,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Orientation="Horizontal">
+                            <Grid Name="TabPanel"
+                                  Width="180"
+                                  Height="30"
+                                  Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="5" />
                                     <ColumnDefinition Width="*" />
