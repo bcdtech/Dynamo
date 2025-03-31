@@ -1,24 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using Dynamo.Configuration;
 using Dynamo.Controls;
 using Dynamo.Core;
 using Dynamo.Logging;
 using Dynamo.UI;
 using Dynamo.ViewModels;
-using static Dynamo.ViewModels.SearchViewModel;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
 using Res = Dynamo.Wpf.Properties.Resources;
 
 namespace Dynamo.Wpf.Views
@@ -54,7 +49,7 @@ namespace Dynamo.Wpf.Views
                 if (!groupStyle.IsDefault)
                 {
                     originalCustomGroupStyles.Add(new GroupStyleItem() { GroupStyleId = groupStyle.GroupStyleId, HexColorString = groupStyle.HexColorString, FontSize = groupStyle.FontSize });
-                }                
+                }
             }
         }
 
@@ -64,7 +59,7 @@ namespace Dynamo.Wpf.Views
         /// <param name="dynamoView"> Dynamo ViewModel</param>
         public PreferencesView(DynamoView dynamoView)
         {
-            dynViewModel = dynamoView.DataContext as DynamoViewModel;            
+            dynViewModel = dynamoView.DataContext as DynamoViewModel;
             SetupPreferencesViewModel(dynViewModel);
 
             DataContext = dynViewModel.PreferencesViewModel;
@@ -75,7 +70,7 @@ namespace Dynamo.Wpf.Views
                 Actions.Open,
                 Categories.Preferences);
 
-            Owner = dynamoView;
+            Owner = dynamoView.Owner;
             dynViewModel.Owner = this;
             if (DataContext is PreferencesViewModel viewModelTemp)
             {
@@ -172,7 +167,7 @@ namespace Dynamo.Wpf.Views
 
             dynViewModel.PreferencesViewModel.TrustedPathsViewModel.PropertyChanged -= TrustedPathsViewModel_PropertyChanged;
             dynViewModel.CheckCustomGroupStylesChanges(originalCustomGroupStyles);
-            (this.Owner as DynamoView).EnableOverlayBlocker(false);
+            //(this.Owner as DynamoView).EnableOverlayBlocker(false);
 
             Close();
         }
@@ -244,7 +239,7 @@ namespace Dynamo.Wpf.Views
                 viewModel.AddStyle(newItem);
                 viewModel.ResetAddStyleControl();
                 Logging.Analytics.TrackEvent(Actions.Save, Categories.GroupStyleOperations, nameof(GroupStyleItem));
-            }          
+            }
         }
 
         private void AddStyle_CancelButton_Click(object sender, RoutedEventArgs e)
@@ -255,13 +250,13 @@ namespace Dynamo.Wpf.Views
 
         private void RemoveStyle_Click(object sender, RoutedEventArgs e)
         {
-           var removeButton = sender as Button;
+            var removeButton = sender as Button;
 
             //Get the Grid that contains all the buttons in the StyleItem
-           var grid = (removeButton.Parent as Grid).Parent as Grid;
+            var grid = (removeButton.Parent as Grid).Parent as Grid;
 
             //Find inside the Grid the label that contains the GroupName (unique id)
-           var groupNameLabel = grid.FindName("groupNameLabel") as TextBlock;
+            var groupNameLabel = grid.FindName("groupNameLabel") as TextBlock;
 
             //Remove the selected style from the list
             viewModel.RemoveStyleEntry(groupNameLabel.Text.ToString());
@@ -271,7 +266,7 @@ namespace Dynamo.Wpf.Views
         private void ColorPicker_Closed(object sender, EventArgs e)
         {
             var colorPicker = sender as CustomColorPicker;
-            if (colorPicker == null) return;  
+            if (colorPicker == null) return;
             colorPicker.Closed -= ColorPicker_Closed;
 
             if (colorButtonSelected != null)
@@ -465,7 +460,7 @@ namespace Dynamo.Wpf.Views
                     Wpf.Utilities.MessageBoxService.Show(
                         this, ex.Message, Res.ImportSettingsFailedMessage, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-            }            
+            }
         }
 
         private void exportTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -487,7 +482,7 @@ namespace Dynamo.Wpf.Views
                     if (File.Exists(selectedPathFile))
                     {
                         string uniqueId = ((DateTimeOffset)DateTime.UtcNow).ToUnixTimeSeconds().ToString();
-                        string suffixPlusDot = $"_{ uniqueId}.";
+                        string suffixPlusDot = $"_{uniqueId}.";
                         string uniqueFileName = PathManager.PreferenceSettingsFileName.Replace(".", suffixPlusDot);
                         selectedPathFile = Path.Combine(dialog.SelectedPath, uniqueFileName);
                     }
@@ -591,18 +586,18 @@ namespace Dynamo.Wpf.Views
                 if (confidenceLevel <= 9)
                 {
                     break;
-                }               
+                }
                 else
                 {
                     value--;
                     if ((confidenceLevel == 10) || confidenceLevel >= (i * 10) + 1 && confidenceLevel <= (i + 1) * 10)
-                    {                        
+                    {
                         break;
                     }
                 }
             }
             return value;
-        }       
+        }
 
         private void sliderConfidenceLevel_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows;
 using Dynamo.Controls;
 using Dynamo.Utilities;
+using System.Windows;
 
 namespace Dynamo.Wpf.Windows
 {
@@ -43,7 +42,7 @@ namespace Dynamo.Wpf.Windows
         /// <param name="rect">A reference to the Rect object that will store the window's position during this session.</param>
         public ModelessChildWindow(DependencyObject viewParent, ref WindowRect rect)
         {
-            Owner = WpfUtilities.FindUpVisualTree<DynamoView>(viewParent);
+            Owner = WpfUtilities.FindUpVisualTree<DynamoView>(viewParent).Owner;
 
             rect = InitWindowRect(rect);
         }
@@ -76,11 +75,11 @@ namespace Dynamo.Wpf.Windows
 
             Rect rect = new Rect(windowRect.Left, windowRect.Top, windowRect.Width, windowRect.Height);
             var pixelRect = Rect.Transform(rect, toDeviceMatrix);
-            var pixelRectangle = 
+            var pixelRectangle =
                 new System.Drawing.Rectangle(
-                    (int)pixelRect.X, 
-                    (int)pixelRect.Y, 
-                    (int)pixelRect.Width, 
+                    (int)pixelRect.X,
+                    (int)pixelRect.Y,
+                    (int)pixelRect.Width,
                     (int)pixelRect.Height
                 );
 
@@ -88,7 +87,7 @@ namespace Dynamo.Wpf.Windows
             {
                 var intersection = pixelRectangle;
                 intersection.Intersect(screen.WorkingArea);
-                if (intersection.Width >= minimumVisiblePixels && 
+                if (intersection.Width >= minimumVisiblePixels &&
                     intersection.Height >= minimumVisiblePixels)
                 {
                     // sufficiently visible on at least one screen

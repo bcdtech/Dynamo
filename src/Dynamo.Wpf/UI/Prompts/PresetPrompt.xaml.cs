@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.Graph.Workspaces;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Dynamo.Nodes
 {
@@ -41,9 +40,9 @@ namespace Dynamo.Nodes
         {
             InitializeComponent();
 
-            this.Owner = WpfUtilities.FindUpVisualTree<DynamoView>(this);
+            this.Owner = WpfUtilities.FindUpVisualTree<DynamoView>(this).Owner;
             this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Loaded +=PresetPrompt_Loaded;
+            this.Loaded += PresetPrompt_Loaded;
             this.nameBox.Focus();
         }
 
@@ -58,7 +57,7 @@ namespace Dynamo.Nodes
             {
                 var dataContext = this.Owner.DataContext as DynamoViewModel;
                 var presets = dataContext == null ? null : dataContext.Model.CurrentWorkspace.Presets;
-                 //get the preset names from workspace
+                //get the preset names from workspace
                 if (presets != null && presets.Any())
                 {
                     if (dataContext.Model.CurrentWorkspace.Presets.Any(x => x.Name == Text))
@@ -71,7 +70,7 @@ namespace Dynamo.Nodes
                         };
 
                         if (newDialog.ShowDialog() != true)
-                        {                                                        
+                        {
                             e.Handled = true;
                             return;
                         }
@@ -92,7 +91,7 @@ namespace Dynamo.Nodes
         {
             this.DialogResult = false;
         }
-               
+
         private void NameBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.Text.Length > this.nameBox.MaxLength)
@@ -103,9 +102,9 @@ namespace Dynamo.Nodes
             UpdateText();
         }
 
-        private void UpdateText()         
+        private void UpdateText()
         {
-            this.TextRemaining.Content =  (this.nameBox.MaxLength - this.nameBox.Text.Length) + " " +
+            this.TextRemaining.Content = (this.nameBox.MaxLength - this.nameBox.Text.Length) + " " +
                                                 Wpf.Properties.Resources.PresetTextRemaining;
         }
     }

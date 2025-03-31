@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using Dynamo.Controls;
 using Dynamo.Logging;
+using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Properties;
 using Dynamo.Wpf.ViewModels.GuidedTour;
 using Dynamo.Wpf.Views.GuidedTour;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Res = Dynamo.Wpf.Properties.Resources;
 
 namespace Dynamo.Wpf.UI.GuidedTour
@@ -127,8 +125,8 @@ namespace Dynamo.Wpf.UI.GuidedTour
         /// </summary>
         private void CreateBackground()
         {
-            Window mainWindow = Window.GetWindow(mainRootElement);
-
+            //Window mainWindow = Window.GetWindow(mainRootElement);
+            var mainWindow = WpfUtilities.FindUpVisualTree<DynamoView>(mainRootElement);
             if (guideBackgroundElement == null)
             {
                 guideBackgroundElement = new GuideBackground(mainWindow)

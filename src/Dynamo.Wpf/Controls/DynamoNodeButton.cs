@@ -32,16 +32,7 @@ namespace Dynamo.Nodes
             }
         }
 
-        private Window Owner
-        {
-            get
-            {
-                var f = WpfUtilities.FindUpVisualTree<DynamoView>(this);
-                if (f != null) return f;
 
-                return null;
-            }
-        }
 
         public DynamoNodeButton()
         {

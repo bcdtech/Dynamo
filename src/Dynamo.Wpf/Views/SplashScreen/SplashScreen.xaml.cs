@@ -235,8 +235,7 @@ namespace Dynamo.UI.Views
             }
             currentCloseMode = CloseMode.ByStartingDynamo;
             Close();
-            dynamoView?.Show();
-            dynamoView?.Activate();
+
         }
 
 

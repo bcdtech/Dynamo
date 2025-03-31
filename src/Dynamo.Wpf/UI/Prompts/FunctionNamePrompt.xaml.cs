@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 using Dynamo.Controls;
 using Dynamo.Utilities;
 using Dynamo.Wpf.Utilities;
 using DynamoUtilities;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Dynamo.Nodes
 {
@@ -19,7 +17,7 @@ namespace Dynamo.Nodes
         {
             InitializeComponent();
 
-            Owner = WpfUtilities.FindUpVisualTree<DynamoView>(this);
+            Owner = WpfUtilities.FindUpVisualTree<DynamoView>(this).Owner;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             nameBox.Focus();
@@ -32,7 +30,7 @@ namespace Dynamo.Nodes
                 categoryBox.Items.Add(item);
             }
         }
-       
+
 
         void OK_Click(object sender, RoutedEventArgs e)
         {

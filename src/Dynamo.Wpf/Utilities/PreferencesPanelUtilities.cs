@@ -1,9 +1,8 @@
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.Utilities;
 using Dynamo.Wpf.Views;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Dynamo.Wpf.Utilities
 {
@@ -19,11 +18,11 @@ namespace Dynamo.Wpf.Utilities
         /// <param name="location">Location in which the Preference panel will be shown</param>
         /// <param name="tabName">Tab name in which the preference panel will be opened</param>
         /// <param name="expanderName">Expander name that will be expanded (it has to be inside the tab)</param>
-        public static void OpenPreferencesPanel(Window mainWindow, WindowStartupLocation location, string tabName = "", string expanderName = "")
+        public static void OpenPreferencesPanel(DynamoView mainWindow, WindowStartupLocation location, string tabName = "", string expanderName = "")
         {
             var preferencesWindow = new PreferencesView(mainWindow as DynamoView);
 
-            if(!string.IsNullOrEmpty(tabName))
+            if (!string.IsNullOrEmpty(tabName))
             {
                 var tabControl = preferencesWindow.preferencesTabControl;
                 if (tabControl == null) return;
@@ -33,7 +32,7 @@ namespace Dynamo.Wpf.Utilities
                 if (preferencesTab == null) return;
                 tabControl.SelectedItem = preferencesTab;
 
-                if(!string.IsNullOrEmpty(expanderName))
+                if (!string.IsNullOrEmpty(expanderName))
                 {
                     var listExpanders = WpfUtilities.ChildrenOfType<Expander>(preferencesTab.Content as Grid);
                     var tabExpander = (from expander in listExpanders

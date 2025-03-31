@@ -46,7 +46,6 @@ using Exception = System.Exception;
 using Image = System.Windows.Controls.Image;
 using Point = System.Windows.Point;
 using Res = Dynamo.Wpf.Properties.Resources;
-using ResourceNames = Dynamo.Wpf.Interfaces.ResourceNames;
 using Size = System.Windows.Size;
 using String = System.String;
 
@@ -55,8 +54,11 @@ namespace Dynamo.Controls
     /// <summary>
     ///     Interaction logic for DynamoView.xaml
     /// </summary>
-    public partial class DynamoView : Window, IDisposable
+    public partial class DynamoView : UserControl, IDisposable
     {
+        public event EventHandler Deactivated;
+        public event EventHandler Activated;
+
         public const string BackgroundPreviewName = "BackgroundPreview";
         private const int SideBarCollapseThreshold = 20;
         private const int navigationInterval = 100;
@@ -71,7 +73,6 @@ namespace Dynamo.Controls
         private int tabSlidingWindowStart, tabSlidingWindowEnd;
         private ShortcutToolbar shortcutBar;
         private PreferencesView preferencesWindow;
-        private PackageManagerView packageManagerWindow;
         private bool loaded = false;
         // This is to identify whether the PerformShutdownSequenceOnViewModel() method has been
         // called on the view model and the process is not cancelled
@@ -125,12 +126,11 @@ namespace Dynamo.Controls
                 RenderMode.Default : RenderMode.SoftwareOnly;
 
             this.dynamoViewModel = dynamoViewModel;
-            this.dynamoViewModel.UIDispatcher = Dispatcher;
+            this.dynamoViewModel.UIDispatcher = Application.Current.Dispatcher;
             SharedDictionaryManager.Resoures = Resources;
             nodeViewCustomizationLibrary = new NodeViewCustomizationLibrary(this.dynamoViewModel.Model.Logger);
 
-            DataContext = dynamoViewModel;
-            Title = dynamoViewModel.BrandingResourceProvider.GetString(ResourceNames.MainWindow.Title);
+            this.DataContext = dynamoViewModel;
 
             tabSlidingWindowStart = tabSlidingWindowEnd = 0;
 
@@ -146,43 +146,12 @@ namespace Dynamo.Controls
             Unloaded += DynamoView_Unloaded;
 
             SizeChanged += DynamoView_SizeChanged;
-            LocationChanged += DynamoView_LocationChanged;
             MouseLeftButtonDown += DynamoView_MouseLeftButtonDown;
 
             // Apply appropriate expand/collapse library button state depending on initial width
             UpdateLibraryCollapseIcon();
 
-            // Check that preference bounds are actually within one
-            // of the available monitors.
-            if (CheckVirtualScreenSize())
-            {
-                System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
-                int leftLimit = 0;
-                int topLimit = 0;
-                foreach (var screen in screens)
-                {
-                    leftLimit += screen.Bounds.Width;
-                    topLimit += screen.Bounds.Height;
-                }
 
-                Left = dynamoViewModel.Model.PreferenceSettings.WindowX;
-                Top = dynamoViewModel.Model.PreferenceSettings.WindowY;
-                Width = dynamoViewModel.Model.PreferenceSettings.WindowW;
-                Height = dynamoViewModel.Model.PreferenceSettings.WindowH;
-
-                //When the previous location was in a secondary screen then the next time Dynamo is launched will try to use the same location, then we need to added this validations to show Dynamo in the right place
-                if (Left > leftLimit)
-                    Left = 0;
-                if (Top > topLimit)
-                    Top = 0;
-            }
-            else
-            {
-                Left = 0;
-                Top = 0;
-                Width = 1024;
-                Height = 768;
-            }
 
             _workspaceResizeTimer.Tick += _resizeTimer_Tick;
 
@@ -264,7 +233,7 @@ namespace Dynamo.Controls
             this.dynamoViewModel.RequestExportWorkSpaceAsImage += OnRequestExportWorkSpaceAsImage;
 
 
-            dynamoViewModel.Owner = this;
+            dynamoViewModel.Owner = Application.Current.MainWindow;
 
             FocusableGrid.InputBindings.Clear();
 
@@ -272,15 +241,22 @@ namespace Dynamo.Controls
             {
                 fileTrustWarningPopup = new FileTrustWarning(this);
             }
-            if (!DynamoModel.IsTestMode && string.IsNullOrEmpty(DynamoModel.HostAnalyticsInfo.HostName) && Application.Current != null)
-            {
-                Application.Current.MainWindow = this;
-            }
+
 
             DefaultMinWidth = MinWidth;
             PinHomeButton();
-            var fontFamily = Resources["ArtifaktElementRegular"] as FontFamily;
-
+        }
+        public bool IsActive { get; private set; }
+        public Window Owner { get; set; } = Application.Current.MainWindow;
+        public void InvokeActive()
+        {
+            IsActive = true;
+            Activated?.Invoke(this, EventArgs.Empty);
+        }
+        public void InvokeDeactive()
+        {
+            IsActive = false;
+            Deactivated?.Invoke(this, EventArgs.Empty);
         }
         private void OnRequestCloseHomeWorkSpace()
         {
@@ -467,7 +443,7 @@ namespace Dynamo.Controls
             if (windowSettings == null)
             {
                 window = new ExtensionWindow();
-                window.Owner = this;
+                window.Owner = Application.Current.MainWindow;
             }
             else
             {
@@ -487,14 +463,11 @@ namespace Dynamo.Controls
                 }
             }
 
-            // Setting the content of the undocked window
-            // Icon is passed from DynamoView (respecting Host integrator icon)
-            SetApplicationIcon();
-            window.Icon = this.Icon;
+
             if (content is Window container)
             {
                 content = container.Content as UIElement;
-                container.Owner = this;
+                container.Owner = Application.Current.MainWindow;
             }
             window.ExtensionContent.Content = content;
             window.Title = viewExtension.Name;
@@ -549,7 +522,7 @@ namespace Dynamo.Controls
             {
                 content = container.Content as UIElement;
                 // Make sure the extension window closes with Dynamo
-                container.Owner = this;
+                container.Owner = Application.Current.MainWindow;
             }
             tab.Content = content;
 
@@ -563,7 +536,7 @@ namespace Dynamo.Controls
         private void UpdateNodeIcons_Click(object sender, RoutedEventArgs e)
         {
             var updateNodeIconsWindow = new UpdateNodeIconsWindow(dynamoViewModel.Model.SearchModel.Entries);
-            updateNodeIconsWindow.Owner = this;
+            updateNodeIconsWindow.Owner = Owner;
             updateNodeIconsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             updateNodeIconsWindow.ShowDialog();
         }
@@ -603,7 +576,7 @@ namespace Dynamo.Controls
             {
                 content = container.Content as UIElement;
                 // Make sure the window closes with Dynamo
-                container.Owner = this;
+                container.Owner = Owner;
             }
             tab.Content = content;
 
@@ -800,31 +773,7 @@ namespace Dynamo.Controls
             dynamoViewModel.DockedNodeWindows.Remove(tabItem.Uid);
         }
 
-        /// <summary>
-        /// Sets DynamoView icon to that of the currently running application. This is set for reuse
-        /// in custom child windows rather than for the main window itself, which is not customized.
-        /// </summary>
-        private void SetApplicationIcon()
-        {
-            if (this.Icon == null && !DynamoModel.IsTestMode)
-            {
-                var applicationPath = Process.GetCurrentProcess().MainModule.FileName;
-                try
-                {
-                    var icon = System.Drawing.Icon.ExtractAssociatedIcon(applicationPath);
-                    var bmp = icon.ToBitmap();
-                    MemoryStream stream = new MemoryStream();
-                    bmp.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                    stream.Seek(0, SeekOrigin.Begin);
-                    PngBitmapDecoder pngDecoder = new PngBitmapDecoder(stream, BitmapCreateOptions.None, BitmapCacheOption.Default);
-                    this.Icon = pngDecoder.Frames[0];
-                }
-                catch (Exception ex)
-                {
-                    Log(string.Format(Dynamo.Wpf.Properties.Resources.ErrorLoadingIcon, ex.Message));
-                }
-            }
-        }
+
 
         private void ExtensionWindow_Closed(object sender, EventArgs e)
         {
@@ -1031,24 +980,6 @@ namespace Dynamo.Controls
 
             return true;
         }
-
-        private void DynamoView_LocationChanged(object sender, EventArgs e)
-        {
-            dynamoViewModel.Model.PreferenceSettings.WindowX = Left;
-            dynamoViewModel.Model.PreferenceSettings.WindowY = Top;
-
-            //When the Dynamo window is moved to another place we need to update the Steps location
-            if (dynamoViewModel.MainGuideManager != null)
-                dynamoViewModel.MainGuideManager.UpdateGuideStepsLocation();
-
-            if (fileTrustWarningPopup != null && fileTrustWarningPopup.IsOpen)
-            {
-                fileTrustWarningPopup.UpdatePopupLocation();
-            }
-
-            UpdateGeometryScalingPopupLocation();
-        }
-
         private void DynamoView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             dynamoViewModel.Model.PreferenceSettings.WindowW = e.NewSize.Width;
@@ -1268,7 +1199,7 @@ namespace Dynamo.Controls
             var isFirstRun = dynamoViewModel.Model.PreferenceSettings.IsFirstRun;
 
             // If first run, Collect Info Prompt will appear
-            UsageReportingManager.Instance.CheckIsFirstRun(this, dynamoViewModel.BrandingResourceProvider);
+            UsageReportingManager.Instance.CheckIsFirstRun(Owner, dynamoViewModel.BrandingResourceProvider);
 
 
             WorkspaceTabs.SelectedIndex = 0;
@@ -1279,7 +1210,7 @@ namespace Dynamo.Controls
 
             // Initialize Guide Manager as a member on Dynamo ViewModel so other than guided tour,
             // other part of application can also leverage it.
-            dynamoViewModel.MainGuideManager = new GuidesManager(_this, dynamoViewModel);
+            dynamoViewModel.MainGuideManager = new GuidesManager(this, dynamoViewModel);
             GuideFlowEvents.GuidedTourStart += GuideFlowEvents_GuidedTourStart;
             _timer.Stop();
             dynamoViewModel.Model.Logger.Log(String.Format(Wpf.Properties.Resources.MessageLoadingTime,
@@ -1287,15 +1218,11 @@ namespace Dynamo.Controls
             InitializeShortcutBar();
             InitializeStartPage(isFirstRun);
 
-#if !__NO_SAMPLES_MENU
-            LoadSamplesMenu();
-#endif
+
 
             #region Package manager
 
-            dynamoViewModel.RequestPackagePublishDialog += DynamoViewModelRequestPackageManager;
-            dynamoViewModel.RequestPackageManagerSearchDialog += DynamoViewModelRequestShowPackageManagerSearch;
-            dynamoViewModel.RequestPackageManagerDialog += DynamoViewModelRequestShowPackageManager;
+
 
             #endregion
 
@@ -1327,7 +1254,6 @@ namespace Dynamo.Controls
             dynamoViewModel.Model.ClipBoard.CollectionChanged += ClipBoard_CollectionChanged;
 
             //ABOUT WINDOW
-            dynamoViewModel.RequestAboutWindow += DynamoViewModelRequestAboutWindow;
 
             dynamoViewModel.RequestShorcutToolbarLoaded += onRequestShorcutToolbarLoaded;
 
@@ -1335,7 +1261,7 @@ namespace Dynamo.Controls
             SubscribeNodeViewCustomizationEvents();
 
             // Kick start the automation run, if possible.
-            dynamoViewModel.BeginCommandPlayback(this);
+            dynamoViewModel.BeginCommandPlayback(Owner);
 
             sharedViewExtensionLoadedParams = new ViewLoadedParams(this, dynamoViewModel);
             this.DynamoLoadedViewExtensionHandler(sharedViewExtensionLoadedParams, viewExtensionManager.ViewExtensions);
@@ -1430,118 +1356,23 @@ namespace Dynamo.Controls
             Analytics.TrackTimedEvent(Categories.Performance, "ViewStartup", dynamoViewModel.Model.stopwatch.Elapsed, packages);
         }
 
-        /// <summary>
-        /// Call this method to optionally bring up terms of use dialog. User 
-        /// needs to accept terms of use before any packages can be downloaded 
-        /// from package manager.
-        /// </summary>
-        /// <returns>Returns true if the terms of use for downloading a package 
-        /// is accepted by the user, or false otherwise. If this method returns 
-        /// false, then download of package should be terminated.</returns>
-        /// 
-        private bool DisplayTermsOfUseForAcceptance()
-        {
-            var prefSettings = dynamoViewModel.Model.PreferenceSettings;
-            if (prefSettings.PackageDownloadTouAccepted)
-                return true; // User accepted the terms of use.
-
-            prefSettings.PackageDownloadTouAccepted = TermsOfUseHelper.ShowTermsOfUseDialog(false, null, _this);
-
-            // User may or may not accept the terms.
-            return prefSettings.PackageDownloadTouAccepted;
-        }
 
         private void DynamoView_Unloaded(object sender, RoutedEventArgs e)
         {
             UnsubscribeNodeViewCustomizationEvents();
         }
 
-        private void DynamoViewModelRequestAboutWindow(DynamoViewModel model)
-        {
-            var aboutWindow = model.BrandingResourceProvider.CreateAboutBox(model);
-            aboutWindow.Owner = this;
-            aboutWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            aboutWindow.ShowDialog();
-        }
+
 
         private PublishPackageView _pubPkgView;
 
-        private void DynamoViewModelRequestPackageManager(PublishPackageViewModel model)
-        {
-            if (packageManagerWindow == null)
-            {
-                if (_pkgSearchVM == null)
-                {
-                    _pkgSearchVM = new PackageManagerSearchViewModel(dynamoViewModel.PackageManagerClientViewModel);
-                }
 
-                if (_pkgVM == null)
-                {
-                    _pkgVM = new PackageManagerViewModel(dynamoViewModel, _pkgSearchVM);
-                }
-
-                packageManagerWindow = new PackageManagerView(this, _pkgVM)
-                {
-                    Owner = this,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
-                };
-
-                // setting the owner to the packageManagerWindow will centralize promts originating from the Package Manager
-                dynamoViewModel.Owner = packageManagerWindow;
-
-                packageManagerWindow.Closed += HandlePackageManagerWindowClosed;
-                packageManagerWindow.Show();
-
-                if (packageManagerWindow.IsLoaded && IsLoaded) packageManagerWindow.Owner = this;
-            }
-            if (_pkgVM != null)
-            {
-                _pkgVM.PublishPackageViewModel = model;
-            }
-
-            packageManagerWindow.Focus();
-            packageManagerWindow.Navigate(Wpf.Properties.Resources.PackageManagerPublishTab);
-        }
 
         private PackageManagerSearchView _searchPkgsView;
         private PackageManagerSearchViewModel _pkgSearchVM;
         private PackageManagerViewModel _pkgVM;
 
-        private void DynamoViewModelRequestShowPackageManagerSearch(object s, EventArgs e)
-        {
-            if (!DisplayTermsOfUseForAcceptance())
-                return; // Terms of use not accepted.
 
-            var cmd = Analytics.TrackTaskCommandEvent("SearchPackage");
-
-            // The package search view model is shared and can be shared by resources at the moment
-            // If it hasn't been initialized yet, we do that here
-            if (_pkgSearchVM == null)
-            {
-                _pkgSearchVM = new PackageManagerSearchViewModel(dynamoViewModel.PackageManagerClientViewModel);
-            }
-            else
-            {
-                _pkgSearchVM.InitializeLuceneForPackageManager();
-            }
-
-            if (_searchPkgsView == null)
-            {
-                _searchPkgsView = new PackageManagerSearchView(_pkgSearchVM)
-                {
-                    Owner = this,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
-                };
-
-                _searchPkgsView.Closed += (sender, args) => { _searchPkgsView = null; Analytics.EndTaskCommandEvent(cmd); };
-                _searchPkgsView.Show();
-
-                if (_searchPkgsView.IsLoaded && IsLoaded) _searchPkgsView.Owner = this;
-            }
-
-            _searchPkgsView.Focus();
-            _pkgSearchVM.RefreshAndSearchAsync();
-        }
 
         private void ClipBoard_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
@@ -1577,7 +1408,7 @@ namespace Dynamo.Controls
             }
 
             var buttons = e.AllowCancel ? MessageBoxButton.YesNoCancel : MessageBoxButton.YesNo;
-            var result = MessageBoxService.Show(this, dialogText,
+            var result = MessageBoxService.Show(dialogText,
                 Dynamo.Wpf.Properties.Resources.UnsavedChangesMessageBoxTitle,
                 buttons, MessageBoxImage.Question);
 
@@ -1659,7 +1490,7 @@ namespace Dynamo.Controls
                 categoryBox = { Text = e.Category },
                 DescriptionInput = { Text = e.Description },
                 nameBox = { Text = e.Name },
-                Owner = this,
+                Owner = Application.Current.MainWindow,
             };
 
             if (e.CanEditName)
@@ -1755,7 +1586,7 @@ namespace Dynamo.Controls
                     nameView = { Text = "" },
                     nameBox = { Text = e.Name },
                     // center the prompt
-                    Owner = this,
+                    Owner = Application.Current.MainWindow,
                     WindowStartupLocation = WindowStartupLocation.CenterOwner
                 };
 
@@ -1789,7 +1620,7 @@ namespace Dynamo.Controls
         {
             var newDialog = new PresetOverwritePrompt()
             {
-                Owner = this,
+                Owner = Application.Current.MainWindow,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 Text = Wpf.Properties.Resources.PresetWarningMessage,
                 IsCancelButtonVisible = Visibility.Collapsed
@@ -1817,7 +1648,6 @@ namespace Dynamo.Controls
             {
                 //Shutdown wasn't cancelled
                 SizeChanged -= DynamoView_SizeChanged;
-                LocationChanged -= DynamoView_LocationChanged;
                 MouseLeftButtonDown -= DynamoView_MouseLeftButtonDown;
                 return true;
             }
@@ -1828,7 +1658,7 @@ namespace Dynamo.Controls
             }
         }
 
-        private void WindowClosing(object sender, CancelEventArgs e)
+        public void WindowClosing(object sender, CancelEventArgs e)
         {
             SaveExtensionsState();
 
@@ -1897,7 +1727,7 @@ namespace Dynamo.Controls
             }
         }
 
-        private void WindowClosed(object sender, EventArgs e)
+        private void Close()
         {
             //There will be chances that WindowsClosed is called but WindowClosing is not called.
             //This is to ensure PerformShutdownSequence is always called on the view model.
@@ -1909,9 +1739,6 @@ namespace Dynamo.Controls
             dynamoViewModel.Model.RequestLayoutUpdate -= vm_RequestLayoutUpdate;
             dynamoViewModel.RequestViewOperation -= DynamoViewModelRequestViewOperation;
 
-            //PACKAGE MANAGER
-            dynamoViewModel.RequestPackagePublishDialog -= DynamoViewModelRequestPackageManager;
-            dynamoViewModel.RequestPackageManagerSearchDialog -= DynamoViewModelRequestShowPackageManagerSearch;
 
             //FUNCTION NAME PROMPT
             dynamoViewModel.Model.RequestsFunctionNamePrompt -= DynamoViewModelRequestsFunctionNamePrompt;
@@ -1936,8 +1763,6 @@ namespace Dynamo.Controls
                 dynamoViewModel.Model.ClipBoard.CollectionChanged -= ClipBoard_CollectionChanged;
             }
 
-            //ABOUT WINDOW
-            dynamoViewModel.RequestAboutWindow -= DynamoViewModelRequestAboutWindow;
 
             //first all view extensions have their shutdown methods called
             //when this view is finally disposed, dispose will be called on them.
@@ -1984,7 +1809,6 @@ namespace Dynamo.Controls
                 RemoveHomePage();
             }
 
-            this.Dispose();
             sharedViewExtensionLoadedParams?.Dispose();
             this._pkgSearchVM?.Dispose();
             this._pkgVM?.Dispose();
@@ -2086,101 +1910,12 @@ namespace Dynamo.Controls
             dynamoViewModel.ShowNewPresetsDialogCommand.RaiseCanExecuteChanged();
         }
 
-#if !__NO_SAMPLES_MENU
-        /// <summary>
-        ///     Setup the "Samples" sub-menu with contents of samples directory.
-        /// </summary>
-        private void LoadSamplesMenu()
-        {
-            var samplesDirectory = dynamoViewModel.Model.PathManager.SamplesDirectory;
 
-            if (Directory.Exists(samplesDirectory))
-            {
-                var sampleFiles = new System.Collections.Generic.List<string>();
-                string[] dirPaths = Directory.GetDirectories(samplesDirectory);
-                string[] filePaths = Directory.GetFiles(samplesDirectory, "*.dyn");
-
-                // handle top-level files
-                if (filePaths.Length != 0)
-                {
-                    foreach (string path in filePaths)
-                    {
-                        var item = new MenuItem
-                        {
-                            Header = Path.GetFileNameWithoutExtension(path),
-                            Tag = path
-                        };
-                        item.Click += OpenSample_Click;
-                        SamplesMenu.Items.Add(item);
-                        sampleFiles.Add(path);
-                    }
-                }
-
-                // handle top-level dirs, TODO - factor out to a separate function, make recursive
-                if (dirPaths.Any())
-                {
-                    foreach (string dirPath in dirPaths)
-                    {
-                        var dirItem = new MenuItem
-                        {
-                            Header = Path.GetFileName(dirPath),
-                            Tag = Path.GetFileName(dirPath)
-                        };
-
-                        filePaths = Directory.GetFiles(dirPath, "*.dyn");
-                        if (filePaths.Any())
-                        {
-                            foreach (string path in filePaths)
-                            {
-                                var item = new MenuItem
-                                {
-                                    Header = Path.GetFileNameWithoutExtension(path),
-                                    Tag = path
-                                };
-                                item.Click += OpenSample_Click;
-                                dirItem.Items.Add(item);
-                                sampleFiles.Add(path);
-                            }
-                        }
-                        SamplesMenu.Items.Add(dirItem);
-                    }
-                }
-
-                if (dirPaths.Any())
-                {
-                    var showInFolder = new MenuItem
-                    {
-                        Header = Wpf.Properties.Resources.DynamoViewHelpMenuShowInFolder,
-                        Tag = dirPaths[0]
-                    };
-                    showInFolder.Click += OnShowInFolder;
-                    SamplesMenu.Items.Add(new Separator());
-                    SamplesMenu.Items.Add(showInFolder);
-                }
-
-                if (sampleFiles.Any() && startPage != null)
-                {
-                    var firstFilePath = Path.GetDirectoryName(sampleFiles.ToArray()[0]);
-                    var rootPath = Path.GetDirectoryName(firstFilePath);
-                    var root = new DirectoryInfo(rootPath);
-                    var rootProperty = new SampleFileEntry("Samples", "Path");
-                    startPage.WalkDirectoryTree(root, rootProperty);
-                    startPage.SampleFiles.Add(rootProperty);
-                }
-            }
-        }
-
-        private static void OnShowInFolder(object sender, RoutedEventArgs e)
-        {
-            var folderPath = (string)((MenuItem)sender).Tag;
-            Process.Start(new ProcessStartInfo("explorer.exe", "/select," + folderPath) { UseShellExecute = true });
-        }
-#endif
 
         private void OnDebugModesClick(object sender, RoutedEventArgs e)
         {
             var debugModesWindow = new DebugModesWindow();
-            debugModesWindow.Owner = this;
+            debugModesWindow.Owner = Owner;
             debugModesWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             debugModesWindow.ShowDialog();
         }
@@ -2193,65 +1928,9 @@ namespace Dynamo.Controls
             preferencesWindow.Show();
         }
 
-        private void DynamoViewModelRequestShowPackageManager(object s, EventArgs e)
-        {
-            if (!DisplayTermsOfUseForAcceptance())
-                return; // Terms of use not accepted.
 
-            if (_pkgSearchVM == null)
-            {
-                _pkgSearchVM = new PackageManagerSearchViewModel(dynamoViewModel.PackageManagerClientViewModel);
-            }
 
-            if (_pkgVM == null)
-            {
-                _pkgVM = new PackageManagerViewModel(dynamoViewModel, _pkgSearchVM);
-            }
 
-            if (packageManagerWindow == null)
-            {
-                if (e is PackageManagerSizeEventArgs)
-                {
-                    var packageManagerSizeEventArgs = e as PackageManagerSizeEventArgs;
-                    //Set a fixed size for the PackageManagerView
-                    _pkgVM.Width = packageManagerSizeEventArgs.Width;
-                    _pkgVM.Height = packageManagerSizeEventArgs.Height;
-                }
-
-                packageManagerWindow = new PackageManagerView(this, _pkgVM)
-                {
-                    Owner = this,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
-                };
-
-                // setting the owner to the packageManagerWindow will centralize promts originating from the Package Manager
-                dynamoViewModel.Owner = packageManagerWindow;
-
-                packageManagerWindow.Closed += HandlePackageManagerWindowClosed;
-                packageManagerWindow.Show();
-
-                if (packageManagerWindow.IsLoaded && IsLoaded) packageManagerWindow.Owner = this;
-            }
-
-            packageManagerWindow.Focus();
-            if (e is OpenPackageManagerEventArgs)
-            {
-                packageManagerWindow.Navigate((e as OpenPackageManagerEventArgs).Tab);
-            }
-
-            _pkgSearchVM.RefreshAndSearchAsync();
-        }
-
-        private void HandlePackageManagerWindowClosed(object sender, EventArgs e)
-        {
-            packageManagerWindow.Closed -= HandlePackageManagerWindowClosed;
-            packageManagerWindow = null;
-
-            var cmd = Analytics.TrackCommandEvent("PackageManager");
-            cmd.Dispose();
-
-            this.Activate();
-        }
 
         /// <summary>
         /// Adds/Removes an overlay so the user won't be able to interact with the background (this behavior was implemented for Dynamo and for Library)
@@ -2744,7 +2423,6 @@ namespace Dynamo.Controls
             sidebarExtensionsGrid.Visibility = Visibility.Collapsed;
             collapsedExtensionSidebar.Visibility = Visibility.Visible;
         }
-
         private void Workspace_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             //http://stackoverflow.com/questions/4474670/how-to-catch-the-ending-resize-window
@@ -2837,28 +2515,6 @@ namespace Dynamo.Controls
             PinHomeButton();
         }
 
-        private void DynamoView_OnDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                Activate();
-                // Note that you can have more than one file.
-                var files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                if (dynamoViewModel.HomeSpace.HasUnsavedChanges && !dynamoViewModel.AskUserToSaveWorkspaceOrCancel(dynamoViewModel.HomeSpace))
-                {
-                    return;
-                }
-
-                if (dynamoViewModel.OpenCommand.CanExecute(files[0]))
-                {
-                    dynamoViewModel.OpenCommand.Execute(files[0]);
-                }
-
-            }
-
-            e.Handled = true;
-        }
 
 
         private void Log(ILogMessage obj)
@@ -2933,26 +2589,7 @@ namespace Dynamo.Controls
             }
         }
 
-        private void FileTrustWarning_Click(object sender, RoutedEventArgs e)
-        {
-            var dynViewModel = DataContext as DynamoViewModel;
-            if (dynViewModel.FileTrustViewModel == null) return;
-            dynViewModel.FileTrustViewModel.ShowWarningPopup = true;
-        }
 
-        private void DynamoView_Activated(object sender, EventArgs e)
-        {
-            if (fileTrustWarningPopup != null && dynamoViewModel.ViewingHomespace)
-            {
-                fileTrustWarningPopup.ManagePopupActivation(true);
-            }
-        }
-
-        private void DynamoView_Deactivated(object sender, EventArgs e)
-        {
-            if (fileTrustWarningPopup != null)
-                fileTrustWarningPopup.ManagePopupActivation(false);
-        }
 
         private void TabItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -2982,6 +2619,8 @@ namespace Dynamo.Controls
 
         public void Dispose()
         {
+            Close();
+
             viewExtensionManager.Dispose();
 
 

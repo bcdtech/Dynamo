@@ -6,7 +6,6 @@ using Dynamo.ViewModels;
 using Dynamo.Visualization;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace Dynamo.Wpf.Extensions
@@ -61,7 +60,7 @@ namespace Dynamo.Wpf.Extensions
         /// A reference to the Dynamo Window object. Useful for correctly setting the parent of a 
         /// newly created window.
         /// </summary>
-        public Window DynamoWindow
+        public UserControl DynamoWindow
         {
             get
             {

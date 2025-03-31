@@ -44,9 +44,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.en-US.resx">
+    <!--<EmbeddedResource Update="Properties\Resources.en-US.resx">
       <Generator></Generator>
-    </EmbeddedResource>
+    </EmbeddedResource>-->
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

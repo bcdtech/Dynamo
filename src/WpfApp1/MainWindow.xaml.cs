@@ -6,12 +6,14 @@ using System.Windows;
 
 namespace WpfApp1
 {
-    internal class Program
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        [STAThread]
-        public static void Main(string[] args)
+        public MainWindow()
         {
-            var app = new Application();
+            InitializeComponent();
             var model = StartupUtils.MakeModel(false, "", true, string.Empty, new HostAnalyticsInfo { });
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
@@ -21,8 +23,7 @@ namespace WpfApp1
             var viewModel = DynamoViewModel.Start(startConfiguration);
 
             var dynamoView = new DynamoView(viewModel);
-            dynamoView.Show();
-            app.Run();
+            mainGrid.Children.Add(dynamoView);
         }
     }
 }

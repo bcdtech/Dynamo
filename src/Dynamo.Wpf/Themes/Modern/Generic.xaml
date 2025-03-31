@@ -35,7 +35,7 @@
 
 
     <!--  Window Common Styling  -->
-    <Style x:Key="DynamoWindowStyle" TargetType="{x:Type Window}">
+    <Style x:Key="DynamoWindowStyle" TargetType="{x:Type conv:DynamoView}">
         <Setter Property="FontFamily" Value="{StaticResource ArtifaktElementRegular}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Background" Value="#343434" />

@@ -1,8 +1,7 @@
-﻿using System;
+using Dynamo.Wpf.UI.GuidedTour;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using Dynamo.Wpf.UI.GuidedTour;
 
 namespace Dynamo.Wpf.Views.GuidedTour
 {
@@ -14,15 +13,16 @@ namespace Dynamo.Wpf.Views.GuidedTour
         private CutOffArea cutOffBackgroundArea;
         private HighlightArea highlightBackgroundArea;
         private Rect overlayRect;
-        private Window mainWindow;
+        private UserControl mainWindow;
 
         /// <summary>
         /// Rect with the size of the Dynamo Window regularly updating its size depending the window's size, this will be used for drawing the overlay
         /// </summary>
         public Rect OverlayRect
-        { 
-            get { 
-                return overlayRect; 
+        {
+            get
+            {
+                return overlayRect;
             }
             set
             {
@@ -36,10 +36,12 @@ namespace Dynamo.Wpf.Views.GuidedTour
         /// </summary>
         public CutOffArea CutOffBackgroundArea
         {
-            get {
-                return cutOffBackgroundArea; 
+            get
+            {
+                return cutOffBackgroundArea;
             }
-            set {
+            set
+            {
                 cutOffBackgroundArea = value;
                 RaisePropertyChanged(nameof(CutOffBackgroundArea));
             }
@@ -92,7 +94,7 @@ namespace Dynamo.Wpf.Views.GuidedTour
             }
         }
 
-        public GuideBackground(Window mainWindow)
+        public GuideBackground(UserControl mainWindow)
         {
             InitializeComponent();
             DataContext = this;

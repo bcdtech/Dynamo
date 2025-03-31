@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 using Dynamo.Controls;
 using Dynamo.Graph.Nodes;
 using Dynamo.Utilities;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace UI.Prompts
 {
@@ -73,7 +70,7 @@ namespace UI.Prompts
         {
             get
             {
-                var f = WpfUtilities.FindUpVisualTree<DynamoView>(this);
+                var f = WpfUtilities.FindUpVisualTree<DynamoView>(this).Owner;
                 if (f != null) return f;
 
                 return null;
@@ -104,10 +101,10 @@ namespace UI.Prompts
         public PortPropertiesEditPrompt()
         {
             InitializeComponent();
-            
+
             this.DataContext = this;
 
-            Owner = GetDynamoView();
+            //Owner = GetDynamoView();
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             this.ContentRendered += OnContentRendered;
@@ -135,20 +132,20 @@ namespace UI.Prompts
             }
         }
 
-        // A helper method to find DynamoView Window
-        // Contrary to the expectation, DynamoView does not own this prompt window
-        // Upon inspection, both windows are direct children of the Dynamo process with no visual tree relationship
-        private DynamoView GetDynamoView()
-        {
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window is DynamoView dynamoView)
-                {
-                    return dynamoView;
-                }
-            }
-            return null;
-        }
+        //// A helper method to find DynamoView Window
+        //// Contrary to the expectation, DynamoView does not own this prompt window
+        //// Upon inspection, both windows are direct children of the Dynamo process with no visual tree relationship
+        //private DynamoView GetDynamoView()
+        //{
+        //    foreach (Window window in Application.Current.Windows)
+        //    {
+        //        if (window is DynamoView dynamoView)
+        //        {
+        //            return dynamoView;
+        //        }
+        //    }
+        //    return null;
+        //}
         #endregion
 
         #region Methods
@@ -195,7 +192,7 @@ namespace UI.Prompts
                 IsStatusWarning = false;
             }
         }
-        
+
         // Run all name validation checks here
         private bool ValidatePortName(string name)
         {
