@@ -7,12 +7,14 @@ using Dynamo.Models;
 using Dynamo.Search;
 using Dynamo.Search.SearchElements;
 using Dynamo.Utilities;
+using Dynamo.Wpf.Interfaces;
 using Dynamo.Wpf.Services;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using DynamoUtilities;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -449,6 +451,12 @@ namespace Dynamo.ViewModels
 
         private void InitializeCore()
         {
+            var resource = "Dynamo.Wpf.Assets.layoutSpecs.json";
+            var assembly = Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream(resource);
+            var spec = LayoutSpecification.FromJSONStream(stream);
+
+
             searchResults = new List<NodeSearchElementViewModel>();
             filteredResults = new List<NodeSearchElementViewModel>();
             searchCategories = new List<SearchCategory>();
@@ -468,7 +476,7 @@ namespace Dynamo.ViewModels
             Model.EntryUpdated += UpdateEntry;
             Model.EntryRemoved += RemoveEntry;
 
-            LibraryRootCategories.AddRange(CategorizeEntries(Model.Entries, false));
+            LibraryRootCategories.AddRange(CategorizeEntries(Model.Entries, spec, false));
 
             DefineFullCategoryNames(LibraryRootCategories, "");
             InsertClassesIntoTree(LibraryRootCategories);
@@ -483,20 +491,20 @@ namespace Dynamo.ViewModels
             RaisePropertyChanged("BrowserRootCategories");
         }
 
-        private IEnumerable<RootNodeCategoryViewModel> CategorizeEntries(IEnumerable<NodeSearchElement> entries, bool expanded)
+        private IEnumerable<RootNodeCategoryViewModel> CategorizeEntries(IEnumerable<NodeSearchElement> entries, LayoutSpecification layoutSpecification, bool expanded)
         {
-            var tempRoot = entries.GroupByRecursive<NodeSearchElement, string, NodeCategoryViewModel>(
-                    element => element.Categories,
-                    (name, subs, es) =>
-                    {
-                        var category =
-                            new NodeCategoryViewModel(name, es.OrderBy(en => en.Name).Select(MakeNodeSearchElementVM), subs);
-                        category.IsExpanded = expanded;
-                        category.RequestBitmapSource += SearchViewModelRequestBitmapSource;
-                        category.RequestReturnFocusToSearch += OnRequestFocusSearch;
-                        return category;
-                    }, "");
-
+            //var tempRoot = entries.GroupByRecursive<NodeSearchElement, string, NodeCategoryViewModel>(
+            //        element => element.Categories,
+            //        (name, subs, es) =>
+            //        {
+            //            var category =
+            //                new NodeCategoryViewModel(name, es.OrderBy(en => en.Name).Select(MakeNodeSearchElementVM), subs);
+            //            category.IsExpanded = expanded;
+            //            category.RequestBitmapSource += SearchViewModelRequestBitmapSource;
+            //            category.RequestReturnFocusToSearch += OnRequestFocusSearch;
+            //            return category;
+            //        }, "");
+            var tempRoot = GroupByRecursive(entries, layoutSpecification.sections[0]);
             var result = tempRoot.SubCategories.Select(cat =>
             {
                 var rootCat = new RootNodeCategoryViewModel(cat.Name, cat.Entries, cat.SubCategories)
@@ -513,9 +521,26 @@ namespace Dynamo.ViewModels
             });
 
             tempRoot.Dispose();
+            var section = layoutSpecification.sections[0];
+
+
             return result.OrderBy(cat => cat.Name);
         }
+        NodeCategoryViewModel GroupByRecursive(IEnumerable<NodeSearchElement> entries, LayoutElement layoutElement)
+        {
+            IEnumerable<NodeCategoryViewModel>? subCategories = null;
+            IEnumerable<NodeSearchElement>? subEntries = null;
+            if (layoutElement.include?.Any() ?? false)
+            {
+                subEntries = entries.Where(en => layoutElement.include.Select(x => x.path).Contains(en.FullName));
+            }
+            if (layoutElement.childElements?.Any() ?? false)
+            {
+                subCategories = layoutElement.childElements.Select(x => GroupByRecursive(entries, x));
+            }
+            return new NodeCategoryViewModel(layoutElement.text, subEntries?.Select(MakeNodeSearchElementVM), subCategories);
 
+        }
         private static void InsertClassesIntoTree(ObservableCollection<NodeCategoryViewModel> tree)
         {
             foreach (var item in tree)
@@ -541,7 +566,7 @@ namespace Dynamo.ViewModels
             foreach (var item in tree)
             {
                 item.FullCategoryName = MakeFullyQualifiedName(path, item.Name);
-                if (!item.SubCategories.Any())
+                if (!item.SubCategories.Any() && item.Items.Any())
                     item.Assembly = (item.Items[0] as NodeSearchElementViewModel).Assembly;
 
                 DefineFullCategoryNames(item.SubCategories, item.FullCategoryName);
