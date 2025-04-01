@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Windows.Media;
 using Dynamo.Engine;
 using Dynamo.Interfaces;
 using Dynamo.Utilities;
+using System.Drawing;
+using System.Reflection;
+using System.Resources;
+using System.Windows.Media;
 
 namespace Dynamo.Wpf.Services
 {
@@ -26,7 +23,9 @@ namespace Dynamo.Wpf.Services
         {
             var libraryCustomization = LibraryCustomizationServices.GetForAssembly(assemblyPath, pathManager, useAdditionalPaths);
             if (libraryCustomization == null)
-                return null;
+            {
+                libraryCustomization = new LibraryCustomization(Assembly.LoadFrom(assemblyPath), null);
+            }
 
             var assembly = libraryCustomization.ResourceAssembly;
             if (assembly == null)
@@ -58,7 +57,15 @@ namespace Dynamo.Wpf.Services
                 // "Name" can be "Some.Assembly.Name.customization" with multiple dots, 
                 // we are interested in removal of the "customization" part and the middle dots.
                 var temp = resAssembly.GetName().Name.Split('.');
-                assemblyName = String.Join("", temp.Take(temp.Length - 1));
+                if (temp.Length > 1)
+                {
+                    assemblyName = String.Join("", temp.Take(temp.Length - 1));
+
+                }
+                else
+                {
+                    assemblyName = temp[0];
+                }
             }
         }
 
@@ -78,9 +85,9 @@ namespace Dynamo.Wpf.Services
             }
 
             ResourceManager rm = new ResourceManager(assemblyName + imagesSuffix, resourceAssembly);
-
+            //var d = rm.GetResourceSet(, true, true);
             ImageSource bitmapSource = null;
-
+            var f = rm.GetObject(iconKey);
             var source = (Bitmap)rm.GetObject(iconKey);
             if (source == null)
             {

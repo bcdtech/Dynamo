@@ -20,6 +20,7 @@ namespace WpfApp1
                 DynamoModel = model,
                 ShowLogin = false
             };
+
             var viewModel = DynamoViewModel.Start(startConfiguration);
 
             var dynamoView = new DynamoView(viewModel);
