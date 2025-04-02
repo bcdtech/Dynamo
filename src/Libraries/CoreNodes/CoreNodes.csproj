@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <ImportGroup Label="PropertySheets">
     <Import Project="$(SolutionDir)Config\CS_SDK.props" />
   </ImportGroup>
@@ -50,6 +50,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DSCoreNodesImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSCoreNodesImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +67,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="DSCoreNodesImages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>ImagesResources</CustomToolNamespace>
+      <LastGenOutput>DSCoreNodesImages.Designer.cs</LastGenOutput>
+      <LogicalName>DSCoreNodesImages.resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

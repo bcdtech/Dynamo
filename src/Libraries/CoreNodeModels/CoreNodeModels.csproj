@@ -62,6 +62,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CoreNodeModelsImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreNodeModelsImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,6 +79,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="CoreNodeModelsImages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CoreNodeModelsImages.Designer.cs</LastGenOutput>
+      <LogicalName>CoreNodeModelsImages.resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,7 +93,7 @@
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <Target Name="GenerateFiles" AfterTargets="ResolveSateliteResDeps" Condition=" $(RuntimeIdentifier.Contains('win')) " >
+  <Target Name="GenerateFiles" AfterTargets="ResolveSateliteResDeps" Condition=" $(RuntimeIdentifier.Contains('win')) ">
     <!-- Generate customization dll -->
     <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)CoreNodeModelsImages.resx" OutputResources="$(ProjectDir)CoreNodeModelsImages.resources" />
     <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)CoreNodeModelsImages.resources" OutputAssembly="$(OutDir)CoreNodeModels.customization.dll" Version="%(AssemblyInfo.Version)" />

@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 //the NeutralResourceLanguage attribute below.  Update the "en-US" in
 //the line below to match the UICulture setting in the project file.
 
-[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+
 
 // Make it easy to distinguish Debug and Release (i.e. Retail) builds;
 // for example, through the file properties window.

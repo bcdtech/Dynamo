@@ -9,8 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
     <ProjectReference Include="..\DynamoApplications\DynamoApplications.csproj" />
+    <ProjectReference Include="..\Libraries\CoreNodes\CoreNodes.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,11 +9,15 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            //var assembly = Assembly.LoadFrom("DSCoreNodes.dll");
+            //var rm = new ResourceManager("DSCoreNodesImages", assembly);
+            //var img = rm.GetObject("Color.Small");
             var model = StartupUtils.MakeModel(false, "", true, string.Empty, new HostAnalyticsInfo { });
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
