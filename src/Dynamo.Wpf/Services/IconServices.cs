@@ -2,6 +2,7 @@ using Dynamo.Engine;
 using Dynamo.Interfaces;
 using Dynamo.Utilities;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Windows.Media;
@@ -38,16 +39,22 @@ namespace Dynamo.Wpf.Services
         }
         Assembly LoadFrom(string assemblyPath)
         {
-            Assembly result = null;
+
             try
             {
-                result = Assembly.LoadFrom(assemblyPath);
+                if (File.Exists(assemblyPath))
+                {
+                    return Assembly.LoadFrom(assemblyPath);
+                }
+                else
+                {
+                    return Assembly.GetExecutingAssembly();
+                }
             }
             catch
             {
-                result = Assembly.GetExecutingAssembly();
+                return Assembly.GetExecutingAssembly();
             }
-            return result;
         }
     }
 

@@ -899,7 +899,6 @@ namespace Dynamo.ViewModels
                 category.Entries.Add(entry);
             }
         }
-
         internal void SearchViewModelRequestBitmapSource(IconRequestEventArgs e)
         {
             var warehouse = iconServices.GetForAssembly(e.IconAssembly, e.UseAdditionalResolutionPaths);
