@@ -22,7 +22,7 @@ namespace ImagesResources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class DSCoreNodesImages {
+    internal class DSCoreNodesImages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ImagesResources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSCore.DSCoreNodesImages", typeof(DSCoreNodesImages).Assembly);
@@ -51,7 +51,7 @@ namespace ImagesResources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Color_Small {
+        internal static System.Drawing.Bitmap Color_Small {
             get {
                 object obj = ResourceManager.GetObject("Color.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CSV_Small {
+        internal static System.Drawing.Bitmap CSV_Small {
             get {
                 object obj = ResourceManager.GetObject("CSV.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Directory_Small {
+        internal static System.Drawing.Bitmap Directory_Small {
             get {
                 object obj = ResourceManager.GetObject("Directory.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Display_Small {
+        internal static System.Drawing.Bitmap Display_Small {
             get {
                 object obj = ResourceManager.GetObject("Display.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Add_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Add_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Add.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Add_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Add_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Add.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Alpha_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Alpha_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Alpha.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Alpha_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Alpha_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Alpha.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Blue_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Blue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Blue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Blue_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Blue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Blue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Brightness_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Brightness_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Brightness.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Brightness_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Brightness_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Brightness.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_ByARGB_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_ByARGB_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.ByARGB.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_ByARGB_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_ByARGB_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.ByARGB.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Components_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Components_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Components.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Components_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Components_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Components.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Divide_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Divide_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Divide.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Divide_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Divide_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Divide.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Green_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Green_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Green.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Green_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Green_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Green.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Hue_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Hue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Hue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Hue_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Hue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Hue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Multiply_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Multiply_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Multiply.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Multiply_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Multiply_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Multiply.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Red_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Red_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Red.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Red_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Red_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Red.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Saturation_Large {
+        internal static System.Drawing.Bitmap DSCore_Color_Saturation_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Saturation.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Color_Saturation_Small {
+        internal static System.Drawing.Bitmap DSCore_Color_Saturation_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Color.Saturation.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_ColorRange_ByColorsAndParameters_Large {
+        internal static System.Drawing.Bitmap DSCore_ColorRange_ByColorsAndParameters_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.ColorRange.ByColorsAndParameters.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_ColorRange_ByColorsAndParameters_Small {
+        internal static System.Drawing.Bitmap DSCore_ColorRange_ByColorsAndParameters_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.ColorRange.ByColorsAndParameters.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_ColorRange_GetColorAtParameter_Large {
+        internal static System.Drawing.Bitmap DSCore_ColorRange_GetColorAtParameter_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.ColorRange.GetColorAtParameter.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_ColorRange_GetColorAtParameter_Small {
+        internal static System.Drawing.Bitmap DSCore_ColorRange_GetColorAtParameter_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.ColorRange.GetColorAtParameter.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Data_ParseJSON_Large {
+        internal static System.Drawing.Bitmap DSCore_Data_ParseJSON_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Data.ParseJSON.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +393,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Data_ParseJSON_Small {
+        internal static System.Drawing.Bitmap DSCore_Data_ParseJSON_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Data.ParseJSON.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +403,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Data_StringifyJSON_Large {
+        internal static System.Drawing.Bitmap DSCore_Data_StringifyJSON_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Data.StringifyJSON.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +413,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Data_StringifyJSON_Small {
+        internal static System.Drawing.Bitmap DSCore_Data_StringifyJSON_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Data.StringifyJSON.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +423,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_AddTimeSpan_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_AddTimeSpan_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.AddTimeSpan.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +433,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_AddTimeSpan_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_AddTimeSpan_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.AddTimeSpan.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +443,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_ByDate_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_ByDate_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.ByDate.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +453,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_ByDate_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_ByDate_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.ByDate.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,7 +463,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_ByDateAndTime_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_ByDateAndTime_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.ByDateAndTime.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -473,7 +473,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_ByDateAndTime_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_ByDateAndTime_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.ByDateAndTime.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -483,7 +483,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Components_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Components_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Components.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -493,7 +493,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Components_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Components_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Components.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -503,7 +503,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Date_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Date_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Date.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -513,7 +513,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Date_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Date_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Date.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -523,7 +523,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DayOfWeek_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DayOfWeek_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DayOfWeek.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -533,7 +533,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DayOfWeek_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DayOfWeek_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DayOfWeek.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -543,7 +543,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DayOfYear_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DayOfYear_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DayOfYear.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -553,7 +553,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DayOfYear_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DayOfYear_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DayOfYear.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -563,7 +563,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DaysInMonth_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DaysInMonth_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DaysInMonth.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -573,7 +573,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_DaysInMonth_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_DaysInMonth_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.DaysInMonth.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -583,7 +583,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Format_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Format_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Format.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -593,7 +593,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Format_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Format_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Format.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -603,7 +603,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_FromString_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_FromString_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.FromString.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -613,7 +613,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_FromString_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_FromString_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.FromString.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -623,7 +623,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_IsDaylightSavingsTime_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_IsDaylightSavingsTime_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.IsDaylightSavingsTime.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -633,7 +633,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_IsDaylightSavingsTime_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_IsDaylightSavingsTime_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.IsDaylightSavingsTime.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -643,7 +643,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_IsLeapYear_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_IsLeapYear_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.IsLeapYear.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -653,7 +653,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_IsLeapYear_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_IsLeapYear_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.IsLeapYear.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -663,7 +663,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_MaxValue_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_MaxValue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.MaxValue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -673,7 +673,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_MaxValue_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_MaxValue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.MaxValue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -683,7 +683,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_MinValue_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_MinValue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.MinValue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -693,7 +693,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_MinValue_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_MinValue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.MinValue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -703,7 +703,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Now_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Now_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Now.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -713,7 +713,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Now_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Now_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Now.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -723,7 +723,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_SubtractTimeSpan_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_SubtractTimeSpan_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.SubtractTimeSpan.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -733,7 +733,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_SubtractTimeSpan_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_SubtractTimeSpan_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.SubtractTimeSpan.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -743,7 +743,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_TimeOfDay_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_TimeOfDay_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.TimeOfDay.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -753,7 +753,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_TimeOfDay_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_TimeOfDay_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.TimeOfDay.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -763,7 +763,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Today_Large {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Today_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Today.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -773,7 +773,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DateTime_Today_Small {
+        internal static System.Drawing.Bitmap DSCore_DateTime_Today_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DateTime.Today.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -783,7 +783,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Friday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Friday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Friday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -793,7 +793,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Friday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Friday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Friday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -803,7 +803,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Monday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Monday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Monday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -813,7 +813,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Monday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Monday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Monday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -823,7 +823,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Saturday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Saturday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Saturday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -833,7 +833,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Saturday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Saturday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Saturday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -843,7 +843,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Sunday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Sunday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Sunday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -853,7 +853,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Sunday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Sunday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Sunday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -863,7 +863,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Thursday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Thursday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Thursday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -873,7 +873,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Thursday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Thursday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Thursday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -883,7 +883,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Tuesday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Tuesday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Tuesday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -893,7 +893,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Tuesday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Tuesday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Tuesday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -903,7 +903,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Wednesday_Large {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Wednesday_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Wednesday.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -913,7 +913,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_DayOfWeek_Wednesday_Small {
+        internal static System.Drawing.Bitmap DSCore_DayOfWeek_Wednesday_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.DayOfWeek.Wednesday.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -923,7 +923,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Display_ByGeometryColor_Large {
+        internal static System.Drawing.Bitmap DSCore_Display_ByGeometryColor_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Display.ByGeometryColor.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -933,7 +933,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Display_ByGeometryColor_Small {
+        internal static System.Drawing.Bitmap DSCore_Display_ByGeometryColor_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Display.ByGeometryColor.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -943,7 +943,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_AppendText_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_AppendText_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.AppendText.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -953,7 +953,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_AppendText_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_AppendText_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.AppendText.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -963,7 +963,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_ChangePathExtension_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_ChangePathExtension_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.ChangePathExtension.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -973,7 +973,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_ChangePathExtension_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_ChangePathExtension_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.ChangePathExtension.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -983,7 +983,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CombinePath_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CombinePath_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CombinePath.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -993,7 +993,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CombinePath_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CombinePath_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CombinePath.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1003,7 +1003,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyDirectory_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyDirectory_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CopyDirectory.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1013,7 +1013,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyDirectory_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyDirectory_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CopyDirectory.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1023,7 +1023,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyFile_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyFile_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CopyFile.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1033,7 +1033,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyFile_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_CopyFile_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.CopyFile.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1043,7 +1043,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteDirectory_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteDirectory_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DeleteDirectory.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1053,7 +1053,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteFile_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteFile_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DeleteFile.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1063,7 +1063,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteFile_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DeleteFile_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DeleteFile.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1073,7 +1073,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryExists_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryExists_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DirectoryExists.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1083,7 +1083,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryExists_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryExists_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DirectoryExists.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1093,7 +1093,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryName_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryName_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DirectoryName.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1103,7 +1103,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryName_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_DirectoryName_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.DirectoryName.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1113,7 +1113,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExists_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExists_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileExists.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1123,7 +1123,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExists_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExists_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileExists.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1133,7 +1133,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExtension_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExtension_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileExtension.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1143,7 +1143,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExtension_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileExtension_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileExtension.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1153,7 +1153,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileFromPath_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileFromPath_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileFromPath.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1163,7 +1163,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileFromPath_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileFromPath_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileFromPath.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1173,7 +1173,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileHasExtension_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileHasExtension_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileHasExtension.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1183,7 +1183,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileHasExtension_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileHasExtension_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileHasExtension.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1193,7 +1193,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileName_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileName_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileName.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1203,7 +1203,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FileName_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FileName_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FileName.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1213,7 +1213,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FromPath_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FromPath_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FromPath.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1223,7 +1223,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_FromPath_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_FromPath_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.FromPath.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1233,7 +1233,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_GetDirectoryContents_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_GetDirectoryContents_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.GetDirectoryContents.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1243,7 +1243,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_GetDirectoryContents_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_GetDirectoryContents_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.GetDirectoryContents.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1253,7 +1253,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveDirectory_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveDirectory_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.MoveDirectory.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1263,7 +1263,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveDirectory_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveDirectory_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.MoveDirectory.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1273,7 +1273,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveFile_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveFile_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.MoveFile.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1283,7 +1283,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveFile_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_MoveFile_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.MoveFile.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1293,7 +1293,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_ReadText_var_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_ReadText_var_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.ReadText.var.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1303,7 +1303,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_ReadText_var_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_ReadText_var_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.ReadText.var.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1313,7 +1313,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_WriteText_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_WriteText_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.WriteText.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1323,7 +1323,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_FileSystem_WriteText_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_FileSystem_WriteText_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.FileSystem.WriteText.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1333,7 +1333,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_Dimensions_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_Dimensions_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.Dimensions.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1343,7 +1343,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_Dimensions_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_Dimensions_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.Dimensions.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1353,7 +1353,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color1_int_int_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color1_int_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.FromPixels.Color1-int-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1363,7 +1363,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color1_int_int_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color1_int_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.FromPixels.Color1-int-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1373,7 +1373,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color2_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color2_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.FromPixels.Color2.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1383,7 +1383,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color2_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_FromPixels_Color2_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.FromPixels.Color2.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1393,7 +1393,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_Pixels_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_Pixels_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.Pixels.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1403,7 +1403,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_Pixels_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_Pixels_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.Pixels.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1413,7 +1413,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_ReadFromFile_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_ReadFromFile_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.ReadFromFile.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1423,7 +1423,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_ReadFromFile_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_ReadFromFile_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.ReadFromFile.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1433,7 +1433,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_WriteToFile_Large {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_WriteToFile_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.WriteToFile.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1443,7 +1443,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_IO_Image_WriteToFile_Small {
+        internal static System.Drawing.Bitmap DSCore_IO_Image_WriteToFile_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.IO.Image.WriteToFile.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1453,7 +1453,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AddItemToEnd_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AddItemToEnd_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AddItemToEnd.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1463,7 +1463,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AddItemToEnd_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AddItemToEnd_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AddItemToEnd.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1473,7 +1473,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AddItemToFront_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AddItemToFront_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AddItemToFront.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1483,7 +1483,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AddItemToFront_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AddItemToFront_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AddItemToFront.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1493,7 +1493,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllFalse_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AllFalse_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllFalse.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1503,7 +1503,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllFalse_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AllFalse_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllFalse.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1513,7 +1513,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllIndicesOf_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AllIndicesOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllIndicesOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1523,7 +1523,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllIndicesOf_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AllIndicesOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllIndicesOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1533,7 +1533,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllTrue_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AllTrue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllTrue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1543,7 +1543,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AllTrue_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AllTrue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AllTrue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1553,7 +1553,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AnyFalse_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AnyFalse_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AnyFalse.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1563,7 +1563,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AnyFalse_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AnyFalse_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AnyFalse.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1573,7 +1573,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AnyTrue_Large {
+        internal static System.Drawing.Bitmap DSCore_List_AnyTrue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AnyTrue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1583,7 +1583,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_AnyTrue_Small {
+        internal static System.Drawing.Bitmap DSCore_List_AnyTrue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.AnyTrue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1593,7 +1593,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Chop_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Chop_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Chop.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1603,7 +1603,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Chop_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Chop_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Chop.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1613,7 +1613,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Clean_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Clean_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Clean.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1623,7 +1623,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Clean_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Clean_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Clean.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1633,7 +1633,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Combinations_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Combinations_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Combinations.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1643,7 +1643,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Combinations_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Combinations_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Combinations.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1653,7 +1653,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Combine_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Combine_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Combine.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1663,7 +1663,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Contains_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Contains_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Contains.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1673,7 +1673,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Contains_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Contains_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Contains.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1683,7 +1683,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Contains_varN_varN_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Contains_varN_varN_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Contains.varN-varN.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1693,7 +1693,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Contains_varN_varN_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Contains_varN_varN_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Contains.varN-varN.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1703,7 +1703,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Count_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Count_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Count.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1713,7 +1713,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Count_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Count_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Count.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1723,7 +1723,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_CountFalse_Large {
+        internal static System.Drawing.Bitmap DSCore_List_CountFalse_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.CountFalse.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1733,7 +1733,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_CountFalse_Small {
+        internal static System.Drawing.Bitmap DSCore_List_CountFalse_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.CountFalse.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1743,7 +1743,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_CountTrue_Large {
+        internal static System.Drawing.Bitmap DSCore_List_CountTrue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.CountTrue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1753,7 +1753,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_CountTrue_Small {
+        internal static System.Drawing.Bitmap DSCore_List_CountTrue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.CountTrue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1763,7 +1763,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Create_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Create_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Create.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1773,7 +1773,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Cycle_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Cycle_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Cycle.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1783,7 +1783,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Cycle_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Cycle_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Cycle.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1793,7 +1793,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Deconstruct_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Deconstruct_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Deconstruct.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1803,7 +1803,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Deconstruct_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Deconstruct_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Deconstruct.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1813,7 +1813,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DiagonalLeft_Large {
+        internal static System.Drawing.Bitmap DSCore_List_DiagonalLeft_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DiagonalLeft.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1823,7 +1823,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DiagonalLeft_Small {
+        internal static System.Drawing.Bitmap DSCore_List_DiagonalLeft_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DiagonalLeft.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1833,7 +1833,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DiagonalRight_Large {
+        internal static System.Drawing.Bitmap DSCore_List_DiagonalRight_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DiagonalRight.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1843,7 +1843,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DiagonalRight_Small {
+        internal static System.Drawing.Bitmap DSCore_List_DiagonalRight_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DiagonalRight.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1853,7 +1853,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DropEveryNthItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_DropEveryNthItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DropEveryNthItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1863,7 +1863,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DropEveryNthItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_DropEveryNthItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DropEveryNthItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1873,7 +1873,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DropItems_Large {
+        internal static System.Drawing.Bitmap DSCore_List_DropItems_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DropItems.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1883,7 +1883,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_DropItems_Small {
+        internal static System.Drawing.Bitmap DSCore_List_DropItems_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.DropItems.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1893,7 +1893,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Empty_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Empty_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Empty.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1903,7 +1903,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Empty_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Empty_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Empty.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1913,7 +1913,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Filter_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Filter_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Filter.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1923,7 +1923,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FilterByBoolMask_Large {
+        internal static System.Drawing.Bitmap DSCore_List_FilterByBoolMask_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FilterByBoolMask.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1933,7 +1933,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FilterByBoolMask_Small {
+        internal static System.Drawing.Bitmap DSCore_List_FilterByBoolMask_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FilterByBoolMask.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1943,7 +1943,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FirstIndexOf_Large {
+        internal static System.Drawing.Bitmap DSCore_List_FirstIndexOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FirstIndexOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1953,7 +1953,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FirstIndexOf_Small {
+        internal static System.Drawing.Bitmap DSCore_List_FirstIndexOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FirstIndexOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1963,7 +1963,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FirstItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_FirstItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FirstItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1973,7 +1973,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_FirstItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_FirstItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.FirstItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1983,7 +1983,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1993,7 +1993,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2003,7 +2003,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_varN_int_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_varN_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.varN-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2013,7 +2013,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_varN_int_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_varN_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.varN-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2023,7 +2023,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_varN_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_varN_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.varN.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2033,7 +2033,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Flatten_varN_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Flatten_varN_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Flatten.varN.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2043,7 +2043,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GetItemAtIndex_Large {
+        internal static System.Drawing.Bitmap DSCore_List_GetItemAtIndex_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GetItemAtIndex.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2053,7 +2053,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GetItemAtIndex_Small {
+        internal static System.Drawing.Bitmap DSCore_List_GetItemAtIndex_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GetItemAtIndex.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2063,7 +2063,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GroupByKey_Large {
+        internal static System.Drawing.Bitmap DSCore_List_GroupByKey_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GroupByKey.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2073,7 +2073,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GroupByKey_Small {
+        internal static System.Drawing.Bitmap DSCore_List_GroupByKey_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GroupByKey.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2083,7 +2083,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GroupBySimilarity_Large {
+        internal static System.Drawing.Bitmap DSCore_List_GroupBySimilarity_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GroupBySimilarity.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2093,7 +2093,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_GroupBySimilarity_Small {
+        internal static System.Drawing.Bitmap DSCore_List_GroupBySimilarity_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.GroupBySimilarity.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2103,7 +2103,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IndexOf_Large {
+        internal static System.Drawing.Bitmap DSCore_List_IndexOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IndexOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2113,7 +2113,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IndexOf_Small {
+        internal static System.Drawing.Bitmap DSCore_List_IndexOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IndexOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2123,7 +2123,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Insert_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Insert_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Insert.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2133,7 +2133,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Insert_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Insert_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Insert.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2143,7 +2143,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Insert_varN_varN_int_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Insert_varN_varN_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Insert.varN-varN-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2153,7 +2153,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Insert_varN_varN_int_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Insert_varN_varN_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Insert.varN-varN-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2163,7 +2163,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsEmpty_Large {
+        internal static System.Drawing.Bitmap DSCore_List_IsEmpty_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsEmpty.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2173,7 +2173,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsEmpty_Small {
+        internal static System.Drawing.Bitmap DSCore_List_IsEmpty_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsEmpty.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2183,7 +2183,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsHomogeneous_Large {
+        internal static System.Drawing.Bitmap DSCore_List_IsHomogeneous_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsHomogeneous.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2193,7 +2193,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsHomogeneous_Small {
+        internal static System.Drawing.Bitmap DSCore_List_IsHomogeneous_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsHomogeneous.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2203,7 +2203,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsRectangular_Large {
+        internal static System.Drawing.Bitmap DSCore_List_IsRectangular_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsRectangular.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2213,7 +2213,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsRectangular_Small {
+        internal static System.Drawing.Bitmap DSCore_List_IsRectangular_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsRectangular.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2223,7 +2223,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsUniformDepth_Large {
+        internal static System.Drawing.Bitmap DSCore_List_IsUniformDepth_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsUniformDepth.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2233,7 +2233,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_IsUniformDepth_Small {
+        internal static System.Drawing.Bitmap DSCore_List_IsUniformDepth_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.IsUniformDepth.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2243,7 +2243,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Join_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Join_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Join.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2253,7 +2253,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Join_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Join_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Join.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2263,7 +2263,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LaceLongest_Large {
+        internal static System.Drawing.Bitmap DSCore_List_LaceLongest_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LaceLongest.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2273,7 +2273,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LaceLongest_Small {
+        internal static System.Drawing.Bitmap DSCore_List_LaceLongest_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LaceLongest.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2283,7 +2283,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LaceShortest_Large {
+        internal static System.Drawing.Bitmap DSCore_List_LaceShortest_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LaceShortest.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2293,7 +2293,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LaceShortest_Small {
+        internal static System.Drawing.Bitmap DSCore_List_LaceShortest_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LaceShortest.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2303,7 +2303,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LastItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_LastItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LastItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2313,7 +2313,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_LastItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_LastItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.LastItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2323,7 +2323,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_MaximumItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_MaximumItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.MaximumItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2333,7 +2333,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_MaximumItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_MaximumItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.MaximumItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2343,7 +2343,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_MinimumItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_MinimumItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.MinimumItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2353,7 +2353,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_MinimumItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_MinimumItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.MinimumItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2363,7 +2363,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_NormalizeDepth_Large {
+        internal static System.Drawing.Bitmap DSCore_List_NormalizeDepth_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.NormalizeDepth.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2373,7 +2373,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_NormalizeDepth_Small {
+        internal static System.Drawing.Bitmap DSCore_List_NormalizeDepth_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.NormalizeDepth.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2383,7 +2383,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_NumberRange_Large {
+        internal static System.Drawing.Bitmap DSCore_List_NumberRange_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.NumberRange.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2393,7 +2393,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_NumberSequence_Large {
+        internal static System.Drawing.Bitmap DSCore_List_NumberSequence_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.NumberSequence.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2403,7 +2403,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_OfRepeatedItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_OfRepeatedItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.OfRepeatedItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2413,7 +2413,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_OfRepeatedItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_OfRepeatedItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.OfRepeatedItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2423,7 +2423,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Permutations_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Permutations_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Permutations.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2433,7 +2433,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Permutations_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Permutations_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Permutations.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2443,7 +2443,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_RemoveItemAtIndex_Large {
+        internal static System.Drawing.Bitmap DSCore_List_RemoveItemAtIndex_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.RemoveItemAtIndex.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2453,7 +2453,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_RemoveItemAtIndex_Small {
+        internal static System.Drawing.Bitmap DSCore_List_RemoveItemAtIndex_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.RemoveItemAtIndex.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2463,7 +2463,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Reorder_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Reorder_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Reorder.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2473,7 +2473,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Reorder_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Reorder_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Reorder.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2483,7 +2483,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndex_Large {
+        internal static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndex_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ReplaceItemAtIndex.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2493,7 +2493,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndex_Small {
+        internal static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndex_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ReplaceItemAtIndex.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2503,7 +2503,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndices_Large {
+        internal static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndices_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ReplaceItemAtIndices.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2513,7 +2513,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndices_Small {
+        internal static System.Drawing.Bitmap DSCore_List_ReplaceItemAtIndices_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ReplaceItemAtIndices.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2523,7 +2523,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_RestOfItems_Large {
+        internal static System.Drawing.Bitmap DSCore_List_RestOfItems_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.RestOfItems.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2533,7 +2533,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_RestOfItems_Small {
+        internal static System.Drawing.Bitmap DSCore_List_RestOfItems_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.RestOfItems.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2543,7 +2543,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Reverse_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Reverse_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Reverse.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2553,7 +2553,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Reverse_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Reverse_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Reverse.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2563,7 +2563,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetDifference_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SetDifference_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetDifference.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2573,7 +2573,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetDifference_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SetDifference_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetDifference.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2583,7 +2583,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetIntersection_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SetIntersection_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetIntersection.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2593,7 +2593,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetIntersection_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SetIntersection_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetIntersection.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2603,7 +2603,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetUnion_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SetUnion_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetUnion.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2613,7 +2613,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SetUnion_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SetUnion_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SetUnion.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2623,7 +2623,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ShiftIndices_Large {
+        internal static System.Drawing.Bitmap DSCore_List_ShiftIndices_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ShiftIndices.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2633,7 +2633,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_ShiftIndices_Small {
+        internal static System.Drawing.Bitmap DSCore_List_ShiftIndices_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.ShiftIndices.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2643,7 +2643,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Shuffle_varN_int_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Shuffle_varN_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Shuffle.varN-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2653,7 +2653,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Shuffle_varN_int_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Shuffle_varN_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Shuffle.varN-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2663,7 +2663,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Shuffle_varN_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Shuffle_varN_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Shuffle.varN.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2673,7 +2673,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Shuffle_varN_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Shuffle_varN_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Shuffle.varN.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2683,7 +2683,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Slice_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Slice_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Slice.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2693,7 +2693,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Slice_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Slice_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Slice.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2703,7 +2703,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Sort_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Sort_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Sort.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2713,7 +2713,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Sort_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Sort_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Sort.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2723,7 +2723,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortByKey_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SortByKey_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortByKey.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2733,7 +2733,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortByKey_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SortByKey_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortByKey.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2743,7 +2743,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortIndexByValue_double1_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SortIndexByValue_double1_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortIndexByValue.double1.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2753,7 +2753,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortIndexByValue_double1_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SortIndexByValue_double1_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortIndexByValue.double1.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2763,7 +2763,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortIndexByValue_Large {
+        internal static System.Drawing.Bitmap DSCore_List_SortIndexByValue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortIndexByValue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2773,7 +2773,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_SortIndexByValue_Small {
+        internal static System.Drawing.Bitmap DSCore_List_SortIndexByValue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.SortIndexByValue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2783,7 +2783,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Sublists_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Sublists_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Sublists.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2793,7 +2793,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Sublists_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Sublists_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Sublists.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2803,7 +2803,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_TakeEveryNthItem_Large {
+        internal static System.Drawing.Bitmap DSCore_List_TakeEveryNthItem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.TakeEveryNthItem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2813,7 +2813,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_TakeEveryNthItem_Small {
+        internal static System.Drawing.Bitmap DSCore_List_TakeEveryNthItem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.TakeEveryNthItem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2823,7 +2823,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_TakeItems_Large {
+        internal static System.Drawing.Bitmap DSCore_List_TakeItems_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.TakeItems.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2833,7 +2833,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_TakeItems_Small {
+        internal static System.Drawing.Bitmap DSCore_List_TakeItems_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.TakeItems.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2843,7 +2843,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Transpose_Large {
+        internal static System.Drawing.Bitmap DSCore_List_Transpose_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Transpose.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2853,7 +2853,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_Transpose_Small {
+        internal static System.Drawing.Bitmap DSCore_List_Transpose_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.Transpose.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2863,7 +2863,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_UniqueItems_Large {
+        internal static System.Drawing.Bitmap DSCore_List_UniqueItems_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.UniqueItems.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2873,7 +2873,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_List_UniqueItems_Small {
+        internal static System.Drawing.Bitmap DSCore_List_UniqueItems_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.List.UniqueItems.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2883,7 +2883,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Abs_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Abs_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Abs.double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2893,7 +2893,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Abs_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Abs_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Abs.double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2903,7 +2903,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Abs_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Abs_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Abs.int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2913,7 +2913,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Abs_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Abs_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Abs.int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2923,7 +2923,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Acos_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Acos_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Acos.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2933,7 +2933,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Acos_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Acos_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Acos.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2943,7 +2943,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Asin_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Asin_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Asin.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2953,7 +2953,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Asin_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Asin_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Asin.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2963,7 +2963,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Atan_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Atan_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Atan.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2973,7 +2973,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Atan_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Atan_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Atan.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2983,7 +2983,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Atan2_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Atan2_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Atan2.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2993,7 +2993,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Atan2_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Atan2_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Atan2.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3003,7 +3003,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Average_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Average_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Average.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3013,7 +3013,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Average_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Average_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Average.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3023,7 +3023,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Ceiling_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Ceiling_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Ceiling.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3033,7 +3033,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Ceiling_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Ceiling_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Ceiling.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3043,7 +3043,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Cos_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Cos_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Cos.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3053,7 +3053,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Cos_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Cos_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Cos.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3063,7 +3063,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Cosh_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Cosh_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Cosh.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3073,7 +3073,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Cosh_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Cosh_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Cosh.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3083,7 +3083,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_DegreesToRadians_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_DegreesToRadians_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.DegreesToRadians.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3093,7 +3093,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_DegreesToRadians_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_DegreesToRadians_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.DegreesToRadians.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3103,7 +3103,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_DivRem_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_DivRem_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.DivRem.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3113,7 +3113,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_DivRem_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_DivRem_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.DivRem.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3123,7 +3123,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_E_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_E_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.E.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3133,7 +3133,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_E_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_E_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.E.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3143,7 +3143,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_EvaluateFormula_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_EvaluateFormula_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.EvaluateFormula.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3153,7 +3153,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_EvaluateFormula_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_EvaluateFormula_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.EvaluateFormula.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3163,7 +3163,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Exp_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Exp_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Exp.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3173,7 +3173,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Exp_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Exp_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Exp.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3183,7 +3183,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Factorial_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Factorial_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Factorial.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3193,7 +3193,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Factorial_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Factorial_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Factorial.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3203,7 +3203,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Floor_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Floor_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Floor.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3213,7 +3213,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Floor_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Floor_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Floor.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3223,7 +3223,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_GoldenRatio_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_GoldenRatio_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.GoldenRatio.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3233,7 +3233,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_GoldenRatio_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_GoldenRatio_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.GoldenRatio.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3243,7 +3243,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log_double_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Log_double_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log.double-double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3253,7 +3253,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log_double_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Log_double_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log.double-double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3263,7 +3263,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Log_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log.double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3273,7 +3273,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Log_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log.double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3283,7 +3283,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log10_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Log10_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log10.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3293,7 +3293,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Log10_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Log10_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Log10.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3303,7 +3303,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Map_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Map_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Map.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3313,7 +3313,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Map_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Map_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Map.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3323,7 +3323,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_MapTo_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_MapTo_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.MapTo.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3333,7 +3333,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_MapTo_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_MapTo_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.MapTo.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3343,7 +3343,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_double_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_double_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.double-double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3353,7 +3353,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_double_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_double_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.double-double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3363,7 +3363,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_int_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_int_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.int-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3373,7 +3373,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_int_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_int_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.int-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3383,7 +3383,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3393,7 +3393,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Max_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Max_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Max.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3403,7 +3403,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_double_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_double_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.double-double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3413,7 +3413,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_double_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_double_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.double-double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3423,7 +3423,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_int_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_int_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.int-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3433,7 +3433,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_int_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_int_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.int-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3443,7 +3443,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3453,7 +3453,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Min_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Min_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Min.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3463,7 +3463,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_PI_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_PI_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.PI.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3473,7 +3473,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_PI_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_PI_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.PI.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3483,7 +3483,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_PiTimes2_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_PiTimes2_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.PiTimes2.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3493,7 +3493,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_PiTimes2_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_PiTimes2_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.PiTimes2.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3503,7 +3503,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Pow_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Pow_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Pow.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3513,7 +3513,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Pow_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Pow_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Pow.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3523,7 +3523,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RadiansToDegrees_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_RadiansToDegrees_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RadiansToDegrees.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3533,7 +3533,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RadiansToDegrees_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_RadiansToDegrees_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RadiansToDegrees.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3543,7 +3543,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Rand_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Rand_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Rand.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3553,7 +3553,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Rand_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Rand_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Rand.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3563,7 +3563,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_double_double_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_double_double_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.double-double-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3573,7 +3573,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_double_double_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_double_double_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.double-double-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3583,7 +3583,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_double_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_double_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.double-double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3593,7 +3593,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_double_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_double_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.double-double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3603,7 +3603,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3613,7 +3613,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Random_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Random_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Random.int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3623,7 +3623,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomList_int_double_double_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomList_int_double_double_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomList.int-double-double-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3633,7 +3633,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomList_int_double_double_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomList_int_double_double_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomList.int-double-double-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3643,7 +3643,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomList_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomList_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomList.int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3653,7 +3653,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomList_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomList_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomList.int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3663,7 +3663,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomVal1Val2_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomVal1Val2_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomVal1Val2.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3673,7 +3673,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RandomVal1Val2_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_RandomVal1Val2_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RandomVal1Val2.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3683,7 +3683,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RemapRange_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_RemapRange_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RemapRange.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3693,7 +3693,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_RemapRange_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_RemapRange_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.RemapRange.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3703,7 +3703,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Round_double_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Round_double_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Round.double-int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3713,7 +3713,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Round_double_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Round_double_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Round.double-int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3723,7 +3723,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Round_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Round_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Round.double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3733,7 +3733,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Round_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Round_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Round.double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3743,7 +3743,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sign_double_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sign_double_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sign.double.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3753,7 +3753,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sign_double_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sign_double_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sign.double.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3763,7 +3763,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sign_int_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sign_int_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sign.int.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3773,7 +3773,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sign_int_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sign_int_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sign.int.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3783,7 +3783,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sin_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sin_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sin.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3793,7 +3793,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sin_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sin_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sin.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3803,7 +3803,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sinh_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sinh_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sinh.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3813,7 +3813,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sinh_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sinh_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sinh.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3823,7 +3823,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sqrt_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sqrt_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sqrt.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3833,7 +3833,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sqrt_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sqrt_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sqrt.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3843,7 +3843,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sum_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Sum_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sum.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3853,7 +3853,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Sum_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Sum_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Sum.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3863,7 +3863,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Tan_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Tan_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Tan.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3873,7 +3873,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Tan_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Tan_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Tan.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3883,7 +3883,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Tanh_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Tanh_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Tanh.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3893,7 +3893,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Tanh_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Tanh_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Tanh.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3903,7 +3903,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Xor_Large {
+        internal static System.Drawing.Bitmap DSCore_Math_Xor_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Xor.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3913,7 +3913,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Math_Xor_Small {
+        internal static System.Drawing.Bitmap DSCore_Math_Xor_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Math.Xor.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3923,7 +3923,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_Identity_Large {
+        internal static System.Drawing.Bitmap DSCore_Object_Identity_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.Identity.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3933,7 +3933,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_Identity_Small {
+        internal static System.Drawing.Bitmap DSCore_Object_Identity_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.Identity.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3943,7 +3943,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_IsNull_Large {
+        internal static System.Drawing.Bitmap DSCore_Object_IsNull_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.IsNull.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3953,7 +3953,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_IsNull_Small {
+        internal static System.Drawing.Bitmap DSCore_Object_IsNull_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.IsNull.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3963,7 +3963,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_Type_Large {
+        internal static System.Drawing.Bitmap DSCore_Object_Type_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.Type.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3973,7 +3973,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Object_Type_Small {
+        internal static System.Drawing.Bitmap DSCore_Object_Type_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Object.Type.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3983,7 +3983,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Scripting_Formula_Large {
+        internal static System.Drawing.Bitmap DSCore_Scripting_Formula_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Scripting.Formula.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -3993,7 +3993,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_AllIndicesOf_Large {
+        internal static System.Drawing.Bitmap DSCore_String_AllIndicesOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.AllIndicesOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4003,7 +4003,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_AllIndicesOf_Small {
+        internal static System.Drawing.Bitmap DSCore_String_AllIndicesOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.AllIndicesOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4013,7 +4013,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Center_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Center_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Center.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4023,7 +4023,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Center_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Center_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Center.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4033,7 +4033,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ChangeCase_Large {
+        internal static System.Drawing.Bitmap DSCore_String_ChangeCase_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ChangeCase.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4043,7 +4043,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ChangeCase_Small {
+        internal static System.Drawing.Bitmap DSCore_String_ChangeCase_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ChangeCase.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4053,7 +4053,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Concat_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Concat_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Concat.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4063,7 +4063,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Concat_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Concat_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Concat.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4073,7 +4073,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Contains_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Contains_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Contains.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4083,7 +4083,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Contains_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Contains_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Contains.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4093,7 +4093,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_CountOccurrences_Large {
+        internal static System.Drawing.Bitmap DSCore_String_CountOccurrences_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.CountOccurrences.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4103,7 +4103,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_CountOccurrences_Small {
+        internal static System.Drawing.Bitmap DSCore_String_CountOccurrences_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.CountOccurrences.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4113,7 +4113,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_EndsWith_Large {
+        internal static System.Drawing.Bitmap DSCore_String_EndsWith_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.EndsWith.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4123,7 +4123,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_EndsWith_Small {
+        internal static System.Drawing.Bitmap DSCore_String_EndsWith_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.EndsWith.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4133,7 +4133,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_FromObject_Large {
+        internal static System.Drawing.Bitmap DSCore_String_FromObject_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.FromObject.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4143,7 +4143,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_FromObject_Small {
+        internal static System.Drawing.Bitmap DSCore_String_FromObject_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.FromObject.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4153,7 +4153,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_GetNumber_Large {
+        internal static System.Drawing.Bitmap DSCore_String_GetNumber_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.GetNumber.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4163,7 +4163,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_GetNumber_Small {
+        internal static System.Drawing.Bitmap DSCore_String_GetNumber_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.GetNumber.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4173,7 +4173,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_IndexOf_Large {
+        internal static System.Drawing.Bitmap DSCore_String_IndexOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.IndexOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4183,7 +4183,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_IndexOf_Small {
+        internal static System.Drawing.Bitmap DSCore_String_IndexOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.IndexOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4193,7 +4193,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Insert_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Insert_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Insert.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4203,7 +4203,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Insert_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Insert_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Insert.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4213,7 +4213,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Join_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Join_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Join.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4223,7 +4223,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Join_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Join_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Join.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4233,7 +4233,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_LastIndexOf_Large {
+        internal static System.Drawing.Bitmap DSCore_String_LastIndexOf_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.LastIndexOf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4243,7 +4243,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_LastIndexOf_Small {
+        internal static System.Drawing.Bitmap DSCore_String_LastIndexOf_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.LastIndexOf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4253,7 +4253,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Length_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Length_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Length.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4263,7 +4263,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Length_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Length_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Length.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4273,7 +4273,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_PadLeft_Large {
+        internal static System.Drawing.Bitmap DSCore_String_PadLeft_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.PadLeft.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4283,7 +4283,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_PadLeft_Small {
+        internal static System.Drawing.Bitmap DSCore_String_PadLeft_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.PadLeft.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4293,7 +4293,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_PadRight_Large {
+        internal static System.Drawing.Bitmap DSCore_String_PadRight_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.PadRight.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4303,7 +4303,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_PadRight_Small {
+        internal static System.Drawing.Bitmap DSCore_String_PadRight_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.PadRight.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4313,7 +4313,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Remove_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Remove_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Remove.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4323,7 +4323,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Remove_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Remove_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Remove.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4333,7 +4333,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Replace_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Replace_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Replace.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4343,7 +4343,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Replace_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Replace_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Replace.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4353,7 +4353,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Split_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Split_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Split.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4363,7 +4363,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Split_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Split_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Split.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4373,7 +4373,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_StartsWith_Large {
+        internal static System.Drawing.Bitmap DSCore_String_StartsWith_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.StartsWith.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4383,7 +4383,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_StartsWith_Small {
+        internal static System.Drawing.Bitmap DSCore_String_StartsWith_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.StartsWith.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4393,7 +4393,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Substring_Large {
+        internal static System.Drawing.Bitmap DSCore_String_Substring_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Substring.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4403,7 +4403,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_Substring_Small {
+        internal static System.Drawing.Bitmap DSCore_String_Substring_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.Substring.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4413,7 +4413,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToLower_Large {
+        internal static System.Drawing.Bitmap DSCore_String_ToLower_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToLower.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4423,7 +4423,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToLower_Small {
+        internal static System.Drawing.Bitmap DSCore_String_ToLower_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToLower.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4433,7 +4433,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToNumber_Large {
+        internal static System.Drawing.Bitmap DSCore_String_ToNumber_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToNumber.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4443,7 +4443,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToNumber_Small {
+        internal static System.Drawing.Bitmap DSCore_String_ToNumber_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToNumber.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4453,7 +4453,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToTitle_Large {
+        internal static System.Drawing.Bitmap DSCore_String_ToTitle_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToTitle.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4463,7 +4463,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToTitle_Small {
+        internal static System.Drawing.Bitmap DSCore_String_ToTitle_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToTitle.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4473,7 +4473,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToUpper_Large {
+        internal static System.Drawing.Bitmap DSCore_String_ToUpper_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToUpper.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4483,7 +4483,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_ToUpper_Small {
+        internal static System.Drawing.Bitmap DSCore_String_ToUpper_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.ToUpper.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4493,7 +4493,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimLeadingWhitespace_Large {
+        internal static System.Drawing.Bitmap DSCore_String_TrimLeadingWhitespace_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimLeadingWhitespace.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4503,7 +4503,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimLeadingWhitespace_Small {
+        internal static System.Drawing.Bitmap DSCore_String_TrimLeadingWhitespace_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimLeadingWhitespace.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4513,7 +4513,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimTrailingWhitespace_Large {
+        internal static System.Drawing.Bitmap DSCore_String_TrimTrailingWhitespace_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimTrailingWhitespace.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4523,7 +4523,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimTrailingWhitespace_Small {
+        internal static System.Drawing.Bitmap DSCore_String_TrimTrailingWhitespace_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimTrailingWhitespace.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4533,7 +4533,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimWhitespace_Large {
+        internal static System.Drawing.Bitmap DSCore_String_TrimWhitespace_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimWhitespace.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4543,7 +4543,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_String_TrimWhitespace_Small {
+        internal static System.Drawing.Bitmap DSCore_String_TrimWhitespace_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.String.TrimWhitespace.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4553,7 +4553,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Thread_Pause_Large {
+        internal static System.Drawing.Bitmap DSCore_Thread_Pause_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Thread.Pause.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4563,7 +4563,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_Thread_Pause_Small {
+        internal static System.Drawing.Bitmap DSCore_Thread_Pause_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.Thread.Pause.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4573,7 +4573,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Add_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Add_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Add.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4583,7 +4583,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Add_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Add_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Add.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4593,7 +4593,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_ByDateDifference_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_ByDateDifference_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.ByDateDifference.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4603,7 +4603,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_ByDateDifference_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_ByDateDifference_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.ByDateDifference.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4613,7 +4613,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Components_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Components_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Components.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4623,7 +4623,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Components_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Components_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Components.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4633,7 +4633,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Create_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Create_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Create.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4643,7 +4643,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Create_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Create_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Create.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4653,7 +4653,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_FromString_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_FromString_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.FromString.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4663,7 +4663,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_FromString_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_FromString_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.FromString.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4673,7 +4673,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_MaxValue_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_MaxValue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.MaxValue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4683,7 +4683,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_MaxValue_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_MaxValue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.MaxValue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4693,7 +4693,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_MinValue_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_MinValue_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.MinValue.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4703,7 +4703,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_MinValue_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_MinValue_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.MinValue.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4713,7 +4713,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Negate_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Negate_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Negate.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4723,7 +4723,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Negate_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Negate_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Negate.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4733,7 +4733,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Scale_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Scale_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Scale.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4743,7 +4743,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Scale_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Scale_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Scale.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4753,7 +4753,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Subtract_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Subtract_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Subtract.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4763,7 +4763,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Subtract_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Subtract_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Subtract.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4773,7 +4773,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalDays_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalDays_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalDays.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4783,7 +4783,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalDays_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalDays_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalDays.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4793,7 +4793,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalHours_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalHours_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalHours.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4803,7 +4803,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalHours_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalHours_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalHours.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4813,7 +4813,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalMilliseconds_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalMilliseconds_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalMilliseconds.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4823,7 +4823,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalMilliseconds_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalMilliseconds_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalMilliseconds.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4833,7 +4833,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalMinutes_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalMinutes_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalMinutes.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4843,7 +4843,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalMinutes_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalMinutes_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalMinutes.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4853,7 +4853,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalSeconds_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalSeconds_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalSeconds.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4863,7 +4863,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_TotalSeconds_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_TotalSeconds_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.TotalSeconds.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4873,7 +4873,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Zero_Large {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Zero_Large {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Zero.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4883,7 +4883,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DSCore_TimeSpan_Zero_Small {
+        internal static System.Drawing.Bitmap DSCore_TimeSpan_Zero_Small {
             get {
                 object obj = ResourceManager.GetObject("DSCore.TimeSpan.Zero.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4893,7 +4893,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap File_Small {
+        internal static System.Drawing.Bitmap File_Small {
             get {
                 object obj = ResourceManager.GetObject("File.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4903,7 +4903,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FilePath_Small {
+        internal static System.Drawing.Bitmap FilePath_Small {
             get {
                 object obj = ResourceManager.GetObject("FilePath.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4913,7 +4913,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Formula_Small {
+        internal static System.Drawing.Bitmap Formula_Small {
             get {
                 object obj = ResourceManager.GetObject("Formula.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4923,7 +4923,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Image_Small {
+        internal static System.Drawing.Bitmap Image_Small {
             get {
                 object obj = ResourceManager.GetObject("Image.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4933,7 +4933,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap List_Small {
+        internal static System.Drawing.Bitmap List_Small {
             get {
                 object obj = ResourceManager.GetObject("List.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4943,7 +4943,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Math_Small {
+        internal static System.Drawing.Bitmap Math_Small {
             get {
                 object obj = ResourceManager.GetObject("Math.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4953,7 +4953,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Object_Small {
+        internal static System.Drawing.Bitmap Object_Small {
             get {
                 object obj = ResourceManager.GetObject("Object.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4963,7 +4963,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap String_Small {
+        internal static System.Drawing.Bitmap String_Small {
             get {
                 object obj = ResourceManager.GetObject("String.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4973,7 +4973,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Thread_Small {
+        internal static System.Drawing.Bitmap Thread_Small {
             get {
                 object obj = ResourceManager.GetObject("Thread.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -4983,7 +4983,7 @@ namespace ImagesResources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap TimeSpan_Small {
+        internal static System.Drawing.Bitmap TimeSpan_Small {
             get {
                 object obj = ResourceManager.GetObject("TimeSpan.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

@@ -31,11 +31,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DynamoUnitsImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DynamoUnitsImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.en-US.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.en-US.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="DynamoUnitsImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DynamoUnitsImages.Designer.cs</LastGenOutput>
+      <LogicalName>DynamoUnitsImages.resources</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <Target Name="CopyFiles" BeforeTargets="Build">
     <ItemGroup>

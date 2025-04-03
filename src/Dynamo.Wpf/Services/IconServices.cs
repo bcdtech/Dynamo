@@ -24,7 +24,7 @@ namespace Dynamo.Wpf.Services
             var libraryCustomization = LibraryCustomizationServices.GetForAssembly(assemblyPath, pathManager, useAdditionalPaths);
             if (libraryCustomization == null)
             {
-                libraryCustomization = new LibraryCustomization(Assembly.LoadFrom(assemblyPath), null);
+                libraryCustomization = new LibraryCustomization(LoadFrom(assemblyPath), null);
             }
 
             var assembly = libraryCustomization.ResourceAssembly;
@@ -32,9 +32,22 @@ namespace Dynamo.Wpf.Services
                 return null;
 
             if (!warehouses.ContainsKey(assembly))
-                warehouses[assembly] = new IconWarehouse(assembly);
+                warehouses[assembly] = new IconWarehouse(assembly, assemblyPath.EndsWith(".dll") ? null : assemblyPath);
 
             return warehouses[assembly];
+        }
+        Assembly LoadFrom(string assemblyPath)
+        {
+            Assembly result = null;
+            try
+            {
+                result = Assembly.LoadFrom(assemblyPath);
+            }
+            catch
+            {
+                result = Assembly.GetExecutingAssembly();
+            }
+            return result;
         }
     }
 
@@ -47,8 +60,9 @@ namespace Dynamo.Wpf.Services
         private readonly Assembly resourceAssembly;
 
         private const string imagesSuffix = "Images";
-
-        internal IconWarehouse(Assembly resAssembly)
+        string? resourceCatagory = null;
+        string resourceBaseName = "";
+        internal IconWarehouse(Assembly resAssembly, string? resourceCatagory = null)
         {
             if (resAssembly != null)
             {
@@ -67,6 +81,9 @@ namespace Dynamo.Wpf.Services
                     assemblyName = temp[0];
                 }
             }
+            this.resourceCatagory = resourceCatagory;
+            resourceBaseName = $"{assemblyName}{resourceCatagory}{imagesSuffix}";
+
         }
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -84,7 +101,7 @@ namespace Dynamo.Wpf.Services
                 return null;
             }
 
-            ResourceManager rm = new ResourceManager(assemblyName + imagesSuffix, resourceAssembly);
+            ResourceManager rm = new ResourceManager(resourceBaseName, resourceAssembly);
             //var d = rm.GetResourceSet(, true, true);
             ImageSource bitmapSource = null;
             var f = rm.GetObject(iconKey);

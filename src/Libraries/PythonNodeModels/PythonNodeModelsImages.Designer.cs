@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImagesLibrary {
+namespace PythonNodeModels {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ImagesLibrary {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class NodeImages {
+    internal class PythonNodeModelsImages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal NodeImages() {
+        internal PythonNodeModelsImages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ImagesLibrary {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImagesLibrary.NodeImages", typeof(NodeImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PythonNodeModels.PythonNodeModelsImages", typeof(PythonNodeModelsImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,46 @@ namespace ImagesLibrary {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PythonNodeModels_PythonNode_Large {
+            get {
+                object obj = ResourceManager.GetObject("PythonNodeModels.PythonNode.Large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PythonNodeModels_PythonNode_Small {
+            get {
+                object obj = ResourceManager.GetObject("PythonNodeModels.PythonNode.Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PythonNodeModels_PythonStringNode_Large {
+            get {
+                object obj = ResourceManager.GetObject("PythonNodeModels.PythonStringNode.Large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PythonNodeModels_PythonStringNode_Small {
+            get {
+                object obj = ResourceManager.GetObject("PythonNodeModels.PythonStringNode.Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

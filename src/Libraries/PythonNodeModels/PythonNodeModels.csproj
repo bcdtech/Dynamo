@@ -77,6 +77,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.en-US.resx</DependentUpon>
     </Compile>
+    <Compile Update="PythonNodeModelsImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PythonNodeModelsImages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -86,6 +91,11 @@
     <EmbeddedResource Update="Properties\Resources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PythonNodeModelsImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PythonNodeModelsImages.Designer.cs</LastGenOutput>
+      <LogicalName>PythonNodeModelsImages.resources</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
   <Target Name="GenerateFiles" AfterTargets="ResolveSateliteResDeps" Condition=" $(RuntimeIdentifier.Contains('win')) ">

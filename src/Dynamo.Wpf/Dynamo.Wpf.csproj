@@ -43,6 +43,16 @@
     <ProjectReference Include="..\Libraries\CoreNodeModels\CoreNodeModels.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Assets\BuiltInImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BuiltInImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Assets\OperatorsImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OperatorsImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -53,6 +63,16 @@
     <!--<EmbeddedResource Update="Properties\Resources.en-US.resx">
       <Generator></Generator>
     </EmbeddedResource>-->
+    <EmbeddedResource Update="Assets\BuiltInImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BuiltInImages.Designer.cs</LastGenOutput>
+      <LogicalName>DynamoBuiltInImages.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Assets\OperatorsImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OperatorsImages.Designer.cs</LastGenOutput>
+      <LogicalName>DynamoOperatorsImages.resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

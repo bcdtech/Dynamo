@@ -19,8 +19,7 @@
     <SharpDXDirectXVersion>DirectX11</SharpDXDirectXVersion>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <UICulture>en-US</UICulture>
+    <Prefer32Bit>false</Prefer32Bit>   
     <OutputType Condition=" '$(OutputType)' == '' ">Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <!--MSB3539: The value of the property "BaseIntermediateOutputPath" was modified after it was used by MSBuild-->
