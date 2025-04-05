@@ -36,9 +36,9 @@ namespace Dynamo.Applications
                 "FunctionObject.ds",
                 "BuiltIn.ds",
                 "DynamoConversions.dll",
-                "DynamoUnits.dll",
+                //"DynamoUnits.dll",
                 //"Tessellation.dll",
-                "Analysis.dll",
+                //"Analysis.dll",
                // "GeometryColor.dll"
             };
 
