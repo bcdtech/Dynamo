@@ -1,0 +1,156 @@
+<Window
+    x:Class="Dynamo.Wpf.Views.Debug.UpdateNodeIconsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Dynamo.Controls"
+    xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
+    Title="Update Node Icons"
+    Width="750"
+    Height="600"
+    ResizeMode="NoResize">
+    <Window.Resources>
+        <local:Base64ToImageConverter x:Key="Base64ToImageConverter" />
+    </Window.Resources>
+    <StackPanel Margin="10,0,10,0" Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" SharedSizeGroup="Label" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Enter New Icon Sources:</Label>
+            <TextBox
+                Grid.Row="1"
+                MinHeight="25"
+                MaxHeight="60"
+                Padding="3"
+                AcceptsTab="True"
+                MinLines="3"
+                Text="{Binding NewIconPaths}"
+                TextWrapping="Wrap" />
+            <TextBox
+                Name="OutputText"
+                Grid.Row="2"
+                MaxHeight="105"
+                Margin="0,10"
+                Background="AliceBlue"
+                BorderThickness="0"
+                IsReadOnly="True"
+                Text="{Binding Output, Mode=TwoWay}" />
+        </Grid>
+        <Grid>
+            <ScrollViewer Height="320" Margin="10,5,10,0">
+                <DataGrid
+                    Name="IconGrid"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="False"
+                    CanUserResizeRows="False"
+                    CanUserSortColumns="False"
+                    HorizontalScrollBarVisibility="Auto"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding UpdatedIconList}"
+                    RowHeaderWidth="0"
+                    SelectionMode="Single"
+                    SelectionUnit="FullRow"
+                    VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="#434343" />
+                            <Setter Property="Foreground" Value="#ccc" />
+                        </Style>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#535353" />
+                            <Setter Property="Foreground" Value="#ccc" />
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*" Header="Node Name">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <Run Text="{Binding NodeName}" />
+                                        <LineBreak />
+                                        <Run Text="(" />
+                                        <Run Text="{Binding IconSuffix}" />
+                                        <Run Text=")" />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="*" Header="Old Icon">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image
+                                        Width="40"
+                                        Height="40"
+                                        Source="{Binding OldData, Converter={StaticResource Base64ToImageConverter}}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="*" Header="New Icon">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image
+                                        Width="40"
+                                        Height="40"
+                                        Source="{Binding Icon_Base64String, Converter={StaticResource Base64ToImageConverter}}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </ScrollViewer>
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="btnOK"
+                Grid.Column="0"
+                Width="75"
+                Height="25"
+                Margin="10,10,10,10"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="OnOkClick"
+                Content="Review"
+                IsDefault="True"
+                TabIndex="1600" />
+            <Button
+                x:Name="btnUpdate"
+                Grid.Column="1"
+                Width="75"
+                Height="25"
+                Margin="10,10,10,10"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="OnUpdateClick"
+                Content="Update"
+                IsEnabled="{Binding IsUpdateEnabled}"
+                TabIndex="1600" />
+            <Button
+                x:Name="btnCancel"
+                Grid.Column="2"
+                Width="75"
+                Height="25"
+                Margin="10,10,10,10"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="OnCancelClick"
+                Content="Cancel"
+                IsCancel="True"
+                TabIndex="1700" />
+        </Grid>
+    </StackPanel>
+</Window>
