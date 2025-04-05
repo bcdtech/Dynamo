@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:localProperties="clr-namespace:Dynamo.Wpf.Properties"
-             xmlns:core="clr-namespace:Dynamo.Nodes;assembly=DynamoCoreWpf"
-             xmlns:ui="clr-namespace:Dynamo.UI;assembly=DynamoCoreWpf"
+             xmlns:core="clr-namespace:Dynamo.Nodes;assembly=Dynamo.Wpf"
+             xmlns:ui="clr-namespace:Dynamo.UI;assembly=Dynamo.Wpf"
              xmlns:model="clr-namespace:CoreNodeModelsWpf"
              mc:Ignorable="d"
              d:DesignHeight="200" d:DesignWidth="300"
@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoModernDictionaryUri}" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="EnumItemsListItemStyle"  TargetType="{x:Type ListBoxItem}">

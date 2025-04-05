@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using CoreNodeModels;
 using Dynamo.Controls;
 using Dynamo.Core;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
-using Dynamo.UI.Commands;
 using Dynamo.ViewModels;
 using DynamoConversions;
 
@@ -13,7 +14,7 @@ namespace CoreNodeModelsWpf
     public class ConverterViewModel : NotificationObject
     {
         private readonly DynamoConvert dynamoConvertModel;
-        public DelegateCommand ToggleButtonClick { get; set; }
+        public ICommand ToggleButtonClick { get; set; }
         private readonly NodeViewModel nodeViewModel;
         private readonly NodeModel nodeModel;
 
@@ -86,7 +87,7 @@ namespace CoreNodeModelsWpf
             nodeViewModel = nodeView.ViewModel;
             nodeModel = nodeView.ViewModel.NodeModel;
             model.PropertyChanged +=model_PropertyChanged;
-            ToggleButtonClick = new DelegateCommand(OnToggleButtonClick, CanToggleButton);         
+            ToggleButtonClick = new RelayCommand<object>(OnToggleButtonClick, CanToggleButton);         
         }
 
         private void model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

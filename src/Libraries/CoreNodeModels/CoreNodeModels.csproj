@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="CoreNodeModelsImages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CoreNodeModelsImages.Designer.cs</LastGenOutput>
       <LogicalName>CoreNodeModelsImages.resources</LogicalName>
     </EmbeddedResource>

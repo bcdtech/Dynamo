@@ -189,4 +189,5 @@
     <controls:PortTypeToStringConverter x:Key="PortTypeToStringConverter" />
     <controls:BooleanNegationConverter x:Key="BooleanNegationConverter" />
     <controls:LeftMarginConverter x:Key="LeftMarginConverter" />
+    <controls:NumberFormatterConverter x:Key="NumberFormatterConverter" />
 </ResourceDictionary>

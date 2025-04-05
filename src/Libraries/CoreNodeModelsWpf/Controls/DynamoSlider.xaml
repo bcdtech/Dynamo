@@ -5,8 +5,8 @@
     xmlns:configuration="clr-namespace:Dynamo.Configuration;assembly=DynamoCore"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:nodes1="clr-namespace:Dynamo.Nodes;assembly=DynamoCoreWpf"
-    xmlns:ui="clr-namespace:Dynamo.UI;assembly=DynamoCoreWpf"
+    xmlns:nodes1="clr-namespace:Dynamo.Nodes;assembly=Dynamo.Wpf"
+    xmlns:ui="clr-namespace:Dynamo.UI;assembly=Dynamo.Wpf"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
     mc:Ignorable="d">
@@ -14,9 +14,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoConvertersDictionaryUri}" />
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoColorsAndBrushesDictionaryUri}" />
-                <ui:SharedResourceDictionary Source="{x:Static ui:SharedDictionaryManager.DynamoModernDictionaryUri}" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="SliderThumbStyle" TargetType="Thumb">
                 <Setter Property="Focusable" Value="false" />

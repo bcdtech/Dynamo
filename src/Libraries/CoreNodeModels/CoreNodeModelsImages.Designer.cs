@@ -22,7 +22,7 @@ namespace CoreNodeModels {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CoreNodeModelsImages {
+    internal class CoreNodeModelsImages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace CoreNodeModels {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CoreNodeModels.CoreNodeModelsImages", typeof(CoreNodeModelsImages).Assembly);
@@ -51,7 +51,7 @@ namespace CoreNodeModels {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_ColorRange_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_ColorRange_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.ColorRange.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_ColorRange_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_ColorRange_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.ColorRange.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_CreateList_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_CreateList_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.CreateList.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_CreateList_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_CreateList_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.CreateList.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_CurveMapperNodeModel_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_CurveMapperNodeModel_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.CurveMapperNodeModel.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_CurveMapperNodeModel_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_CurveMapperNodeModel_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.CurveMapperNodeModel.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_DefineData_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_DefineData_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.DefineData.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_DefineData_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_DefineData_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.DefineData.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_DynamoConvert_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_DynamoConvert_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.DynamoConvert.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_DynamoConvert_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_DynamoConvert_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.DynamoConvert.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Equals_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Equals_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Equals.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Equals_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Equals_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Equals.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Formula_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Formula_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Formula.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Formula_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Formula_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Formula.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_FromArray_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_FromArray_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.FromArray.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_FromArray_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_FromArray_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.FromArray.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_FromObject_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_FromObject_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.FromObject.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_FromObject_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_FromObject_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.FromObject.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ApplyFunction_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ApplyFunction_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ApplyFunction.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ApplyFunction_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ApplyFunction_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ApplyFunction.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_CartesianProduct_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_CartesianProduct_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.CartesianProduct.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_CartesianProduct_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_CartesianProduct_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.CartesianProduct.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Combine_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Combine_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Combine.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Combine_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Combine_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Combine.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ComposeFunctions_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ComposeFunctions_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ComposeFunctions.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ComposeFunctions_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ComposeFunctions_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ComposeFunctions.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Filter_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Filter_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Filter.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Filter_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Filter_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Filter.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceLongest_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceLongest_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.LaceLongest.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceLongest_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceLongest_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.LaceLongest.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceShortest_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceShortest_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.LaceShortest.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceShortest_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_LaceShortest_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.LaceShortest.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Map_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Map_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Map.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +393,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Map_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Map_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Map.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +403,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Reduce_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Reduce_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Reduce.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +413,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Reduce_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Reduce_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Reduce.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +423,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Replace_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Replace_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Replace.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +433,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Replace_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_Replace_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.Replace.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +443,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ScanList_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ScanList_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ScanList.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +453,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ScanList_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_HigherOrder_ScanList_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.HigherOrder.ScanList.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,7 +463,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_BoolSelector_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_BoolSelector_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.BoolSelector.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -473,7 +473,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_BoolSelector_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_BoolSelector_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.BoolSelector.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -483,7 +483,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_ColorPalette_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_ColorPalette_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.ColorPalette.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -493,7 +493,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_ColorPalette_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_ColorPalette_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.ColorPalette.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -503,7 +503,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_CustomSelection_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_CustomSelection_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.CustomSelection.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -513,7 +513,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_CustomSelection_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_CustomSelection_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.CustomSelection.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -523,7 +523,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DateTime_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DateTime_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DateTime.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -533,7 +533,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DateTime_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DateTime_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DateTime.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -543,7 +543,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_Directory_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_Directory_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.Directory.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -553,7 +553,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_Directory_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_Directory_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.Directory.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -563,7 +563,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DirectoryObject_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DirectoryObject_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DirectoryObject.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -573,7 +573,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DirectoryObject_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DirectoryObject_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DirectoryObject.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -583,7 +583,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DoubleInput_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DoubleInput_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DoubleInput.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -593,7 +593,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DoubleInput_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DoubleInput_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DoubleInput.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -603,7 +603,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DoubleSlider_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DoubleSlider_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DoubleSlider.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -613,7 +613,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_DoubleSlider_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_DoubleSlider_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.DoubleSlider.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -623,7 +623,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_Filename_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_Filename_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.Filename.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -633,7 +633,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_Filename_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_Filename_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.Filename.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -643,7 +643,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_FileObject_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_FileObject_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.FileObject.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -653,7 +653,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_FileObject_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_FileObject_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.FileObject.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -663,7 +663,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_IntegerSlider64Bit_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_IntegerSlider64Bit_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.IntegerSlider64Bit.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -673,7 +673,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_IntegerSlider64Bit_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_IntegerSlider64Bit_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.IntegerSlider64Bit.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -683,7 +683,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_StringInput_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_StringInput_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.StringInput.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -693,7 +693,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Input_StringInput_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Input_StringInput_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Input.StringInput.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -703,7 +703,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_And_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_And_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.And.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -713,7 +713,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_And_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_And_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.And.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -723,7 +723,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_Gate_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_Gate_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.Gate.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -733,7 +733,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_Gate_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_Gate_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.Gate.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -743,7 +743,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_Or_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_Or_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.Or.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -753,7 +753,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_Or_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_Or_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.Or.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -763,7 +763,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_RefactoredIf_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_RefactoredIf_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.RefactoredIf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -773,7 +773,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_RefactoredIf_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_RefactoredIf_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.RefactoredIf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -783,7 +783,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_ScopedIf_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_ScopedIf_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.ScopedIf.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -793,7 +793,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Logic_ScopedIf_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Logic_ScopedIf_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Logic.ScopedIf.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -803,7 +803,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Range_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Range_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Range.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -813,7 +813,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Range_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Range_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Range.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -823,7 +823,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Remember_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Remember_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Remember.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -833,7 +833,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Remember_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Remember_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Remember.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -843,7 +843,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Sequence_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Sequence_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Sequence.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -853,7 +853,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Sequence_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Sequence_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Sequence.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -863,7 +863,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Watch_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_Watch_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Watch.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -873,7 +873,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_Watch_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_Watch_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Watch.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -883,7 +883,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_WatchImageCore_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_WatchImageCore_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.WatchImageCore.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -893,7 +893,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_WatchImageCore_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_WatchImageCore_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.WatchImageCore.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -903,7 +903,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_WebRequest_Large {
+        internal static System.Drawing.Bitmap CoreNodeModels_WebRequest_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.WebRequest.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -913,7 +913,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap CoreNodeModels_WebRequest_Small {
+        internal static System.Drawing.Bitmap CoreNodeModels_WebRequest_Small {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.WebRequest.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -923,7 +923,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Evaluate_Small {
+        internal static System.Drawing.Bitmap Evaluate_Small {
             get {
                 object obj = ResourceManager.GetObject("Evaluate.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -933,7 +933,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Input_Small {
+        internal static System.Drawing.Bitmap Input_Small {
             get {
                 object obj = ResourceManager.GetObject("Input.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -943,7 +943,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Logic_Small {
+        internal static System.Drawing.Bitmap Logic_Small {
             get {
                 object obj = ResourceManager.GetObject("Logic.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -953,7 +953,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Scripting_Small {
+        internal static System.Drawing.Bitmap Scripting_Small {
             get {
                 object obj = ResourceManager.GetObject("Scripting.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -963,7 +963,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Strings_Small {
+        internal static System.Drawing.Bitmap Strings_Small {
             get {
                 object obj = ResourceManager.GetObject("Strings.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -973,7 +973,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Units_Small {
+        internal static System.Drawing.Bitmap Units_Small {
             get {
                 object obj = ResourceManager.GetObject("Units.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -983,7 +983,7 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap View_Small {
+        internal static System.Drawing.Bitmap View_Small {
             get {
                 object obj = ResourceManager.GetObject("View.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

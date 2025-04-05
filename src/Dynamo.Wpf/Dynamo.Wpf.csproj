@@ -25,7 +25,6 @@
   <ItemGroup>
     <Resource Include="**\*.png" />
     <Resource Include="**\*.jpg" />
-    <Resource Include="**\*.ttf" />
     <Resource Include="**\*.cur" />
     <Resource Include="**\*.psd" />
     <Resource Include="**\*.otf" />

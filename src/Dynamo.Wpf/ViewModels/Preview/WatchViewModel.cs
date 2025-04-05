@@ -224,7 +224,7 @@ namespace Dynamo.ViewModels
         }
 
         #endregion
-
+        public WatchViewModel() : this(null, null, null, true) { }
         public WatchViewModel(Action<string> tagGeometry) : this(null, null, tagGeometry, true) { }
 
         /// <summary>

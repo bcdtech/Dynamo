@@ -40,7 +40,8 @@ namespace CoreNodeModelsWpf.Nodes
             this.syncContext = new DispatcherSynchronizationContext(nodeView.Dispatcher);
 
             // make empty watchViewModel
-            rootWatchViewModel = new WatchViewModel(dynamoViewModel.BackgroundPreviewViewModel.AddLabelForPath);
+            //rootWatchViewModel = new WatchViewModel(dynamoViewModel.BackgroundPreviewViewModel.AddLabelForPath);
+            rootWatchViewModel = new WatchViewModel();
 
             var watchTree = new WatchTree(rootWatchViewModel);
 
@@ -203,7 +204,7 @@ namespace CoreNodeModelsWpf.Nodes
                 foreach (var node in rootWatchViewModel.Children)
                 {
                     // remove all labels (in Watch 3D View) upon disconnect of Watch Node
-                    dynamoViewModel.BackgroundPreviewViewModel.ClearPathLabel(node.Path);
+                    //dynamoViewModel.BackgroundPreviewViewModel.ClearPathLabel(node.Path);
                 }
 
                 rootWatchViewModel.Children.Clear();

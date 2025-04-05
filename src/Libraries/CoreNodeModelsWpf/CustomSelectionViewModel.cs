@@ -2,7 +2,8 @@ using CoreNodeModels;
 using CoreNodeModels.Input;
 
 using Dynamo.Core;
-using Dynamo.UI.Commands;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
 
 namespace CoreNodeModelsWpf
 {
@@ -16,12 +17,12 @@ namespace CoreNodeModelsWpf
         /// <summary>
         /// Add an item to the list. This command is bound to the + button in the GUI.
         /// </summary>
-        public DelegateCommand AddCommand { get; }
+        public ICommand AddCommand { get; }
 
         /// <summary>
         /// Remove an item from the list. This command is bound to the - button in the GUI.
         /// </summary>
-        public DelegateCommand RemoveCommand { get; }
+        public ICommand RemoveCommand { get; }
 
         private void AddItem(object obj)
         {
@@ -52,8 +53,8 @@ namespace CoreNodeModelsWpf
         {
             Model = model;
 
-            AddCommand = new DelegateCommand(AddItem);
-            RemoveCommand = new DelegateCommand(RemoveItem);
+            AddCommand = new RelayCommand<object>(AddItem);
+            RemoveCommand = new RelayCommand<object>(RemoveItem);
         }
     }
 }
