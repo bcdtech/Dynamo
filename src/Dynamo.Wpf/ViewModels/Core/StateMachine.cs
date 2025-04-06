@@ -637,7 +637,11 @@ namespace Dynamo.ViewModels
                     ignoreMouseClick = false;
                     return false;
                 }
-
+                var originalDataContext = (e.OriginalSource as FrameworkElement)?.DataContext;
+                if (originalDataContext is OutPortViewModel or InPortViewModel)
+                {
+                    return true;
+                }
                 var eventHandled = false;
                 var returnFocus = true;
                 if (currentState == State.Connection)
