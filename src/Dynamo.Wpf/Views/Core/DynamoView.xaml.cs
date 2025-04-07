@@ -127,7 +127,7 @@ namespace Dynamo.Controls
 
             this.dynamoViewModel = dynamoViewModel;
             this.dynamoViewModel.UIDispatcher = Application.Current.Dispatcher;
-            SharedDictionaryManager.Resoures = Resources;
+
             nodeViewCustomizationLibrary = new NodeViewCustomizationLibrary(this.dynamoViewModel.Model.Logger);
 
             this.DataContext = dynamoViewModel;
@@ -141,6 +141,7 @@ namespace Dynamo.Controls
             _timer.Start();
 
             InitializeComponent();
+            SharedDictionaryManager.Resoures = Resources.MergedDictionaries[0];
 
             Loaded += DynamoView_Loaded;
             Unloaded += DynamoView_Unloaded;
