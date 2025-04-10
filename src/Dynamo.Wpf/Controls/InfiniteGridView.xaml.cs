@@ -1,10 +1,9 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Views;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Dynamo.Controls
 {
@@ -76,7 +75,7 @@ namespace Dynamo.Controls
                 // Indicates that this is a first load, so ws should be initialized first
                 InitializeWorkspaceModel();
             }
-            
+
             UpdateDrawingVisual(workspaceViewModel.X, workspaceViewModel.Y, workspaceViewModel.Zoom);
         }
 
