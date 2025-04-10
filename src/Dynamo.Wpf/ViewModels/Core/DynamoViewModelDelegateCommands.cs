@@ -67,17 +67,7 @@ namespace Dynamo.ViewModels
             GoToDictionaryCommand = new RelayCommand<object>(GoToDictionary, CanGoToDictionary);
             DisplayStartPageCommand = new RelayCommand<object>(DisplayStartPage, CanDisplayStartPage);
             DisplayInteractiveGuideCommand = new RelayCommand<object>(DisplayStartPage, CanDisplayInteractiveGuide);
-            GettingStartedGuideCommand = new RelayCommand<object>(StartGettingStartedGuide, CanStartGettingStartedGuide);
-            ShowPackageManagerSearchCommand = new RelayCommand<object>(ShowPackageManagerSearch, CanShowPackageManagerSearch);
-            ShowPackageManagerCommand = new RelayCommand<object>(ShowPackageManager, CanShowPackageManager);
 
-            if (PackageManagerClientViewModel != null && !Model.IsServiceMode)
-            {
-                PublishNewPackageCommand = new RelayCommand<object>(PackageManagerClientViewModel.PublishNewPackage, PackageManagerClientViewModel.CanPublishNewPackage);
-                PublishCurrentWorkspaceCommand = new RelayCommand<object>(PackageManagerClientViewModel.PublishCurrentWorkspace, PackageManagerClientViewModel.CanPublishCurrentWorkspace);
-                PublishSelectedNodesCommand = new RelayCommand<object>(PackageManagerClientViewModel.PublishSelectedNodes, PackageManagerClientViewModel.CanPublishSelectedNodes);
-                PublishCustomNodeCommand = new RelayCommand<Function>(PackageManagerClientViewModel.PublishCustomNode, PackageManagerClientViewModel.CanPublishCustomNode);
-            }
 
             SelectNeighborsCommand = new RelayCommand<object>(SelectNeighbors, CanSelectNeighbors);
             ClearLogCommand = new RelayCommand<object>(ClearLog, CanClearLog);

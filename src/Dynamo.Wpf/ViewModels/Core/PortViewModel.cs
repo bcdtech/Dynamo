@@ -1,5 +1,5 @@
-using Dynamo.Graph.Nodes;
 using CommunityToolkit.Mvvm.Input;
+using Dynamo.Graph.Nodes;
 using Dynamo.Utilities;
 using DynamoCoreWpf.Extensions;
 using System.Diagnostics;
@@ -554,7 +554,6 @@ namespace Dynamo.ViewModels
             // telling user it is not available that way
             if (port.IsProxyPort)
             {
-                dynamoViewModel.MainGuideManager.CreateRealTimeInfoWindow(Wpf.Properties.Resources.NodeAutoCompleteNotAvailableForCollapsedGroups);
             }
             // If the feature is enabled from Dynamo experiment setting and if user interaction is not on proxy ports.
             return dynamoViewModel.EnableNodeAutoComplete && !port.IsProxyPort;

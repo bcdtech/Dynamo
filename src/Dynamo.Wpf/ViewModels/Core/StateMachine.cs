@@ -1232,7 +1232,6 @@ namespace Dynamo.ViewModels
                         }
                         else
                         {
-                            owningWorkspace.DynamoViewModel.MainGuideManager.CreateRealTimeInfoWindow(Wpf.Properties.Resources.UngroupParentGroupWarning, true);
                         }
                     }
                 }

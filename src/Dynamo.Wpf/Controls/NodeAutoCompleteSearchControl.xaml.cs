@@ -1,13 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Threading;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Nodes.ZeroTouch;
 using Dynamo.Graph.Workspaces;
@@ -16,6 +6,13 @@ using Dynamo.Models;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.ViewModels;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows.Threading;
 using Res = Dynamo.Wpf.Properties.Resources;
 
 namespace Dynamo.UI.Controls
@@ -84,7 +81,7 @@ namespace Dynamo.UI.Controls
                 binding.UpdateSource();
 
             // Search the filtered results to match the user input.
-            if (ViewModel != null) 
+            if (ViewModel != null)
             {
                 Dispatcher.BeginInvoke(new Action(() =>
                 {
@@ -118,11 +115,11 @@ namespace Dynamo.UI.Controls
                                                 string.Format("{0}, {1}", searchElement.Model.CreationName, searchElement.Assembly.Split('\\').Last().Split('.').First());
                     var originalNodeName = (port.NodeViewModel.NodeModel is DSFunctionBase) ?
                                                 port.NodeViewModel.NodeModel.CreationName :
-                                                string.Format("{0}, {1}", port.NodeViewModel.NodeModel.GetType().FullName, port.NodeViewModel.NodeModel.GetType().Assembly.GetName().Name) ;
+                                                string.Format("{0}, {1}", port.NodeViewModel.NodeModel.GetType().FullName, port.NodeViewModel.NodeModel.GetType().Assembly.GetName().Name);
                     var searchElementInfo = ViewModel.IsDisplayingMLRecommendation ?
                         selectedNodeName + " " + port.PortModel.Index.ToString() + " " + port.PortName + " " + originalNodeName + " " +
                         searchElement.Model.AutoCompletionNodeElementInfo.PortToConnect.ToString() + " " +
-                        searchElement.AutoCompletionNodeMachineLearningInfo.ConfidenceScore.ToString() + " "  +  ViewModel.ServiceVersion
+                        searchElement.AutoCompletionNodeMachineLearningInfo.ConfidenceScore.ToString() + " " + ViewModel.ServiceVersion
                         : selectedNodeName;
 
                     Analytics.TrackEvent(
@@ -131,7 +128,7 @@ namespace Dynamo.UI.Controls
                     searchElementInfo);
                 }
             }
-        }        
+        }
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
@@ -400,14 +397,13 @@ namespace Dynamo.UI.Controls
             MenuItem selectedSuggestion = sender as MenuItem;
             if (selectedSuggestion.Name.Contains(nameof(Models.NodeAutocompleteSuggestion.MLRecommendation)))
             {
-                if(ViewModel.IsMLAutocompleteTOUApproved)
+                if (ViewModel.IsMLAutocompleteTOUApproved)
                 {
                     ViewModel.dynamoViewModel.PreferenceSettings.DefaultNodeAutocompleteSuggestion = Models.NodeAutocompleteSuggestion.MLRecommendation;
                     Analytics.TrackEvent(Actions.Switch, Categories.Preferences, nameof(NodeAutocompleteSuggestion.MLRecommendation));
                 }
                 else
                 {
-                    ViewModel.dynamoViewModel.MainGuideManager.CreateRealTimeInfoWindow(Res.NotificationToAgreeMLNodeautocompleteTOU);
                     // Do nothing for now, do not report analytics since the switch did not happen
                 }
             }
@@ -424,7 +420,7 @@ namespace Dynamo.UI.Controls
         /// </summary>
         public void Dispose()
         {
-            NodeAutoCompleteSearchControl_Unloaded(this,null);
+            NodeAutoCompleteSearchControl_Unloaded(this, null);
         }
     }
 }

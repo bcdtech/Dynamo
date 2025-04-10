@@ -39,7 +39,6 @@
  
   <ItemGroup>
     <ProjectReference Include="..\DynamoCore\DynamoCore.csproj" />
-    <ProjectReference Include="..\DynamoPackages\DynamoPackages.csproj" />
     <ProjectReference Include="..\Libraries\CoreNodeModels\CoreNodeModels.csproj" />
   </ItemGroup>
   <ItemGroup>

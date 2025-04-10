@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
+using Dynamo.Core;
+using Dynamo.Models;
+using Dynamo.ViewModels;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Xml;
-using Dynamo.Core;
-using Dynamo.Models;
-using Dynamo.PackageManager;
-using Dynamo.ViewModels;
 
 namespace Dynamo.Nodes.Prompts
 {
@@ -49,7 +44,7 @@ namespace Dynamo.Nodes.Prompts
         }
 
         public CrashPrompt(CrashPromptArgs args, DynamoViewModel dynamoViewModel) : this(dynamoViewModel, args)
-        {}
+        { }
 
         internal CrashPrompt(object sender, CrashPromptArgs args)
         {
@@ -66,8 +61,7 @@ namespace Dynamo.Nodes.Prompts
 
             InitializeComponent();
 
-            var packageLoader = model?.GetPackageManagerExtension()?.PackageLoader;
-            markdownPackages = Wpf.Utilities.CrashUtilities.PackagesToMakrdown(packageLoader);
+
 
             productName = dynamoViewModel?.BrandingResourceProvider.ProductName ?? Process.GetCurrentProcess().ProcessName;
             Title = string.Format(Wpf.Properties.Resources.CrashPromptDialogTitle, productName);

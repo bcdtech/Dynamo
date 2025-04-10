@@ -105,14 +105,9 @@ namespace Dynamo.Wpf.Views
             //Clear the Saved Changes label and its corresponding tooltip when the Preferences Modal is opened
             dynamoViewModel.PreferencesViewModel.SavedChangesLabel = string.Empty;
             dynamoViewModel.PreferencesViewModel.SavedChangesTooltip = string.Empty;
-            dynamoViewModel.PreferencesViewModel.PackagePathsViewModel?.InitializeRootLocations();
             dynamoViewModel.PreferencesViewModel.TrustedPathsViewModel?.InitializeTrustedLocations();
 
-            // Init package paths for install 
-            dynamoViewModel.PreferencesViewModel.InitPackagePathsForInstall();
 
-            // Init all package filters 
-            dynamoViewModel.PreferencesViewModel.InitPackageListFilters();
 
             dynamoViewModel.PreferencesViewModel.TrustedPathsViewModel.PropertyChanged += TrustedPathsViewModel_PropertyChanged;
         }
@@ -156,12 +151,9 @@ namespace Dynamo.Wpf.Views
         {
             managePackageCommandEvent?.Dispose();
             Analytics.TrackEvent(Actions.Close, Categories.Preferences);
-            viewModel.PackagePathsViewModel.SaveSettingCommand.Execute(null);
             viewModel.TrustedPathsViewModel?.SaveSettingCommand?.Execute(null);
             dynViewModel.ShowHideFileTrustWarningIfCurrentWorkspaceTrusted();
 
-            viewModel.CommitPackagePathsForInstall();
-            PackagePathView.Dispose();
             TrustedPathView.Dispose();
             Dispose();
 
@@ -643,17 +635,12 @@ namespace Dynamo.Wpf.Views
                 label.Content = slider.Value.ToString() + "%";
             }
         }
-        private void OnInstalledPackagesHyperlinkClicked(object sender, RoutedEventArgs e)
-        {
-            this.CloseButton_Click(this.CloseButton, e);
-            this.dynViewModel.ShowPackageManager(Dynamo.Wpf.Properties.Resources.PackageManagerInstalledPackagesTab);
-        }
+
 
         private void RecommendedNodesRadioButton_Click(object sender, RoutedEventArgs e)
         {
             if (!viewModel.IsMLAutocompleteTOUApproved)
             {
-                dynViewModel.MainGuideManager.CreateRealTimeInfoWindow(Res.NotificationToAgreeMLNodeautocompleteTOU);
                 // Reset back to object type recommendations
                 RecommendedNodesRadioButton.IsChecked = false;
                 ObjectTypeRadioButton.IsChecked = true;

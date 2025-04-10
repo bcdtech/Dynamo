@@ -222,7 +222,6 @@ namespace Dynamo.Views
                             // if the MLRecommendation is default but user not accepting TOU, display notification
                             if (ViewModel.NodeAutoCompleteSearchViewModel.IsDisplayingMLRecommendation && !ViewModel.NodeAutoCompleteSearchViewModel.IsMLAutocompleteTOUApproved)
                             {
-                                ViewModel.DynamoViewModel.MainGuideManager.CreateRealTimeInfoWindow(Wpf.Properties.Resources.NotificationToAgreeMLNodeautocompleteTOU, true);
                                 return;
                             }
                             // Force the Child visibility to change here because

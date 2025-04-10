@@ -1,7 +1,3 @@
-using System;
-using System.Windows;
-using System.Windows.Controls.Primitives;
-using System.Windows.Threading;
 using Dynamo.Controls;
 using Dynamo.Graph.Workspaces;
 using Dynamo.Models;
@@ -10,6 +6,9 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.ViewModels.FileTrust;
+using System.Windows;
+using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 
 namespace Dynamo.Wpf.Views.FileTrust
 {
@@ -137,7 +136,6 @@ namespace Dynamo.Wpf.Views.FileTrust
                 dynViewModel.CloseHomeWorkspaceCommand.Execute(null);
                 if (FileTrustWarningCheckBox.IsChecked.Value == true)
                 {
-                    dynViewModel.MainGuideManager.CreateRealTimeInfoWindow(Properties.Resources.TrustLocationSkippedNotification);
                 }
             }
         }
@@ -151,7 +149,8 @@ namespace Dynamo.Wpf.Views.FileTrust
             if (FileTrustWarningCheckBox.IsChecked.Value == true)
             {
                 if (dynViewModel.PreferenceSettings.AddTrustedLocation(fileTrustWarningViewModel.DynFileDirectoryName))
-                    dynViewModel.MainGuideManager.CreateRealTimeInfoWindow(string.Format(Properties.Resources.TrustLocationAddedNotification, fileTrustWarningViewModel.DynFileDirectoryName));
+                {
+                }
             }
             if (dynViewModel.CurrentSpaceViewModel.RunSettingsViewModel.Model.RunType != RunType.Manual)
             {

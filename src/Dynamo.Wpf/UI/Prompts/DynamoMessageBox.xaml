@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:fa5="http://schemas.fontawesome.com/icons/"
-    xmlns:localui="clr-namespace:Dynamo.Wpf.UI.GuidedTour"
     xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
     xmlns:ui="clr-namespace:Dynamo.UI"
     Title="{x:Static p:Resources.GenericTaskDialogTitle}"
@@ -176,16 +175,7 @@
                         Text="{Binding BodyText, UpdateSourceTrigger=PropertyChanged}"
                         TextWrapping="Wrap" />
                 </ScrollViewer>
-                <!--  Body text in custom rich text box, mostly used in guided tours  -->
-                <localui:CustomRichTextBox
-                    x:Name="ContentRichTextBox"
-                    Grid.Row="1"
-                    Margin="20"
-                    CustomText="{Binding BodyText}"
-                    DockPanel.Dock="Left"
-                    IsDocumentEnabled="True"
-                    Style="{StaticResource CustomRichTextBoxStyle}"
-                    Visibility="Collapsed" />
+                
 
                 <!--  Buttons  -->
                 <DockPanel

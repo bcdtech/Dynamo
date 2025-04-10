@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Media;
 using Dynamo.Graph.Nodes;
-using Dynamo.Graph.Nodes.CustomNodes;
-using Dynamo.Graph.Nodes.ZeroTouch;
 using Dynamo.Graph.Notes;
 using Dynamo.Graph.Workspaces;
-using Dynamo.PackageManager;
 using Dynamo.UI.Prompts;
+using System.Windows;
+using System.Windows.Media;
 
 namespace Dynamo.ViewModels
 {
@@ -120,7 +114,7 @@ namespace Dynamo.ViewModels
 
         public bool UseAdditionalResolutionPaths { get; private set; }
 
-        public IconRequestEventArgs(string assembly, string fullPath, bool useAdditionalPaths= true)
+        public IconRequestEventArgs(string assembly, string fullPath, bool useAdditionalPaths = true)
         {
             IconAssembly = assembly;
             IconFullPath = fullPath;
@@ -221,7 +215,7 @@ namespace Dynamo.ViewModels
         /// </summary>
         /// <param name="model">NodeModel to document</param>
         /// <param name="dynamoViewModel"></param>
-        public OpenNodeAnnotationEventArgs(NodeModel model, DynamoViewModel dynamoViewModel) : base(new Uri(String.Empty,UriKind.Relative))
+        public OpenNodeAnnotationEventArgs(NodeModel model, DynamoViewModel dynamoViewModel) : base(new Uri(String.Empty, UriKind.Relative))
         {
             if (model == null) throw new ArgumentNullException(nameof(model));
 

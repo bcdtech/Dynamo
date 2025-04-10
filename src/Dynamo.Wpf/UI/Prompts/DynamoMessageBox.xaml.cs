@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Input;
 using Dynamo.Annotations;
-using Dynamo.Controls;
 using Dynamo.Events;
 using Dynamo.Logging;
 using Dynamo.Session;
-using Dynamo.Utilities;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Dynamo.UI.Prompts
 {
@@ -28,7 +23,7 @@ namespace Dynamo.UI.Prompts
         #endregion
 
         #region Public Properties
-        
+
         [Obsolete("Do not use, instead use CustomDialogResult. This property will not be set during ShowDialog()")]
         public new bool? DialogResult
         {
@@ -46,7 +41,7 @@ namespace Dynamo.UI.Prompts
             get => titleText;
             set
             {
-                titleText = value; 
+                titleText = value;
                 OnPropertyChanged(nameof(TitleText));
             }
         }
@@ -59,7 +54,7 @@ namespace Dynamo.UI.Prompts
             get => bodyText;
             set
             {
-                bodyText = value; 
+                bodyText = value;
                 OnPropertyChanged(nameof(BodyText));
             }
         }
@@ -180,12 +175,11 @@ namespace Dynamo.UI.Prompts
                 MessageBoxButton = button,
                 MessageBoxImage = icon
             };
-            
+
             if (showRichTextBox)
             {
                 dynamoMessageBox.BodyTextBlock.Visibility = Visibility.Collapsed;
-                dynamoMessageBox.ContentRichTextBox.Visibility = Visibility.Visible;
-            }             
+            }
             dynamoMessageBox.ConfigureButtons(button);
             dynamoMessageBox.ShowDialog();
             return dynamoMessageBox.CustomDialogResult;
@@ -214,7 +208,6 @@ namespace Dynamo.UI.Prompts
             if (showRichTextBox)
             {
                 dynamoMessageBox.BodyTextBlock.Visibility = Visibility.Collapsed;
-                dynamoMessageBox.ContentRichTextBox.Visibility = Visibility.Visible;
             }
             dynamoMessageBox.ConfigureButtons(button);
             dynamoMessageBox.ShowDialog();
@@ -230,7 +223,7 @@ namespace Dynamo.UI.Prompts
         /// <param name="button"></param>
         /// <param name="icon"></param>
         /// <returns></returns>
-        public static MessageBoxResult Show(Window owner,string messageBoxText, string caption, MessageBoxButton button,
+        public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button,
             MessageBoxImage icon)
         {
             var dynamoMessageBox = new DynamoMessageBox
@@ -344,7 +337,7 @@ namespace Dynamo.UI.Prompts
                 MessageBoxImage = icon
             };
 
-            dynamoMessageBox.ConfigureButtons(button,buttonNames);
+            dynamoMessageBox.ConfigureButtons(button, buttonNames);
             dynamoMessageBox.ShowDialog();
             return dynamoMessageBox.CustomDialogResult;
         }
@@ -398,7 +391,7 @@ namespace Dynamo.UI.Prompts
             switch (messageBoxButton)
             {
                 case MessageBoxButton.OK:
-                    if(buttonNames!=null && buttonNames.Count() == 1)
+                    if (buttonNames != null && buttonNames.Count() == 1)
                     {
                         OkButton.Content = buttonNames.ElementAt(0);
                     }

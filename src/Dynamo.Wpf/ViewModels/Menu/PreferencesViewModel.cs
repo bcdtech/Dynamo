@@ -3,11 +3,9 @@ using Dynamo.Configuration;
 using Dynamo.Core;
 using Dynamo.Logging;
 using Dynamo.Models;
-using Dynamo.PackageManager;
 using Dynamo.Utilities;
 using Dynamo.Wpf.ViewModels.Core.Converters;
 using DynamoCoreWpf.Extensions;
-using DynamoUtilities;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -62,7 +60,6 @@ namespace Dynamo.ViewModels
         private readonly PreferenceSettings preferenceSettings;
         private readonly DynamoPythonScriptEditorTextOptions pythonScriptEditorTextOptions;
         private readonly DynamoViewModel dynamoViewModel;
-        private readonly InstalledPackagesViewModel installedPackagesViewModel;
 
         private bool isWarningEnabled;
         private bool isSaveButtonEnabled = true;
@@ -141,16 +138,6 @@ namespace Dynamo.ViewModels
             }
         }
 
-        /// <summary>
-        /// Returns all installed packages
-        /// </summary>
-        public ObservableCollection<PackageViewModel> LocalPackages => installedPackagesViewModel.LocalPackages;
-
-        /// <summary>
-        /// Returns all available filters
-        /// </summary>
-        public ObservableCollection<PackageFilter> Filters => installedPackagesViewModel.Filters;
-
         //This includes all the properties that can be set on the General tab
         #region General Properties
         /// <summary>
@@ -171,7 +158,6 @@ namespace Dynamo.ViewModels
                     if (Configurations.SupportedLocaleDic.TryGetValue(selectedLanguage, out string locale))
                     {
                         preferenceSettings.Locale = locale;
-                        dynamoViewModel.MainGuideManager?.CreateRealTimeInfoWindow(Res.PreferencesViewLanguageSwitchHelp, true);
                     }
                 }
             }
@@ -522,7 +508,6 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.DisableBuiltinPackages = value;
-                PackagePathsViewModel.SetPackagesScheduledState(PathManager.BuiltinPackagesDirectory, value);
                 RaisePropertyChanged(nameof(DisableBuiltInPackages));
             }
         }
@@ -540,10 +525,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.DisableCustomPackageLocations = value;
-                foreach (var path in preferenceSettings.CustomPackageFolders.Where(x => x != DynamoModel.BuiltInPackagesToken))
-                {
-                    PackagePathsViewModel.SetPackagesScheduledState(path, value);
-                }
+
                 RaisePropertyChanged(nameof(DisableCustomPackages));
             }
         }
@@ -1275,10 +1257,6 @@ namespace Dynamo.ViewModels
 
         #endregion
 
-        /// <summary>
-        /// Package Search Paths view model.
-        /// </summary>
-        public PackagePathViewModel PackagePathsViewModel { get; set; }
 
         /// <summary>
         /// Trusted Paths view model.
@@ -1368,7 +1346,6 @@ namespace Dynamo.ViewModels
             dynamoViewModel.RenderPackageFactoryViewModel.ShowEdges = preferenceSettings.ShowEdges;
             dynamoViewModel.RenderPackageFactoryViewModel.UseRenderInstancing = preferenceSettings.UseRenderInstancing;
             PackagePathsForInstall = null;
-            PackagePathsViewModel?.InitializeRootLocations();
             SelectedPackagePathForInstall = preferenceSettings.SelectedPackagePathForInstall;
 
             dynamoViewModel.IsShowingConnectors = preferenceSettings.ShowConnector;
@@ -1399,10 +1376,7 @@ namespace Dynamo.ViewModels
             this.pythonScriptEditorTextOptions = dynamoViewModel.PythonScriptEditorTextOptions;
             this.dynamoViewModel = dynamoViewModel;
 
-            if (dynamoViewModel.PackageManagerClientViewModel != null)
-            {
-                installedPackagesViewModel = new InstalledPackagesViewModel(dynamoViewModel, dynamoViewModel.PackageManagerClientViewModel.PackageManagerExtension.PackageLoader);
-            }
+
 
 
 
@@ -1471,14 +1445,8 @@ namespace Dynamo.ViewModels
                 { "Package Manager", new TabSettings() { Name = "Package Manager", ExpanderActive = string.Empty } }
             };
 
-            //create a packagePathsViewModel we'll use to interact with the package search paths list.
-            var loadPackagesParams = new LoadPackageParams
-            {
-                Preferences = preferenceSettings
-            };
+
             var customNodeManager = dynamoViewModel.Model.CustomNodeManager;
-            var packageLoader = dynamoViewModel.Model.GetPackageManagerExtension()?.PackageLoader;
-            PackagePathsViewModel = new PackagePathViewModel(packageLoader, loadPackagesParams, customNodeManager);
             TrustedPathsViewModel = new TrustedPathViewModel(this.preferenceSettings, this.dynamoViewModel?.Model?.Logger);
 
             PropertyChanged += Model_PropertyChanged;
@@ -1541,15 +1509,7 @@ namespace Dynamo.ViewModels
             if (args.Cancel)
                 return;
 
-            try
-            {
-                PathHelper.IsValidPath(args.Path);
-            }
-            catch (Exception)
-            {
-                // return
-                return;
-            }
+
 
             PythonTemplateFilePath = args.Path;
             RaiseCanExecuteChanged();
@@ -1657,32 +1617,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        /// <summary>
-        /// Store selection to preferences
-        /// </summary>
-        internal void CommitPackagePathsForInstall()
-        {
-            PackagePathsViewModel.RootLocations.CollectionChanged -= PackagePathsViewModel_RootLocations_CollectionChanged;
-            preferenceSettings.SelectedPackagePathForInstall = SelectedPackagePathForInstall;
-        }
 
-        /// <summary>
-        /// Force reload of paths and get current selection from preferences
-        /// </summary>
-        internal void InitPackagePathsForInstall()
-        {
-            PackagePathsForInstall = null;
-            SelectedPackagePathForInstall = preferenceSettings.SelectedPackagePathForInstall;
-            PackagePathsViewModel.RootLocations.CollectionChanged += PackagePathsViewModel_RootLocations_CollectionChanged;
-        }
-
-        /// <summary>
-        /// Init all package filters
-        /// </summary>
-        internal void InitPackageListFilters()
-        {
-            installedPackagesViewModel?.PopulateFilters();
-        }
 
         /// <summary>
         /// Listen for the PropertyChanged event and updates the saved changes label accordingly

@@ -1,17 +1,10 @@
-using System;
 using Dynamo.Models;
-using Dynamo.PackageManager;
 
 namespace Dynamo.ViewModels
 {
     partial class DynamoViewModel
     {
-        public event RequestPackagePublishDialogHandler RequestPackagePublishDialog;
-        public void OnRequestPackagePublishDialog(PublishPackageViewModel vm)
-        {
-            if (RequestPackagePublishDialog != null)
-                RequestPackagePublishDialog(vm);
-        }
+
 
         public event EventHandler RequestPackageManagerSearchDialog;
         public virtual void OnRequestPackageManagerSearchDialog(Object sender, EventArgs e)
@@ -146,7 +139,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        internal event Action <object> RequestExportWorkSpaceAsImage;
+        internal event Action<object> RequestExportWorkSpaceAsImage;
         private void OnRequestExportWorkSpaceAsImage(object parameter)
         {
             if (RequestExportWorkSpaceAsImage != null)

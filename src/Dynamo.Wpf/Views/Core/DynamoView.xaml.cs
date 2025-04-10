@@ -7,8 +7,7 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Nodes;
-using Dynamo.PackageManager;
-using Dynamo.PackageManager.UI;
+
 using Dynamo.Search.SearchElements;
 using Dynamo.Selection;
 using Dynamo.Services;
@@ -20,12 +19,10 @@ using Dynamo.ViewModels;
 using Dynamo.Views;
 using Dynamo.Wpf;
 using Dynamo.Wpf.Extensions;
-using Dynamo.Wpf.UI.GuidedTour;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.Views;
 using Dynamo.Wpf.Views.Debug;
 using Dynamo.Wpf.Views.FileTrust;
-using Dynamo.Wpf.Views.GuidedTour;
 using Dynamo.Wpf.Windows;
 using DynamoCoreWpf.Extensions;
 using System.Collections.Specialized;
@@ -289,11 +286,9 @@ namespace Dynamo.Controls
             }
             else if (isCurrentWorkSpaceValidForImage == WorkspaceView.ExportImageResult.EmptyDrawing)
             {
-                dynamoViewModel.MainGuideManager?.CreateRealTimeInfoWindow(Res.CantExportWorkspaceAsImageEmptyMessage, true);
             }
             else if (isCurrentWorkSpaceValidForImage == WorkspaceView.ExportImageResult.NotValidAsImage)
             {
-                dynamoViewModel.MainGuideManager?.CreateRealTimeInfoWindow(Res.CantExportWorkspaceAsImageNotValidMessage, true);
             }
         }
 
@@ -301,7 +296,6 @@ namespace Dynamo.Controls
         {
             if (PreferencesWindow != null && PreferencesWindow.IsLoaded)
             {
-                dynamoViewModel.MainGuideManager?.CreateRealTimeInfoWindow(Res.PreferencesMustBeClosedMessage, true);
             }
         }
 
@@ -986,11 +980,6 @@ namespace Dynamo.Controls
             dynamoViewModel.Model.PreferenceSettings.WindowW = e.NewSize.Width;
             dynamoViewModel.Model.PreferenceSettings.WindowH = e.NewSize.Height;
 
-            //When the Dynamo window size is changed then we need to update the Steps location
-            if (dynamoViewModel.MainGuideManager != null)
-            {
-                dynamoViewModel.MainGuideManager.UpdateGuideStepsLocation();
-            }
 
             if (fileTrustWarningPopup != null && fileTrustWarningPopup.IsOpen)
             {
@@ -1209,10 +1198,7 @@ namespace Dynamo.Controls
             dynamoViewModel.RequestViewOperation += DynamoViewModelRequestViewOperation;
             dynamoViewModel.PostUiActivationCommand.Execute(null);
 
-            // Initialize Guide Manager as a member on Dynamo ViewModel so other than guided tour,
-            // other part of application can also leverage it.
-            dynamoViewModel.MainGuideManager = new GuidesManager(this, dynamoViewModel);
-            GuideFlowEvents.GuidedTourStart += GuideFlowEvents_GuidedTourStart;
+
             _timer.Stop();
             dynamoViewModel.Model.Logger.Log(String.Format(Wpf.Properties.Resources.MessageLoadingTime,
                                                                      _timer.Elapsed, dynamoViewModel.BrandingResourceProvider.ProductName));
@@ -1324,13 +1310,7 @@ namespace Dynamo.Controls
             toolBarRightMenuWidth = rightMenuActualWidth;
         }
 
-        private void GuideFlowEvents_GuidedTourStart(GuidedTourStateEventArgs args)
-        {
-            if (sidebarGrid.Visibility != Visibility.Visible || sidebarGrid.ActualWidth < 2)
-            {
-                OnCollapsedLeftSidebarClick(null, null);
-            }
-        }
+
 
         /// <summary>
         /// Close Popup when the Dynamo window is not in the foreground.
@@ -1347,13 +1327,7 @@ namespace Dynamo.Controls
             if (!Analytics.ReportingAnalytics) return;
 
             string packages = string.Empty;
-            var pkgExtension = dynamoViewModel.Model.GetPackageManagerExtension();
-            if (pkgExtension != null)
-            {
-                packages = pkgExtension.PackageLoader.LocalPackages
-                    .Select(p => string.Format("{0} {1}", p.Name, p.VersionName))
-                    .Aggregate(String.Empty, (x, y) => string.Format("{0}, {1}", x, y));
-            }
+
             Analytics.TrackTimedEvent(Categories.Performance, "ViewStartup", dynamoViewModel.Model.stopwatch.Elapsed, packages);
         }
 
@@ -1362,16 +1336,6 @@ namespace Dynamo.Controls
         {
             UnsubscribeNodeViewCustomizationEvents();
         }
-
-
-
-        private PublishPackageView _pubPkgView;
-
-
-
-        private PackageManagerSearchView _searchPkgsView;
-        private PackageManagerSearchViewModel _pkgSearchVM;
-        private PackageManagerViewModel _pkgVM;
 
 
 
@@ -1756,7 +1720,6 @@ namespace Dynamo.Controls
             DynamoSelection.Instance.Selection.CollectionChanged -= Selection_CollectionChanged;
 
             dynamoViewModel.RequestUserSaveWorkflow -= DynamoViewModelRequestUserSaveWorkflow;
-            GuideFlowEvents.GuidedTourStart -= GuideFlowEvents_GuidedTourStart;
 
             if (dynamoViewModel.Model != null)
             {
@@ -1811,8 +1774,7 @@ namespace Dynamo.Controls
             }
 
             sharedViewExtensionLoadedParams?.Dispose();
-            this._pkgSearchVM?.Dispose();
-            this._pkgVM?.Dispose();
+
         }
 
         // Remove the HomePage from the visual tree and dispose of its resources
@@ -1945,28 +1907,14 @@ namespace Dynamo.Controls
             {
                 //By default the shortcutsBarGrid has a ZIndex = 1 then will be shown over the overlay that's why we need to change the ZIndex
                 Panel.SetZIndex(shortcutsBarGrid, 0);
-                var backgroundElement = new GuideBackground(this)
-                {
-                    Name = backgroundName,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Visibility = Visibility.Visible
-                };
 
-                //adds the overlay to the main Dynamo grid
-                mainGrid.Children.Add(backgroundElement);
-                Grid.SetColumnSpan(backgroundElement, mainGrid.ColumnDefinitions.Count);
-                Grid.SetRowSpan(backgroundElement, mainGrid.RowDefinitions.Count);
+
             }
             else
             {
                 //Restoring the ZIndex value to the default one.
                 Panel.SetZIndex(shortcutsBarGrid, 1);
-                var backgroundElement = mainGrid.Children.OfType<GuideBackground>().Where(element => element.Name == backgroundName).FirstOrDefault();
-                if (backgroundElement != null)
-                {
-                    mainGrid.Children.Remove(backgroundElement);
-                }
+
             }
         }
 
@@ -2541,10 +2489,6 @@ namespace Dynamo.Controls
             }
         }
 
-        private void GetStartedMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            ShowGetStartedGuidedTour();
-        }
 
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
@@ -2556,21 +2500,7 @@ namespace Dynamo.Controls
         }
 
         /// <summary>
-        /// This method probably will be modified or deleted in the future when the GuideManager and Guide class are created
-        /// For now will be used just for testing/demo purposes since the popups will be created probably in the Guide class.
-        /// </summary>
-        private void ShowGetStartedGuidedTour()
-        {
-            //We pass the root UIElement to the GuidesManager so we can found other child UIElements
-            try
-            {
-                dynamoViewModel.MainGuideManager.LaunchTour(GuidesManager.GetStartedGuideName);
-            }
-            catch (Exception)
-            {
-                sidebarGrid.Visibility = Visibility.Visible;
-            }
-        }
+
 
         private void RightExtensionSidebar_DragCompleted(object sender, DragCompletedEventArgs e)
         {
@@ -2578,17 +2508,6 @@ namespace Dynamo.Controls
             extensionsColumnWidth = RightExtensionsViewColumn.Width;
         }
 
-        private void PackagesMenuGuide_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                dynamoViewModel.MainGuideManager.LaunchTour(GuidesManager.PackagesGuideName);
-            }
-            catch (Exception)
-            {
-                sidebarGrid.Visibility = Visibility.Visible;
-            }
-        }
 
 
 

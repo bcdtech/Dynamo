@@ -2,7 +2,6 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using Dynamo.UI.Controls;
 using Dynamo.Utilities;
-using Dynamo.Wpf.UI.GuidedTour;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
@@ -34,7 +33,6 @@ namespace Dynamo.UI.Views
 
 
         internal Action<string> RequestOpenFile;
-        internal Action<string> RequestShowGuidedTour;
         internal Action RequestNewWorkspace;
         internal Action RequestOpenWorkspace;
         internal Action RequestNewCustomNodeWorkspace;
@@ -62,7 +60,6 @@ namespace Dynamo.UI.Views
 
             // Bind event handlers
             RequestOpenFile = OpenFile;
-            RequestShowGuidedTour = StartGuidedTour;
             RequestNewWorkspace = NewWorkspace;
             RequestOpenWorkspace = OpenWorkspace;
             RequestNewCustomNodeWorkspace = NewCustomNodeWorkspace;
@@ -199,75 +196,10 @@ namespace Dynamo.UI.Views
         }
         #endregion
 
-        #region Interactive Guides Commands
-        internal void ShowGuidedTour(string typeString)
-        {
-            if (!Enum.TryParse(typeString, true, out GuidedTourType type))
-            {
-                return;
-            }
 
-            switch (type)
-            {
-                case GuidedTourType.UserInterface:
-                    // This is the LandingPage, so we need to open a blank Workspace before running the Guided Tours
-                    NewWorkspace();
-                    ShowUserInterfaceGuidedTour();
-                    break;
-                case GuidedTourType.GetStarted:
-                    ShowGettingStartedGuidedTour();
-                    break;
-                case GuidedTourType.Packages:
-                    // This is the LandingPage, so we need to open a blank Workspace before running the Guided Tours
-                    NewWorkspace();
-                    ShowPackagesGuidedTour();
-                    break;
-            }
-        }
 
-        private void ShowUserInterfaceGuidedTour()
-        {
-            //We pass the root UIElement to the GuidesManager so we can found other child UIElements
-            try
-            {
-                this.startPage.DynamoViewModel.MainGuideManager.LaunchTour(GuidesManager.GetStartedGuideName);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
 
-        private void ShowGettingStartedGuidedTour()
-        {
-            try
-            {
-                if (this.startPage.DynamoViewModel.ClearHomeWorkspaceInternal())
-                {
-                    this.startPage.DynamoViewModel.OpenOnboardingGuideFile();
-                    this.startPage.DynamoViewModel.MainGuideManager.LaunchTour(GuidesManager.OnboardingGuideName);
-                }
-            }
-            catch (Exception ex)
-            {
-                this.startPage.DynamoViewModel.Model.Logger.Log(ex.Message);
-                this.startPage.DynamoViewModel.Model.Logger.Log(ex.StackTrace);
-            }
-        }
 
-        private void ShowPackagesGuidedTour()
-        {
-            try
-            {
-                this.startPage.DynamoViewModel.MainGuideManager.LaunchTour(GuidesManager.PackagesGuideName);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
-
-        #endregion
 
         #region Relay Commands
         internal void OpenFile(string path)
@@ -283,19 +215,7 @@ namespace Dynamo.UI.Views
                 this.startPage.DynamoViewModel.OpenCommand.Execute(path);
         }
 
-        internal void StartGuidedTour(string path)
-        {
-            if (String.IsNullOrEmpty(path)) return;
-            if (DynamoModel.IsTestMode)
-            {
-                TestHook?.Invoke(path);
-                return;
-            }
 
-            ShowGuidedTour(path);
-            Logging.Analytics.TrackEvent(Logging.Actions.Start, Logging.Categories.DynamoHomeOperations, "Guided Tour: " + path);
-
-        }
 
         internal void SaveSettings(string settingsJson)
         {

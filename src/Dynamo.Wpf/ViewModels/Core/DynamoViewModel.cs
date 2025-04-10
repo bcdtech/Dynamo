@@ -10,8 +10,6 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Interfaces;
 using Dynamo.Logging;
 using Dynamo.Models;
-using Dynamo.PackageManager;
-using Dynamo.PackageManager.UI;
 using Dynamo.Scheduler;
 using Dynamo.Selection;
 using Dynamo.Services;
@@ -21,7 +19,6 @@ using Dynamo.Utilities;
 using Dynamo.Wpf.Interfaces;
 using Dynamo.Wpf.Properties;
 using Dynamo.Wpf.UI;
-using Dynamo.Wpf.UI.GuidedTour;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
@@ -135,10 +132,7 @@ namespace Dynamo.ViewModels
         internal string LastSavedLocation { get; set; }
 
 
-        /// <summary>
-        /// Guided Tour Manager
-        /// </summary>
-        public GuidesManager MainGuideManager { get; set; }
+
 
         public Point TransformOrigin
         {
@@ -571,7 +565,6 @@ namespace Dynamo.ViewModels
         [Obsolete("This Property will be obsoleted in a future version of Dynamo")]
         internal SearchViewModel SearchViewModel { get; private set; }
 
-        public PackageManagerClientViewModel PackageManagerClientViewModel { get; private set; }
 
         /// <summary>
         ///     Whether sign in should be shown in Dynamo.  In instances where Dynamo obtains
@@ -737,12 +730,7 @@ namespace Dynamo.ViewModels
             this.HideReportOptions = startConfiguration.HideReportOptions;
             UsageReportingManager.Instance.InitializeCore(this);
             this.WatchHandler = startConfiguration.WatchHandler;
-            var pmExtension = model.GetPackageManagerExtension();
 
-            if (pmExtension != null)
-            {
-                this.PackageManagerClientViewModel = new PackageManagerClientViewModel(this, pmExtension.PackageManagerClient);
-            }
 
             this.SearchViewModel = null;
 
@@ -880,19 +868,7 @@ namespace Dynamo.ViewModels
                     exceptionAssembly = ex.InnerException?.TargetSite?.Module?.Assembly;
                 }
 
-                // Do not crash if the exception is coming from a 3d party package;
-                if (!fatal && exceptionAssembly != null)
-                {
-                    // Check if the exception might be coming from a loaded package assembly.
-                    var faultyPkg = Model.GetPackageManagerExtension()?.PackageLoader?.LocalPackages?.FirstOrDefault(p => exceptionAssembly.Location.StartsWith(p.RootDirectory, StringComparison.OrdinalIgnoreCase));
-                    if (faultyPkg != null)
-                    {
-                        var crashDetails = new CrashErrorReportArgs(ex);
-                        DynamoConsoleLogger.OnLogErrorToDynamoConsole($"Unhandled exception coming from package {faultyPkg.Name} was handled: {crashDetails.Details}");
-                        Analytics.TrackException(ex, false);
-                        return;
-                    }
-                }
+
 
                 DynamoModel.IsCrashing = true;
                 var crashData = new CrashErrorReportArgs(ex);
@@ -1273,10 +1249,7 @@ namespace Dynamo.ViewModels
                     RaisePropertyChanged("IsPanning");
                     RaisePropertyChanged("IsOrbiting");
                     //RaisePropertyChanged("RunEnabled");
-                    if (!DynamoModel.IsTestMode)
-                    {
-                        ExitGuidedTourIfOpened();
-                    }
+
                     break;
 
                 case "EnablePresetOptions":
@@ -1285,11 +1258,6 @@ namespace Dynamo.ViewModels
             }
         }
 
-        private void ExitGuidedTourIfOpened()
-        {
-            if (GuideFlowEvents.IsAnyGuideActive)
-                MainGuideManager.ExitTour();
-        }
 
         // TODO(Sriram): This method is currently not used, but it should really
         // be. It watches property change notifications coming from the current
@@ -2006,11 +1974,7 @@ namespace Dynamo.ViewModels
             this.ShowStartPage = false; // Hide start page if there's one.
         }
 
-        internal void OpenOnboardingGuideFile()
-        {
-            var jsonDynFile = ResourceUtilities.LoadContentFromResources(GuidesManager.OnboardingGuideWorkspaceEmbeededResource, Assembly.GetExecutingAssembly(), false, false);
-            OpenFromJson(new Tuple<string, bool>(jsonDynFile, true));
-        }
+
 
         private bool CanOpen(object parameters)
         {
@@ -2067,7 +2031,6 @@ namespace Dynamo.ViewModels
         /// <param name="notification"></param>
         private void model_RequestNotification(string notification, bool stayOpen = false)
         {
-            this.MainGuideManager?.CreateRealTimeInfoWindow(notification, stayOpen);
             model?.Logger?.Log(notification);
         }
 
@@ -2241,7 +2204,6 @@ namespace Dynamo.ViewModels
 
                     if (HomeSpace.RunSettings.RunType != RunType.Manual)
                     {
-                        MainGuideManager.CreateRealTimeInfoWindow(Properties.Resources.InsertGraphRunModeNotificationText);
                         HomeSpace.RunSettings.RunType = RunType.Manual;
                     }
                 }
@@ -2501,41 +2463,6 @@ namespace Dynamo.ViewModels
             return true;
         }
 
-        internal void ShowPackageManagerSearch(object parameters)
-        {
-            OnRequestPackageManagerSearchDialog(this, EventArgs.Empty);
-        }
-
-        internal void ShowPackageManager(object parameters)
-        {
-            if (parameters == null)
-            {
-                OnRequestPackageManagerDialog(this, EventArgs.Empty);
-            }
-            else
-            {
-                //When we pass the PackageManagerSizeEventArgs means that we want to start the PackageManagerView with a specific Width and Height
-                if (parameters is PackageManagerSizeEventArgs)
-                {
-                    OnRequestPackageManagerDialog(this, parameters as PackageManagerSizeEventArgs);
-                }
-                else
-                {
-                    var param = (string)parameters;
-                    OnRequestPackageManagerDialog(this, new OpenPackageManagerEventArgs(param));
-                }
-            }
-        }
-
-        internal bool CanShowPackageManagerSearch(object parameters)
-        {
-            return !model.IsServiceMode;
-        }
-
-        internal bool CanShowPackageManager(object parameters)
-        {
-            return !model.IsServiceMode;
-        }
 
         /// <summary>
         ///     Change the currently visible workspace to a custom node's workspace, unless the silent flag is set to true.
@@ -3314,22 +3241,7 @@ namespace Dynamo.ViewModels
             return !this.ShowStartPage;
         }
 
-        private void StartGettingStartedGuide(object parameter)
-        {
-            try
-            {
-                if (ClearHomeWorkspaceInternal())
-                {
-                    OpenOnboardingGuideFile();
-                    MainGuideManager.LaunchTour(GuidesManager.OnboardingGuideName);
-                }
-            }
-            catch (Exception ex)
-            {
-                Model.Logger.Log(ex.Message);
-                Model.Logger.Log(ex.StackTrace);
-            }
-        }
+
 
         private bool CanStartGettingStartedGuide(object parameter)
         {
@@ -3455,11 +3367,7 @@ namespace Dynamo.ViewModels
                 case Graph.Nodes.CustomNodes.Function function:
                     var category = function.Category;
                     var name = function.Name;
-                    if (CustomNodeHasCollisons(name, GetMainCategory(nodeModel)))
-                    {
-                        var inputString = GetInputNames(function);
-                        return $"{category}.{name}({inputString})";
-                    }
+
                     return $"{category}.{name}";
 
                 case Graph.Nodes.ZeroTouch.DSFunctionBase dSFunction:
@@ -3486,27 +3394,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        internal bool CustomNodeHasCollisons(string nodeName, string packageName)
-        {
-            var pmExtension = Model.GetPackageManagerExtension();
-            if (pmExtension is null)
-                return false;
 
-            var package = pmExtension.PackageLoader.LocalPackages
-                .Where(x => x.Name == packageName)
-                .FirstOrDefault();
-
-            if (package is null)
-                return false;
-
-            var loadedNodesWithSameName = package.LoadedCustomNodes
-                .Where(x => x.Name == nodeName)
-                .ToList();
-
-            if (loadedNodesWithSameName.Count == 1)
-                return false;
-            return true;
-        }
 
         internal bool NodeModelHasCollisions(string typeName)
         {
@@ -4011,7 +3899,6 @@ namespace Dynamo.ViewModels
             {
                 wsvm.Dispose();
             }
-            MainGuideManager?.CloseRealTimeInfoWindow();
 
             model.ShutDown(shutdownParams.ShutdownHost);
             UsageReportingManager.DestroyInstance();

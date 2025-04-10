@@ -1,8 +1,5 @@
 using Dynamo.Configuration;
-using Dynamo.PackageManager;
 using Dynamo.Utilities;
-using System;
-using System.Linq;
 
 namespace Dynamo.Wpf.Utilities
 {
@@ -27,7 +24,7 @@ namespace Dynamo.Wpf.Utilities
             var title = "title=" + Uri.EscapeDataString(string.Format(issueTitle, reportType, dynamoVersion));
             var template = "template=issue.yml";
             var fields = "dynamo_version=" + Uri.EscapeDataString(dynamoVersion)
-                + "&os=" +  Uri.EscapeDataString(Environment.OSVersion.ToString())
+                + "&os=" + Uri.EscapeDataString(Environment.OSVersion.ToString())
                 + "&packages=" + Uri.EscapeDataString(crashContent?.ToString() ?? string.Empty)
                 + "&details=" + Uri.EscapeDataString("CLR: " + Environment.Version.ToString());
             baseUri.Query = title + "&" + template + "&" + fields;
@@ -36,38 +33,7 @@ namespace Dynamo.Wpf.Utilities
             return baseUri.ToString();
         }
 
-        /// <summary>
-        /// Converts packages information into markdown format for use in Github issue body
-        /// </summary>
-        /// <param name="packageLoader">Package loader</param>
-        /// <returns>A markdown format string to use in issue body.</returns>
-        internal static string PackagesToMakrdown(PackageLoader packageLoader)
-        {
-            if (packageLoader != null)
-            {
-                //List of the names of all the loaded packages with their corresponding version
-                var packagesNames = packageLoader.LocalPackages.Select(o => o.Name + " " + o.VersionName).ToList();
-                //Package's issue section in markdown format
-                string markdownText;
-                if (packagesNames.Any())
-                {
-                    markdownText = "### Loaded Packages" + Environment.NewLine;
-                    foreach (var name in packagesNames)
-                    {
-                        markdownText += "- " + name + Environment.NewLine;
-                    }
-                }
-                else
-                {
-                    markdownText = "No loaded packages were found.";
-                }
-                return markdownText;
-            }
-            else
-            {
-                return "(Fill in here)";
-            }
-        }
+
 
         /// <summary>
         /// Builds a Markdown string that will be posted to our new GitHub issue

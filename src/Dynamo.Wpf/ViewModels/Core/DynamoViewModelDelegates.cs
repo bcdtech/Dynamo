@@ -1,5 +1,4 @@
 using Dynamo.Models;
-using Dynamo.PackageManager;
 
 namespace Dynamo.ViewModels
 {
@@ -7,7 +6,6 @@ namespace Dynamo.ViewModels
 
     public delegate void WorkspaceSaveEventHandler(object sender, WorkspaceSaveEventArgs e);
 
-    public delegate void RequestPackagePublishDialogHandler(PublishPackageViewModel publishViewModel);
 
     public delegate void RequestAboutWindowHandler(DynamoViewModel aboutViewModel);
 
