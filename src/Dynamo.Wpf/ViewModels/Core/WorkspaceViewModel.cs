@@ -706,7 +706,6 @@ namespace Dynamo.ViewModels
             Errors.Clear();
             Annotations.Clear();
             InCanvasSearchViewModel?.Dispose();
-            NodeAutoCompleteSearchViewModel.LuceneUtility?.DisposeAll();
             NodeAutoCompleteSearchViewModel?.Dispose();
         }
 

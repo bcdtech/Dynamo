@@ -3,7 +3,6 @@ using Dynamo.Graph.Nodes;
 using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Properties;
-using Dynamo.Search;
 using Dynamo.Search.SearchElements;
 using Dynamo.Utilities;
 using Dynamo.Wpf.ViewModels;
@@ -29,14 +28,7 @@ namespace Dynamo.ViewModels
         private const string nodeAutocompleteMLEndpoint = "MLNodeAutocomplete";
         private const string nodeClusterAutocompleteMLEndpoint = "MLNodeClusterAutocomplete";
 
-        // Lucene search utility to perform indexing operations just for NodeAutocomplete.
-        internal LuceneSearchUtility LuceneUtility
-        {
-            get
-            {
-                return LuceneSearch.LuceneUtilityNodeAutocomplete;
-            }
-        }
+
 
         /// <summary>
         /// The Node AutoComplete ML service version, this could be empty if user has not used ML way
@@ -385,15 +377,7 @@ namespace Dynamo.ViewModels
                 }
                 else
                 {
-                    LuceneSearch.LuceneUtilityNodeAutocomplete = new LuceneSearchUtility(dynamoViewModel.Model, LuceneSearchUtility.DefaultStartConfig);
 
-                    ////Memory indexing process for Node Autocomplete (indexing just the nodes returned by the NodeAutocomplete service so we limit the scope of the query search)
-                    //var doc = LuceneUtility.InitializeIndexDocumentForNodes();
-                    //List<NodeSearchElement> nodeSearchElements = [.. searchElementsCache.Select(x => x.Model)];
-                    //LuceneUtility.AddNodeTypeToSearchIndex(nodeSearchElements, doc);
-
-                    //Write the Lucene documents to memory
-                    LuceneUtility.CommitWriterChanges();
 
                     var luceneResults = SearchNodeAutocomplete(input);
                     var foundNodesModels = luceneResults.Select(x => x.Model);
@@ -415,7 +399,6 @@ namespace Dynamo.ViewModels
                     }
                     FilteredResults = new List<NodeSearchElementViewModel>(filteredSearchElements).OrderBy(x => x.Name).ThenBy(x => x.Description);
 
-                    LuceneUtility.DisposeWriter();
                 }
             }
         }

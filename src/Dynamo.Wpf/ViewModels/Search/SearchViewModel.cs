@@ -370,14 +370,7 @@ namespace Dynamo.ViewModels
         public NodeSearchModel Model { get; private set; }
         internal readonly DynamoViewModel dynamoViewModel;
 
-        // Lucene search utility to perform indexing operations.
-        private LuceneSearchUtility LuceneUtility
-        {
-            get
-            {
-                return LuceneSearch.LuceneUtilityNodeSearch;
-            }
-        }
+
 
         /// <summary>
         /// Class name, that has been clicked in library search view.
@@ -1013,14 +1006,7 @@ namespace Dynamo.ViewModels
         /// <param name="ctk">A cancellation token for this operation.</param>
         internal IEnumerable<NodeSearchElementViewModel> Search(string search, CancellationToken ctk = default)
         {
-            if (LuceneUtility != null)
-            {
-                var searchElements = Model.Search(search, LuceneUtility);
-                if (searchElements != null)
-                {
-                    return searchElements.Select(MakeNodeSearchElementVM);
-                }
-            }
+
             return null;
         }
 

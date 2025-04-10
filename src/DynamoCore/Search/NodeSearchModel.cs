@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Xml;
 using Dynamo.Configuration;
 using Dynamo.Graph.Nodes;
 using Dynamo.Logging;
 using Dynamo.Search.SearchElements;
-using Dynamo.Utilities;
 using DynamoUtilities;
-using Lucene.Net.Documents;
-using Lucene.Net.Index;
-using Lucene.Net.QueryParsers.Classic;
-using Lucene.Net.Search;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Xml;
+
 
 namespace Dynamo.Search
 {
@@ -231,67 +226,6 @@ namespace Dynamo.Search
 
             return category.Substring(0, index);
         }
-
-        /// <summary>
-        /// Search for nodes by using a search key.
-        /// </summary>
-        /// <param name="search"></param>
-        /// <param name="luceneSearchUtility"></param>
-        /// <param name="ctk">Cancellation token to short circuit the search.</param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        internal IEnumerable<NodeSearchElement> Search(string search, LuceneSearchUtility luceneSearchUtility, CancellationToken ctk = default)
-        {
-            ctk.ThrowIfCancellationRequested();
-
-            if (luceneSearchUtility != null)
-            {
-                luceneSearchUtility.dirReader = luceneSearchUtility.writer != null ? luceneSearchUtility.writer.GetReader(applyAllDeletes: true) : DirectoryReader.Open(luceneSearchUtility.indexDir);
-                luceneSearchUtility.Searcher = new(luceneSearchUtility.dirReader);
-
-                string searchTerm = search.Trim();
-                var candidates = new List<NodeSearchElement>();
-
-                var parser = new MultiFieldQueryParser(LuceneConfig.LuceneNetVersion, LuceneConfig.NodeIndexFields, luceneSearchUtility.Analyzer)
-                {
-                    AllowLeadingWildcard = true,
-                    DefaultOperator = LuceneConfig.DefaultOperator,
-                    FuzzyMinSim = LuceneConfig.MinimumSimilarity
-                };
-
-                Query query = parser.Parse(luceneSearchUtility.CreateSearchQuery(LuceneConfig.NodeIndexFields, searchTerm, false, ctk));
-                TopDocs topDocs = luceneSearchUtility.Searcher.Search(query, n: LuceneConfig.DefaultResultsCount);
-
-                for (int i = 0; i < topDocs.ScoreDocs.Length; i++)
-                {
-                    ctk.ThrowIfCancellationRequested();
-
-                    // read back a Lucene doc from results
-                    Document resultDoc = luceneSearchUtility.Searcher.Doc(topDocs.ScoreDocs[i].Doc);
-
-                    string name = resultDoc.Get(nameof(LuceneConfig.NodeFieldsEnum.Name));
-                    string docName = resultDoc.Get(nameof(LuceneConfig.NodeFieldsEnum.DocName));
-                    string cat = resultDoc.Get(nameof(LuceneConfig.NodeFieldsEnum.FullCategoryName));
-                    string parameters = resultDoc.Get(nameof(LuceneConfig.NodeFieldsEnum.Parameters));
-
-                    if (!string.IsNullOrEmpty(docName))
-                    {
-                        //code for setting up documentation info
-                    }
-                    else
-                    {
-                        var foundNode = FindModelForNodeNameAndCategory(name, cat, parameters, ctk);
-                        if (foundNode != null)
-                        {
-                            candidates.Add(foundNode);
-                        }
-                    }
-                }
-                return candidates;
-            }
-            return null;
-        }
-
         /// <summary>
         /// Finds the node model that corresponds to the input nodeName, nodeCategory and parameters.
         /// </summary>
@@ -304,7 +238,8 @@ namespace Dynamo.Search
         {
             ctk.ThrowIfCancellationRequested();
 
-            var result = Entries.Where(e => {
+            var result = Entries.Where(e =>
+            {
                 if (e.Name.Replace(" ", string.Empty).Equals(nodeName) && e.FullCategoryName.Equals(nodeCategory))
                 {
                     //When the node info was indexed if Parameters was null we added an empty space (null cannot be indexed)

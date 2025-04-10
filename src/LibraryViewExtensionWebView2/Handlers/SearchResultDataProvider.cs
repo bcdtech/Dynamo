@@ -1,9 +1,9 @@
+using Dynamo.Search;
+using Dynamo.Search.SearchElements;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Dynamo.Search;
-using Dynamo.Search.SearchElements;
 
 namespace Dynamo.LibraryViewExtensionWebView2.Handlers
 {
@@ -47,9 +47,10 @@ namespace Dynamo.LibraryViewExtensionWebView2.Handlers
         public override Stream GetResource(string searchText, out string extension)
         {
             var text = Uri.UnescapeDataString(searchText);
-            var elements = model.Search(text, LuceneSearch.LuceneUtilityNodeSearch);
-            extension = "json";
-            return GetNodeItemDataStream(elements, true);
+            //var elements = model.Search(text, LuceneSearch.LuceneUtilityNodeSearch);
+            //extension = "json";
+            //return GetNodeItemDataStream(elements, true);
+            return GetNodeItemDataStream(new NodeSearchElement[], true);
         }
 
         /// <summary>

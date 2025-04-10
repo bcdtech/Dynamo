@@ -1,14 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Media;
 using Dynamo.Configuration;
 using Dynamo.Engine;
 using Dynamo.Graph.Nodes;
@@ -23,6 +12,17 @@ using Dynamo.Wpf.Services;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using DynamoUtilities;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 
 namespace Dynamo.ViewModels
 {
@@ -65,7 +65,7 @@ namespace Dynamo.ViewModels
         /// Position, where canvas was clicked. 
         /// After node will be called, it will be created at the same place.
         /// </summary>
-        public Point InCanvasSearchPosition; 
+        public Point InCanvasSearchPosition;
 
         /// <summary>
         ///     Indicates whether the node browser is visible or not
@@ -357,7 +357,8 @@ namespace Dynamo.ViewModels
         /// <returns></returns>
         public NodeSearchElementViewModel FindViewModelForNode(string nodeName)
         {
-            var result = Model.Entries.Where(e => {
+            var result = Model.Entries.Where(e =>
+            {
                 if (e.CreationName.Equals(nodeName))
                 {
                     return true;
@@ -581,20 +582,20 @@ namespace Dynamo.ViewModels
         }
 
         internal void RemoveEntry(NodeSearchElement entry)
-        {            
+        {
             var branch = GetTreeBranchToNode(libraryRoot, entry);
             if (!branch.Any())
                 return;
             var treeStack = new Stack<NodeCategoryViewModel>(branch.Reverse());
 
             var target = treeStack.Pop();
-          
+
             var location = target.Entries.Select((e, i) => new { e.Model, i })
                 .FirstOrDefault(x => entry == x.Model);
             if (location == null)
                 return;
             target.Entries.RemoveAt(location.i);
-           
+
             while (!target.Items.Any() && treeStack.Any())
             {
                 var parent = treeStack.Pop();
@@ -779,7 +780,7 @@ namespace Dynamo.ViewModels
                     {
                         targetClass = new ClassesNodeCategoryViewModel(target);
 
-                        target.SubCategories.Insert(0,targetClass);
+                        target.SubCategories.Insert(0, targetClass);
                         target.SubCategories[0].SubCategories.Add(newTarget);
                         AddEntryToExistingCategory(newTarget, entry);
                         return;
@@ -870,7 +871,7 @@ namespace Dynamo.ViewModels
         private void AddEntryToExistingCategory(NodeCategoryViewModel category,
             NodeSearchElementViewModel entry)
         {
-            category.RequestBitmapSource += SearchViewModelRequestBitmapSource; 
+            category.RequestBitmapSource += SearchViewModelRequestBitmapSource;
             // Check if the category exists already. 
             // ex : clockwork package. For clockwork 
             // package the category names in dyf is different from what we show it 
@@ -1027,14 +1028,7 @@ namespace Dynamo.ViewModels
         /// <param name="ctk">A cancellation token for this operation.</param>
         internal IEnumerable<NodeSearchElementViewModel> Search(string search, CancellationToken ctk = default)
         {
-            if (LuceneUtility != null)
-            {
-                var searchElements = Model.Search(search, LuceneUtility, ctk);
-                if (searchElements != null)
-                {
-                    return searchElements.Select(MakeNodeSearchElementVM);
-                }
-            }
+
             return null;
         }
 
@@ -1047,7 +1041,8 @@ namespace Dynamo.ViewModels
         /// <returns></returns>
         internal NodeSearchElementViewModel FindViewModelForNodeNameAndCategory(string nodeName, string nodeCategory, string parameters)
         {
-            var result = Model.Entries.Where(e => {
+            var result = Model.Entries.Where(e =>
+            {
                 if (e.Name.Equals(nodeName) && e.FullCategoryName.Equals(nodeCategory))
                 {
                     //When the node info was indexed if Parameters was null we added an empty space (null cannot be indexed)

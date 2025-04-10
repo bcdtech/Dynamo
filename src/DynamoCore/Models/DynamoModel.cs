@@ -1,16 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Configuration;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
 using Dynamo.Configuration;
 using Dynamo.Core;
 using Dynamo.Engine;
@@ -38,12 +25,23 @@ using Dynamo.Utilities;
 using DynamoServices;
 using DynamoUtilities;
 using Greg;
-using Lucene.Net.Documents;
-using Lucene.Net.Index;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProtoCore;
 using ProtoCore.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Configuration;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Xml;
 using static Dynamo.Core.PathManager;
 using Compiler = ProtoAssociative.Compiler;
 // Dynamo package manager
@@ -304,7 +302,7 @@ namespace Dynamo.Models
         /// <summary>
         ///     Preference settings for this instance of Dynamo.
         /// </summary>
-        public PreferenceSettings PreferenceSettings { get; private set; } 
+        public PreferenceSettings PreferenceSettings { get; private set; }
 
         /// <summary>
         ///     Node Factory, used for creating and intantiating loaded Dynamo nodes.
@@ -628,7 +626,7 @@ namespace Dynamo.Models
         internal static readonly string BuiltInPackagesToken = @"%BuiltInPackages%";
         [Obsolete("Only used for migration to the new for this directory - BuiltInPackages - do not use for other purposes")]
         // Token representing the standard library directory
-        internal static readonly string StandardLibraryToken = @"%StandardLibrary%";        
+        internal static readonly string StandardLibraryToken = @"%StandardLibrary%";
 
         /// <summary>
         /// Default constructor for DynamoModel
@@ -755,7 +753,8 @@ namespace Dynamo.Models
                             FeatureFlags.CacheAllFlags();
                         }
                     }
-                    catch (Exception e) { Logger.LogError($"could not start feature flags manager {e}"); };
+                    catch (Exception e) { Logger.LogError($"could not start feature flags manager {e}"); }
+                    ;
                 });
                 DynamoFeatureFlagsManager.FlagsRetrieved += HandleFeatureFlags;
             }
@@ -813,52 +812,52 @@ namespace Dynamo.Models
             var userCommonPackageFolder = pathManager.CommonPackageDirectory;
             AddPackagePath(userCommonPackageFolder);
 
-                // Load Python Template
-                // The loading pattern is conducted in the following order
-                // 1) Set from DynamoSettings.XML
-                // 2) Set from API via the configuration file
-                // 3) Set from PythonTemplate.py located in 'C:\Users\USERNAME\AppData\Roaming\Dynamo\Dynamo Core\2.X'
-                // 4) Set from OOTB hard-coded default template
+            // Load Python Template
+            // The loading pattern is conducted in the following order
+            // 1) Set from DynamoSettings.XML
+            // 2) Set from API via the configuration file
+            // 3) Set from PythonTemplate.py located in 'C:\Users\USERNAME\AppData\Roaming\Dynamo\Dynamo Core\2.X'
+            // 4) Set from OOTB hard-coded default template
 
-                // If a custom python template path doesn't already exists in the DynamoSettings.xml
-                if (string.IsNullOrEmpty(PreferenceSettings.PythonTemplateFilePath) ||
-                    !File.Exists(PreferenceSettings.PythonTemplateFilePath) && !IsServiceMode)
+            // If a custom python template path doesn't already exists in the DynamoSettings.xml
+            if (string.IsNullOrEmpty(PreferenceSettings.PythonTemplateFilePath) ||
+                !File.Exists(PreferenceSettings.PythonTemplateFilePath) && !IsServiceMode)
+            {
+                // To supply a custom python template host integrators should supply a 'DefaultStartConfiguration' config file
+                // or create a new struct that inherits from 'DefaultStartConfiguration' making sure to set the 'PythonTemplatePath'
+                // while passing the config to the 'DynamoModel' constructor.
+                if (config is DefaultStartConfiguration)
                 {
-                    // To supply a custom python template host integrators should supply a 'DefaultStartConfiguration' config file
-                    // or create a new struct that inherits from 'DefaultStartConfiguration' making sure to set the 'PythonTemplatePath'
-                    // while passing the config to the 'DynamoModel' constructor.
-                    if (config is DefaultStartConfiguration)
+                    var configurationSettings = (DefaultStartConfiguration)config;
+                    var templatePath = configurationSettings.PythonTemplatePath;
+
+                    // If a custom python template path was set in the config apply that template
+                    if (!string.IsNullOrEmpty(templatePath) && File.Exists(templatePath))
                     {
-                        var configurationSettings = (DefaultStartConfiguration)config;
-                        var templatePath = configurationSettings.PythonTemplatePath;
-
-                        // If a custom python template path was set in the config apply that template
-                        if (!string.IsNullOrEmpty(templatePath) && File.Exists(templatePath))
-                        {
-                            PreferenceSettings.PythonTemplateFilePath = templatePath;
+                        PreferenceSettings.PythonTemplateFilePath = templatePath;
                         Logger.Log(Resources.PythonTemplateDefinedByHost + " : " + PreferenceSettings.PythonTemplateFilePath);
-                        }
-
-                        // Otherwise fallback to the default
-                        else
-                        {
-                            SetDefaultPythonTemplate();
-                        }
                     }
 
+                    // Otherwise fallback to the default
                     else
                     {
-                        // Fallback to the default
                         SetDefaultPythonTemplate();
                     }
                 }
 
                 else
                 {
-                    // A custom python template path already exists in the DynamoSettings.xml
-                    Logger.Log(Resources.PythonTemplateUserFile + " : " + PreferenceSettings.PythonTemplateFilePath);
+                    // Fallback to the default
+                    SetDefaultPythonTemplate();
                 }
-            
+            }
+
+            else
+            {
+                // A custom python template path already exists in the DynamoSettings.xml
+                Logger.Log(Resources.PythonTemplateUserFile + " : " + PreferenceSettings.PythonTemplateFilePath);
+            }
+
             pathManager.Preferences = PreferenceSettings;
             PreferenceSettings.RequestUserDataFolder += pathManager.GetUserDataFolder;
 
@@ -866,7 +865,7 @@ namespace Dynamo.Models
             {
                 SearchModel = new NodeSearchModel(Logger);
                 SearchModel.ItemProduced += SearchModel_ItemProduced;
-                    
+
             }
 
             NodeFactory = new NodeFactory();
@@ -898,7 +897,8 @@ namespace Dynamo.Models
                 {
                     DynamoReadyExtensionHandler(new ReadyParams(this),
                     new List<IExtension>() { extension });
-                };
+                }
+                ;
             };
 
             Loader = new NodeModelAssemblyLoader();
@@ -918,7 +918,6 @@ namespace Dynamo.Models
 
             CustomNodeManager = new CustomNodeManager(NodeFactory, MigrationManager, LibraryServices);
 
-            LuceneSearch.LuceneUtilityNodeSearch = new LuceneSearchUtility(this, LuceneSearchUtility.DefaultNodeIndexStartConfig);
 
             InitializeCustomNodeManager();
 
@@ -1007,20 +1006,15 @@ namespace Dynamo.Models
 
             State = DynamoModelState.StartedUIless;
 
-            if(!IsServiceMode)
+            if (!IsServiceMode)
             {
                 // Write index to disk only once
-                LuceneUtility.CommitWriterChanges();
             }
-            //Disposed writer if it is in file system mode so that the index files can be used by other processes (potentially a second Dynamo session)
-            if (LuceneUtility.startConfig.StorageType == LuceneSearchUtility.LuceneStorage.FILE_SYSTEM)
-            {
-                    LuceneUtility.DisposeWriter();
-            }
-            
+
+
 
             GraphChecksumDictionary = new Dictionary<string, List<string>>();
-                 
+
             // This event should only be raised at the end of this method.
             DynamoReady(new ReadyParams(this));
         }
@@ -1462,8 +1456,6 @@ namespace Dynamo.Models
                 PreferenceSettings.MessageLogged -= LogMessage;
             }
 
-            // Lucene disposals (just if LuceneNET was initialized)
-            LuceneUtility.DisposeAll();
 
 #if DEBUG
             CurrentWorkspace.NodeAdded -= CrashOnDemand.CurrentWorkspace_NodeAdded;
@@ -1518,7 +1510,7 @@ namespace Dynamo.Models
                         || !info.IsVisibleInDynamoLibrary)
                     return;
 
-               
+
                 var elements = SearchModel?.Entries.OfType<CustomNodeSearchElement>().
                                 Where(x =>
                                 {
@@ -1537,18 +1529,13 @@ namespace Dynamo.Models
                     }
                     return;
                 }
-                
+
 
                 customNodeSearchRegistry.Add(info.FunctionId);
                 var searchElement = new CustomNodeSearchElement(CustomNodeManager, info);
                 SearchModel.Add(searchElement);
 
-                //Indexing node packages installed using PackageManagerSearch
-                var iDoc = LuceneUtility.InitializeIndexDocumentForNodes();
-                if (searchElement != null)
-                {
-                    LuceneUtility.AddNodeTypeToSearchIndex(searchElement, iDoc);
-                }
+
 
                 Action<CustomNodeInfo> infoUpdatedHandler = null;
                 infoUpdatedHandler = newInfo =>
@@ -1580,7 +1567,6 @@ namespace Dynamo.Models
 
         private void InitializeIncludedNodes()
         {
-            var iDoc = LuceneUtility.InitializeIndexDocumentForNodes();
 
             var customNodeData = new TypeLoadData(typeof(Function));
             NodeFactory.AddLoader(new CustomNodeLoader(CustomNodeManager, IsTestMode));
@@ -1636,7 +1622,6 @@ namespace Dynamo.Models
 
             SearchModel?.Add(symbolSearchElement);
             SearchModel?.Add(outputSearchElement);
-            LuceneUtility.AddNodeTypeToSearchIndex([cnbNode, symbolSearchElement, outputSearchElement], iDoc);
 
         }
 
@@ -1776,7 +1761,6 @@ namespace Dynamo.Models
 
         private void LoadNodeModels(List<TypeLoadData> nodes, bool isPackageMember)
         {
-            var iDoc = LuceneUtility.InitializeIndexDocumentForNodes();
             List<NodeSearchElement> nodeSearchElements = [];
             foreach (var type in nodes)
             {
@@ -1800,7 +1784,6 @@ namespace Dynamo.Models
                     Logger.Log(e);
                 }
             }
-            LuceneUtility.AddNodeTypeToSearchIndex(nodeSearchElements, iDoc);
         }
 
         private void InitializePreferences()
@@ -1835,7 +1818,7 @@ namespace Dynamo.Models
                 //If the CurrentUICulture is different than the locale in the TemplateFilePath then needs to be updated         
                 if (CultureInfo.CurrentUICulture.Name != currentPathLocale)
                 {
-                    PreferenceSettings.TemplateFilePath= PreferenceSettings.TemplateFilePath.Replace(currentPathLocale, CultureInfo.CurrentUICulture.Name);
+                    PreferenceSettings.TemplateFilePath = PreferenceSettings.TemplateFilePath.Replace(currentPathLocale, CultureInfo.CurrentUICulture.Name);
                 }
             }
 
@@ -2073,8 +2056,8 @@ namespace Dynamo.Models
         /// execution mode specified in the file and set manual mode</param>
         public void OpenFileFromPath(string filePath, bool forceManualExecutionMode = false)
         {
-            
-            Exception ex;            
+
+            Exception ex;
             string fileContents;
             if (DynamoUtilities.PathHelper.isValidJson(filePath, out fileContents, out ex))
             {
@@ -2100,8 +2083,8 @@ namespace Dynamo.Models
                 else
                 {
                     throw ex;
-                }                
-            }            
+                }
+            }
         }
 
         /// <summary>
@@ -2467,11 +2450,11 @@ namespace Dynamo.Models
                 CustomNodeManager,
                 this.LinterManager);
 
-            workspace.FileName = string.IsNullOrEmpty(filePath) || isTemplate? string.Empty : filePath;
+            workspace.FileName = string.IsNullOrEmpty(filePath) || isTemplate ? string.Empty : filePath;
             workspace.FromJsonGraphId = string.IsNullOrEmpty(filePath) ? WorkspaceModel.ComputeGraphIdFromJson(fileContents) : string.Empty;
             workspace.ScaleFactor = dynamoPreferences.ScaleFactor;
             workspace.IsTemplate = isTemplate;
-            
+
             if (!IsTestMode && !IsHeadless)
             {
                 if (workspace.ContainsLegacyTraceData)
@@ -2992,7 +2975,7 @@ namespace Dynamo.Models
         {
             OnWorkspaceRemoveStarted(workspace);
             if (_workspaces.Remove(workspace))
-            {   
+            {
                 if (workspace is HomeWorkspaceModel)
                 {
                     workspace.Dispose();
@@ -3457,8 +3440,9 @@ namespace Dynamo.Models
             {
                 return null;
             }
-                if(PreferenceSettings.InitialExperimentalLib_Namespaces.
-                Select(x => x.Split(":").LastOrDefault()).Any(x => x.Contains(typeLoadData.Category))){
+            if (PreferenceSettings.InitialExperimentalLib_Namespaces.
+            Select(x => x.Split(":").LastOrDefault()).Any(x => x.Contains(typeLoadData.Category)))
+            {
                 //TODO safer way to set this?
                 typeLoadData.IsExperimental = true;
             }
@@ -3468,17 +3452,7 @@ namespace Dynamo.Models
             return node;
         }
 
-        /// <summary>
-        /// Remove node information from Lucene indexing.
-        /// </summary>
-        /// <param name="node">node info that needs to be removed.</param>
-        internal void RemoveNodeTypeFromSearchIndex(NodeSearchElement node)
-        {
-            var term = new Term(nameof(LuceneConfig.NodeFieldsEnum.Name), node.Name);
 
-            LuceneUtility.writer?.DeleteDocuments(term);
-            LuceneUtility.CommitWriterChanges();
-        }
 
         /// <summary>
         /// This method updates the node search library to either hide or unhide nodes that belong
@@ -3508,7 +3482,6 @@ namespace Dynamo.Models
 
         internal void AddZeroTouchNodesToSearch(IEnumerable<FunctionGroup> functionGroups)
         {
-            var iDoc = LuceneUtility.InitializeIndexDocumentForNodes();
             List<NodeSearchElement> nodes = new();
             foreach (var funcGroup in functionGroups)
             {
@@ -3522,7 +3495,6 @@ namespace Dynamo.Models
                     }
                 }
             }
-            LuceneUtility.AddNodeTypeToSearchIndex(nodes, iDoc);
         }
 
         /// <summary>

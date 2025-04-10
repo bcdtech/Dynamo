@@ -1,5 +1,4 @@
 using System;
-using Dynamo.Utilities;
 
 namespace Dynamo.Search
 {
@@ -34,5 +33,8 @@ namespace Dynamo.Search
         /// LuceneSearchUtility for packages in package manager.
         /// </summary>
         internal static LuceneSearchUtility LuceneUtilityPackageManager { get; set; }
+    }
+    public class LuceneSearchUtility
+    {
     }
 }
