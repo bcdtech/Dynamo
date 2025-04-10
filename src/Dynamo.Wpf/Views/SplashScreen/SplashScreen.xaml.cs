@@ -1,6 +1,5 @@
 using Dynamo.Configuration;
 using Dynamo.Controls;
-using Dynamo.Core;
 using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Utilities;
@@ -54,10 +53,6 @@ namespace Dynamo.UI.Views
         internal Func<bool> RequestSignIn;
         internal Func<bool> RequestSignOut;
 
-        /// <summary>
-        /// Dynamo auth manager reference
-        /// </summary>
-        internal AuthenticationManager authManager;
 
         /// <summary>
         /// Dynamo View Model reference
@@ -82,7 +77,6 @@ namespace Dynamo.UI.Views
                     return;
                 }
                 viewModel = value.DataContext as DynamoViewModel;
-                authManager = viewModel.Model.AuthenticationManager;
             }
         }
         /// <summary>
@@ -143,8 +137,7 @@ namespace Dynamo.UI.Views
             StaticSplashScreenReady += OnStaticScreenReady;
             RequestLaunchDynamo = LaunchDynamo;
             RequestImportSettings = ImportSettings;
-            RequestSignIn = SignIn;
-            RequestSignOut = SignOut;
+
             this.enableSignInButton = enableSignInButton;
             currentCloseMode = CloseMode.ByOther;
         }
@@ -198,29 +191,6 @@ namespace Dynamo.UI.Views
             Analytics.TrackEvent(Actions.Import, Categories.SplashScreenOperations, isImported.ToString());
         }
 
-        /// <summary>
-        /// Returns true if the user was successfully logged in, else false.
-        /// </summary>
-        private bool SignIn()
-        {
-            if (!viewModel.IsIDSDKInitialized(true, this)) return false;
-            authManager.Login();
-            bool ret = authManager.IsLoggedIn();
-            Analytics.TrackEvent(Actions.SignIn, Categories.SplashScreenOperations, ret.ToString());
-            return ret;
-        }
-
-        /// <summary>
-        /// Returns true if the user was successfully logged out, else false.
-        /// </summary>
-        /// <returns></returns>
-        private bool SignOut()
-        {
-            authManager.Logout();
-            bool ret = !authManager.IsLoggedIn();
-            Analytics.TrackEvent(Actions.SignOut, Categories.SplashScreenOperations, ret.ToString());
-            return ret;
-        }
 
         /// <summary>
         /// Handler to launch Dynamo View

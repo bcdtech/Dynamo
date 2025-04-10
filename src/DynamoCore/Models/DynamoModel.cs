@@ -24,7 +24,6 @@ using Dynamo.Selection;
 using Dynamo.Utilities;
 using DynamoServices;
 using DynamoUtilities;
-using Greg;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProtoCore;
@@ -395,10 +394,7 @@ namespace Dynamo.Models
         /// </summary>
         public ITraceReconciliationProcessor TraceReconciliationProcessor { get; set; }
 
-        /// <summary>
-        /// Returns authentication manager object for oxygen authentication.
-        /// </summary>
-        public AuthenticationManager AuthenticationManager { get; set; }
+
 
         internal static string DefaultPythonEngine { get; private set; }
 
@@ -521,7 +517,6 @@ namespace Dynamo.Models
             bool StartInTestMode { get; set; }
             ISchedulerThread SchedulerThread { get; set; }
             string GeometryFactoryPath { get; set; }
-            IAuthProvider AuthProvider { get; set; }
             IEnumerable<IExtension> Extensions { get; set; }
             TaskProcessMode ProcessMode { get; set; }
 
@@ -578,7 +573,6 @@ namespace Dynamo.Models
             public bool StartInTestMode { get; set; }
             public ISchedulerThread SchedulerThread { get; set; }
             public string GeometryFactoryPath { get; set; }
-            public IAuthProvider AuthProvider { get; set; }
             public IEnumerable<IExtension> Extensions { get; set; }
             public TaskProcessMode ProcessMode { get; set; }
             public bool IsHeadless { get; set; }
@@ -929,7 +923,6 @@ namespace Dynamo.Models
 
             if (!IsServiceMode)
             {
-                AuthenticationManager = new AuthenticationManager(config.AuthProvider);
             }
 
             Logger.Log(string.Format("Dynamo -- Build {0}",
@@ -991,9 +984,7 @@ namespace Dynamo.Models
             LogWarningMessageEvents.LogWarningMessage += LogWarningMessage;
             LogWarningMessageEvents.LogInfoMessage += LogInfoMessage;
 
-#pragma warning disable AUTH_SERVICES
-            AuthServices.RequestAuthProvider += AuthServicesEvents_AuthProviderRequested;
-#pragma warning restore AUTH_SERVICES
+
 
             DynamoConsoleLogger.LogMessageToDynamoConsole += LogMessageWrapper;
             DynamoConsoleLogger.LogErrorToDynamoConsole += LogErrorMessageWrapper;
@@ -1018,12 +1009,6 @@ namespace Dynamo.Models
             // This event should only be raised at the end of this method.
             DynamoReady(new ReadyParams(this));
         }
-
-        private void AuthServicesEvents_AuthProviderRequested(RequestAuthProviderEventArgs args)
-        {
-            args.AuthProvider = AuthenticationManager.AuthProvider;
-        }
-
         /// <summary>
         /// When feature flags received, handle them and make changes 
         /// </summary>
@@ -1464,9 +1449,7 @@ namespace Dynamo.Models
             LogWarningMessageEvents.LogWarningMessage -= LogWarningMessage;
             LogWarningMessageEvents.LogInfoMessage -= LogInfoMessage;
 
-#pragma warning disable AUTH_SERVICES
-            AuthServices.RequestAuthProvider -= AuthServicesEvents_AuthProviderRequested;
-#pragma warning restore AUTH_SERVICES
+
 
             DynamoConsoleLogger.LogMessageToDynamoConsole -= LogMessageWrapper;
             DynamoConsoleLogger.LogErrorToDynamoConsole -= LogErrorMessageWrapper;
@@ -1486,11 +1469,7 @@ namespace Dynamo.Models
             {
                 SearchModel.ItemProduced -= SearchModel_ItemProduced;
             }
-            //handle the disposal of IDSDK manager instance for sandbox
-            if (AuthenticationManager?.AuthProvider is IDSDKManager idsdkProvider)
-            {
-                idsdkProvider?.Dispose();
-            }
+
         }
 
         private void InitializeCustomNodeManager()

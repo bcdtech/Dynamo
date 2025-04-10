@@ -1,4 +1,3 @@
-using Dynamo.Core;
 using CommunityToolkit.Mvvm.Input;
 using Dynamo.ViewModels;
 
@@ -12,7 +11,6 @@ namespace Dynamo.Wpf.ViewModels.Core
         public RelayCommand<object> ValidateWorkSpaceBeforeToExportAsImageCommand { get; set; }
 
         public RelayCommand SignOutCommand { get; set; }
-        private AuthenticationManager authManager;
 
         private int notificationsNumber;
         private bool showMenuItemText;
@@ -22,9 +20,7 @@ namespace Dynamo.Wpf.ViewModels.Core
         {
             this.DynamoViewModel = dynamoViewModel;
             NotificationsNumber = 0;
-            authManager = dynamoViewModel.Model.AuthenticationManager;
             ValidateWorkSpaceBeforeToExportAsImageCommand = new RelayCommand<object>(dynamoViewModel.ValidateWorkSpaceBeforeToExportAsImage);
-            authManager.LoginStateChanged += (o) => { RaisePropertyChanged(nameof(LoginState)); };
             this.DynamoViewModel.WindowRezised += OnDynamoViewModelWindowRezised;
             ShowMenuItemText = true;
         }
@@ -50,26 +46,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             }
         }
 
-        /// <summary>
-        /// Keeps track of the user's login state
-        /// </summary>
-        public string LoginState
-        {
-            get
-            {
-                return authManager.LoginStateInitial.ToString();
-            }
-        }
-        /// <summary>
-        /// Keeps track of the logged in user's username
-        /// </summary>
-        public string Username
-        {
-            get
-            {
-                return authManager.Username;
-            }
-        }
+
 
         public bool IsNotificationsCounterVisible
         {

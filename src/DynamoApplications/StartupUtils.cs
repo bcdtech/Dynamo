@@ -1,13 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Loader;
-using System.Text;
-using System.Threading;
 using CommandLine;
 using Dynamo.Configuration;
 using Dynamo.Core;
@@ -15,11 +5,17 @@ using Dynamo.Interfaces;
 using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Scheduler;
-using Dynamo.Updates;
 using DynamoApplications.Properties;
 using DynamoShapeManager;
 using DynamoUtilities;
-using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Loader;
+using System.Text;
 
 namespace Dynamo.Applications
 {
@@ -80,10 +76,13 @@ namespace Dynamo.Applications
         {
             public static CommandLineArguments Parse(string[] args)
             {
-                var parser = new Parser(options => { options.IgnoreUnknownArguments = true; options.HelpWriter = Console.Error;
+                var parser = new Parser(options =>
+                {
+                    options.IgnoreUnknownArguments = true; options.HelpWriter = Console.Error;
                     options.CaseSensitive = false;
                 });
-                return parser.ParseArguments<CMDLineOptions>(args).MapResult((cmdArgs) => {
+                return parser.ParseArguments<CMDLineOptions>(args).MapResult((cmdArgs) =>
+                {
                     if (!string.IsNullOrEmpty(cmdArgs.Verbose) && string.IsNullOrEmpty(cmdArgs.OpenFilePath))
                     {
                         Console.WriteLine("you must supply a file to open if you want to save an evaluation output ");
@@ -246,7 +245,7 @@ namespace Dynamo.Applications
         /// <param name="asmPath">Path to directory containing geometry library binaries</param>
         /// <param name="hostName">Dynamo variation identified by host.</param>
         /// <returns></returns>
-        public static DynamoModel MakeModel(bool CLImode, string asmPath = "", string hostName ="")
+        public static DynamoModel MakeModel(bool CLImode, string asmPath = "", string hostName = "")
         {
             var model = PrepareModel(
                 cliLocale: string.Empty,
@@ -309,8 +308,8 @@ namespace Dynamo.Applications
             IPathResolver pathResolver = CLImode ? new CLIPathResolver(preloaderLocation, userDataFolder, commonDataFolder) as IPathResolver : new SandboxPathResolver(preloaderLocation) as IPathResolver;
             return pathResolver;
         }
-        
-        private static bool PreloadASM(string asmPath, out string geometryFactoryPath, out string preloaderLocation )
+
+        private static bool PreloadASM(string asmPath, out string geometryFactoryPath, out string preloaderLocation)
         {
             if (string.IsNullOrEmpty(asmPath) && OSHelper.IsWindows())
             {
@@ -380,7 +379,6 @@ namespace Dynamo.Applications
                 ProcessMode = CLImode ? TaskProcessMode.Synchronous : TaskProcessMode.Asynchronous,
                 HostAnalyticsInfo = info,
                 CLIMode = CLImode,
-                AuthProvider = CLImode || noNetworkMode ? null : new Core.IDSDKManager(),
                 StartInTestMode = CLImode,
                 PathResolver = CreatePathResolver(CLImode, preloaderLocation, userDataFolder, commonDataFolder),
                 IsServiceMode = isServiceMode,

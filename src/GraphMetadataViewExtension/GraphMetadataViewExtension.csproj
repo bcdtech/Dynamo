@@ -20,11 +20,6 @@
       <Private>False</Private>
     </ProjectReference>
 	<PackageReference Include="FontAwesome5" Version="2.1.11" />
-    <ProjectReference Include="..\DynamoCoreWpf\DynamoCoreWpf.csproj">
-      <Project>{51BB6014-43F7-4F31-B8D3-E3C37EBEDAF4}</Project>
-      <Name>DynamoCoreWpf</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\CustomPropertyControl.xaml">

@@ -1,6 +1,5 @@
 using Dynamo.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
-using Greg.AuthProviders;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -69,10 +68,7 @@ namespace Dynamo.UI.Controls
             this.Loaded -= ShortcutToolbar_Loaded;
         }
 
-        private void AuthChangeHandler(LoginState status)
-        {
 
-        }
 
         private void exportMenu_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {

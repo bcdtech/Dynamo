@@ -1,10 +1,9 @@
-using System;
 using Dynamo.Graph.Nodes.CustomNodes;
 using Dynamo.Interfaces;
 using Dynamo.Library;
 using Dynamo.Linting;
 using Dynamo.Models;
-using Greg;
+using System;
 
 namespace Dynamo.Extensions
 {
@@ -14,11 +13,7 @@ namespace Dynamo.Extensions
     /// </summary>
     public class StartupParams
     {
-        /// <summary>
-        /// Returns <see cref="IAuthProvider"/> for DynamoModel
-        /// </summary>
-        public IAuthProvider AuthProvider { get { return authProvider; } }
-        private readonly IAuthProvider authProvider;
+
 
         /// <summary>
         /// Returns <see cref="IPreferences"/> for DynamoModel
@@ -72,7 +67,6 @@ namespace Dynamo.Extensions
         /// </summary>
         internal StartupParams(DynamoModel dynamoModel)
         {
-            authProvider = dynamoModel.AuthenticationManager?.AuthProvider;
             pathManager = dynamoModel.PathManager;
             libraryLoader = new ExtensionLibraryLoader(dynamoModel);
             customNodeManager = dynamoModel.CustomNodeManager;
