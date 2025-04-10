@@ -22,18 +22,28 @@ namespace CoreNodeModels
         private double maxLimitX = 1;
         private double minLimitY = 0;
         private double maxLimitY = 1;
-        private int pointsCount = 10;
+        private List<Double> pointsCount = new List<double>() { 10.0 };
 
         private List<double> outputValuesY;
         private List<double> outputValuesX;
         private List<double> renderValuesY;
         private List<double> renderValuesX;
 
-        private readonly IntNode minLimitXDefaultValue = new IntNode(0);
-        private readonly IntNode maxLimitXDefaultValue = new IntNode(1);
-        private readonly IntNode minLimitYDefaultValue = new IntNode(0);
-        private readonly IntNode maxLimitYDefaultValue = new IntNode(1);
-        private readonly IntNode pointsCountDefaultValue = new IntNode(10);
+        private static readonly int minXDefaultValue = 0;
+        private static readonly int maxXDefaultValue = 1;
+        private static readonly int minYDefaultValue = 0;
+        private static readonly int maxYDefaultValue = 1;
+        private static readonly double pointCountDefaultValue = 10.0;
+
+        private readonly IntNode minLimitXDefaultValue = new IntNode(minXDefaultValue);
+        private readonly IntNode maxLimitXDefaultValue = new IntNode(maxXDefaultValue);
+        private readonly IntNode minLimitYDefaultValue = new IntNode(minYDefaultValue);
+        private readonly IntNode maxLimitYDefaultValue = new IntNode(maxYDefaultValue);
+        private readonly AssociativeNode pointsCountDefaultValue =
+            AstFactory.BuildExprList(new List<AssociativeNode>
+            {
+                AstFactory.BuildDoubleNode(pointCountDefaultValue)
+            });
 
         private const string gaussianCurveControlPointData2Tag = "GaussianCurveControlPointData2";
         private const string gaussianCurveControlPointData3Tag = "GaussianCurveControlPointData3";
@@ -67,6 +77,7 @@ namespace CoreNodeModels
         private const double defaultCanvasSize = 240;
         private double dynamicCanvasSize = defaultCanvasSize;
         private bool isLocked;
+        private bool isResizing;
 
         #region Curves & Point Data
         
@@ -170,7 +181,6 @@ namespace CoreNodeModels
                     minLimitX = value;
                     this.RaisePropertyChanged(nameof(MinLimitX));
                     this.RaisePropertyChanged(nameof(MidValueX));
-                    OnNodeModified();
                 }
             }
         }
@@ -187,7 +197,6 @@ namespace CoreNodeModels
                     maxLimitX = value;
                     this.RaisePropertyChanged(nameof(MaxLimitX));
                     this.RaisePropertyChanged(nameof(MidValueX));
-                    OnNodeModified();
                 }
             }
         }
@@ -204,7 +213,6 @@ namespace CoreNodeModels
                     minLimitY = value;
                     this.RaisePropertyChanged(nameof(MinLimitY));
                     this.RaisePropertyChanged(nameof(MidValueY));
-                    OnNodeModified();
                 }
             }
         }
@@ -221,14 +229,13 @@ namespace CoreNodeModels
                     maxLimitY = value;
                     this.RaisePropertyChanged(nameof(MaxLimitY));
                     this.RaisePropertyChanged(nameof(MidValueY));
-                    OnNodeModified();
                 }
             }
         }
 
         /// <summary> Gets or sets the number of points used to compute the curve. </summary>
         [JsonProperty]
-        public int PointsCount
+        public List<double> PointsCount
         {
             get => pointsCount;
             set
@@ -237,7 +244,6 @@ namespace CoreNodeModels
                 {
                     pointsCount = value;
                     this.RaisePropertyChanged(nameof(PointsCount));
-                    OnNodeModified();
                 }
             }
         }
@@ -262,7 +268,6 @@ namespace CoreNodeModels
             set
             {
                 renderValuesY = value;
-                OnNodeModified();
             }
         }
         /// <summary> Gets or sets the X values used for rendering the curve. </summary>
@@ -273,7 +278,6 @@ namespace CoreNodeModels
             set
             {
                 renderValuesX = value;
-                OnNodeModified();
             }
         }
 
@@ -293,7 +297,6 @@ namespace CoreNodeModels
 
                     ScaleAllControlPoints(oldSize, dynamicCanvasSize);
                     RaisePropertyChanged(nameof(DynamicCanvasSize));
-                    OnNodeModified();
                     GenerateRenderValues();
                 }
             }
@@ -317,7 +320,6 @@ namespace CoreNodeModels
                     .Cast<GraphTypes>()
                     .FirstOrDefault(e => GetEnumDescription(e) == value);
 
-                RaisePropertyChanged(nameof(SelectedGraphType));
                 RaisePropertyChanged(nameof(SelectedGraphTypeDescription));
             }
         }
@@ -332,7 +334,6 @@ namespace CoreNodeModels
                 selectedGraphType = value;
                 GenerateRenderValues();
                 RaisePropertyChanged(nameof(SelectedGraphType));
-                OnNodeModified();
             }
         }
 
@@ -351,6 +352,21 @@ namespace CoreNodeModels
             }
         }
 
+        /// <summary>Indicates whether the node is currently being resized in the UI.</summary>
+        [JsonIgnore]
+        public bool IsResizing
+        {
+            get => isResizing;
+            set
+            {
+                if (isResizing != value)
+                {
+                    isResizing = value;
+                    RaisePropertyChanged(nameof(IsResizing));
+                }
+            }
+        }
+
         /// <summary> Indicates that this node supports resizing via UI. </summary>
         [JsonIgnore]
         public override bool IsResizable => true;
@@ -363,27 +379,27 @@ namespace CoreNodeModels
             {
                 InPorts.Add(new PortModel(PortType.Input, this, new PortData(
                     Properties.Resources.CurveMapperXMinLimitInputPortName,
-                    Properties.Resources.CurveMapperXMinLimitInputPortToolTip,
+                    string.Format(Properties.Resources.CurveMapperXMinLimitInputPortToolTip, minXDefaultValue),
                     minLimitXDefaultValue
                     )));
                 InPorts.Add(new PortModel(PortType.Input, this, new PortData(
                     Properties.Resources.CurveMapperXMaxLimitInputPortName,
-                    Properties.Resources.CurveMapperXMaxLimitInputPortToolTip,
+                    string.Format(Properties.Resources.CurveMapperXMaxLimitInputPortToolTip, maxXDefaultValue),
                     maxLimitXDefaultValue
                     )));
                 InPorts.Add(new PortModel(PortType.Input, this, new PortData(
                     Properties.Resources.CurveMapperYMinLimitInputPortName,
-                    Properties.Resources.CurveMapperYMinLimitInputPortToolTip,
+                    string.Format(Properties.Resources.CurveMapperYMinLimitInputPortToolTip, minYDefaultValue),
                     minLimitYDefaultValue
                     )));
                 InPorts.Add(new PortModel(PortType.Input, this, new PortData(
                     Properties.Resources.CurveMapperYMaxLimitInputPortName,
-                    Properties.Resources.CurveMapperYMaxLimitInputPortToolTip,
+                    string.Format(Properties.Resources.CurveMapperYMaxLimitInputPortToolTip, maxYDefaultValue),
                     maxLimitYDefaultValue
                     )));
                 InPorts.Add(new PortModel(PortType.Input, this, new PortData(
                     Properties.Resources.CurveMapperCountInputPortName,
-                    Properties.Resources.CurveMapperCountInputPortToolTip,
+                    string.Format(Properties.Resources.CurveMapperCountInputPortToolTip, pointCountDefaultValue),
                     pointsCountDefaultValue
                     )));
             }
@@ -401,11 +417,6 @@ namespace CoreNodeModels
 
             RegisterAllPorts();
 
-            foreach (var port in InPorts)
-            {
-                port.Connectors.CollectionChanged += Connectors_CollectionChanged;
-            }
-
             SelectedGraphType = GraphTypes.Empty;
             ArgumentLacing = LacingStrategy.Disabled;
 
@@ -417,22 +428,8 @@ namespace CoreNodeModels
         public CurveMapperNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts,
             double dynamicCanvasSize = defaultCanvasSize) : base(inPorts, outPorts)
         {
-            foreach (var port in InPorts)
-            {
-                port.Connectors.CollectionChanged += Connectors_CollectionChanged;
-            }
-
             DynamicCanvasSize = dynamicCanvasSize;
             ArgumentLacing = LacingStrategy.Disabled;
-        }
-
-        #endregion
-
-        #region Event Handers
-
-        private void Connectors_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            OnNodeModified();
         }
 
         #endregion
@@ -444,21 +441,23 @@ namespace CoreNodeModels
         /// </summary>
         public void GenerateRenderValues()
         {
-            ClearErrorsAndWarnings();
-
             if (SelectedGraphType == GraphTypes.Empty)
             {
                 RenderValuesX = RenderValuesY = null;
+                OnNodeModified();
                 return;
             }
             if (!IsValidCurve())
             {
-                ClearErrorsAndWarnings();
-                Warning(Properties.Resources.CurveMapperWarningMessage, isPersistent: true);
-
                 RenderValuesX = RenderValuesY = null;
+                OnNodeModified();
                 return;
             }
+            if(!IsResizing)
+            {
+                ClearErrorsAndWarnings();
+            }
+
             object curve = null;
 
             switch (SelectedGraphType)
@@ -537,6 +536,11 @@ namespace CoreNodeModels
                 dynamic dynamicCurve = curve;
                 RenderValuesX = dynamicCurve.GetCurveXValues(PointsCount, true);
                 RenderValuesY = dynamicCurve.GetCurveYValues(PointsCount, true);
+
+                if (!IsResizing)
+                {
+                    OnNodeModified();
+                }
             }
         }
 
@@ -678,9 +682,16 @@ namespace CoreNodeModels
 
         private bool IsValidInput()
         {
-            return PointsCount >= 2
-                && MinLimitX != MaxLimitX
-                && MinLimitY != MaxLimitY;
+            if (pointsCount == null || pointsCount.Count == 0)
+                return false;
+
+            if (pointsCount.Count == 1 && pointsCount.FirstOrDefault() < 2)
+                return false;
+
+            if (MinLimitX == MaxLimitX || MinLimitY == MaxLimitY)
+                return false;
+
+            return true;
         }
 
         private bool IsValidCurve()
@@ -778,8 +789,6 @@ namespace CoreNodeModels
 
         private void DataBridgeCallback(object data)
         {
-            ClearErrorsAndWarnings();
-
             // Ignore invalid inputs & grab input data
             if (!(data is ArrayList inputs) || inputs.Count < 5) return;
 
@@ -787,31 +796,43 @@ namespace CoreNodeModels
             var maxValueX = double.TryParse(inputs[1]?.ToString(), out var maxX) ? maxX : MaxLimitX;
             var minValueY = double.TryParse(inputs[2]?.ToString(), out var minY) ? minY : MinLimitY;
             var maxValueY = double.TryParse(inputs[3]?.ToString(), out var maxY) ? maxY : MaxLimitY;
-            var listValue = int.TryParse(inputs[4]?.ToString(), out var parsedCount) ? parsedCount : PointsCount;
+            var parsedPointsCount = new List<double>();
+
+            if (inputs[4] is IList list)
+            {
+                foreach (var item in list)
+                {
+                    if (double.TryParse(item?.ToString(), out var val))
+                        parsedPointsCount.Add(val);
+                }
+            }
+            else if (double.TryParse(inputs[4]?.ToString(), out var singleVal))
+            {
+                parsedPointsCount.Add(singleVal);
+            }
+            else
+            {
+                parsedPointsCount = PointsCount;
+            }
 
             // Check port connectivity
             if (InPorts[0].IsConnected) MinLimitX = minValueX;
             if (InPorts[1].IsConnected) MaxLimitX = maxValueX;
             if (InPorts[2].IsConnected) MinLimitY = minValueY;
             if (InPorts[3].IsConnected) MaxLimitY = maxValueY;
-            if (InPorts[4].IsConnected) PointsCount = listValue;
+            if (InPorts[4].IsConnected) PointsCount = parsedPointsCount;
 
             // Notify property changes to update UI
             foreach (var propertyName in new[] { nameof(MinLimitX), nameof(MaxLimitX), nameof(MinLimitY), nameof(MaxLimitY), nameof(PointsCount) })
             {
                 RaisePropertyChanged(propertyName);
             }
-
-            if (!IsValidInput())
-            {
-                Warning(Properties.Resources.CurveMapperWarningMessage, isPersistent: true);
-            }
         }
 
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
         {
-            // Return null outputs if GraphType is Empty
-            if (SelectedGraphType == GraphTypes.Empty || !IsValidCurve())
+            // If input is missing or invalid, return nulls
+            if (inputAstNodes == null || inputAstNodes.Count < 5 || SelectedGraphType == GraphTypes.Empty || !IsValidCurve())
             {
                 return new[]
                 {
@@ -868,15 +889,13 @@ namespace CoreNodeModels
 
             // Build controlPointsList dynamically
             var controlPointsList = AstFactory.BuildExprList(
-                controlPointMap[SelectedGraphType]
-                .SelectMany(cp => new AssociativeNode[]
-                {
+                 controlPointMap[SelectedGraphType]
+                 .SelectMany(cp => new AssociativeNode[]
+                 {
                     AstFactory.BuildDoubleNode(cp.X),
                     AstFactory.BuildDoubleNode(DynamicCanvasSize - cp.Y)
-                })
-                .Cast<AssociativeNode>()
-                .ToList()
-                );
+                 }).ToList()
+                 );
 
             // Handle input values with fall-back defaults
             var inputValues = new List<AssociativeNode>
@@ -888,32 +907,39 @@ namespace CoreNodeModels
                 InPorts[4].IsConnected ? inputAstNodes[4] : pointsCountDefaultValue
             };
 
-            var curveInputs = new List<AssociativeNode> {controlPointsList, AstFactory.BuildDoubleNode(DynamicCanvasSize)};
+            var curveInputs = new List<AssociativeNode> { controlPointsList, AstFactory.BuildDoubleNode(DynamicCanvasSize) };
             curveInputs.AddRange(inputValues);
             curveInputs.Add(AstFactory.BuildStringNode(SelectedGraphType.ToString()));
 
-            AssociativeNode buildResultNode =
+            AssociativeNode buildResultNodeX =
                 AstFactory.BuildFunctionCall(
-                    new Func<List<double>, double, double, double, double, double, int, string, List<List<double>>>(
-                        CurveMapperGenerator.CalculateValues),
+                    new Func<List<double>, double, object, object, object, object, List<double>, string, List<double>>(
+                        CurveMapperGenerator.CalculateValuesX),
                     curveInputs
                 );
+
+            AssociativeNode buildResultNodeY =
+                AstFactory.BuildFunctionCall(
+                    new Func<List<double>, double, object, object, object, object, List<double>, string, List<double>>(
+                        CurveMapperGenerator.CalculateValuesY),
+                    curveInputs
+                );
+
+            // Assign outputs
+            var xValuesAssignment = AstFactory.BuildAssignment(
+                GetAstIdentifierForOutputIndex(0),
+                buildResultNodeX
+            );
+
+            var yValuesAssignment = AstFactory.BuildAssignment(
+                GetAstIdentifierForOutputIndex(1),
+                buildResultNodeY
+            );
 
             // DataBridge call
             var dataBridgeCall = AstFactory.BuildAssignment(
                 AstFactory.BuildIdentifier(AstIdentifierBase + "_dataBridge"),
                 VMDataBridge.DataBridge.GenerateBridgeDataAst(GUID.ToString(), AstFactory.BuildExprList(inputValues))
-            );
-
-            // Assign outputs
-            var xValuesAssignment = AstFactory.BuildAssignment(
-                GetAstIdentifierForOutputIndex(0),
-                AstFactory.BuildIndexExpression(buildResultNode, AstFactory.BuildIntNode(0))
-            );
-
-            var yValuesAssignment = AstFactory.BuildAssignment(
-                GetAstIdentifierForOutputIndex(1),
-                AstFactory.BuildIndexExpression(buildResultNode, AstFactory.BuildIntNode(1))
             );
 
             return new[] { xValuesAssignment, yValuesAssignment, dataBridgeCall };

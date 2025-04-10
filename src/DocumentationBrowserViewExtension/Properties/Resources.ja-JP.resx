@@ -156,6 +156,9 @@
   <data name="MenuItemText" xml:space="preserve">
     <value>ドキュメント ブラウザを表示(_D)</value>
   </data>
+  <data name="MessageHeading" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
   <data name="NodeDocumentationCategory" xml:space="preserve">
     <value>カテゴリ</value>
   </data>
@@ -169,7 +172,7 @@
     <value>入力と出力</value>
   </data>
   <data name="NodeDocumentationIssueHelp" xml:space="preserve">
-    <value>ノードの問題をヘルプ</value>
+    <value>ノード問題のヘルプ</value>
   </data>
   <data name="NodeDocumentationNodeInfo" xml:space="preserve">
     <value>ノード情報</value>

@@ -31,15 +31,15 @@
             <notranslation>true</notranslation>
         </member>
         <member name="M:Autodesk.DesignScript.Geometry.DebugTools.EnableAsmJournaling(System.Collections.IList,System.String)">
-            <summary>Enables ASM journaling</summary>
-            <param name="input">Any input value</param>
-            <param name="journalPath">optional path to specify location of ASM journals.</param>
-            <returns name="output">Returns the input value</returns>
+            <summary>Включение ведения журнала ASM</summary>
+            <param name="input">Любое входное значение</param>
+            <param name="journalPath">Необязательный путь для указания расположения журналов ASM.</param>
+            <returns name="output">Возврат входного значения</returns>
         </member>
         <member name="M:Autodesk.DesignScript.Geometry.DebugTools.DisableAsmJournaling(System.Collections.IList)">
-            <summary>Disables ASM journaling</summary>
-            <param name="input">Any input value</param>
-            <returns name="output">Returns the input value</returns>
+            <summary>Отключение ведения журнала ASM</summary>
+            <param name="input">Любое входное значение</param>
+            <returns name="output">Возврат входного значения</returns>
         </member>
         <member name="T:Autodesk.DesignScript.Geometry.Core.EntityTags">
             <summary>С помощью марок можно добавить произвольные метаданные в объект DesignScriptEntity. Это является важным
@@ -5101,7 +5101,7 @@
             <summary>Удаление вершин, которые не лежат на входном элементе FACE.</summary>
         </member>
         <member name="F:Autodesk.DesignScript.Geometry.PanelSurfaceBoundaryCondition.Trim">
-            <summary>Trim overlapping panels to surface boundary.</summary>
+            <summary>Обрезка перекрывающихся панелей по границе поверхности.</summary>
         </member>
         <member name="M:Autodesk.DesignScript.Geometry.PanelSurface.ToString">
             <summary>Получение строчного представления объекта PanelSurface</summary>

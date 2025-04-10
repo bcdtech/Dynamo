@@ -1,5 +1,5 @@
 ## 상세
-Trim overlapping panels to surface boundary.
+겹치는 패널을 표면 경계까지 자릅니다.
 ___
 ## 예제 파일
 
