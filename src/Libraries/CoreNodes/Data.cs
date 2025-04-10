@@ -1,3 +1,9 @@
+using Autodesk.DesignScript.Runtime;
+using Dynamo.Events;
+using Dynamo.Logging;
+using Dynamo.Session;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,14 +15,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
-using Autodesk.DesignScript.Geometry;
-using Autodesk.DesignScript.Runtime;
-using Dynamo.Events;
-using Dynamo.Logging;
-using Dynamo.Session;
-using DynamoUnits;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace DSCore
 {
@@ -85,102 +83,7 @@ namespace DSCore
         /// <exception cref="Exception"></exception>
         private static object DynamoJObjectToNative(JObject jObject)
         {
-            if (jObject.ContainsKey("$typeid"))
-            {
-                var typeid = jObject["$typeid"].ToString();
 
-                switch (typeid)
-                {
-                    //autodesk.math to abstract ProtoGeometry types
-                    case "autodesk.math:vector3d-1.0.0":
-                        return Vector.FromJson(jObject.ToString());
-
-                    case "autodesk.math:matrix44d-1.0.0":
-                        return CoordinateSystem.FromJson(jObject.ToString());
-
-                    //autodesk.geometry to abstract ProtoGeometry types
-                    case "autodesk.geometry:boundingbox3d-1.0.0":
-                        return BoundingBox.FromJson(jObject.ToString());
-
-                    case "dynamo.geometry:mesh-1.0.0":
-                        return Mesh.FromJson(jObject.ToString());
-
-                    //types supported by Geometry.FromJson
-                    case "autodesk.math:point3d-1.0.0":
-                    case "dynamo.geometry:sab-1.0.0":
-                    case "dynamo.geometry:tsm-1.0.0":
-                    case "dynamo.geometry:rectangle-1.0.0":
-                    case "dynamo.geometry:cuboid-1.0.0":
-                    case "dynamo.geometry:solid-1.0.0":
-                    case string geoId when geoId.Contains("autodesk.geometry"):
-                        return Geometry.FromJson(jObject.ToString());
-
-                    //Dynamo types
-                    case "dynamo.graphics:color-1.0.0":
-                        try
-                        {
-                            return Color.ByARGB(
-                                (int)jObject["A"],
-                                (int)jObject["R"],
-                                (int)jObject["G"],
-                                (int)jObject["B"]);
-                        }
-                        catch {
-                            throw new FormatException(string.Format(Properties.Resources.Exception_Deserialize_Bad_Format, typeof(Color).FullName));
-                        }
-
-#if _WINDOWS
-                    case "dynamo.graphics:png-1.0.0":
-
-                        jObject.TryGetValue(ImageFormat.Png.ToString(), out var value);
-
-                        if (value != null)
-                        {
-                            try
-                            {
-                                var stream = Convert.FromBase64String(value.ToString());
-
-                                Bitmap bitmap;
-                                using (var ms = new MemoryStream(stream))
-                                    bitmap = new Bitmap(Bitmap.FromStream(ms));
-
-                                return bitmap;
-                            }
-                            catch {
-                                //Pass through to the next throw
-                            }
-                        }
-
-                        throw new FormatException(string.Format(Properties.Resources.Exception_Deserialize_Bad_Format, "dynamo.graphics:png-1.0.0"));
-#else
-                        return null;
-#endif
-                    case "dynamo.data:location-1.0.0":
-                        try
-                        {
-                            return DynamoUnits.Location.ByLatitudeAndLongitude(
-                            (double)jObject["Latitude"],
-                            (double)jObject["Longitude"],
-                            (string)jObject["Name"]);
-                        }
-                        catch
-                        {
-                            throw new FormatException(string.Format(Properties.Resources.Exception_Deserialize_Bad_Format, typeof(DynamoUnits.Location).FullName));
-                        }
-
-                    default:
-                        return null;
-                }
-            }
-
-            if (jObject.ContainsKey("typeid"))
-            {
-                var typeid = jObject["typeid"].ToString();
-                if (typeid == "autodesk.soliddef:model-1.0.0")
-                {
-                    return Geometry.FromSolidDef(jObject.ToString());
-                }
-            }
 
             return null;
         }
@@ -210,7 +113,7 @@ namespace DSCore
             using StringWriter writer = new(sb, CultureInfo.InvariantCulture);
             using MaxDepthJsonTextWriter jsonWriter = new(writer);
             JsonSerializer.Create(settings).Serialize(jsonWriter, values);
-            
+
             return writer.ToString();
         }
 
@@ -308,32 +211,7 @@ namespace DSCore
         {
             public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
             {
-                string serializedValue;
 
-                switch (value)
-                {
-                    case Geometry item:
-                        var geoString = item.ToJson();
-
-                        if (!string.IsNullOrEmpty(geoString))
-                        {
-                            writer.WriteRawValue(geoString);
-                            return;
-                        }
-                        break;
-                    case BoundingBox item:
-                        writer.WriteRawValue(item.ToJson());
-                        return;
-                    case CoordinateSystem item:
-                        writer.WriteRawValue(item.ToJson());
-                        return;
-                    case Mesh item:
-                        writer.WriteRawValue(item.ToJson());
-                        return;
-                    case Vector item:
-                        writer.WriteRawValue(item.ToJson());
-                        return;
-                }
 
                 throw new NotSupportedException(Properties.Resources.Exception_Serialize_DesignScript_Unsupported);
             }
@@ -350,7 +228,8 @@ namespace DSCore
 
             public override bool CanConvert(Type objectType)
             {
-                return typeof(DesignScriptEntity).IsAssignableFrom(objectType);
+                //return typeof(DesignScriptEntity).IsAssignableFrom(objectType);
+                return false;
             }
         }
 
@@ -376,7 +255,8 @@ namespace DSCore
 
             public override bool CanConvert(Type objectType)
             {
-                return typeof(DSCore.Color) == objectType;
+                //return typeof(DSCore.Color) == objectType;
+                return false;
             }
         }
 
@@ -572,62 +452,7 @@ namespace DSCore
         /// <returns>The list containing the supported data types</returns>
         internal static readonly ReadOnlyCollection<DataNodeDynamoType> DataNodeDynamoTypeList;
 
-        /// <summary>
-        /// Static constructor
-        /// </summary>
-        static Data()
-        {
-            var curve = new DataNodeDynamoType(typeof(Curve), 0, false, null, null);
-            var polyCurve = new DataNodeDynamoType(typeof(PolyCurve), 1, false, null, curve);
-            var polygon = new DataNodeDynamoType(typeof(Polygon), 2, false, null, polyCurve);  // polygon is subtype of polyCurve
-            var rectangle = new DataNodeDynamoType(typeof(Autodesk.DesignScript.Geometry.Rectangle), 3, true, null, polyCurve);    // rectangle is subtype of polygon
-            var solid = new DataNodeDynamoType(typeof(Solid), 0, false, null, null);
-            var cone = new DataNodeDynamoType(typeof(Cone), 1, false, null, solid);    // cone is subtype of solid
-            var cylinder = new DataNodeDynamoType(typeof(Cylinder), 2, false, null, cone); // cylinder is subtype of cone 
-            var cuboid = new DataNodeDynamoType(typeof(Cuboid), 1, false, null, solid);    // cuboid is subtype of solid
-            var sphere = new DataNodeDynamoType(typeof(Sphere), 1, true, null, solid);    // sphere is subtype of solid
 
-            var surface = new DataNodeDynamoType(typeof(Surface), 0, false, null, null);
-
-            var typeList = new List<DataNodeDynamoType>
-            {
-                new(typeof(bool)),
-                new(typeof(BoundingBox)),
-                new(typeof(CoordinateSystem)),
-                curve,
-                new(typeof(Arc), 1, false, null, curve),
-                new(typeof(Circle), 1, false, null, curve),
-                new(typeof(Ellipse), 1, false, null, curve),
-                new(typeof(EllipseArc), 1, false, null, curve),
-                new(typeof(Helix), 1, false, null, curve),
-                new(typeof(Line), 1, false, null, curve),
-                new(typeof(NurbsCurve), 1, false, null, curve),
-                polyCurve,
-                polygon,
-                rectangle,
-                new(typeof(System.DateTime)),
-                new(typeof(double), "Number"),
-                new(typeof(long), "Integer"),
-                new(typeof(Location)),
-                new(typeof(Mesh)),
-                new(typeof(Plane)),
-                new(typeof(Autodesk.DesignScript.Geometry.Point)),
-                solid,
-                cone,
-                cylinder,
-                cuboid,
-                sphere,
-                new(typeof(string)),
-                surface,
-                new(typeof(NurbsSurface), 1, false, null, surface),
-                new(typeof(PolySurface), 1, true, null, surface),
-                new(typeof(System.TimeSpan)),
-                new(typeof(UV)),
-                new(typeof(Vector))
-            };
-
-            DataNodeDynamoTypeList = new ReadOnlyCollection<DataNodeDynamoType>(typeList);
-        }
 
         /// <summary>
         /// A helper function to safely extract a dictionary value
@@ -684,7 +509,7 @@ namespace DSCore
                 {
                     inputValue = ParseJSON(playerValue);
                 }
-                catch (Exception ex)    
+                catch (Exception ex)
                 {
                     dynamoLogger?.Log("A Player value failed to deserialize with this exception: " + ex.Message);
 
@@ -721,7 +546,7 @@ namespace DSCore
                         // We couldn't find a Dynamo data type that fits, so we throw
                         var warning = string.Format(Properties.Resources.DefineDataUnsupportedDataTypeExceptionMessage, valueType.Name);
                         return DefineDataResult(inputValue, false, updateList, inputType, warning);
-                       
+
                     }
                     return DefineDataResult(inputValue, false, updateList, inputType, string.Empty);
                 }
@@ -743,7 +568,7 @@ namespace DSCore
                 }
 
                 return DefineDataResult(inputValue, isSupportedType, false, type, string.Empty);
-                
+
             }
         }
 
@@ -757,7 +582,7 @@ namespace DSCore
                     var values = ConcatenateUniqueDataTypes(inputValue);
                     return $"List of {values}";
                 }
-               
+
                 return inputValue.GetType().FullName;
             }
             catch (Exception) { return string.Empty; }
@@ -767,13 +592,13 @@ namespace DSCore
         {
             if (type == null) return string.Empty;
 
-            var typeFullName = type.Type.FullName;  
+            var typeFullName = type.Type.FullName;
             return isList ? $"List of {typeFullName}" : typeFullName;
         }
 
         private static Dictionary<string, object> DefineDataResult(object inputValue, bool isSupportedType, bool updateList, DataNodeDynamoType type, string warning)
         {
-            if(warning != string.Empty)
+            if (warning != string.Empty)
             {
                 throw new Exception(warning);
             }
@@ -823,13 +648,13 @@ namespace DSCore
         private static DataNodeDynamoType LikelyAncestor(List<DataNodeDynamoType> nodes)
         {
             var minLevel = nodes.Min(x => x.Level);
-            if(minLevel == 0)
+            if (minLevel == 0)
             {
                 return nodes.First(x => x.Level == 0);  // Already at the root ancestor
             }
 
             var uniqueNodes = nodes
-                .Where(x =>  x.Level == minLevel)
+                .Where(x => x.Level == minLevel)
                 .GroupBy(x => x.Type)
                 .Select(g => g.First())
                 .ToList();
@@ -867,9 +692,9 @@ namespace DSCore
                 if (node.Type == likelyAncestor.Type) continue; // skip self
 
                 // if at least one node type is not related to the likely ancestor, bail
-                likelyAncestor = FindCommonAncestorBetweenTwoNodes(node, likelyAncestor); 
+                likelyAncestor = FindCommonAncestorBetweenTwoNodes(node, likelyAncestor);
 
-                if (likelyAncestor == null) break; 
+                if (likelyAncestor == null) break;
             }
 
             return likelyAncestor;
@@ -886,12 +711,12 @@ namespace DSCore
         {
             if (!IsDerivedFrom(node.Type, likelyAncestor.Type))
             {
-                if(likelyAncestor.Level == 0) return null;  // we have reached the top of the hierarchical tree, but we haven't found common ancestor
+                if (likelyAncestor.Level == 0) return null;  // we have reached the top of the hierarchical tree, but we haven't found common ancestor
 
                 return FindCommonAncestorBetweenTwoNodes(node, likelyAncestor.Parent);
             }
 
-            return likelyAncestor; 
+            return likelyAncestor;
         }
 
         /// <summary>
@@ -963,11 +788,11 @@ namespace DSCore
             {
                 if (inputValue is not ArrayList arrayList) return false;
 
-                foreach (var item in arrayList) 
+                foreach (var item in arrayList)
                 {
                     if (!IsItemOfType(item, type))
                     {
-                        return false; 
+                        return false;
                     }
                 }
 

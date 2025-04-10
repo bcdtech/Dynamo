@@ -1,20 +1,11 @@
+using Autodesk.DesignScript.Runtime;
+using Dynamo.Logging;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
-using Autodesk.DesignScript.Runtime;
-using Dynamo.Events;
-using Dynamo.Graph.Nodes;
-using Dynamo.Logging;
-using Dynamo.Session;
 using Path = System.IO.Path;
-using Rectangle = System.Drawing.Rectangle;
 
 namespace DSCore.IO
 {
@@ -121,7 +112,7 @@ namespace DSCore.IO
         {
             try
             {
-                if (Path.GetDirectoryName(destinationPath) != string.Empty) 
+                if (Path.GetDirectoryName(destinationPath) != string.Empty)
                 {
                     file.CopyTo(destinationPath, overwrite);
                 }
@@ -137,7 +128,7 @@ namespace DSCore.IO
 #pragma warning restore CA2200 // Rethrow to preserve stack details
             }
             return true;
-            
+
         }
 
         /// <summary>
@@ -352,198 +343,9 @@ namespace DSCore.IO
         }
         #endregion
 
-        #region Obsolete Methods
 
-#if NET6_0_OR_GREATER
-        [SupportedOSPlatform("windows")]
-#endif
-        [NodeObsolete("ReadImageObsolete", typeof(Properties.Resources))]
-        public static Color[] ReadImage(string path, int xSamples, int ySamples)
-        {
-            var info = FileFromPath(path);
-            var image = Image.ReadFromFile(info);
-            return Image.Pixels(image, xSamples, ySamples).SelectMany(x => x).ToArray();
-        }
 
-#if NET6_0_OR_GREATER
-        [SupportedOSPlatform("windows")]
-#endif
-        [NodeObsolete("LoadImageFromPathObsolete", typeof(Properties.Resources))]
-        public static Bitmap LoadImageFromPath(string path)
-        {
-            return Image.ReadFromFile(FileFromPath(path));
-        }
-
-        [NodeObsolete("ReadTextObsolete", typeof(Properties.Resources))]
-        public static string ReadText(string path)
-        {
-            return ReadText(FileFromPath(path));
-        }
-
-#if NET6_0_OR_GREATER
-        [SupportedOSPlatform("windows")]
-#endif
-        [NodeObsolete("WriteImageObsolete", typeof(Properties.Resources))]
-        public static bool WriteImage(string filePath, string fileName, Bitmap image)
-        {
-            fileName = Path.ChangeExtension(fileName, "png");
-            Image.WriteToFile(Path.Combine(filePath, fileName), image);
-            return true;
-        }
-
-        [NodeObsolete("ExportToCSVObsolete", typeof(Properties.Resources))]
-        public static bool ExportToCSV(string filePath, object[][] data)
-        {
-            return false;
-        }
-        #endregion
     }
 
-    /// <summary>
-    ///     Methods for operating on Image Bitmaps.
-    /// </summary>
-#if NET6_0_OR_GREATER
-    [SupportedOSPlatform("windows")]
-#endif
-    public static class Image
-    {
-        /// <summary>
-        ///     Loads the file as a bitmap.
-        /// </summary>
-        /// <param name="file">File object to load image from</param>
-        /// <returns name="image">Image object from file</returns>
-        public static Bitmap ReadFromFile(FileInfo file)
-        {
-            Analytics.TrackTaskFileOperationEvent(
-                                  file.Name,
-                                  Actions.Read,
-                                  Convert.ToInt32(file.Length));
 
-            using (var fs = new FileStream(file.FullName, FileMode.Open))
-                return new Bitmap(System.Drawing.Image.FromStream(fs));
-        }
-
-        /// <summary>
-        ///     Reads an image file and returns the color values at the specified grid locations.
-        /// </summary>
-        /// <param name="image">Image object to get pixel colors from</param>
-        /// <param name="xSamples">Number of sample grid points in the X direction.</param>
-        /// <param name="ySamples">Number of sample grid points in the Y direction.</param>
-        /// <returns name="colors">Colors at the specified grid points</returns>
-        /// <search>read,image,bitmap,png,jpg,jpeg</search>
-        public static Color[][] Pixels(Bitmap image, int? xSamples = null, int? ySamples = null)
-        {
-            var numX = xSamples ?? image.Width;
-            var numY = ySamples ?? image.Height;
-
-            return
-                Enumerable.Range(0, numY)
-                    .Select(
-                        y =>
-                            Enumerable.Range(0, numX)
-                                .Select(x =>
-                                     Color.ByColor(image.GetPixel(
-                                     (int)(x * ((float)(image.Width-1) / (numX-1))),
-                                     (int)(y * ((float)(image.Height-1) / (numY-1))))
-                                     ))
-                                .ToArray())
-                    .ToArray();
-        }
-
-        /// <summary>
-        ///     Constructs an image from a 2d list of pixels.
-        /// </summary>
-        /// <param name="colors">2d rectangular list of colors representing the pixels</param>
-        /// <returns name="image">Image from 2d list of pixels</returns>
-        public static Bitmap FromPixels(Color[][] colors)
-        {
-            var height = colors.Length;
-            var width = colors[0].Length;
-
-            var rgbVals = colors.SelectMany(row => row);
-
-            return FromPixelsHelper(rgbVals, width, height);
-        }
-
-        /// <summary>
-        ///     Constructs an image from a flat list of pixels, a width, and a height.
-        /// </summary>
-        /// <param name="colors">List of colors representing the pixels</param>
-        /// <param name="width">Width of the new image, in pixels</param>
-        /// <param name="height">Height of the new image, in pixels</param>
-        /// <returns name="image">Image from list of pixels</returns>
-        public static Bitmap FromPixels(Color[] colors, int width, int height)
-        {
-            return FromPixelsHelper(colors, width, height);
-        }
-
-        private static Bitmap FromPixelsHelper(IEnumerable<Color> colors, int width, int height)
-        {
-            //if the color data is larger than will fit in the bitmap buffer
-            //then this can cause an access violation - so we'll throw an exception.
-            if(colors?.Count() > width * height)
-            {
-                throw new ArgumentOutOfRangeException("colors", Properties.Resources.BitmapOverflowError);
-            }
-            
-            var bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
-            var data = bitmap.LockBits(
-                new Rectangle(0, 0, width, height),
-                ImageLockMode.WriteOnly,
-                bitmap.PixelFormat);
-
-            foreach (var colorByte in
-                colors.SelectMany(PixelsFromColor).Select((pixel, idx) => new { color = pixel, idx }))
-            {
-                Marshal.WriteByte(data.Scan0, colorByte.idx, colorByte.color);
-            }
-
-            bitmap.UnlockBits(data);
-
-            return bitmap;
-        }
-
-        private static IEnumerable<byte> PixelsFromColor(Color color)
-        {
-            yield return color.Blue;
-            yield return color.Green;
-            yield return color.Red;
-            yield return color.Alpha;
-        }
-
-        /// <summary>
-        /// Returns the width and height of an image.
-        /// </summary>
-        /// <param name="image">Image to get dimensions of.</param>
-        /// <returns name="width"> width of image in pixels</returns>
-        /// <returns name="height"> height of image in pixels </returns>
-        [MultiReturn("width", "height")]
-        public static Dictionary<string, int> Dimensions(Bitmap image)
-        {
-            return new Dictionary<string, int>
-            {
-                { "width", image.Width },
-                { "height", image.Height }
-            };
-        }
-
-        /// <summary>
-        ///     Write the image to a path, given the specified file name.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="image">The image to write</param>
-        /// <returns name="image">Created image object</returns>
-        /// <search>write image,image,file,filepath</search>
-        public static Bitmap WriteToFile(string path, Bitmap image)
-        {
-            Analytics.TrackTaskFileOperationEvent(
-                                 Path.GetFileName(path),
-                                 Actions.Write,
-                                 Convert.ToInt32(path.Length));
-
-            image.Save(FileSystem.AbsolutePath(path));
-
-            return image;
-        }
-    }
 }

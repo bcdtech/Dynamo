@@ -183,6 +183,46 @@ namespace CoreNodeModels {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CoreNodeModels_FormattedStringFromArray_Large {
+            get {
+                object obj = ResourceManager.GetObject("CoreNodeModels.FormattedStringFromArray.Large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CoreNodeModels_FormattedStringFromArray_Small {
+            get {
+                object obj = ResourceManager.GetObject("CoreNodeModels.FormattedStringFromArray.Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CoreNodeModels_FormattedStringFromObject_Large {
+            get {
+                object obj = ResourceManager.GetObject("CoreNodeModels.FormattedStringFromObject.Large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CoreNodeModels_FormattedStringFromObject_Small {
+            get {
+                object obj = ResourceManager.GetObject("CoreNodeModels.FormattedStringFromObject.Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CoreNodeModels_Formula_Large {
             get {
                 object obj = ResourceManager.GetObject("CoreNodeModels.Formula.Large", resourceCulture);
