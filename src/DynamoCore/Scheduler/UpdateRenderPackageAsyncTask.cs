@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Interfaces;
 using Dynamo.Engine;
 using Dynamo.Graph.Nodes;
-using Dynamo.Models;
 using Dynamo.Visualization;
 using ProtoCore.Mirror;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Dynamo.Scheduler
 {
@@ -18,7 +15,7 @@ namespace Dynamo.Scheduler
         internal string PreviewIdentifierName { get; set; }
         internal NodeModel Node { get; set; }
         internal EngineController EngineController { get; set; }
-        internal IEnumerable<KeyValuePair<Guid, string>> DrawableIdMap { get; set; }
+        internal IEnumerable<KeyValuePair<Guid, string>> DrawableIdMap { get; set; }
 
         internal bool ForceUpdate { get; set; }
         /// <summary>
@@ -52,7 +49,7 @@ namespace Dynamo.Scheduler
         private bool isNodeSelected;
         private string previewIdentifierName;
         private EngineController engineController;
-        private IEnumerable<KeyValuePair<Guid, string>> drawableIdMap;
+        private IEnumerable<KeyValuePair<Guid, string>> drawableIdMap;
         private readonly RenderPackageCache renderPackageCache;
         private IRenderPackageFactory factory;
 
@@ -142,16 +139,16 @@ namespace Dynamo.Scheduler
 
                 GetRenderPackagesFromMirrorData(
                     idEnum.Current.Key,
-                    mirrorData.GetData(), 
-                    previewIdentifierName, 
+                    mirrorData.GetData(),
+                    previewIdentifierName,
                     displayLabels);
             }
         }
 
         private void GetRenderPackagesFromMirrorData(
             Guid outputPortId,
-            MirrorData mirrorData, 
-            string tag, 
+            MirrorData mirrorData,
+            string tag,
             bool displayLabels)
         {
             if (mirrorData.IsNull)
@@ -213,263 +210,24 @@ namespace Dynamo.Scheduler
                     return;
                 }
 
-                GetTessellationDataFromGraphicItem(outputPortId, graphicItem, labelKey, ref package);
             }
         }
 
-        private void GetTessellationDataFromGraphicItem(Guid outputPortId, IGraphicItem graphicItem, string labelKey, ref IRenderPackage package)
-        {
-            var packageWithTransform = package as ITransformable;
-            var packageWithInstances = package as IInstancingRenderPackage;
-            var packageWithLabelInstances = package as IRenderInstancedLabels;
 
-            try
-            {
-                var previousPointVertexCount = package.PointVertexCount;
-                var previousLineVertexCount = package.LineVertexCount;
-                var previousMeshVertexCount = package.MeshVertexCount;
 
-                //Todo Plane tessellation needs to be handled here vs in LibG currently
-                bool instancingEnabled = factory.TessellationParameters.UseRenderInstancing;
-                if (graphicItem is Plane plane)
-                {
-                    CreatePlaneTessellation(package, plane);
-                }
-                else if (graphicItem is IInstanceableGraphicItem instanceableItem &&
-                    instanceableItem.InstanceInfoAvailable 
-                    && packageWithInstances != null
-                    && instancingEnabled)
-                {
-                    //if we have not generated the base tessellation for this type yet, generate it
-                    if (!packageWithInstances.ContainsTessellationId(instanceableItem.BaseTessellationGuid))
-                  
-                    {
-                        instanceableItem.AddBaseTessellation(packageWithInstances, factory.TessellationParameters);
-                        var prevLineIndex = package.LineVertexCount;
-                        //if edges is on, then also add edges to base tessellation.
-                        if (factory.TessellationParameters.ShowEdges)
-                        {
-                            //TODO if we start to instance more types, expand this edge generation.
-                            //and the swtich case below.
-                            if (graphicItem is Topology topology)
-                            {
-                                Topology topologyInIdentityCS = null;
-                                switch (topology)
-                                {
-                                    case Cuboid _:
-                                        topologyInIdentityCS = Cuboid.ByLengths();
-                                        break;
-                                }
-                                //if topologyInIdentityCS is still null or Edges is null 
-                                //don't attempt to add any graphic edges.
-                                var edges = topologyInIdentityCS?.Edges;
-                                if (edges != null)
-                                {
-                                    foreach (var geom in edges.Select(edge => edge.CurveGeometry))
-                                    {
-                                        geom.Tessellate(package, factory.TessellationParameters);
-                                        geom.Dispose();
-                                    }
 
-                                    edges.ForEach(x => x.Dispose());
-                                    packageWithInstances.AddInstanceGuidForLineVertexRange(prevLineIndex, package.LineVertexCount - 1, instanceableItem.BaseTessellationGuid);
-                                }
-                                topologyInIdentityCS?.Dispose();
-                            }
-                        }
-                    }
-
-                    instanceableItem.AddInstance(packageWithInstances, factory.TessellationParameters, labelKey);
-                    //for the instance we just added we need to add labels if autogen labels is true.
-                    if (package is IRenderLabels labelPackage && labelPackage.AutoGenerateLabels && packageWithLabelInstances != null)
-                    {
-                        if (package.MeshVertexCount > 0)
-                        {
-                            packageWithLabelInstances.AddInstancedLabel(labelKey,
-                                VertexType.MeshInstance,
-                                package.MeshVertexCount, 
-                                packageWithLabelInstances.InstanceCount(instanceableItem.BaseTessellationGuid),
-                                instanceableItem.BaseTessellationGuid) ;
-                        }
-                        else if (package.LineVertexCount > 0)
-                        {
-                            packageWithLabelInstances.AddInstancedLabel(labelKey, 
-                                VertexType.LineInstance,
-                                package.LineVertexCount,
-                                packageWithLabelInstances.InstanceCount(instanceableItem.BaseTessellationGuid),
-                                instanceableItem.BaseTessellationGuid);
-                        }
-                    }
-                    return;
-                }
-                else
-                {
-                    try
-                    {
-                        graphicItem.Tessellate(package, factory.TessellationParameters);
-                    }
-                    catch (LegacyRenderPackageMethodException)
-                    {
-                        //At this point we have detected an implementation of Tessellate which is using legacy color methods
-                        //We roll back the primary renderPackage to it previous state before calling tessellation again.
-                        package = RollBackPackage(package, previousPointVertexCount, previousLineVertexCount,
-                            previousMeshVertexCount);
-
-                        //Now we create a renderPackage object that will allow legacy color methods
-                        var legacyPackage = factory.CreateRenderPackage();
-                        legacyPackage.DisplayLabels = displayLabels;
-                        legacyPackage.Description = labelKey;
-                        legacyPackage.IsSelected = isNodeSelected;
-
-                        //Use it to get fill the tessellation data and add it to the render cache.
-                        GetTessellationDataFromGraphicItem(outputPortId, graphicItem, labelKey, ref legacyPackage);
-
-                        if (legacyPackage.MeshVertexColors.Any())
-                        {
-                            legacyPackage.RequiresPerVertexColoration = true;
-                        }
-
-                        renderPackageCache.Add(legacyPackage, outputPortId);
-                        
-                        return;
-                    }
-
-                    //Now we validate that tessellation call has added colors for each new vertex.
-                    //If any vertex colors previously existed, this will ensure the vertex color and vertex counts stays in sync.
-                    EnsureColorExistsPerVertex(package, previousPointVertexCount, previousLineVertexCount,
-                        previousMeshVertexCount);
-
-                    if (factory.TessellationParameters.ShowEdges)
-                    {
-                        if (graphicItem is Topology topology)
-                        {
-                            if (graphicItem is Surface surf)
-                            {
-                                foreach (var curve in surf.PerimeterCurves())
-                                {
-                                    curve.Tessellate(package, factory.TessellationParameters);
-                                    curve.Dispose();
-                                }
-                            }
-                            else
-                            {
-                                var edges = topology.Edges;
-                                foreach (var geom in edges.Select(edge => edge.CurveGeometry))
-                                {
-                                    geom.Tessellate(package, factory.TessellationParameters);
-                                    geom.Dispose();
-                                }
-
-                                edges.ForEach(x => x.Dispose());
-                            }
-                        }
-                    }
-                }
-
-                //If the package has a transform that is not the identity matrix
-                //then set requiresCustomTransform to true.
-                if (packageWithTransform != null && !packageWithTransform.RequiresCustomTransform &&
-                    packageWithTransform.Transform.SequenceEqual(
-                        new double[] {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1}) == false)
-                {
-                    (packageWithTransform).RequiresCustomTransform = true;
-                }
-
-                //Do not add replication labels if the tessellation call set DisplayLabels to true;
-                if (package is IRenderLabels packageLabels && packageLabels.AutoGenerateLabels)
-                {
-                    if (package.MeshVertexCount > previousMeshVertexCount)
-                    {
-                        packageLabels.AddLabel(labelKey, VertexType.Mesh, package.MeshVertexCount);
-                    }
-                    else if (package.LineVertexCount > previousLineVertexCount)
-                    {
-                        packageLabels.AddLabel(labelKey, VertexType.Line, package.LineVertexCount);
-                    }
-                    else if (package.PointVertexCount > previousPointVertexCount)
-                    {
-                        packageLabels.AddLabel(labelKey, VertexType.Point, package.PointVertexCount);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(
-                    "PushGraphicItemIntoPackage: " + e);
-            }
-        }
-
-        private static void CreatePlaneTessellation(IRenderPackage package, Plane plane)
-        {
-            package.RequiresPerVertexColoration = true;
-
-            var s = 2.5;
-
-            var cs = CoordinateSystem.ByPlane(plane);
-            var a = Point.ByCartesianCoordinates(cs, s, s, 0);
-            var b = Point.ByCartesianCoordinates(cs, -s, s, 0);
-            var c = Point.ByCartesianCoordinates(cs, -s, -s, 0);
-            var d = Point.ByCartesianCoordinates(cs, s, -s, 0);
-
-            //Add two triangles to represent the plane
-            package.AddTriangleVertex(a.X, a.Y, a.Z);
-            package.AddTriangleVertex(b.X, b.Y, b.Z);
-            package.AddTriangleVertex(c.X, c.Y, c.Z);
-
-            package.AddTriangleVertex(c.X, c.Y, c.Z);
-            package.AddTriangleVertex(d.X, d.Y, d.Z);
-            package.AddTriangleVertex(a.X, a.Y, a.Z);
-
-            //Add the mesh vertex UV, normal, and color data for the 6 triangle vertices
-            for (var i = 0; i < 6; i++)
-            {
-                package.AddTriangleVertexUV(0, 0);
-                package.AddTriangleVertexNormal(plane.Normal.X, plane.Normal.Y, plane.Normal.Z);
-                package.AddTriangleVertexColor(0, 0, 0, 10);
-            }
-
-            // Draw plane edges
-            package.AddLineStripVertex(a.X, a.Y, a.Z);
-            package.AddLineStripVertex(b.X, b.Y, b.Z);
-            package.AddLineStripVertex(b.X, b.Y, b.Z);
-            package.AddLineStripVertex(c.X, c.Y, c.Z);
-            package.AddLineStripVertex(c.X, c.Y, c.Z);
-            package.AddLineStripVertex(d.X, d.Y, d.Z);
-            package.AddLineStripVertex(d.X, d.Y, d.Z);
-            package.AddLineStripVertex(a.X, a.Y, a.Z);
-
-            // Draw normal
-            package.AddLineStripVertex(plane.Origin.X, plane.Origin.Y, plane.Origin.Z);
-            var nEnd = plane.Origin.Add(plane.Normal.Scale(2.5));
-            package.AddLineStripVertex(nEnd.X, nEnd.Y, nEnd.Z);
-
-            //Add the line vertex data for the plane line geometry (4 plane edges and 1 normal).
-            for (var i = 0; i < 5; i++)
-            {
-                package.AddLineStripVertexCount(2);
-                package.AddLineStripVertexColor(MidTone, MidTone, MidTone, 255);
-                package.AddLineStripVertexColor(MidTone, MidTone, MidTone, 255);
-            }
-
-            //dispose helper geometry
-            a.Dispose();
-            b.Dispose();
-            c.Dispose();
-            d.Dispose();
-            cs.Dispose();
-        }
 
         private static void EnsureColorExistsPerVertex(IRenderPackage package, int previousPointVertexCount, int previousLineVertexCount, int previousMeshVertexCount)
         {
             var packageSupplement = package as IRenderPackageSupplement;
-            
+
             //Use legacy slow path if package does not implement IRenderPackageSupplement
             if (packageSupplement == null)
             {
                 LegacyPackageEnsureColorExistsPerVertex(package, previousPointVertexCount, previousLineVertexCount, previousMeshVertexCount);
                 return;
             }
-            
+
             if (package.PointVertexCount > previousPointVertexCount)
             {
                 var count = package.PointVertexCount - packageSupplement.PointVertexColorCount;
@@ -477,7 +235,7 @@ namespace Dynamo.Scheduler
                 {
                     packageSupplement.AppendPointVertexColorRange(CreateColorByteArrayOfSize(count, DefR, DefG, DefB, DefA));
                 }
-                
+
             }
 
             if (package.LineVertexCount > previousLineVertexCount)
@@ -509,7 +267,7 @@ namespace Dynamo.Scheduler
             if (pkg.PointVertexCount > previousPointVertexCount)
             {
                 var colorCount = pkg.PointVertexColors.Count() / 4;
-                if(colorCount < pkg.PointVertexCount)
+                if (colorCount < pkg.PointVertexCount)
                 {
                     for (var i = colorCount; i < pkg.PointVertexCount; i++)
                     {
@@ -563,13 +321,13 @@ namespace Dynamo.Scheduler
             newPackage.Description = package.Description;
             newPackage.IsSelected = package.IsSelected;
             newPackage.DisplayLabels = package.DisplayLabels;
-            
-            
+
+
 
             var ptVertices = package.PointVertices.ToArray();
             for (var i = 0; i < previousPointVertexCount * 3 && i < ptVertices.Length; i += 3)
             {
-                newPackage.AddPointVertex(ptVertices[i], ptVertices[i+1],ptVertices[i+2]);
+                newPackage.AddPointVertex(ptVertices[i], ptVertices[i + 1], ptVertices[i + 2]);
             }
 
             var ptColors = package.PointVertexColors.ToArray();
@@ -623,9 +381,9 @@ namespace Dynamo.Scheduler
             {
                 newPackage.AddTriangleVertexColor(meshColors[i], meshColors[i + 1], meshColors[i + 2], meshColors[i + 3]);
             }
-            
+
             //Todo Need to obsolete ITransformable
-            if(package is ITransformable transformable && newPackage is ITransformable newTransformable)
+            if (package is ITransformable transformable && newPackage is ITransformable newTransformable)
             {
                 newTransformable.RequiresCustomTransform = transformable.RequiresCustomTransform;
                 var t = transformable.Transform;
@@ -634,8 +392,8 @@ namespace Dynamo.Scheduler
                     newTransformable.SetTransform(t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8], t[9], t[10], t[11], t[12], t[13], t[14], t[15]);
                 }
             }
-            
-            if(package is IRenderPackageSupplement packageSupplement  && newPackage is IRenderPackageSupplement newPackageSupplement)
+
+            if (package is IRenderPackageSupplement packageSupplement && newPackage is IRenderPackageSupplement newPackageSupplement)
             {
                 var textureMapsList = packageSupplement.TextureMapsList;
                 var textureMapsStrideList = packageSupplement.TextureMapsStrideList;
@@ -660,7 +418,7 @@ namespace Dynamo.Scheduler
 
             return newPackage;
         }
-        
+
         protected override void HandleTaskCompletionCore()
         {
         }

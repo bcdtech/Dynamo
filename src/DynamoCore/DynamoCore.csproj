@@ -30,14 +30,7 @@
     <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
   </ItemGroup>
   <ItemGroup Label="Common dependencies">
-    <PackageReference Include="DynamoVisualProgramming.LibG_230_0_0" Version="3.0.0.8085" GeneratePathProperty="true" ExcludeAssets="all" />
-    <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0" Version="3.4.0.4435" Condition=" '$(Configuration)' == 'Release' " GeneratePathProperty="true" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0_debug" Version="3.4.0.4435" Condition=" '$(Configuration)' == 'Debug' " GeneratePathProperty="true" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.LibG_230_0_0" Version="3.0.0.8085" GeneratePathProperty="true" ExcludeAssets="all"/>
-    <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0" Version="3.4.0.4510" Condition=" '$(Configuration)' == 'Release' " GeneratePathProperty="true" ExcludeAssets="runtime"/>
-    <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0_debug" Version="3.4.0.4510" Condition=" '$(Configuration)' == 'Debug' " GeneratePathProperty="true" ExcludeAssets="runtime"/>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" CopyXML="true" />   
-    <PackageReference Include="DynamoVisualProgramming.Analytics" Version="4.2.1.6685" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\GraphLayout\GraphLayout.csproj">
@@ -209,16 +202,7 @@
     <Copy SourceFiles="@(NodeHelpPngImageFiles)" DestinationFolder="$(OutputPath)\NodeHelpSharedDocs\" SkipUnchangedFiles="True" />
     <Copy SourceFiles="@(NodeHelpGifImageFiles)" DestinationFolder="$(OutputPath)\NodeHelpSharedDocs\" SkipUnchangedFiles="True" />
     <Copy SourceFiles="@(NodeHelpXLSXFiles)" DestinationFolder="$(OutputPath)\NodeHelpSharedDocs\" />
-    <Copy SourceFiles="@(OpenSourceLicenses)" DestinationFolder="$(OutputPath)Open Source Licenses\" />
-    <Copy SourceFiles="@(LibGInterface)" DestinationFolder="$(OutputPath)" />
-    <Copy SourceFiles="@(LibGProtoGeometryDLL)" DestinationFolder="$(OutputPath)" />
-    <Copy SourceFiles="@(LibGProtoGeometryXml)" DestinationFolder="$(OutputPath)" />
-    <Copy SourceFiles="@(LibGProtoGeometryXml)" DestinationFolder="$(OutputPath)\$(UICulture)" />
-    <Copy SourceFiles="@(LibGProtoGeometryUICulture)" DestinationFolder="$(OutputPath)\$(UICulture)" />
-    <Copy SourceFiles="@(LibGMainDeps)" DestinationFolder="$(OutputPath)$(LIBGVerMain)\asm_deps\" />
-    <Exec Command="$(PowerShellCommand) -ExecutionPolicy ByPass -Command Copy-Item -Path '$(LibGProtoGeometryLibGLocale)' -Destination '$(OutputPath)' -Recurse -Force" />
-    <Copy SourceFiles="@(LibGSecondary)" DestinationFolder="$(OutputPath)$(LIBGVerSecondary)\" />
-    <Copy SourceFiles="@(LibGMain)" DestinationFolder="$(OutputPath)$(LIBGVerMain)\" />
+    <Copy SourceFiles="@(OpenSourceLicenses)" DestinationFolder="$(OutputPath)Open Source Licenses\" />   
     <Copy SourceFiles="@(SampleFiles)" DestinationFolder="$(OutputPath)samples\%(RecursiveDir)" />
     <Copy SourceFiles="@(LocalizedResources)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
     <Copy SourceFiles="$(ProjectDir)\BuiltInAndOperators\Operators.xml" DestinationFolder="$(OutputPath)\$(UICulture)" />

@@ -1,6 +1,3 @@
-using Dynamo.Models;
-using Autodesk.Analytics.ADP;
-using Autodesk.Analytics.Core;
 using System;
 
 namespace Dynamo.Logging
@@ -10,8 +7,7 @@ namespace Dynamo.Logging
     /// </summary>
     internal class AnalyticsService
     {
-        // Use the Analytics.Core interface so that we do not have to load the ADP assembly at this time.
-        private static IAnalyticsUI adpAnalyticsUI;
+
 
         /// <summary>
         /// Indicates that we don't want to shut down analytics when DynamoModel shuts down.
@@ -25,12 +21,8 @@ namespace Dynamo.Logging
         /// </summary>
         internal static void Start()
         {
-            // Initialize the concrete class only when we initialize the Service.
-            // This will also load the Analytics.Net.ADP assembly
-            // We must initialize the ADPAnalyticsUI instance before the Analytics.Start call.
-            adpAnalyticsUI = new ADPAnalyticsUI();
 
-            Analytics.Start(new DynamoAnalyticsClient(DynamoModel.HostAnalyticsInfo));
+
         }
 
         /// <summary>
@@ -39,38 +31,13 @@ namespace Dynamo.Logging
         /// </summary>
         internal static bool IsADPOptedIn
         {
-            get
-            {
-                if (Analytics.DisableAnalytics ||
-                    adpAnalyticsUI == null)
-                {
-                    return false;
-                }
-                return adpAnalyticsUI.IsOptedIn(5,500);
-            }
-            
-            set
-            {
-                if (Analytics.DisableAnalytics ||
-                    adpAnalyticsUI == null)
-                {
-                    return;
-                }
+            get; set;
 
-                adpAnalyticsUI.SetOptedIn(value);
-            }
-            
         }
 
         internal static bool IsADPAvailable()
         {
-            if (Analytics.DisableAnalytics ||
-                adpAnalyticsUI == null)
-            {
-                return false;
-            }
-
-            return adpAnalyticsUI.IsProviderAvailable();
+            return false;
         }
 
         /// <summary>
@@ -90,18 +57,12 @@ namespace Dynamo.Logging
         /// <param name="host">main window</param>
         internal static void ShowADPConsentDialog(IntPtr? host)
         {
-            if (!Analytics.DisableAnalytics && adpAnalyticsUI != null)
-            {
-                adpAnalyticsUI.ShowOptInDialog(System.Threading.Thread.CurrentThread.CurrentUICulture.Name, false, host);
-            }
+
         }
 
         internal static string GetUserIDForSession()
         {
-            if (Analytics.client is DynamoAnalyticsClient dac)
-            {
-                return dac.Session?.UserId;
-            }
+
             return null;
         }
     }

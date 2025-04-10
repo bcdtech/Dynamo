@@ -1041,13 +1041,7 @@ namespace Dynamo.Models
             {
                 AnalyticsService.Start();
             }
-            else if (Analytics.client is DynamoAnalyticsClient dac)
-            {
-                if (dac.Session == null)
-                {
-                    AnalyticsService.Start();
-                }
-            }
+
         }
 
         private void SearchModel_ItemProduced(NodeModel node)
