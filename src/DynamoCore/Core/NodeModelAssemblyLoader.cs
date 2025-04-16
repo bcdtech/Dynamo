@@ -112,8 +112,9 @@ namespace Dynamo.Models
 
             // find all the dlls registered in all search paths
             // and concatenate with all dlls in the current directory
+
             var allDynamoAssemblyPaths = nodeDirectories.SelectMany(
-                    path => Directory.GetFiles(path, "*.dll", SearchOption.TopDirectoryOnly));
+                    path => Directory.Exists(path) ? Directory.GetFiles(path, "*.dll", SearchOption.TopDirectoryOnly) : []);
 
             // add the core assembly to get things like code block nodes and watches.
             //allDynamoAssemblyPaths.Add(Path.Combine(DynamoPathManager.Instance.MainExecPath, "DynamoCore.dll"));

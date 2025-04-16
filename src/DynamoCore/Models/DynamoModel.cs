@@ -394,7 +394,7 @@ namespace Dynamo.Models
         /// </summary>
         public ITraceReconciliationProcessor TraceReconciliationProcessor { get; set; }
 
-
+        public IEnumerable<Assembly> NodeAssemblies { get; set; }
 
         internal static string DefaultPythonEngine { get; private set; }
 
@@ -535,6 +535,7 @@ namespace Dynamo.Models
             /// Configuration object that contains host information like Host name, parent id and session id.
             /// </summary>
             HostAnalyticsInfo HostAnalyticsInfo { get; set; }
+            IEnumerable<Assembly> NodeAssemblies { get; set; }
         }
 
         /// <summary>
@@ -563,18 +564,18 @@ namespace Dynamo.Models
         /// <summary>
         /// Initialization settings for DynamoModel.
         /// </summary>
-        public struct DefaultStartConfiguration : IStartConfiguration
+        public class DefaultStartConfiguration : IStartConfiguration
         {
             public string Context { get; set; }
             public string DynamoCorePath { get; set; }
             public string DynamoHostPath { get; set; }
-            public IPreferences Preferences { get; set; }
+            public IPreferences Preferences { get; set; } = PreferenceSettings.Instance;
             public IPathResolver PathResolver { get; set; }
             public bool StartInTestMode { get; set; }
             public ISchedulerThread SchedulerThread { get; set; }
             public string GeometryFactoryPath { get; set; }
             public IEnumerable<IExtension> Extensions { get; set; }
-            public TaskProcessMode ProcessMode { get; set; }
+            public TaskProcessMode ProcessMode { get; set; } = TaskProcessMode.Asynchronous;
             public bool IsHeadless { get; set; }
             public bool NoNetworkMode { get; set; }
             public bool IsServiceMode { get; set; }
@@ -584,13 +585,14 @@ namespace Dynamo.Models
             /// </summary>
             public string DefaultPythonEngine { get; set; }
 
-            public HostAnalyticsInfo HostAnalyticsInfo { get; set; }
+            public HostAnalyticsInfo HostAnalyticsInfo { get; set; }=new HostAnalyticsInfo();
 
             /// <summary>
             /// CLIMode indicates if we are running in DynamoCLI or DynamoWPFCLI mode.
             /// </summary>
             public bool CLIMode { get; set; }
             public string CLILocale { get; set; }
+            public IEnumerable<Assembly> NodeAssemblies { get; set; }
         }
 
         /// <summary>
@@ -894,7 +896,7 @@ namespace Dynamo.Models
                 }
                 ;
             };
-
+            NodeAssemblies = config.NodeAssemblies;
             Loader = new NodeModelAssemblyLoader();
             Loader.MessageLogged += LogMessage;
 
@@ -1621,7 +1623,14 @@ namespace Dynamo.Models
             List<TypeLoadData> migrationTypes;
             Loader.LoadNodeModelsAndMigrations(pathManager.NodeDirectories,
                 Context, out modelTypes, out migrationTypes);
+            if(NodeAssemblies?.Any()==true)
+            {
+                foreach(var assembly in NodeAssemblies)
+                {
+                    Loader.LoadNodesFromAssembly(assembly, Context, modelTypes, migrationTypes);
 
+                }
+            }
             LoadNodeModels(modelTypes, false);
 
             // Load migrations

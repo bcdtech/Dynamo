@@ -25,7 +25,7 @@ namespace WpfApp1
                 ShowLogin = false
             };
 
-            var viewModel = DynamoViewModel.Start(startConfiguration);
+            var viewModel = DynamoViewModel.Start();
 
             var dynamoView = new DynamoView(viewModel);
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;

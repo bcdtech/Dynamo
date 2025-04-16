@@ -42,6 +42,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using ISelectable = Dynamo.Selection.ISelectable;
 using WpfResources = Dynamo.Wpf.Properties.Resources;
+using Dynamo.Wpf.Services;
 
 namespace Dynamo.ViewModels
 {
@@ -672,8 +673,13 @@ namespace Dynamo.ViewModels
 
         public static DynamoViewModel Start(StartConfiguration startConfiguration = new StartConfiguration())
         {
+
             if (startConfiguration.DynamoModel == null)
-                startConfiguration.DynamoModel = DynamoModel.Start();
+                startConfiguration.DynamoModel = DynamoModel.Start(new DynamoModel.DefaultStartConfiguration()
+                {
+                    PathResolver=new SandboxPathResolver(),
+                    NodeAssemblies = [Assembly.Load("CoreNodeModels"), Assembly.Load("CoreNodeModelsWpf")]
+                });
 
             if (startConfiguration.WatchHandler == null)
                 startConfiguration.WatchHandler = new DefaultWatchHandler(startConfiguration.DynamoModel.PreferenceSettings);
