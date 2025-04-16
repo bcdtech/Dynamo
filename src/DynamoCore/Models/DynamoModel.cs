@@ -394,7 +394,6 @@ namespace Dynamo.Models
         /// </summary>
         public ITraceReconciliationProcessor TraceReconciliationProcessor { get; set; }
 
-        public IEnumerable<Assembly> NodeAssemblies { get; set; }
 
         internal static string DefaultPythonEngine { get; private set; }
 
@@ -535,7 +534,6 @@ namespace Dynamo.Models
             /// Configuration object that contains host information like Host name, parent id and session id.
             /// </summary>
             HostAnalyticsInfo HostAnalyticsInfo { get; set; }
-            IEnumerable<Assembly> NodeAssemblies { get; set; }
         }
 
         /// <summary>
@@ -896,7 +894,6 @@ namespace Dynamo.Models
                 }
                 ;
             };
-            NodeAssemblies = config.NodeAssemblies;
             Loader = new NodeModelAssemblyLoader();
             Loader.MessageLogged += LogMessage;
 
@@ -1623,14 +1620,7 @@ namespace Dynamo.Models
             List<TypeLoadData> migrationTypes;
             Loader.LoadNodeModelsAndMigrations(pathManager.NodeDirectories,
                 Context, out modelTypes, out migrationTypes);
-            if(NodeAssemblies?.Any()==true)
-            {
-                foreach(var assembly in NodeAssemblies)
-                {
-                    Loader.LoadNodesFromAssembly(assembly, Context, modelTypes, migrationTypes);
-
-                }
-            }
+            
             LoadNodeModels(modelTypes, false);
 
             // Load migrations

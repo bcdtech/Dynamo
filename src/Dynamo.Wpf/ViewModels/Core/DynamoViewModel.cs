@@ -675,11 +675,13 @@ namespace Dynamo.ViewModels
         {
 
             if (startConfiguration.DynamoModel == null)
+            {
                 startConfiguration.DynamoModel = DynamoModel.Start(new DynamoModel.DefaultStartConfiguration()
                 {
-                    PathResolver=new SandboxPathResolver(),
-                    NodeAssemblies = [Assembly.Load("CoreNodeModels"), Assembly.Load("CoreNodeModelsWpf")]
+                    
                 });
+            }
+               
 
             if (startConfiguration.WatchHandler == null)
                 startConfiguration.WatchHandler = new DefaultWatchHandler(startConfiguration.DynamoModel.PreferenceSettings);
