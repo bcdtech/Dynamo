@@ -10,8 +10,9 @@
     Height="450"
     mc:Ignorable="d">
     <Grid x:Name="mainGrid" Background="Beige">
-        <ListBox ItemsSource="{Binding Items}"
+        <ListBox ItemsSource="{Binding Items}" Height="280"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                  >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>

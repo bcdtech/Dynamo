@@ -116,12 +116,14 @@
                 x:Name="primaryMembers"
                 Grid.Row="1"
                 Grid.Column="1"
-                Padding="0,-10,0,0"
+                Padding="0,0,0,0"
                 Background="Transparent"
-                
+                Height="400"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 BorderBrush="{StaticResource CreateMembersColor}"
-                BorderThickness="2,0,0,0"
+                BorderThickness="2"
+                VerticalContentAlignment="Stretch"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
                 ItemTemplate="{StaticResource MemberTemplate}" >
                 <ListBox.ItemsPanel>
@@ -175,7 +177,7 @@
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.Visibility>
