@@ -793,29 +793,9 @@
           "elementType": "category",
           "include": [
             {
-              "path": "Analysis.Analysis.Label"
+                "path": "Core.View.Watch"
             }
-          ],
-            "childElements": [
-              
-                {
-                    "text": "Watch",
-                    "iconUrl": "",
-                    "elementType": "group",
-                    "include": [
-                        {
-                            "path": "Core.View.Watch"
-                        },
-                        {
-                            "path": "Core.View.Watch Image"
-                        },
-                        {
-                            "path": "Core.View.Watch 3D"
-                        }
-                    ],
-                    "childElements": []
-                }
-            ]
+          ]
         },       
         {
           "text": "String",

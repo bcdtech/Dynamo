@@ -35,9 +35,9 @@ namespace Dynamo.UI.Controls
         {
             var listBoxItem = sender as ListBoxItem;
             if (listBoxItem == null) return;
-
-            ExecuteSearchElement(listBoxItem);
             e.Handled = true;
+
+            //ExecuteSearchElement(listBoxItem);
 
             if (FocusItemOnSelection)
                 listBoxItem.Focus();
@@ -51,6 +51,7 @@ namespace Dynamo.UI.Controls
 
             ExecuteSearchElement(listBoxItem);
             e.Handled = true;
+
         }
 
         private void ExecuteSearchElement(ListBoxItem listBoxItem)

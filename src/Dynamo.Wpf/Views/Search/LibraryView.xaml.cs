@@ -280,7 +280,17 @@ namespace Dynamo.UI.Views
                 ignoreMouseEnter = true;
             }
         }
+        private void OnExpanderButtonMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var searchElementVm = GetDataContext(e.OriginalSource);
 
+            //sender can be RootSearchElementVM or ClassInformationViewModel. 
+            if (searchElementVm != null)
+            {
+                searchElementVm.ClickedCommand.Execute(null);
+            }
+            e.Handled = true;
+        }
         private void OnAddButtonPreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -299,6 +309,11 @@ namespace Dynamo.UI.Views
 
         private void OnExpanderButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var vm=(e.OriginalSource as FrameworkElement)?.DataContext as ISearchEntryViewModel;
+            if (vm != null&&vm is not NodeSearchElementViewModel)
+            {
+                vm.ClickedCommand.Execute(null);
+            }
             var searchElementVm = GetDataContext(e.OriginalSource);
 
             //sender can be RootSearchElementVM or ClassInformationViewModel. 
