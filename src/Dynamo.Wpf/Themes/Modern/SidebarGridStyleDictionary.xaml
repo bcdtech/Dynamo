@@ -228,38 +228,39 @@
             Margin="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Orientation="Vertical">
+            Orientation="Vertical"
+            >
             <StackPanel Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.DisplayIcon, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock
-                    MinWidth="25"
-                    MaxWidth="33"
-                    Margin="5,12,0,0"
-                    HorizontalAlignment="Center"
-                    FontSize="11"
-                    Foreground="{StaticResource DynamoStandardLabelTextBrush}"
-                    Text="{Binding AutoCompletionNodeMachineLearningInfo.ConfidenceScore, StringFormat={}{0} %, Mode=OneWay, Converter={StaticResource ConfidenceScoreFormattingConverter}}"
-                    Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.IsByRecommendation, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        MinWidth="25"
+        MaxWidth="33"
+        Margin="5,12,0,0"
+        HorizontalAlignment="Center"
+        FontSize="11"
+        Foreground="{StaticResource DynamoStandardLabelTextBrush}"
+        Text="{Binding AutoCompletionNodeMachineLearningInfo.ConfidenceScore, StringFormat={}{0} %, Mode=OneWay, Converter={StaticResource ConfidenceScoreFormattingConverter}}"
+        Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.IsByRecommendation, Converter={StaticResource BooleanToVisibilityConverter}}" />
                 <Image
-                    Width="14"
-                    Height="14"
-                    Margin="7,10,8,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/clock-icon.png"
-                    Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.IsByUse, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        Width="14"
+        Height="14"
+        Margin="7,10,8,0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Source="pack://application:,,,/Dynamo.Wpf;component/Assets/Images/clock-icon.png"
+        Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.IsByUse, Converter={StaticResource BooleanToVisibilityConverter}}" />
             </StackPanel>
             <Image
-                Width="24"
-                Height="36"
-                Margin="2,0,16,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Source="{Binding SmallIcon}" />
+    Width="24"
+    Height="36"
+    Margin="2,0,16,0"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Source="{Binding SmallIcon}" />
             <Grid Margin="0,0,0,0">
                 <Rectangle
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Fill="#3E464C">
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Fill="#3E464C">
                     <Rectangle.Margin>
                         <MultiBinding Converter="{StaticResource SearchHighlightMarginConverter}">
                             <Binding ElementName="memberName" />
@@ -268,16 +269,17 @@
                     </Rectangle.Margin>
                 </Rectangle>
                 <TextBlock
-                    Name="memberName"
-                    Grid.Column="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    FontSize="13">
-                    <Run Foreground="{StaticResource CommonSidebarTextColor}" Text="{Binding Name, Mode=OneWay}" />
-                    <Run Foreground="#808285" Text="{Binding Parameters, Mode=OneWay}" />
+        Name="memberName"
+        Grid.Column="1"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        FontSize="13">
+        <Run Foreground="{StaticResource CommonSidebarTextColor}" Text="{Binding Name, Mode=OneWay}" />
+        <Run Foreground="#808285" Text="{Binding Parameters, Mode=OneWay}" />
                 </TextBlock>
             </Grid>
         </StackPanel>
+
     </DataTemplate>
 
     <!--  EndRegion  -->
