@@ -9,5 +9,26 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid x:Name="mainGrid" Background="Beige" />
+    <Grid x:Name="mainGrid" Background="Beige">
+        <ListBox ItemsSource="{Binding Items}"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal">
+
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="100" Width="100">
+                        <TextBlock Text="{Binding}">
+                            
+                        </TextBlock>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </Window>

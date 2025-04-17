@@ -255,7 +255,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Source="{Binding SmallIcon}" />
-            <Grid Margin="-10,0,0,0">
+            <Grid Margin="0,0,0,0">
                 <Rectangle
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"

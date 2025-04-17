@@ -2,6 +2,7 @@ using Dynamo.Applications;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
+using System.Collections;
 using System.Windows;
 
 namespace WpfApp1
@@ -12,9 +13,11 @@ namespace WpfApp1
 
     public partial class MainWindow : Window
     {
+        public List<int> Items { get; set; } =Enumerable.Range(0,100).ToList();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
             //var assembly = Assembly.LoadFrom("DSCoreNodes.dll");
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");

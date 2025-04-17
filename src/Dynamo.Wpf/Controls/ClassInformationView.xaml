@@ -118,13 +118,18 @@
                 Grid.Column="1"
                 Padding="0,-10,0,0"
                 Background="Transparent"
-                HorizontalAlignment="Stretch"
-               
-                HorizontalContentAlignment="Stretch"
+                
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 BorderBrush="{StaticResource CreateMembersColor}"
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
-                ItemTemplate="{StaticResource MemberTemplate}" />
+                ItemTemplate="{StaticResource MemberTemplate}" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Border
                 x:Name="secondaryBorder"
                 Grid.Row="2"
@@ -167,7 +172,12 @@
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
                 ItemTemplate="{StaticResource MemberTemplate}"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.Visibility>
                     <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreSecondaryHeadersVisible" />
                 </ListBox.Visibility>
@@ -214,7 +224,12 @@
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
                 ItemTemplate="{StaticResource MemberTemplate}"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.Visibility>
                     <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreQueryHeadersVisible" />
                 </ListBox.Visibility>
