@@ -11,7 +11,7 @@
     xmlns:uicontrols="clr-namespace:Dynamo.UI.Controls"
     MinWidth="100"
     d:DesignHeight="300"
-    d:DesignWidth="300"
+    d:DesignWidth="300"  
     Background="Transparent"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -34,12 +34,14 @@
                 x:Key="ListBoxItemStyle"
                 BasedOn="{StaticResource MemberGroupMemberStyle}"
                 TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Height" Value="auto"/>
                 <Setter Property="Background" Value="{StaticResource LibraryItemHostBackground}" />
-
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 <EventSetter Event="PreviewMouseLeftButtonUp" Handler="OnMouseLeftButtonUp" />
                 <EventSetter Event="KeyDown" Handler="OnMemberButtonKeyDown" />
                 <EventSetter Event="MouseEnter" Handler="OnListBoxItemMouseEnter" />
                 <EventSetter Event="MouseLeave" Handler="OnPopupMouseLeave" />
+                <EventSetter Event="MouseDoubleClick" Handler="OnMouseDoubleClick"/>
             </Style>
             <Style x:Key="MoreButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Template">
@@ -83,9 +85,9 @@
             KeyDown="OnMainGridKeyDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -116,6 +118,9 @@
                 Grid.Column="1"
                 Padding="0,-10,0,0"
                 Background="Transparent"
+                HorizontalAlignment="Stretch"
+               
+                HorizontalContentAlignment="Stretch"
                 BorderBrush="{StaticResource CreateMembersColor}"
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"

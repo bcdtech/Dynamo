@@ -1575,6 +1575,7 @@
             Width="Auto"
             Height="Auto"
             HorizontalAlignment="Stretch"
+            
             VerticalAlignment="Stretch" />
 
         <!--  Right Sidebar Panel  -->

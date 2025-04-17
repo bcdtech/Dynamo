@@ -160,6 +160,8 @@ namespace Dynamo.Controls
             var libraryView = new LibraryView();
             var libraryViewModel = new SearchViewModel(dynamoViewModel);
             libraryView.DataContext = libraryViewModel;
+            libraryView.HorizontalAlignment = HorizontalAlignment.Stretch;
+            libraryView.HorizontalContentAlignment = HorizontalAlignment.Stretch;
             sidebarGrid.Children.Add(libraryView);
             var viewExtensions = new List<IViewExtension>();
             foreach (var dir in dynamoViewModel.Model.PathManager.ViewExtensionsDirectories)

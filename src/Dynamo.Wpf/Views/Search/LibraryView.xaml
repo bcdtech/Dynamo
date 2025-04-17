@@ -216,11 +216,14 @@
 
             <Style x:Key="ClassTreeViewItem" TargetType="{x:Type TreeViewItem}">
                 <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=OneWay}" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TreeViewItem}">
 
-                            <Button x:Name="outerButton" Command="{Binding ClickedCommand}">
+                            <Button x:Name="outerButton" Command="{Binding ClickedCommand}" 
+                                    HorizontalAlignment="Stretch" >
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <ContentPresenter />
@@ -517,11 +520,7 @@
                     <StackPanel.Style>
                         <Style TargetType="{x:Type StackPanel}">
                             <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Width">
-                                <Setter.Value>
-                                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                                </Setter.Value>
-                            </Setter>
+                            
 
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
@@ -535,9 +534,7 @@
 
             <DataTemplate x:Key="ClassDetailsDataTemplate">
                 <uicontrols:ClassInformationView>
-                    <uicontrols:ClassInformationView.Width>
-                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                    </uicontrols:ClassInformationView.Width>
+                   
                 </uicontrols:ClassInformationView>
             </DataTemplate>
 
@@ -571,11 +568,7 @@
                         <StackPanel.Style>
                             <Style TargetType="{x:Type StackPanel}">
                                 <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Width">
-                                    <Setter.Value>
-                                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                                    </Setter.Value>
-                                </Setter>
+                               
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="{StaticResource LibraryMemberOnHover}" />
@@ -690,7 +683,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Name="LibraryGrid">
-        <ScrollViewer
+        <ScrollViewer 
             Name="ScrollLibraryViewer"
             Background="Transparent"
             CanContentScroll="True"
@@ -705,11 +698,12 @@
                 </Grid.RowDefinitions>
                 <TreeView
                     Name="CategoryTreeView"
+                    HorizontalContentAlignment="Stretch"
                     FocusManager.IsFocusScope="true"
                     ItemContainerStyle="{StaticResource LibraryTreeViewItem}"
                     ItemTemplateSelector="{StaticResource LibraryTreeTemplateSelector}"
                     ItemsSource="{Binding LibraryRootCategories}"
-                    TreeViewItem.Expanded="OnTreeViewItemExpanded">
+                    TreeViewItem.Expanded="OnTreeViewItemExpanded">                  
                     <TreeView.Template>
                         <ControlTemplate>
                             <ItemsPresenter />

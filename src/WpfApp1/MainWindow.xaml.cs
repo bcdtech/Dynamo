@@ -2,7 +2,6 @@ using Dynamo.Applications;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
-using System.Reflection;
 using System.Windows;
 
 namespace WpfApp1
@@ -19,13 +18,13 @@ namespace WpfApp1
             //var assembly = Assembly.LoadFrom("DSCoreNodes.dll");
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");
-            Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
+            //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
             var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
                 DynamoModel = model,
                 ShowLogin = false,
-                
+
 
             };
 
