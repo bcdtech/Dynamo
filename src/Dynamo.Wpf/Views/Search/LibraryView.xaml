@@ -25,7 +25,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TreeViewItem}">
                             <Button
-                                Command="{Binding ClickedCommand}"
+                                MouseDoubleClick="OnExpanderButtonMouseDoubleClick"
                                 MouseEnter="OnMemberMouseEnter"
                                 MouseLeave="OnPopupMouseLeave"
                                 PreviewMouseLeftButtonDown="OnExpanderButtonMouseLeftButtonDown"
@@ -174,6 +174,7 @@
                                                 <ItemsPresenter.Style>
                                                     <Style TargetType="{x:Type ItemsPresenter}">
                                                         <Setter Property="Margin" Value="0,0,0,0" />
+
                                                         <Style.Triggers>
                                                             <DataTrigger Value="True">
                                                                 <DataTrigger.Binding>
@@ -207,7 +208,13 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
                 <EventSetter Event="MouseEnter" Handler="OnMemberMouseEnter" />
                 <EventSetter Event="MouseLeave" Handler="OnPopupMouseLeave" />
             </Style>
@@ -216,11 +223,13 @@
 
             <Style x:Key="ClassTreeViewItem" TargetType="{x:Type TreeViewItem}">
                 <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=OneWay}" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TreeViewItem}">
 
-                            <Button x:Name="outerButton" Command="{Binding ClickedCommand}">
+                            <Button x:Name="outerButton" HorizontalAlignment="Stretch">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <ContentPresenter />
@@ -493,16 +502,19 @@
             <!--  Region DataContext Templates  -->
 
             <!--  This data template is used to show single member.  -->
-            <DataTemplate x:Key="MemberControlTemplate">
+            <HierarchicalDataTemplate x:Key="MemberControlTemplate" ItemsSource="{Binding TreeViewItems}">
+
                 <StackPanel
                     Name="ImageAndNodeName"
+                    Width="70"
+                    Height="70"
                     VerticalAlignment="Center"
-                    Orientation="Horizontal">
+                    Orientation="Vertical">
                     <Image
                         Name="SmallIcon"
-                        Width="32"
+                        Width="24"
                         Height="36"
-                        Margin="16,0,16,0"
+                        Margin="2,0,16,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Source="{Binding SmallIcon}" />
@@ -517,11 +529,7 @@
                     <StackPanel.Style>
                         <Style TargetType="{x:Type StackPanel}">
                             <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Width">
-                                <Setter.Value>
-                                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                                </Setter.Value>
-                            </Setter>
+
 
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
@@ -531,14 +539,11 @@
                         </Style>
                     </StackPanel.Style>
                 </StackPanel>
-            </DataTemplate>
+
+            </HierarchicalDataTemplate>
 
             <DataTemplate x:Key="ClassDetailsDataTemplate">
-                <uicontrols:ClassInformationView>
-                    <uicontrols:ClassInformationView.Width>
-                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                    </uicontrols:ClassInformationView.Width>
-                </uicontrols:ClassInformationView>
+                <uicontrols:ClassInformationView />
             </DataTemplate>
 
             <!--  This data template is used to show one subcategory.  -->
@@ -571,11 +576,7 @@
                         <StackPanel.Style>
                             <Style TargetType="{x:Type StackPanel}">
                                 <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Width">
-                                    <Setter.Value>
-                                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=TreeView}" />
-                                    </Setter.Value>
-                                </Setter>
+
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="{StaticResource LibraryMemberOnHover}" />
@@ -598,7 +599,7 @@
                     ItemTemplate="{StaticResource ClassObjectDataTemplate}"
                     ItemsSource="{Binding Items}"
                     ScrollViewer.CanContentScroll="False"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.IsDeferredScrollingEnabled="False"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
@@ -705,6 +706,7 @@
                 </Grid.RowDefinitions>
                 <TreeView
                     Name="CategoryTreeView"
+                    HorizontalContentAlignment="Stretch"
                     FocusManager.IsFocusScope="true"
                     ItemContainerStyle="{StaticResource LibraryTreeViewItem}"
                     ItemTemplateSelector="{StaticResource LibraryTreeTemplateSelector}"
@@ -715,6 +717,7 @@
                             <ItemsPresenter />
                         </ControlTemplate>
                     </TreeView.Template>
+
                 </TreeView>
 
             </Grid>

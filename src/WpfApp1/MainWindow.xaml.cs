@@ -12,17 +12,22 @@ namespace WpfApp1
 
     public partial class MainWindow : Window
     {
+        public List<int> Items { get; set; } = Enumerable.Range(0, 100).ToList();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
             //var assembly = Assembly.LoadFrom("DSCoreNodes.dll");
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");
-            var model = StartupUtils.MakeModel(false, "", true, string.Empty, new HostAnalyticsInfo { });
+            //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
+            var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
                 DynamoModel = model,
-                ShowLogin = false
+                ShowLogin = false,
+
+
             };
 
             var viewModel = DynamoViewModel.Start(startConfiguration);
@@ -31,6 +36,16 @@ namespace WpfApp1
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
             dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);
+        }
+
+        private void mainGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
         }
     }
 }

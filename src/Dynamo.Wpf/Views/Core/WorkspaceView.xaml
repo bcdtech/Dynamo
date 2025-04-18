@@ -128,8 +128,7 @@
             BorderThickness="0"
             ClipToBounds="True"
             Cursor="{Binding CurrentCursor}"
-            ForceCursor="{Binding IsCursorForced}"
-            >
+            ForceCursor="{Binding IsCursorForced}">
 
             <controls:ZoomBorder.IsHitTestVisible>
                 <Binding
@@ -200,7 +199,7 @@
             VerticalAlignment="Top"
             Orientation="Horizontal">
 
-           
+
 
             <ui:ImageButton
                 Width="30"
@@ -283,7 +282,7 @@
                 </ui:ImageCheckBox.Visibility>
             </ui:ImageCheckBox>
 
-           
+
         </StackPanel>
 
         <Popup

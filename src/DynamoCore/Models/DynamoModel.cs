@@ -395,7 +395,6 @@ namespace Dynamo.Models
         public ITraceReconciliationProcessor TraceReconciliationProcessor { get; set; }
 
 
-
         internal static string DefaultPythonEngine { get; private set; }
 
         internal static DynamoUtilities.DynamoFeatureFlagsManager FeatureFlags { get; private set; }
@@ -563,18 +562,18 @@ namespace Dynamo.Models
         /// <summary>
         /// Initialization settings for DynamoModel.
         /// </summary>
-        public struct DefaultStartConfiguration : IStartConfiguration
+        public class DefaultStartConfiguration : IStartConfiguration
         {
             public string Context { get; set; }
             public string DynamoCorePath { get; set; }
             public string DynamoHostPath { get; set; }
-            public IPreferences Preferences { get; set; }
+            public IPreferences Preferences { get; set; } = PreferenceSettings.Instance;
             public IPathResolver PathResolver { get; set; }
             public bool StartInTestMode { get; set; }
             public ISchedulerThread SchedulerThread { get; set; }
             public string GeometryFactoryPath { get; set; }
             public IEnumerable<IExtension> Extensions { get; set; }
-            public TaskProcessMode ProcessMode { get; set; }
+            public TaskProcessMode ProcessMode { get; set; } = TaskProcessMode.Asynchronous;
             public bool IsHeadless { get; set; }
             public bool NoNetworkMode { get; set; }
             public bool IsServiceMode { get; set; }
@@ -584,13 +583,14 @@ namespace Dynamo.Models
             /// </summary>
             public string DefaultPythonEngine { get; set; }
 
-            public HostAnalyticsInfo HostAnalyticsInfo { get; set; }
+            public HostAnalyticsInfo HostAnalyticsInfo { get; set; }=new HostAnalyticsInfo();
 
             /// <summary>
             /// CLIMode indicates if we are running in DynamoCLI or DynamoWPFCLI mode.
             /// </summary>
             public bool CLIMode { get; set; }
             public string CLILocale { get; set; }
+            public IEnumerable<Assembly> NodeAssemblies { get; set; }
         }
 
         /// <summary>
@@ -894,7 +894,6 @@ namespace Dynamo.Models
                 }
                 ;
             };
-
             Loader = new NodeModelAssemblyLoader();
             Loader.MessageLogged += LogMessage;
 
@@ -1621,7 +1620,7 @@ namespace Dynamo.Models
             List<TypeLoadData> migrationTypes;
             Loader.LoadNodeModelsAndMigrations(pathManager.NodeDirectories,
                 Context, out modelTypes, out migrationTypes);
-
+            
             LoadNodeModels(modelTypes, false);
 
             // Load migrations
@@ -3711,7 +3710,7 @@ namespace Dynamo.Models
             return result;
         }
 
-        private void RecordUndoModels(WorkspaceModel workspace, List<ModelBase> undoItems)
+        internal static void RecordUndoModels(WorkspaceModel workspace, List<ModelBase> undoItems)
         {
             var userActionDictionary = new Dictionary<ModelBase, UndoRedoRecorder.UserAction>();
             //Add models that were newly created

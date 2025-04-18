@@ -6,959 +6,930 @@
       "elementType": "section",
       "showHeader": false,
       "include": [],
-      "childElements": [
-        {
-          "text": "List",
-          "iconUrl": "http://localhost/dist/resources/Category.List.svg",
-          "elementType": "category",
-          "include": [],
-          "childElements": [
+        "childElements": [
             {
-              "text": "Inspect",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.List.AllFalse"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.AllTrue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.AnyFalse"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.AnyTrue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.SetIntersection"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.SetUnion"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.SetDifference"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Contains"
-                },
-                {
-                  "path": "BuiltIn.List.Rank"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.IsHomogeneous"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.IsUniformDepth"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.IsRectangular"
-                },
-                {
-                  "path": "BuiltIn.List.TrueForAll"
-                },
-                {
-                  "path": "BuiltIn.List.TrueForAny"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.IsEmpty"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.IndexOf"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.FirstIndexOf"
-                },
-                {
-                  "path": "BuiltIn.List.Equals"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.CountTrue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.CountFalse"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.MinimumItem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.MaximumItem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.DiagonalRight"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.DiagonalLeft"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.FirstItem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.GetItemAtIndex"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.LastItem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.AllIndicesOf"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Count"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.UniqueItems"
-                }
-              ],
-              "childElements": []
+                "text": "List",
+                "iconUrl": "http://localhost/dist/resources/Category.List.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+                    {
+                        "text": "Inspect",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AllFalse"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AllTrue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AnyFalse"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AnyTrue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.SetIntersection"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.SetUnion"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.SetDifference"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Contains"
+                            },
+                            {
+                                "path": "BuiltIn.List.Rank"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.IsHomogeneous"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.IsUniformDepth"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.IsRectangular"
+                            },
+                            {
+                                "path": "BuiltIn.List.TrueForAll"
+                            },
+                            {
+                                "path": "BuiltIn.List.TrueForAny"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.IsEmpty"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.IndexOf"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.FirstIndexOf"
+                            },
+                            {
+                                "path": "BuiltIn.List.Equals"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.CountTrue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.CountFalse"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.MinimumItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.MaximumItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.DiagonalRight"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.DiagonalLeft"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.FirstItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.GetItemAtIndex"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.LastItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AllIndicesOf"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Count"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.UniqueItems"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Modify",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "BuiltIn.List.RemoveIfNot"
+                            },
+                            {
+                                "path": "Core.List.List.Reduce"
+                            },
+                            {
+                                "path": "Core.List.List.Scan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.RemoveItemAtIndex"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.RestOfItems"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Flatten"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Deconstruct"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Sublists"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Chop"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Slice"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.TakeItems"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Clean"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.DropEveryNthItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.DropItems"
+                            },
+                            {
+                                "path": "Core.List.List.Filter"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.FilterByBoolMask"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.TakeEveryNthItem"
+                            },
+                            {
+                                "path": "Core.List.ReplaceByCondition"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.ReplaceItemAtIndex"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.ReplaceItemAtIndices"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Insert"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AddItemToEnd"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.AddItemToFront"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Organize",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "BuiltIn.List.GroupByFunction"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.GroupByKey"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.GroupBySimilarity"
+                            },
+                            {
+                                "path": "BuiltIn.List.MaximumItemByKey"
+                            },
+                            {
+                                "path": "BuiltIn.List.MinimumItemByKey"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.NormalizeDepth"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Reverse"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Reorder"
+                            },
+                            {
+                                "path": "BuiltIn.List.SortByFunction"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.SortByKey"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.SortIndexByValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.ShiftIndices"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Shuffle"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Sort"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Transpose"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Generate",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.List.List Create"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Join"
+                            },
+                            {
+                                "path": "Core.List.Range"
+                            },
+                            {
+                                "path": "Core.List.Sequence"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Combinations"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Permutations"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Empty"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.OfRepeatedItem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.List.Cycle"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Match",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.List.List.LaceShortest"
+                            },
+                            {
+                                "path": "Core.List.List.LaceLongest"
+                            },
+                            {
+                                "path": "Core.List.List.CartesianProduct"
+                            },
+                            {
+                                "path": "Core.List.List.Map"
+                            },
+                            {
+                                "path": "Core.List.List.Combine"
+                            }
+                        ],
+                        "childElements": []
+                    }
+                ]
             },
             {
-              "text": "Modify",
-              "iconUrl": "",
-              "elementType": "group",
+                "text": "Dictionary",
+                "iconUrl": "http://localhost/dist/resources/Category.Dictionary.svg",
+                "elementType": "category",
                 "include": [
                     {
-                        "path": "BuiltIn.List.RemoveIfNot"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.ByKeysValues"
                     },
                     {
-                        "path": "Core.List.List.Reduce"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Components"
                     },
                     {
-                        "path": "Core.List.List.Scan"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.RemoveKeys"
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.RemoveItemAtIndex"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.SetValueAtKeys"
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.RestOfItems"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.ValueAtKey"
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.Flatten"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Count"
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.Deconstruct"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Keys"
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.Sublists"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Chop"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Slice"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.TakeItems"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Clean"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.DropEveryNthItem"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.DropItems"
-                    },
-                    {
-                        "path": "Core.List.List.Filter"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.FilterByBoolMask"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.TakeEveryNthItem"
-                    },
-                    {
-                        "path": "Core.List.ReplaceByCondition"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.ReplaceItemAtIndex"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.ReplaceItemAtIndices"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Insert"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.AddItemToEnd"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.AddItemToFront"
+                        "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Values"
                     }
                 ],
-              "childElements": []
+                "childElements": []
             },
             {
-              "text": "Organize",
-              "iconUrl": "",
-              "elementType": "group",
-                "include": [
+                "text": "Input",
+                "iconUrl": "http://localhost/dist/resources/Category.Input.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
                     {
-                        "path": "BuiltIn.List.GroupByFunction"
+                        "text": "DateTime",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Input.Date Time"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.MinValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.MaxValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Now"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Today"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.ByDate"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.ByDateAndTime"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.SubtractTimeSpan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.AddTimeSpan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DaysInMonth"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.IsDaylightSavingsTime"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.IsLeapYear"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.FromString"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Date"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Components"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DayOfWeek"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DayOfYear"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.TimeOfDay"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Format"
+                            }
+                        ],
+                        "childElements": []
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.GroupByKey"
+                        "text": "Basic",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Input.Boolean"
+                            },
+                            {
+                                "path": "Core.Input.Integer Slider"
+                            },
+                            {
+                                "path": "Core.Input.Number Slider"
+                            },
+                            {
+                                "path": "Core.Input.String"
+                            },
+                            {
+                                "path": "Core.Input.Number"
+                            },
+                            {
+                                "path": "Core.Input.Input"
+                            },
+                            {
+                                "path": "Core.Input.Output"
+                            },
+                            {
+                                "path": "Core.Input.Custom Selection"
+                            }
+                        ],
+                        "childElements": []
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.List.GroupBySimilarity"
+                        "text": "TimeSpan",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.ByDateDifference"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Zero"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.MaxValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.MinValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Create"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Scale"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Negate"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Add"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Subtract"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.FromString"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Components"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalDays"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalHours"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalMinutes"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalSeconds"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalMilliseconds"
+                            }
+                        ],
+                        "childElements": []
                     },
                     {
-                        "path": "BuiltIn.List.MaximumItemByKey"
-                    },
-                    {
-                        "path": "BuiltIn.List.MinimumItemByKey"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.NormalizeDepth"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Reverse"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Reorder"
-                    },
-                    {
-                        "path": "BuiltIn.List.SortByFunction"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.SortByKey"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.SortIndexByValue"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.ShiftIndices"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Shuffle"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Sort"
-                    },
-                    {
-                        "path": "DSCoreNodes.DSCore.List.Transpose"
+                        "text": "Object",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.IsNull"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.Identity"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.Type"
+                            },
+                            {
+                                "path": "Core.Data.DefineData"
+                            }
+                        ],
+                        "childElements": []
                     }
-                ],
-              "childElements": []
+                ]
             },
             {
-              "text": "Generate",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.List.List Create"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Join"
-                },
-                {
-                  "path": "Core.List.Range"
-                },
-                {
-                  "path": "Core.List.Sequence"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Combinations"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Permutations"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Empty"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.OfRepeatedItem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.List.Cycle"
-                }
-              ],
-              "childElements": []
+                "text": "Math",
+                "iconUrl": "http://localhost/dist/resources/Category.Math.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+                    {
+                        "text": "Functions",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Random"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.RandomList"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.PiTimes2"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Average"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.RemapRange"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.PI"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.E"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.GoldenRatio"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Abs"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Acos"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Asin"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Atan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Atan2"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Ceiling"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Cos"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Cosh"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.DivRem"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Exp"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Floor"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Log"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Log10"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Max"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Min"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Pow"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Rand"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Round"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Sign"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Sin"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Sinh"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Sqrt"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Tan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Tanh"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Sum"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Factorial"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Map"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.MapTo"
+                            },
+                            {
+                                "path": "Core.Scripting.Formula"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.EvaluateFormula"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Operators",
+                        "iconUrl": "http://localhost/dist/resources/Category.Operators.svg",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Operators.+"
+                            },
+                            {
+                                "path": "Operators.-"
+                            },
+                            {
+                                "path": "Operators.*"
+                            },
+                            {
+                                "path": "Operators./"
+                            },
+                            {
+                                "path": "Operators.=="
+                            },
+                            {
+                                "path": "Core.Math.=="
+                            },
+                            {
+                                "path": "Operators.>="
+                            },
+                            {
+                                "path": "Operators.>"
+                            },
+                            {
+                                "path": "Operators.%"
+                            },
+                            {
+                                "path": "Operators.<="
+                            },
+                            {
+                                "path": "Operators.<"
+                            },
+                            {
+                                "path": "Operators.&&"
+                            },
+                            {
+                                "path": "Operators.||"
+                            },
+                            {
+                                "path": "Operators.!="
+                            },
+                            {
+                                "path": "Operators.Not"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Logic",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Math.And"
+                            },
+                            {
+                                "path": "Core.Math.Or"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Math.Xor"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Graph",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Math.Graph.Curve Mapper"
+                            }
+                        ],
+                        "childElements": []
+                    }
+                ]
             },
             {
-              "text": "Match",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.List.List.LaceShortest"
-                },
-                {
-                  "path": "Core.List.List.LaceLongest"
-                },
-                {
-                  "path": "Core.List.List.CartesianProduct"
-                },
-                {
-                  "path": "Core.List.List.Map"
-                },
-                {
-                  "path": "Core.List.List.Combine"
-                }
-              ],
-              "childElements": []
-            }
-          ]
-        },
-        {
-          "text": "Dictionary",
-          "iconUrl": "http://localhost/dist/resources/Category.Dictionary.svg",
-          "elementType": "category",
-          "include": [
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.ByKeysValues"
+                "text": "Script",
+                "iconUrl": "http://localhost/dist/resources/Category.Script.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+                    {
+                        "text": "Evaluate",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Evaluate.Function Apply"
+                            },
+                            {
+                                "path": "Core.Evaluate.Function Compose"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Control Flow",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Logic.Gate"
+                            },
+                            {
+                                "path": "BuiltIn.LoopWhile"
+                            },
+                            {
+                                "path": "Core.Logic.ScopeIf"
+                            },
+                            {
+                                "path": "Core.Logic.If"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Thread.Pause"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "Editor",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Scripting.Python Script"
+                            },
+                            {
+                                "path": "Core.Scripting.Python Script From String"
+                            },
+                            {
+                                "path": "Core.Input.Code Block"
+                            }
+                        ],
+                        "childElements": []
+                    }
+                ]
             },
             {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Components"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.RemoveKeys"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.SetValueAtKeys"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.ValueAtKey"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Count"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Keys"
-            },
-            {
-              "path": "DesignScriptBuiltin.DesignScript.Builtin.Dictionary.Values"
-            }
-          ],
-          "childElements": []
-        },
-        {
-          "text": "Input",
-          "iconUrl": "http://localhost/dist/resources/Category.Input.svg",
-          "elementType": "category",
-          "include": [],
-          "childElements": [
-            {
-              "text": "DateTime",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Input.Date Time"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.MinValue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.MaxValue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.Now"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.Today"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.ByDate"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.ByDateAndTime"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.SubtractTimeSpan"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.AddTimeSpan"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.DaysInMonth"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.IsDaylightSavingsTime"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.IsLeapYear"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.FromString"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.Date"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.Components"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.DayOfWeek"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.DayOfYear"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.TimeOfDay"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.DateTime.Format"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Location",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DynamoUnits.DynamoUnits.Location.Name"
-                },
-                {
-                  "path": "DynamoUnits.DynamoUnits.Location.Latitude"
-                },
-                {
-                  "path": "DynamoUnits.DynamoUnits.Location.Longitude"
-                },
-                {
-                  "path": "DynamoUnits.DynamoUnits.Location.ByLatitudeAndLongitude"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Basic",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Input.Boolean"
-                },
-                {
-                  "path": "Core.Input.Integer Slider"
-                },
-                {
-                  "path": "Core.Input.Number Slider"
-                },
-                {
-                  "path": "Core.Input.String"
-                },
-                {
-                  "path": "Core.Input.Number"
-                },
-                {
-                  "path": "Core.Input.Input"
-                },
-                {
-                  "path": "Core.Input.Output"
-                },
-                {
-                  "path": "Core.Input.Custom Selection"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "TimeSpan",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.ByDateDifference"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Zero"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.MaxValue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.MinValue"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Create"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Scale"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Negate"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Add"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Subtract"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.FromString"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.Components"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.TotalDays"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.TotalHours"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.TotalMinutes"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.TotalSeconds"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.TimeSpan.TotalMilliseconds"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Object",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.Object.IsNull"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Object.Identity"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Object.Type"
-                },
-                {
-                  "path": "Core.Data.DefineData"
-                }
-              ],
-              "childElements": []
-            }
-          ]
-        },
-        {
-          "text": "Math",
-          "iconUrl": "http://localhost/dist/resources/Category.Math.svg",
-          "elementType": "category",
-          "include": [],
-          "childElements": [
-            {
-              "text": "Functions",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Random"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.RandomList"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.PiTimes2"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Average"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.RemapRange"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.PI"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.E"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.GoldenRatio"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Abs"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Acos"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Asin"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Atan"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Atan2"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Ceiling"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Cos"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Cosh"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.DivRem"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Exp"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Floor"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Log"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Log10"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Max"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Min"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Pow"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Rand"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Round"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Sign"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Sin"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Sinh"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Sqrt"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Tan"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Tanh"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Sum"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Factorial"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Map"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.MapTo"
-                },
-                {
-                  "path": "Core.Scripting.Formula"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.EvaluateFormula"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Operators",
-              "iconUrl": "http://localhost/dist/resources/Category.Operators.svg",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Operators.+"
-                },
-                {
-                  "path": "Operators.-"
-                },
-                {
-                  "path": "Operators.*"
-                },
-                {
-                  "path": "Operators./"
-                },
-                {
-                  "path": "Operators.=="
-                },
-                {
-                  "path": "Core.Math.=="
-                },
-                {
-                  "path": "Operators.>="
-                },
-                {
-                  "path": "Operators.>"
-                },
-                {
-                  "path": "Operators.%"
-                },
-                {
-                  "path": "Operators.<="
-                },
-                {
-                  "path": "Operators.<"
-                },
-                {
-                  "path": "Operators.&&"
-                },
-                {
-                  "path": "Operators.||"
-                },
-                {
-                  "path": "Operators.!="
-                },
-                {
-                  "path": "Operators.Not"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Logic",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Math.And"
-                },
-                {
-                  "path": "Core.Math.Or"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Math.Xor"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Graph",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Math.Graph.Curve Mapper"
-                }
-              ],
-              "childElements": []
-            }
-          ]
-        },       
-        {
-          "text": "Script",
-          "iconUrl": "http://localhost/dist/resources/Category.Script.svg",
-          "elementType": "category",
-          "include": [],
-          "childElements": [
-            {
-              "text": "Evaluate",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Evaluate.Function Apply"
-                },
-                {
-                  "path": "Core.Evaluate.Function Compose"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Control Flow",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Logic.Gate"
-                },
-                {
-                  "path": "BuiltIn.LoopWhile"
-                },
-                {
-                  "path": "Core.Logic.ScopeIf"
-                },
-                {
-                  "path": "Core.Logic.If"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.Thread.Pause"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Editor",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "Core.Scripting.Python Script"
-                },
-                {
-                  "path": "Core.Scripting.Python Script From String"
-                },
-                {
-                  "path": "Core.Input.Code Block"
-                }
-              ],
-              "childElements": []
-            }
-          ]
-        },
-        {
-          "text": "Display",
-          "iconUrl": "http://localhost/dist/resources/Category.Display.svg",
-          "elementType": "category",
-          "include": [
-            {
-              "path": "Analysis.Analysis.Label"
-            }
-          ],
-            "childElements": [               
-                {
-                    "text": "Watch",
-                    "iconUrl": "",
-                    "elementType": "group",
-                    "include": [
-                        {
-                            "path": "Core.View.Watch"
-                        },
-                        {
-                            "path": "Core.View.Watch Image"
-                        },
-                        {
-                            "path": "Core.View.Watch 3D"
-                        }
-                    ],
-                    "childElements": []
-                }
-            ]
-        },       
-        {
-          "text": "String",
-          "iconUrl": "http://localhost/dist/resources/Category.String.svg",
-          "elementType": "category",
-          "include": [],
-          "childElements": [
-            {
-              "text": "Inspect",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.String.Contains"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.CountOccurrences"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Length"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.IndexOf"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.AllIndicesOf"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.LastIndexOf"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.EndsWith"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.StartsWith"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Modify",
-              "iconUrl": "",
-              "elementType": "group",
-              "include": [
-                {
-                  "path": "DSCoreNodes.DSCore.String.TrimWhitespace"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.TrimLeadingWhitespace"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.TrimTrailingWhitespace"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Replace"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.PadLeft"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.PadRight"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Center"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Insert"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Remove"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Substring"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.Split"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.ToUpper"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.ToLower"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.ToTitle"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.ToNumber"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.GetNumber"
-                },
-                {
-                  "path": "DSCoreNodes.DSCore.String.ChangeCase"
-                }
-              ],
-              "childElements": []
-            },
-            {
-              "text": "Generate",
-              "iconUrl": "",
-              "elementType": "group",
+                "text": "Display",
+                "iconUrl": "http://localhost/dist/resources/Category.Display.svg",
+                "elementType": "category",
                 "include": [
                     {
-                        "path": "Core.String.String from Object"
+                        "path": "Core.View.Watch"
+                    }
+                ]
+            },
+            {
+                "text": "String",
+                "iconUrl": "http://localhost/dist/resources/Category.String.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+                    {
+                        "text": "Inspect",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Contains"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.CountOccurrences"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Length"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.IndexOf"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.AllIndicesOf"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.LastIndexOf"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.EndsWith"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.StartsWith"
+                            }
+                        ],
+                        "childElements": []
                     },
                     {
-                        "path": "Core.String.String from Array"
+                        "text": "Modify",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.String.TrimWhitespace"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.TrimLeadingWhitespace"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.TrimTrailingWhitespace"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Replace"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.PadLeft"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.PadRight"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Center"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Insert"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Remove"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Substring"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Split"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.ToUpper"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.ToLower"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.ToTitle"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.ToNumber"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.GetNumber"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.ChangeCase"
+                            }
+                        ],
+                        "childElements": []
                     },
                     {
-                        "path": "DSCoreNodes.DSCore.String.Concat"
-                    },
+                        "text": "Generate",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.String.String from Object"
+                            },
+                            {
+                                "path": "Core.String.String from Array"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Concat"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.String.Join"
+                            },
+                            {
+                                "path": "Core.String"
+                            }
+                        ],
+                        "childElements": []
+                    }
+                ]
+            },
+            {
+                "text": "Sample",
+                "iconUrl": "http://localhost/dist/resources/Category.Display.svg",
+                "elementType": "category",
+                "include": [
                     {
-                        "path": "DSCoreNodes.DSCore.String.Join"
-                    },
-                    {
-                        "path": "Core.String"
-                    },
-                ],
-              "childElements": []
+                        "path": "SampleNodes.Button"
+                    }
+                ]
             }
-          ]
-        }      
-      ]
+        ]
     },
     {
         "text": "Add-ons",

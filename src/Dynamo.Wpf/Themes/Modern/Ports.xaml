@@ -59,7 +59,7 @@
                                 <interactivity:EventTrigger EventName="MouseLeave">
                                     <interactivity:InvokeCommandAction Command="{Binding Path=MouseLeaveCommand}" CommandParameter="{Binding}" />
                                 </interactivity:EventTrigger>
-                                <interactivity:EventTrigger EventName="MouseLeftButtonDown" >
+                                <interactivity:EventTrigger EventName="MouseLeftButtonDown">
                                     <interactivity:InvokeCommandAction Command="{Binding Path=MouseLeftButtonDownCommand}" CommandParameter="{Binding}" />
                                 </interactivity:EventTrigger>
                             </interactivity:Interaction.Triggers>

@@ -1,9 +1,8 @@
-﻿using System.Linq;
+using Dynamo.Search;
+using Dynamo.Wpf.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Dynamo.Search;
-using Dynamo.Wpf.ViewModels;
 
 namespace Dynamo.UI.Controls
 {
@@ -18,21 +17,31 @@ namespace Dynamo.UI.Controls
 
         public ClassInformationView()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
-       
+
         private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var listBoxItem = sender as ListBoxItem;
             if (listBoxItem == null) return;
 
-            ExecuteSearchElement(listBoxItem);
+            //ExecuteSearchElement(listBoxItem);
             e.Handled = true;
 
             if (FocusItemOnSelection)
                 listBoxItem.Focus();
         }
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var listBoxItem = sender as ListBoxItem;
+            if (listBoxItem == null) return;
+            e.Handled = true;
 
+            //ExecuteSearchElement(listBoxItem);
+
+            if (FocusItemOnSelection)
+                listBoxItem.Focus();
+        }
         private void OnMemberButtonKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key != Key.Enter) return;
@@ -42,6 +51,7 @@ namespace Dynamo.UI.Controls
 
             ExecuteSearchElement(listBoxItem);
             e.Handled = true;
+
         }
 
         private void ExecuteSearchElement(ListBoxItem listBoxItem)
@@ -75,7 +85,7 @@ namespace Dynamo.UI.Controls
             bool hasCreateMembers = castedDataContext.CreateMembers.Any();
             bool hasActionMembers = castedDataContext.ActionMembers.Any();
             bool hasQueryMembers = castedDataContext.QueryMembers.Any();
-             
+
             castedDataContext.CurrentDisplayMode = ClassInformationViewModel.DisplayMode.None;
 
             castedDataContext.HiddenSecondaryMembersCount = 0;

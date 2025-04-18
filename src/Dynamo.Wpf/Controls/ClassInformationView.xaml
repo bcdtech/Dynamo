@@ -9,6 +9,7 @@
     xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
     xmlns:ui="clr-namespace:Dynamo.UI"
     xmlns:uicontrols="clr-namespace:Dynamo.UI.Controls"
+    xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
     MinWidth="100"
     d:DesignHeight="300"
     d:DesignWidth="300"
@@ -33,14 +34,17 @@
             <Style
                 x:Key="ListBoxItemStyle"
                 BasedOn="{StaticResource MemberGroupMemberStyle}"
-                TargetType="{x:Type ListBoxItem}">
+                TargetType="ListBoxItem">
                 <Setter Property="Background" Value="{StaticResource LibraryItemHostBackground}" />
-
+                <Setter Property="Height" Value="auto" />
+                <Setter Property="Visibility" Value="Visible" />
                 <EventSetter Event="PreviewMouseLeftButtonUp" Handler="OnMouseLeftButtonUp" />
                 <EventSetter Event="KeyDown" Handler="OnMemberButtonKeyDown" />
                 <EventSetter Event="MouseEnter" Handler="OnListBoxItemMouseEnter" />
                 <EventSetter Event="MouseLeave" Handler="OnPopupMouseLeave" />
+                <EventSetter Event="MouseDoubleClick" Handler="OnMouseDoubleClick" />
             </Style>
+
             <Style x:Key="MoreButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -83,9 +87,9 @@
             KeyDown="OnMainGridKeyDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -114,12 +118,20 @@
                 x:Name="primaryMembers"
                 Grid.Row="1"
                 Grid.Column="1"
-                Padding="0,-10,0,0"
+                Margin="4,0,0,0"
+                Padding="0,0,0,0"
+                VerticalContentAlignment="Stretch"
                 Background="Transparent"
                 BorderBrush="{StaticResource CreateMembersColor}"
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
-                ItemTemplate="{StaticResource MemberTemplate}" />
+                ItemTemplate="{StaticResource MemberTemplate}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <vwp:VirtualizingWrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Border
                 x:Name="secondaryBorder"
                 Grid.Row="2"
@@ -156,13 +168,19 @@
                 x:Name="secondaryMembers"
                 Grid.Row="3"
                 Grid.Column="1"
+                Margin="4,0,0,0"
                 Padding="0,-10,0,0"
                 Background="Transparent"
                 BorderBrush="{StaticResource ActionMembersColor}"
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
                 ItemTemplate="{StaticResource MemberTemplate}"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <vwp:VirtualizingWrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.Visibility>
                     <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreSecondaryHeadersVisible" />
                 </ListBox.Visibility>
@@ -203,13 +221,19 @@
                 x:Name="queryMembers"
                 Grid.Row="5"
                 Grid.Column="1"
+                Margin="4,0,0,0"
                 Padding="0,-10,0,0"
                 Background="Transparent"
                 BorderBrush="{StaticResource QueryMembersColor}"
                 BorderThickness="2,0,0,0"
                 ItemContainerStyle="{DynamicResource ListBoxItemStyle}"
                 ItemTemplate="{StaticResource MemberTemplate}"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <vwp:VirtualizingWrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.Visibility>
                     <Binding Converter="{StaticResource BooleanToVisibilityCollapsedConverter}" Path="AreQueryHeadersVisible" />
                 </ListBox.Visibility>

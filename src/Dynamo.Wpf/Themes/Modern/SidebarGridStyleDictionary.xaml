@@ -223,8 +223,12 @@
     <DataTemplate x:Key="MemberTemplate">
         <StackPanel
             Name="ImageAndNodeName"
+            Width="70"
+            Height="70"
+            Margin="3"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Orientation="Horizontal">
+            Orientation="Vertical">
             <StackPanel Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.DisplayIcon, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock
                     MinWidth="25"
@@ -251,7 +255,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Source="{Binding SmallIcon}" />
-            <Grid Margin="-10,0,0,0">
+            <Grid Margin="0,0,0,0">
                 <Rectangle
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -274,6 +278,7 @@
                 </TextBlock>
             </Grid>
         </StackPanel>
+
     </DataTemplate>
 
     <!--  EndRegion  -->
