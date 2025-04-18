@@ -109,17 +109,24 @@ namespace Dynamo.Wpf.Services
             }
 
             ResourceManager rm = new ResourceManager(resourceBaseName, resourceAssembly);
-            //var d = rm.GetResourceSet(, true, true);
-            ImageSource bitmapSource = null;
-            var f = rm.GetObject(iconKey);
-            var source = (Bitmap)rm.GetObject(iconKey);
-            if (source == null)
+
+            object iconResource = null;
+            try
+            {
+                iconResource = rm.GetObject(iconKey);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            var bitmap = iconResource as Bitmap;
+            if (bitmap == null)
             {
                 cachedIcons.Add(iconKey, null);
                 return null;
             }
 
-            bitmapSource = ResourceUtilities.ConvertToImageSource(source);
+            var bitmapSource = ResourceUtilities.ConvertToImageSource(bitmap);
 
             cachedIcons.Add(iconKey, bitmapSource);
             return bitmapSource;

@@ -2,7 +2,6 @@ using Dynamo.Applications;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
-using System.Collections;
 using System.Windows;
 
 namespace WpfApp1
@@ -13,7 +12,7 @@ namespace WpfApp1
 
     public partial class MainWindow : Window
     {
-        public List<int> Items { get; set; } =Enumerable.Range(0,100).ToList();
+        public List<int> Items { get; set; } = Enumerable.Range(0, 100).ToList();
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +36,16 @@ namespace WpfApp1
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
             dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);
+        }
+
+        private void mainGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
         }
     }
 }
