@@ -15,7 +15,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
     <ProjectReference Include="..\DynamoApplications\DynamoApplications.csproj" />
+    <ProjectReference Include="..\DynamoCore\DynamoCore.csproj" />
+    <ProjectReference Include="..\DynamoUtilities\DynamoUtilities.csproj" />
+    <ProjectReference Include="..\Engine\ProtoCore\ProtoCore.csproj" />
     <ProjectReference Include="..\Libraries\CoreNodes\CoreNodes.csproj" />
+    <ProjectReference Include="..\Libraries\DesignScriptBuiltin\DesignScriptBuiltin.csproj" />
+    <ProjectReference Include="..\NodeServices\DynamoServices.csproj" />
 
   </ItemGroup>
 

@@ -2,6 +2,7 @@ using Dynamo.Applications;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 
@@ -23,7 +24,13 @@ namespace WpfApp1
             //var img = rm.GetObject("Color.Small");
             //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
             var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
-            model.LoadNodeLibrary(Assembly.LoadFrom("SampleNodesZeroTouch.dll"),false);
+            var path =Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
+            var assembly = System.Reflection.Assembly.LoadFile(path);
+            model.LoadNodeLibrary(assembly, true);
+            //var cmdLineArgs = StartupUtils.CommandLineArguments.Parse([]);
+
+            //var model = StartupUtils.MakeCLIModel(cmdLineArgs);
+
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
                 DynamoModel = model,
