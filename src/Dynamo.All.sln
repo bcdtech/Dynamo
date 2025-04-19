@@ -137,6 +137,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolConsole", "ToolConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleNodes", "SampleNodes\SampleNodes.csproj", "{C846F291-30D2-4F25-8E0E-915B4A97D23C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleNodesZeroTouch", "SampleNodesZeroTouch\SampleNodesZeroTouch.csproj", "{CE79AE68-77D5-469C-8156-A45CA505F017}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1170,6 +1172,26 @@ Global
 		{C846F291-30D2-4F25-8E0E-915B4A97D23C}.Release|x64.Build.0 = Release|Any CPU
 		{C846F291-30D2-4F25-8E0E-915B4A97D23C}.Release|x86.ActiveCfg = Release|Any CPU
 		{C846F291-30D2-4F25-8E0E-915B4A97D23C}.Release|x86.Build.0 = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|x64.Build.0 = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Debug|x86.Build.0 = Debug|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|ARM.Build.0 = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|ARM64.Build.0 = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|x64.ActiveCfg = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|x64.Build.0 = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|x86.ActiveCfg = Release|Any CPU
+		{CE79AE68-77D5-469C-8156-A45CA505F017}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

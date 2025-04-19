@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <ImportGroup Label="PropertySheets">
     <Import Project="$(SolutionDir)Config\CS_SDK.props" />
   </ImportGroup>
@@ -11,15 +11,18 @@
     <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
   </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="CommandLineParser" Version="2.8.0" />
-        <PackageReference Include="Greg" Version="3.0.2.6533" />
+        <PackageReference Include="CommandLineParser" Version="2.9.1" />
+        <PackageReference Include="Greg" Version="3.0.2.8355" />
         <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0" Version="3.4.0.4435" />
-        <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0" Version="3.4.0.4510"/>
-        <PackageReference Include="Magick.NET.Core" Version="7.0.1" />
-        <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="7.24.1" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <PackageReference Include="RestSharp" Version="112.0.0" />
-        <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+        <PackageReference Include="DynamoVisualProgramming.LibG_231_0_0" Version="3.4.0.4701">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Magick.NET.Core" Version="14.6.0" />
+        <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="14.6.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="RestSharp" Version="112.1.0" />
+        <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
     </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DynamoCore\DynamoCore.csproj">
