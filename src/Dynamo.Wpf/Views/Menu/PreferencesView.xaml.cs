@@ -105,28 +105,9 @@ namespace Dynamo.Wpf.Views
             //Clear the Saved Changes label and its corresponding tooltip when the Preferences Modal is opened
             dynamoViewModel.PreferencesViewModel.SavedChangesLabel = string.Empty;
             dynamoViewModel.PreferencesViewModel.SavedChangesTooltip = string.Empty;
-            dynamoViewModel.PreferencesViewModel.TrustedPathsViewModel?.InitializeTrustedLocations();
-
-
-
-            dynamoViewModel.PreferencesViewModel.TrustedPathsViewModel.PropertyChanged += TrustedPathsViewModel_PropertyChanged;
         }
 
-        /// <summary>
-        /// Evaluates if the user interacts over the Trusted Locations
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TrustedPathsViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            List<string> actions = typeof(TrustedPathViewModel.Action).GetFields().Select(a => a.Name).ToList();
-
-            if (actions.Contains(e.PropertyName))
-            {
-                dynViewModel.CheckCurrentFileInTrustedLocation();
-            }
-        }
-
+      
         /// <summary>
         /// Add inline description for each geometry scalling radio button
         /// </summary>
@@ -151,13 +132,10 @@ namespace Dynamo.Wpf.Views
         {
             managePackageCommandEvent?.Dispose();
             Analytics.TrackEvent(Actions.Close, Categories.Preferences);
-            viewModel.TrustedPathsViewModel?.SaveSettingCommand?.Execute(null);
-            dynViewModel.ShowHideFileTrustWarningIfCurrentWorkspaceTrusted();
 
             TrustedPathView.Dispose();
             Dispose();
 
-            dynViewModel.PreferencesViewModel.TrustedPathsViewModel.PropertyChanged -= TrustedPathsViewModel_PropertyChanged;
             dynViewModel.CheckCustomGroupStylesChanges(originalCustomGroupStyles);
             //(this.Owner as DynamoView).EnableOverlayBlocker(false);
 

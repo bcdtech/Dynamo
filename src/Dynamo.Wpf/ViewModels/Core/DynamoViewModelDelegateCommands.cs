@@ -24,7 +24,6 @@ namespace Dynamo.ViewModels
             ShowSaveDialogAndSaveResultCommand = new RelayCommand<object>(ShowSaveDialogAndSaveResult, CanShowSaveDialogAndSaveResult);
             ShowSaveDialogIfNeededAndSaveResultCommand = new RelayCommand<object>(ShowSaveDialogIfNeededAndSaveResult, CanShowSaveDialogIfNeededAndSaveResultCommand);
             SaveImageCommand = new RelayCommand<object>(SaveImage, CanSaveImage);
-            Save3DImageCommand = new RelayCommand<object>(Save3DImage, CanSaveImage);
             ValidateWorkSpaceBeforeToExportAsImageCommand = new RelayCommand<object>(ValidateWorkSpaceBeforeToExportAsImage, CanValidateWorkSpaceBeforeToExportAsImage);
             WriteToLogCmd = new RelayCommand<object>(o => model.Logger.Log(o.ToString()), CanWriteToLog);
             PostUiActivationCommand = new RelayCommand<object>(model.PostUIActivation);

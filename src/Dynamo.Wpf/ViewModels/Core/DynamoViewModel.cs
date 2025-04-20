@@ -23,7 +23,6 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.ViewModels.Core.Converters;
-using Dynamo.Wpf.ViewModels.FileTrust;
 using DynamoCoreWpf.Extensions;
 using DynamoServices;
 using DynamoUtilities;
@@ -231,11 +230,7 @@ namespace Dynamo.ViewModels
             RaisePropertyChanged("WorkspaceActualWidth");
         }
 
-        /// <summary>
-        /// This property is the ViewModel that will be passed to the File Trust Warning popup when is created.
-        /// </summary>
-        internal FileTrustWarningViewModel FileTrustViewModel { get; set; }
-
+   
         private WorkspaceViewModel currentWorkspaceViewModel;
         private string filePath;
         private string fileContents;
@@ -815,7 +810,6 @@ namespace Dynamo.ViewModels
                 }
             }
 
-            FileTrustViewModel = new FileTrustWarningViewModel();
             IsIDSDKInitialized();
         }
 
@@ -1839,24 +1833,10 @@ namespace Dynamo.ViewModels
 
                 var directoryName = Path.GetDirectoryName(filePath);
 
-                // Display trust warning when file is not among trust location and warning feature is on
-                bool displayTrustWarning = !PreferenceSettings.IsTrustedLocation(directoryName)
-                    && !filePath.EndsWith("dyf")
-                    && !DynamoModel.IsTestMode
-                    && !PreferenceSettings.DisableTrustWarnings
-                    && FileTrustViewModel != null;
-                RunSettings.ForceBlockRun = displayTrustWarning;
+                
                 // Execute graph open command
                 ExecuteCommand(new DynamoModel.OpenFileCommand(filePath, forceManualMode, isTemplate));
-                // Only show trust warning popop when current opened workspace is homeworkspace and not custom node workspace
-                if (displayTrustWarning && (currentWorkspaceViewModel?.IsHomeSpace ?? false))
-                {
-                    // Skip these when opening dyf
-                    FileTrustViewModel.DynFileDirectoryName = directoryName;
-                    FileTrustViewModel.ShowWarningPopup = true;
-                    (HomeSpaceViewModel as HomeWorkspaceViewModel).UpdateRunStatusMsgBasedOnStates();
-                    FileTrustViewModel.AllowOneTimeTrust = false;
-                }
+               
             }
             catch (Exception e)
             {
@@ -1927,27 +1907,12 @@ namespace Dynamo.ViewModels
 
                 var directoryName = Path.GetDirectoryName(filePath);
 
-                // Display trust warning when file is not among trust location and warning feature is on
-                bool displayTrustWarning = !PreferenceSettings.IsTrustedLocation(directoryName)
-                    && !filePath.EndsWith("dyf")
-                    && !DynamoModel.IsTestMode
-                    && !PreferenceSettings.DisableTrustWarnings
-                    && FileTrustViewModel != null;
-                RunSettings.ForceBlockRun = displayTrustWarning;
+              
                 // Execute graph open command
                 ExecuteCommand(new DynamoModel.InsertFileCommand(filePath, forceManualMode));
 
                 this.FitViewCommand.Execute(null);
 
-                // Only show trust warning popup when current opened workspace is homeworkspace and not custom node workspace
-                if (displayTrustWarning && (currentWorkspaceViewModel?.IsHomeSpace ?? false))
-                {
-                    // Skip these when opening dyf
-                    FileTrustViewModel.DynFileDirectoryName = directoryName;
-                    FileTrustViewModel.ShowWarningPopup = true;
-                    (HomeSpaceViewModel as HomeWorkspaceViewModel).UpdateRunStatusMsgBasedOnStates();
-                    FileTrustViewModel.AllowOneTimeTrust = false;
-                }
             }
             catch (Exception e)
             {
@@ -2699,8 +2664,7 @@ namespace Dynamo.ViewModels
                 if (_fileDialog.ShowDialog() == DialogResult.OK)
                 {
                     SaveAs(_fileDialog.FileName);
-                    if (FileTrustViewModel != null)
-                        FileTrustViewModel.DynFileDirectoryName = _fileDialog.FileName;
+                   
                     LastSavedLocation = Path.GetDirectoryName(_fileDialog.FileName);
                     //set the IsTemplate to false, after saving it as a file
                     vm.Model.CurrentWorkspace.IsTemplate = false;
@@ -3532,46 +3496,6 @@ namespace Dynamo.ViewModels
         {
             return true;
         }
-
-        /// <summary>
-        /// Hide or show file trust warning popup for the current workspace when preference settings are updated.
-        /// </summary>
-        internal void ShowHideFileTrustWarningIfCurrentWorkspaceTrusted()
-        {
-            if (FileTrustViewModel == null || DynamoModel.IsTestMode) return;
-            if ((FileTrustViewModel.ShowWarningPopup
-                && model.PreferenceSettings.IsTrustedLocation(FileTrustViewModel.DynFileDirectoryName))
-                || model.PreferenceSettings.DisableTrustWarnings)
-            {
-                FileTrustViewModel.ShowWarningPopup = false;
-                RunSettings.ForceBlockRun = false;
-                Model.CurrentWorkspace.RequestRun();
-                return;
-            }
-
-            var targetPath = string.Empty;
-            if (String.IsNullOrEmpty(FileTrustViewModel.DynFileDirectoryName))
-            {
-                if (!String.IsNullOrEmpty(currentWorkspaceViewModel.FileName))
-                    targetPath = Path.GetDirectoryName(currentWorkspaceViewModel.FileName);
-            }
-            else
-            {
-                targetPath = FileTrustViewModel.DynFileDirectoryName;
-            }
-            if (!FileTrustViewModel.ShowWarningPopup
-                && !model.PreferenceSettings.IsTrustedLocation(targetPath)
-                && (currentWorkspaceViewModel?.IsHomeSpace ?? false) && !ShowStartPage
-                && !FileTrustViewModel.AllowOneTimeTrust
-                && !model.PreferenceSettings.DisableTrustWarnings
-                && !string.IsNullOrWhiteSpace(currentWorkspaceViewModel.FileName))
-            {
-                FileTrustViewModel.ShowWarningPopup = true;
-                RunSettings.ForceBlockRun = true;
-                (HomeSpaceViewModel as HomeWorkspaceViewModel).UpdateRunStatusMsgBasedOnStates();
-            }
-        }
-
         internal bool CanExportToSTL(object parameter)
         {
             return true;
@@ -3951,26 +3875,6 @@ namespace Dynamo.ViewModels
             }
             return true;
         }
-
-        /// <summary>
-        /// Check if the current file is located in a Trusted Location in order to display to the User the proper message
-        /// </summary>
-        public void CheckCurrentFileInTrustedLocation()
-        {
-            PreferenceSettings.AskForTrustedLocationResult askToTheUser =
-                PreferenceSettings.AskForTrustedLocation(CurrentSpaceViewModel.FileName.Length > 0,
-                CurrentSpaceViewModel.FileName.Length > 0 ? PreferenceSettings.IsTrustedLocation(Path.GetDirectoryName(CurrentSpaceViewModel.FileName)) : false,
-                (currentWorkspaceViewModel?.IsHomeSpace ?? false),
-                ShowStartPage,
-                model.PreferenceSettings.DisableTrustWarnings);
-
-            if (askToTheUser == PreferenceSettings.AskForTrustedLocationResult.Ask)
-            {
-
-                FileTrustViewModel.AllowOneTimeTrust = false;
-            }
-        }
-
         #endregion
     }
 }
