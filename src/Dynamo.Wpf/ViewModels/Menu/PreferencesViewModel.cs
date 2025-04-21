@@ -1258,10 +1258,7 @@ namespace Dynamo.ViewModels
         #endregion
 
 
-        /// <summary>
-        /// Trusted Paths view model.
-        /// </summary>
-        public TrustedPathViewModel TrustedPathsViewModel { get; set; }
+       
 
         /// <summary>
         /// Returns a boolean value indicating if the Settings importing was successful or not
@@ -1337,7 +1334,6 @@ namespace Dynamo.ViewModels
             // Explicit copy
             preferenceSettings.SetTrustWarningsDisabled(newPreferences.DisableTrustWarnings);
             preferenceSettings.SetTrustedLocations(newPreferences.TrustedLocations);
-            TrustedPathsViewModel?.InitializeTrustedLocations();
 
             // Set the not explicit Binding
             runSettingsIsChecked = preferenceSettings.DefaultRunType;
@@ -1447,7 +1443,6 @@ namespace Dynamo.ViewModels
 
 
             var customNodeManager = dynamoViewModel.Model.CustomNodeManager;
-            TrustedPathsViewModel = new TrustedPathViewModel(this.preferenceSettings, this.dynamoViewModel?.Model?.Logger);
 
             PropertyChanged += Model_PropertyChanged;
             InitializeCommands();

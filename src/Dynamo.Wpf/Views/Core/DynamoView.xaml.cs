@@ -22,7 +22,6 @@ using Dynamo.Wpf.Extensions;
 using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.Views;
 using Dynamo.Wpf.Views.Debug;
-using Dynamo.Wpf.Views.FileTrust;
 using Dynamo.Wpf.Windows;
 using DynamoCoreWpf.Extensions;
 using System.Collections.Specialized;
@@ -92,7 +91,6 @@ namespace Dynamo.Controls
         internal Dictionary<string, ExtensionWindow> ExtensionWindows { get; set; } = new Dictionary<string, ExtensionWindow>();
         internal ViewExtensionManager viewExtensionManager;
 
-        private FileTrustWarning fileTrustWarningPopup = null;
 
         internal ShortcutToolbar ShortcutBar { get { return shortcutBar; } }
 
@@ -237,11 +235,7 @@ namespace Dynamo.Controls
 
             FocusableGrid.InputBindings.Clear();
 
-            if (fileTrustWarningPopup == null)
-            {
-                fileTrustWarningPopup = new FileTrustWarning(this);
-            }
-
+          
 
             DefaultMinWidth = MinWidth;
             PinHomeButton();
@@ -981,13 +975,6 @@ namespace Dynamo.Controls
         {
             dynamoViewModel.Model.PreferenceSettings.WindowW = e.NewSize.Width;
             dynamoViewModel.Model.PreferenceSettings.WindowH = e.NewSize.Height;
-
-
-            if (fileTrustWarningPopup != null && fileTrustWarningPopup.IsOpen)
-            {
-                fileTrustWarningPopup.UpdatePopupLocation();
-            }
-
             UpdateGeometryScalingPopupLocation();
 
             CalculateWindowThreshold();
@@ -2550,10 +2537,7 @@ namespace Dynamo.Controls
             dynamoViewModel.SideBarTabItems.CollectionChanged -= this.OnCollectionChanged;
             shortcutBar?.Dispose();
 
-            if (fileTrustWarningPopup != null)
-            {
-                fileTrustWarningPopup.CleanPopup();
-            }
+        
             //TODO code smell.
             var workspaceView = this.ChildOfType<WorkspaceView>();
             workspaceView?.Dispose();

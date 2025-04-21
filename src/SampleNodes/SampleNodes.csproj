@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
+    <ProjectReference Include="..\SampleNodesZeroTouch\SampleNodesZeroTouch.csproj" />
   </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

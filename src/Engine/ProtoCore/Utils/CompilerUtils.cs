@@ -240,8 +240,11 @@ namespace ProtoCore.Utils
                 {
                     provider.GenerateCodeFromExpression(new CodePrimitiveExpression(input), writer, new CodeGeneratorOptions { IndentString = "\t" });
                     var literString = writer.ToString();
-                    literString = literString.Replace(string.Format("\" +{0}\t\"", Environment.NewLine), "");
-                    return literString.Substring(1, literString.Length - 2);
+                    if(literString.StartsWith('(')==false)
+                    {
+                        literString=$"({literString})";
+                    }
+                    return literString = literString.Replace(string.Format("\" +{0}\t\"", Environment.NewLine), "");
                 }
             }
         }
@@ -254,8 +257,7 @@ namespace ProtoCore.Utils
             core.IsParsingCodeBlockNode = false;
 
             int blockId;
-            string importStatement = @"import (""" + ToLiteral(assemblyPath) + @""");";
-
+            var importStatement = $"import {ToLiteral(assemblyPath)};";
             core.ResetForPrecompilation();
             var status = PreCompile(importStatement, core, null, out blockId);
 

@@ -232,5 +232,6 @@
     <PropertyGroup>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisModeSecurity>All</AnalysisModeSecurity>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     </PropertyGroup>
 </Project>
