@@ -7,7 +7,7 @@ using Dynamo.UI.Prompts;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Utilities;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;

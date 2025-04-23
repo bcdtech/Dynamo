@@ -1,8 +1,8 @@
-﻿using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using Dynamo.Graph.Nodes;
 using System.Windows.Input;
 
-namespace DynamoCoreWpf.Extensions;
+namespace Dynamo.Wpf.Extensions;
 
 static class PortModelExtensions
 {

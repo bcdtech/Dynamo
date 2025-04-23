@@ -2628,13 +2628,6 @@ Uninstall the following packages: {0}?</value>
   <data name="PackageSearchViewFilterByButton" xml:space="preserve">
     <value>Filter by</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="psDynamoMesh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ViewModels\Watch3D\compiledShaders\psDynamoMesh;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="vsDynamoMesh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ViewModels\Watch3D\compiledShaders\vsDynamoMesh;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="PreferencesViewShowCodeBlockNodeLineNumber" xml:space="preserve">
     <value>Show CodeBlockNode Line Numbers</value>
   </data>
@@ -2656,15 +2649,6 @@ Uninstall the following packages: {0}?</value>
   </data>
   <data name="RenderingMemoryOutageSummary" xml:space="preserve">
     <value>Dynamo has run out of memory trying to render your geometry. The geometry preview has been disabled.</value>
-  </data>
-  <data name="vsDynamoPointLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ViewModels\Watch3D\compiledShaders\vsDynamoPointLine;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="psDynamoLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ViewModels\Watch3D\compiledShaders\psDynamoLine;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="psDynamoPoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ViewModels\Watch3D\compiledShaders\psDynamoPoint;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PreferencesViewShowWhitespaceInPythonEditor" xml:space="preserve">
     <value>Show Whitespace in Python Editor</value>
@@ -2698,7 +2682,7 @@ Uninstall the following packages: {0}?</value>
     <value>Select Node Libraries</value>
   </data>
   <data name="PublishPackageMoreInfoFile" xml:space="preserve">
-    <value>DynamoCoreWpf;PublishPackageDocumentation.html</value>
+    <value>Dynamo.Wpf;PublishPackageDocumentation.html</value>
   </data>
   <data name="DynamoViewDynamoMenu" xml:space="preserve">
     <value>_Dynamo</value>
@@ -2855,10 +2839,10 @@ Do you wish to uninstall {1}? Restart {2} to complete the uninstall and try down
     <value>Markdown documentation can be added to your package that will leverage the Documentation Browser to display author generated information on a per-node basis.</value>
   </data>
   <data name="NodeAutocompleteDocumentationUriString" xml:space="preserve">
-    <value>DynamoCoreWpf;NodeAutocompleteDocumentation.html</value>
+    <value>Dynamo.Wpf;NodeAutocompleteDocumentation.html</value>
   </data>
   <data name="FileTrustWarningDocumentationUriString" xml:space="preserve">
-    <value>DynamoCoreWpf;FileTrustWarningDocumentation.html</value>
+    <value>Dynamo.Wpf;FileTrustWarningDocumentation.html</value>
   </data>
   <data name="PreferencesViewEnableNodeAutoCompleteTooltipText" xml:space="preserve">
     <value>Learn more about Node Autocomplete feature.</value>
@@ -3455,19 +3439,19 @@ You can manage this in Preferences -&gt; Security.</value>
     <comment>Run status message for case where graph run blocked due to unresolved security warning.</comment>
   </data>
   <data name="FooterNotificationErrorImage" xml:space="preserve">
-    <value>/DynamoCoreWpf;component/UI/Images/error.png</value>
+    <value>/Dynamo.Wpf;component/Assets/Images/error.png</value>
   </data>
   <data name="FooterNotificationErrorTooltip" xml:space="preserve">
     <value>Click to cycle through nodes with errors.</value>
   </data>
   <data name="FooterNotificationInfoImage" xml:space="preserve">
-    <value>/DynamoCoreWpf;component/UI/Images/info.png</value>
+    <value>/Dynamo.Wpf;component/Assets/Images/info.png</value>
   </data>
   <data name="FooterNotificationInfoTooltip" xml:space="preserve">
     <value>Click to cycle through nodes with info states.</value>
   </data>
   <data name="FooterNotificationWarningImage" xml:space="preserve">
-    <value>/DynamoCoreWpf;component/UI/Images/warning_16px.png</value>
+    <value>/Dynamo.Wpf;component/Assets/Images/warning_16px.png</value>
   </data>
   <data name="FooterNotificationWarningTooltip" xml:space="preserve">
     <value>Click to cycle through nodes with warnings.</value>
@@ -4138,5 +4122,20 @@ To make this file into a new template, save it to a different folder, then move 
   </data>
   <data name="PublishPackageBackToFileButton" xml:space="preserve">
     <value>Back to File Selection</value>
+  </data>
+  <data name="PublishPackageViewPublisherWebiSite" xml:space="preserve">
+    <value>Website Url (optional)</value>
+  </data>
+  <data name="PackageStatePendingUnload" xml:space="preserve">
+    <value>Scheduled to be unloaded</value>
+  </data>
+  <data name="PublishPackageViewRepositoryUrlWatermark" xml:space="preserve">
+    <value>PublishPackageViewPublisherWebSiteWatermark</value>
+  </data>
+  <data name="PublishPackageViewPublisherWebSiteWatermark" xml:space="preserve">
+    <value>Repository Url (optional)</value>
+  </data>
+  <data name="PackageManagerReadyToPublish" xml:space="preserve">
+    <value>PackageManagerReadyToPublish</value>
   </data>
 </root>

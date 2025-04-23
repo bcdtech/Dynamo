@@ -13,7 +13,7 @@ using Dynamo.UI.Prompts;
 using Dynamo.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using DynamoUtilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
