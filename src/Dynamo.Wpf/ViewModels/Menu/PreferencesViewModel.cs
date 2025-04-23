@@ -5,7 +5,7 @@ using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Utilities;
 using Dynamo.Wpf.ViewModels.Core.Converters;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;

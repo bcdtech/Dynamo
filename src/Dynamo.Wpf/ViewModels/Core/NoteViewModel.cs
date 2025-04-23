@@ -1,4 +1,4 @@
-﻿using Dynamo.Configuration;
+using Dynamo.Configuration;
 using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Notes;
@@ -6,7 +6,7 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Logging;
 using Dynamo.Selection;
 using Dynamo.Wpf.ViewModels.Core;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using Newtonsoft.Json;
 
 namespace Dynamo.ViewModels

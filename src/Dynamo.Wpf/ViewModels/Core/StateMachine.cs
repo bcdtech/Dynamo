@@ -7,7 +7,7 @@ using Dynamo.Models;
 using Dynamo.Selection;
 using Dynamo.Utilities;
 using Dynamo.Wpf.Utilities;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using Newtonsoft.Json;
 using System.Windows;
 using System.Windows.Input;

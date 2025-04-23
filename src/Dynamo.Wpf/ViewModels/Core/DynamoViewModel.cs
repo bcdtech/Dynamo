@@ -16,6 +16,7 @@ using Dynamo.Services;
 using Dynamo.UI;
 using Dynamo.UI.Prompts;
 using Dynamo.Utilities;
+using Dynamo.Wpf.Extensions;
 using Dynamo.Wpf.Interfaces;
 using Dynamo.Wpf.Properties;
 using Dynamo.Wpf.UI;
@@ -23,7 +24,6 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.ViewModels.Core.Converters;
-using DynamoCoreWpf.Extensions;
 using DynamoServices;
 using DynamoUtilities;
 using Newtonsoft.Json;
@@ -41,7 +41,6 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using ISelectable = Dynamo.Selection.ISelectable;
 using WpfResources = Dynamo.Wpf.Properties.Resources;
-using Dynamo.Wpf.Services;
 
 namespace Dynamo.ViewModels
 {
@@ -230,7 +229,7 @@ namespace Dynamo.ViewModels
             RaisePropertyChanged("WorkspaceActualWidth");
         }
 
-   
+
         private WorkspaceViewModel currentWorkspaceViewModel;
         private string filePath;
         private string fileContents;
@@ -673,10 +672,10 @@ namespace Dynamo.ViewModels
             {
                 startConfiguration.DynamoModel = DynamoModel.Start(new DynamoModel.DefaultStartConfiguration()
                 {
-                    
+
                 });
             }
-               
+
 
             if (startConfiguration.WatchHandler == null)
                 startConfiguration.WatchHandler = new DefaultWatchHandler(startConfiguration.DynamoModel.PreferenceSettings);
@@ -1833,10 +1832,10 @@ namespace Dynamo.ViewModels
 
                 var directoryName = Path.GetDirectoryName(filePath);
 
-                
+
                 // Execute graph open command
                 ExecuteCommand(new DynamoModel.OpenFileCommand(filePath, forceManualMode, isTemplate));
-               
+
             }
             catch (Exception e)
             {
@@ -1907,7 +1906,7 @@ namespace Dynamo.ViewModels
 
                 var directoryName = Path.GetDirectoryName(filePath);
 
-              
+
                 // Execute graph open command
                 ExecuteCommand(new DynamoModel.InsertFileCommand(filePath, forceManualMode));
 
@@ -2664,7 +2663,7 @@ namespace Dynamo.ViewModels
                 if (_fileDialog.ShowDialog() == DialogResult.OK)
                 {
                     SaveAs(_fileDialog.FileName);
-                   
+
                     LastSavedLocation = Path.GetDirectoryName(_fileDialog.FileName);
                     //set the IsTemplate to false, after saving it as a file
                     vm.Model.CurrentWorkspace.IsTemplate = false;

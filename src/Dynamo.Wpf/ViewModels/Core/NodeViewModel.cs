@@ -8,7 +8,7 @@ using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Selection;
 using Dynamo.Wpf.ViewModels.Core;
-using DynamoCoreWpf.Extensions;
+using Dynamo.Wpf.Extensions;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;

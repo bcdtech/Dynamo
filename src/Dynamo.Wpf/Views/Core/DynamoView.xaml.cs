@@ -23,7 +23,6 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.Views;
 using Dynamo.Wpf.Views.Debug;
 using Dynamo.Wpf.Windows;
-using DynamoCoreWpf.Extensions;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -235,7 +234,7 @@ namespace Dynamo.Controls
 
             FocusableGrid.InputBindings.Clear();
 
-          
+
 
             DefaultMinWidth = MinWidth;
             PinHomeButton();
@@ -2537,7 +2536,7 @@ namespace Dynamo.Controls
             dynamoViewModel.SideBarTabItems.CollectionChanged -= this.OnCollectionChanged;
             shortcutBar?.Dispose();
 
-        
+
             //TODO code smell.
             var workspaceView = this.ChildOfType<WorkspaceView>();
             workspaceView?.Dispose();
