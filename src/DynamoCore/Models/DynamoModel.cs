@@ -2856,8 +2856,8 @@ namespace Dynamo.Models
             if (string.IsNullOrEmpty(HostAnalyticsInfo.HostName))
             {
                 // Sandbox default to en-US
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(locale == "Default" ? "zh-CN" : locale);
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(locale == "Default" ? "zh-CN" : locale);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(locale == "Default" ? "en-US" : locale);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(locale == "Default" ? "en-US" : locale);
             }
             else
             {
