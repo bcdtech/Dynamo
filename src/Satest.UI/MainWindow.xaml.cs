@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 
-namespace WpfApp1
+namespace Satest.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -34,7 +34,7 @@ namespace WpfApp1
             {
                 DynamoModel = model,
                 ShowLogin = false,
-
+                
 
             };
 

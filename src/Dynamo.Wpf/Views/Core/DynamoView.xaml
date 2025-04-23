@@ -223,7 +223,7 @@
         PreviewMouseUp="Window_PreviewMouseUp">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="37px" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="40px" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -272,7 +272,8 @@
                 <Menu
                     Name="menu1"
                     IsMainMenu="True"
-                    Style="{StaticResource MainMenu}">
+                    Style="{StaticResource MainMenu}"
+                    Visibility="Collapsed">
                     <!--  Accessor key = false. This is to include underscore in header(only for SubMenuItem  -->
                     <Menu.Resources>
                         <Style

@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace WpfApp1
+namespace Satest.UI
 {
     /// <summary>
     /// Interaction logic for App.xaml
