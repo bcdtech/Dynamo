@@ -107,7 +107,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitsNodeModels", "Librarie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Wpf", "Dynamo.Wpf\Dynamo.Wpf.csproj", "{EF976CFB-18A0-0B9C-5258-071EA6D890E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{7605DAD6-FF29-68CC-A841-EC859FB1D9DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satest.UI", "Satest.UI\Satest.UI.csproj", "{7605DAD6-FF29-68CC-A841-EC859FB1D9DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolConsole", "ToolConsole\ToolConsole.csproj", "{F1FD0A2B-B3AF-47D7-AC08-54D7EBED51AC}"
 EndProject

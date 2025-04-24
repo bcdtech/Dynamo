@@ -23,6 +23,7 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.Views;
 using Dynamo.Wpf.Views.Debug;
 using Dynamo.Wpf.Windows;
+using Dynamo.Wpf.Extensions;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;

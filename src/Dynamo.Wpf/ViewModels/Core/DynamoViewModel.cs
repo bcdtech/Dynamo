@@ -24,6 +24,7 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.ViewModels.Core.Converters;
+using Dynamo.Wpf.Extensions;
 using DynamoServices;
 using DynamoUtilities;
 using Newtonsoft.Json;

@@ -59,7 +59,9 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("Notifications")]
 [assembly: InternalsVisibleTo("NodeAutoCompleteViewExtension")]
 [assembly: InternalsVisibleTo("Dynamo.Wpf")]
-[assembly: InternalsVisibleTo("WpfApp1")]
+[assembly: InternalsVisibleTo("Satest.UI")]
+
+[assembly: InternalsVisibleTo("Satest.UI")]
 
 // Disable PublicAPIAnalyzer errors for this type as they're already added to the public API text file
 #pragma warning disable RS0016 

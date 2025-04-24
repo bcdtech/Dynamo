@@ -10,11 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+    <PackageReference Include="WPF-UI" Version="4.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Dynamo.Wpf\Dynamo.Wpf.csproj" />
-    <ProjectReference Include="..\DynamoApplications\DynamoApplications.csproj" />
 
   </ItemGroup>
 

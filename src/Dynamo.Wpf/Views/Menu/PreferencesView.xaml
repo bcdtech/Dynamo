@@ -28,7 +28,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
-    <!--  Using the Styles from the SharedResourcesDictionary located in DynamoCoreWpf/UI/Themes/DynamoModern.xaml  -->
+    <!--  Using the Styles from the SharedResourcesDictionary located in Dynamo.Wpf/UI/Themes/DynamoModern.xaml  -->
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

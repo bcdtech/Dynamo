@@ -1,4 +1,3 @@
-using Dynamo.Applications;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
@@ -6,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 
-namespace WpfApp1
+namespace Satest.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +22,7 @@ namespace WpfApp1
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");
             //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
-            var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
+            var model = StartupUtils.MakeModel(false, "zh-CN", true, "", new HostAnalyticsInfo { });
             var path =Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
             var assembly = System.Reflection.Assembly.LoadFile(path);
             model.LoadNodeLibrary(assembly, true);
@@ -35,7 +34,7 @@ namespace WpfApp1
             {
                 DynamoModel = model,
                 ShowLogin = false,
-
+                
 
             };
 
