@@ -24,7 +24,6 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.ViewModels.Core.Converters;
-using Dynamo.Wpf.Extensions;
 using DynamoServices;
 using DynamoUtilities;
 using Newtonsoft.Json;
@@ -404,24 +403,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        /// <summary>
-        /// Indicates whether to make T-Spline nodes (under ProtoGeometry.dll) discoverable
-        /// in the node search library.
-        /// </summary>
-        [Obsolete("This was moved to PreferencesViewModel.cs")]
-        public bool EnableTSpline
-        {
-            get
-            {
-                return !PreferenceSettings.NamespacesToExcludeFromLibrary.Contains(
-                    "ProtoGeometry.dll:Autodesk.DesignScript.Geometry.TSpline");
-            }
-            set
-            {
-                model.HideUnhideNamespace(!value,
-                    "ProtoGeometry.dll", "Autodesk.DesignScript.Geometry.TSpline");
-            }
-        }
+
 
         /// <summary>
         /// Indicates whether to enabled node Auto Complete feature for port interaction.
@@ -519,20 +501,6 @@ namespace Dynamo.ViewModels
             get { return model.HostVersion; }
         }
 
-        public string HostName
-        {
-            get { return model.HostName; }
-        }
-
-        public string LicenseFile
-        {
-            get
-            {
-                string executingAssemblyPathName = Assembly.GetExecutingAssembly().Location;
-                string rootModuleDirectory = Path.GetDirectoryName(executingAssemblyPathName);
-                return Path.Combine(rootModuleDirectory, "License.rtf");
-            }
-        }
 
         public bool VerboseLogging
         {
@@ -557,8 +525,6 @@ namespace Dynamo.ViewModels
         internal Dispatcher UIDispatcher { get; set; }
 
         public IWatchHandler WatchHandler { get; private set; }
-
-        [Obsolete("This Property will be obsoleted in a future version of Dynamo")]
         internal SearchViewModel SearchViewModel { get; private set; }
 
 
@@ -628,22 +594,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        /// <summary>
-        /// Engine used by default for new Python script and string nodes. If not empty, this takes precedence over any system settings.
-        /// </summary>
-        [Obsolete("This was moved to PreferencesViewModel.cs")]
-        public string DefaultPythonEngine
-        {
-            get { return model.PreferenceSettings.DefaultPythonEngine; }
-            set
-            {
-                if (value != model.PreferenceSettings.DefaultPythonEngine)
-                {
-                    model.PreferenceSettings.DefaultPythonEngine = value;
-                    RaisePropertyChanged(nameof(DefaultPythonEngine));
-                }
-            }
-        }
+
 
         #endregion
 
@@ -664,6 +615,7 @@ namespace Dynamo.ViewModels
             /// If true, Analytics and Usage options are hidden from UI
             /// </summary>
             public bool HideReportOptions { get; set; }
+            public LayoutSpecification? NodeLibraryLayoutSpecification { get; set; }
         }
 
         public static DynamoViewModel Start(StartConfiguration startConfiguration = new StartConfiguration())
@@ -735,7 +687,7 @@ namespace Dynamo.ViewModels
             this.WatchHandler = startConfiguration.WatchHandler;
 
 
-            this.SearchViewModel = null;
+            this.NodeLibraryLayoutSpecification = startConfiguration.NodeLibraryLayoutSpecification;
 
             // Start page should not show up during test mode.
             this.ShowStartPage = !DynamoModel.IsTestMode;

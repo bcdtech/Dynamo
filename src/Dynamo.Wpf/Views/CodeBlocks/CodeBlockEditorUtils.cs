@@ -1,14 +1,12 @@
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Media;
-using System.Xml;
 using Dynamo.Configuration;
 using Dynamo.Engine;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using ICSharpCode.AvalonEdit.Rendering;
+using System.Text.RegularExpressions;
+using System.Windows.Media;
+using System.Xml;
 
 namespace Dynamo.Wpf.Views
 {
@@ -131,7 +129,7 @@ namespace Dynamo.Wpf.Views
         public static void CreateHighlightingRules(ICSharpCode.AvalonEdit.TextEditor editor, EngineController controller)
         {
             using var stream = typeof(CodeHighlightingRuleFactory).Assembly.GetManifestResourceStream(
-                       "Dynamo.Wpf.UI.Resources." + Configurations.HighlightingFile);
+                       "Dynamo.Wpf.Assets." + Configurations.HighlightingFile);
 
             // Hyperlink color
             editor.TextArea.TextView.LinkTextForegroundBrush =

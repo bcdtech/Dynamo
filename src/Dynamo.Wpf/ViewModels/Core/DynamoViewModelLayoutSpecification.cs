@@ -4,5 +4,6 @@ namespace Dynamo.ViewModels;
 
 partial class DynamoViewModel
 {
-    public IBrandingResourceProvider BrandingResourceProvider { get; private set; }
+    public LayoutSpecification? NodeLibraryLayoutSpecification { get; set; }
+
 }

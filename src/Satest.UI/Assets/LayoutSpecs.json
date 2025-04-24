@@ -1,0 +1,475 @@
+{
+  "sections": [
+    {
+      "text": "default",
+      "iconUrl": "",
+      "elementType": "section",
+      "showHeader": false,
+      "include": [],
+        "childElements": [
+            {
+                "text": "常用",
+                "iconUrl": "http://localhost/dist/resources/Category.Display.svg",
+                "elementType": "category",
+                "include": [
+                    {
+                        "path": "Core.View.Watch"
+                    }
+                ]
+            },
+            {
+                "text": "输入",
+                "iconUrl": "http://localhost/dist/resources/Category.Input.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+                    {
+                        "text": "基本",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Input.Boolean"
+                            },
+                            {
+                                "path": "Core.Input.Integer Slider"
+                            },
+                            {
+                                "path": "Core.Input.Number Slider"
+                            },
+                            {
+                                "path": "Core.Input.String"
+                            },
+                            {
+                                "path": "Core.Input.Number"
+                            },
+                            {
+                                "path": "Core.Input.Custom Selection"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "日期时间",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Input.Date Time"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.MinValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.MaxValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Now"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Today"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.ByDate"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.ByDateAndTime"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.SubtractTimeSpan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.AddTimeSpan"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DaysInMonth"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.IsDaylightSavingsTime"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.IsLeapYear"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.FromString"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Date"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Components"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DayOfWeek"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.DayOfYear"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.TimeOfDay"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.DateTime.Format"
+                            }
+                        ],
+                        "childElements": []
+                    },
+
+                    {
+                        "text": "TimeSpan",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.ByDateDifference"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Zero"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.MaxValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.MinValue"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Create"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Scale"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Negate"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Add"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Subtract"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.FromString"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.Components"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalDays"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalHours"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalMinutes"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalSeconds"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.TimeSpan.TotalMilliseconds"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "时间间隔",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.IsNull"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.Identity"
+                            },
+                            {
+                                "path": "DSCoreNodes.DSCore.Object.Type"
+                            },
+                            {
+                                "path": "Core.Data.DefineData"
+                            }
+                        ],
+                        "childElements": []
+                    }
+                ]
+            },
+            {
+                "text": "函数",
+                "iconUrl": "",
+                "elementType": "group",
+                "include": [
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Random"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.RandomList"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.PiTimes2"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Average"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.RemapRange"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.PI"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.E"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.GoldenRatio"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Abs"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Acos"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Asin"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Atan"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Atan2"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Ceiling"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Cos"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Cosh"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.DivRem"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Exp"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Floor"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Log"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Log10"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Max"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Min"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Pow"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Rand"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Round"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Sign"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Sin"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Sinh"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Sqrt"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Tan"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Tanh"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Sum"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Factorial"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Map"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.MapTo"
+                    },
+                    {
+                        "path": "Core.Scripting.Formula"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.EvaluateFormula"
+                    }
+                ],
+                "childElements": []
+            },
+            {
+                "text": "运算符",
+                "iconUrl": "http://localhost/dist/resources/Category.Operators.svg",
+                "elementType": "group",
+                "include": [
+                    {
+                        "path": "Operators.+"
+                    },
+                    {
+                        "path": "Operators.-"
+                    },
+                    {
+                        "path": "Operators.*"
+                    },
+                    {
+                        "path": "Operators./"
+                    },
+                    {
+                        "path": "Operators.=="
+                    },
+                    {
+                        "path": "Core.Math.=="
+                    },
+                    {
+                        "path": "Operators.>="
+                    },
+                    {
+                        "path": "Operators.>"
+                    },
+                    {
+                        "path": "Operators.%"
+                    },
+                    {
+                        "path": "Operators.<="
+                    },
+                    {
+                        "path": "Operators.<"
+                    },
+                    {
+                        "path": "Operators.&&"
+                    },
+                    {
+                        "path": "Operators.||"
+                    },
+                    {
+                        "path": "Operators.!="
+                    },
+                    {
+                        "path": "Operators.Not"
+                    },
+                    {
+                        "path": "Core.Math.And"
+                    },
+                    {
+                        "path": "Core.Math.Or"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Math.Xor"
+                    }
+                ],
+                "childElements": []
+            },
+           
+            {
+                "text": "流程",
+                "iconUrl": "",
+                "elementType": "group",
+                "include": [
+                    {
+                        "path": "Core.Logic.Gate"
+                    },
+                    {
+                        "path": "BuiltIn.LoopWhile"
+                    },
+                    {
+                        "path": "Core.Logic.ScopeIf"
+                    },
+                    {
+                        "path": "Core.Logic.If"
+                    },
+                    {
+                        "path": "DSCoreNodes.DSCore.Thread.Pause"
+                    }
+                ],
+                "childElements": []
+            },
+            {
+                "text": "脚本",
+                "iconUrl": "http://localhost/dist/resources/Category.Script.svg",
+                "elementType": "category",
+                "include": [],
+                "childElements": [
+
+                    {
+                        "text": "代码块",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Scripting.Python Script"
+                            },
+                            {
+                                "path": "Core.Scripting.Python Script From String"
+                            },
+                            {
+                                "path": "Core.Input.Code Block"
+                            }
+                        ],
+                        "childElements": []
+                    },
+                    {
+                        "text": "求值",
+                        "iconUrl": "",
+                        "elementType": "group",
+                        "include": [
+                            {
+                                "path": "Core.Evaluate.Function Apply"
+                            },
+                            {
+                                "path": "Core.Evaluate.Function Compose"
+                            }
+                        ],
+                        "childElements": []
+                    }
+
+                    
+                ]
+            },
+           
+            {
+                "text": "Sample",
+                "iconUrl": "http://localhost/dist/resources/Category.Display.svg",
+                "elementType": "category",
+                "include": [
+                    {
+                        "path": "SampleNodes.Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Add-ons",
+        "iconUrl": " http://localhost/dist/resources/plus-symbol.svg",
+        "elementType": "section",
+        "showHeader": true,
+        "include": [
+            {
+                "path": "pkg://"
+            },
+            {
+                "path": "dyf://"
+            }
+        ],
+        "childElements": []
+    }
+  ]
+}

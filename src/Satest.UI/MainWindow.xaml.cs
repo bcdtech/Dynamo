@@ -1,6 +1,7 @@
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
+using Dynamo.Wpf.Interfaces;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -23,18 +24,20 @@ namespace Satest.UI
             //var img = rm.GetObject("Color.Small");
             //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
             var model = StartupUtils.MakeModel(false, "zh-CN", true, "", new HostAnalyticsInfo { });
-            var path =Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
+            var path = Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
             var assembly = System.Reflection.Assembly.LoadFile(path);
             model.LoadNodeLibrary(assembly, true);
             //var cmdLineArgs = StartupUtils.CommandLineArguments.Parse([]);
 
             //var model = StartupUtils.MakeCLIModel(cmdLineArgs);
-
+            var resource = "Satest.UI.Assets.LayoutSpecs.json";
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+            var layoutSpecification = LayoutSpecification.FromJSONStream(stream);
             var startConfiguration = new DynamoViewModel.StartConfiguration()
             {
                 DynamoModel = model,
                 ShowLogin = false,
-                
+                NodeLibraryLayoutSpecification = layoutSpecification
 
             };
 

@@ -106,7 +106,7 @@
         <controls:InfiniteGridView x:Name="infiniteGridView" IsHitTestVisible="False">
             <controls:InfiniteGridView.Style>
                 <Style TargetType="controls:InfiniteGridView">
-                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Setter Property="Visibility" Value="Visible" />
                     <Style.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>

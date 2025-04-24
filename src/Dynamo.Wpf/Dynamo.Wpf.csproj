@@ -31,10 +31,12 @@
     <Resource Include="**\*.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\DesignScript.Resources.SyntaxHighlighting.xshd" />
     <None Remove="Assets\layoutSpecs.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\layoutSpecs.json" />
+    <EmbeddedResource Include="Assets\DesignScript.Resources.SyntaxHighlighting.xshd" />
+    <EmbeddedResource Include="Assets\LayoutSpecs.json" />
   </ItemGroup>
  
   <ItemGroup>
@@ -77,6 +79,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
    
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Resources\" />
   </ItemGroup>
  
 </Project>

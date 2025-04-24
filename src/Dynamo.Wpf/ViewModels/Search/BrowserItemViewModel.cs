@@ -1,7 +1,7 @@
+using CommunityToolkit.Mvvm.Input;
 using Dynamo.Configuration;
 using Dynamo.Search;
 using Dynamo.Search.SearchElements;
-using CommunityToolkit.Mvvm.Input;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 using System.Collections.ObjectModel;
@@ -296,8 +296,8 @@ namespace Dynamo.Wpf.ViewModels
             ClickedCommand = new RelayCommand(Expand);
 
             Name = name;
-            Entries = entries != null ? new ObservableCollection<NodeSearchElementViewModel>(entries.OrderBy(x => x.Name)) : new ObservableCollection<NodeSearchElementViewModel>();
-            SubCategories = subs != null ? new ObservableCollection<NodeCategoryViewModel>(subs.OrderBy(x => x.Name)) : new ObservableCollection<NodeCategoryViewModel>();
+            Entries = entries != null ? new ObservableCollection<NodeSearchElementViewModel>(entries) : new ObservableCollection<NodeSearchElementViewModel>();
+            SubCategories = subs != null ? new ObservableCollection<NodeCategoryViewModel>(subs) : new ObservableCollection<NodeCategoryViewModel>();
 
             foreach (var category in SubCategories)
                 category.PropertyChanged += CategoryOnPropertyChanged;
@@ -497,8 +497,7 @@ namespace Dynamo.Wpf.ViewModels
                 item.PropertyChanged -= ItemOnPropertyChanged;
 
             Items = new ObservableCollection<ISearchEntryViewModel>(
-                Entries.Cast<ISearchEntryViewModel>().Concat(SubCategories)
-                    .OrderBy(x => x.Name));
+                Entries.Cast<ISearchEntryViewModel>().Concat(SubCategories));
 
             Items.CollectionChanged += ItemsOnCollectionChanged;
 

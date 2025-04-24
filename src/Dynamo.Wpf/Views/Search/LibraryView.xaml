@@ -21,10 +21,14 @@
 
             <Style x:Key="LibraryTreeViewItem" TargetType="{x:Type TreeViewItem}">
                 <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=OneWay}" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TreeViewItem}">
                             <Button
+                                HorizontalAlignment="Stretch"
                                 MouseDoubleClick="OnExpanderButtonMouseDoubleClick"
                                 MouseEnter="OnMemberMouseEnter"
                                 MouseLeave="OnPopupMouseLeave"
@@ -559,6 +563,7 @@
                     <StackPanel
                         Name="SubClassTreeNodes"
                         Grid.Row="0"
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
                         <!--<Image Margin="0,0,16,0"
@@ -571,7 +576,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="13"
-                            Foreground="{StaticResource CommonSidebarTextColor}"
+                            Foreground="{StaticResource NestedMemberTextColor}"
                             Text="{Binding Name}" />
                         <StackPanel.Style>
                             <Style TargetType="{x:Type StackPanel}">
@@ -592,6 +597,8 @@
             <HierarchicalDataTemplate x:Key="SubclassesTemplate">
                 <TreeView
                     Name="SubCategoryListView"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
                     Background="{StaticResource LibraryItemHostBackground}"
                     BorderThickness="0"
                     FocusManager.IsFocusScope="true"
@@ -712,6 +719,7 @@
                     ItemTemplateSelector="{StaticResource LibraryTreeTemplateSelector}"
                     ItemsSource="{Binding LibraryRootCategories}"
                     TreeViewItem.Expanded="OnTreeViewItemExpanded">
+
                     <TreeView.Template>
                         <ControlTemplate>
                             <ItemsPresenter />

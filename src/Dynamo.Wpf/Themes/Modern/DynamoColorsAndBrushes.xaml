@@ -153,7 +153,7 @@
     <SolidColorBrush x:Key="DefaultSearchTextBlockText" Color="#C0C0C0" />
     <SolidColorBrush x:Key="CommonSidebarTextColor" Color="#CCCCCC" />
     <SolidColorBrush x:Key="SearchBoxBackgroundColor" Color="#231F20" />
-    <SolidColorBrush x:Key="NestedMemberTextColor" Color="#989898" />
+    <SolidColorBrush x:Key="NestedMemberTextColor" Color="#c5ffba" />
     <SolidColorBrush x:Key="VariableTypeTextColor" Color="#777777" />
     <SolidColorBrush x:Key="SearchDarkGreyTextColor" Color="#808285" />
     <SolidColorBrush x:Key="CreateMembersColor" Color="#7B9F2D" />
