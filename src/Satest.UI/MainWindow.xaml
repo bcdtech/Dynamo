@@ -9,27 +9,20 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid
-        x:Name="mainGrid"
-        Background="Beige"
-        MouseLeftButtonDown="mainGrid_MouseDown">
-        <ListBox
-            Height="280"
-            ItemsSource="{Binding Items}"
-            MouseLeftButtonDown="TextBlock_MouseDown"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border Width="100" Height="100">
-                        <TextBlock Text="{Binding}" />
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="sideGrid">
+            
+        </Grid>
+        <Grid Grid.Column="1"
+            x:Name="mainGrid"
+            Background="Beige"
+            MouseLeftButtonDown="mainGrid_MouseDown">   
+        </Grid>
     </Grid>
+   
 </Window>

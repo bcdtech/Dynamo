@@ -263,7 +263,7 @@
                                                     x:Name="VerLn"
                                                     Width="1"
                                                     Fill="#686868"
-                                                    Stroke="#686868">
+                                                    Stroke="#c5ffba">
                                                     <Rectangle.Margin>
                                                         <MultiBinding Converter="{StaticResource TreeViewLineMarginConverter}">
                                                             <Binding ElementName="ExpanderParent" Path="Margin" />
@@ -277,7 +277,7 @@
                                                     Grid.RowSpan="2"
                                                     Height="1"
                                                     Fill="#686868"
-                                                    Stroke="#686868">
+                                                    Stroke="#c5ffba">
                                                     <Rectangle.Margin>
                                                         <MultiBinding Converter="{StaticResource TreeViewHLineMarginConverter}">
                                                             <Binding ElementName="VerLn" Path="Margin" />

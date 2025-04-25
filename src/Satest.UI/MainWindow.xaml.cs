@@ -5,7 +5,6 @@ using Dynamo.Wpf.Interfaces;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-
 namespace Satest.UI
 {
     /// <summary>
@@ -44,6 +43,9 @@ namespace Satest.UI
             var viewModel = DynamoViewModel.Start(startConfiguration);
 
             var dynamoView = new DynamoView(viewModel);
+            //var libraryView = dynamoView.sidebarGrid.Children[0];
+            //dynamoView.sidebarGrid.Children.Remove(libraryView);
+            //sideGrid.Children.Add(libraryView);
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
             dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);

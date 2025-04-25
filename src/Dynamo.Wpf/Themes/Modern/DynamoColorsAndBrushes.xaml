@@ -151,7 +151,7 @@
     <!--  Library text colors  -->
     <SolidColorBrush x:Key="MemberButtonText" Color="#aaaaaa" />
     <SolidColorBrush x:Key="DefaultSearchTextBlockText" Color="#C0C0C0" />
-    <SolidColorBrush x:Key="CommonSidebarTextColor" Color="#CCCCCC" />
+    <SolidColorBrush x:Key="CommonSidebarTextColor" Color="#d5ffca" />
     <SolidColorBrush x:Key="SearchBoxBackgroundColor" Color="#231F20" />
     <SolidColorBrush x:Key="NestedMemberTextColor" Color="#c5ffba" />
     <SolidColorBrush x:Key="VariableTypeTextColor" Color="#777777" />

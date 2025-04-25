@@ -23,7 +23,6 @@ using Dynamo.Wpf.Utilities;
 using Dynamo.Wpf.Views;
 using Dynamo.Wpf.Views.Debug;
 using Dynamo.Wpf.Windows;
-using Dynamo.Wpf.Extensions;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -98,7 +97,7 @@ namespace Dynamo.Controls
         {
             get { return preferencesWindow; }
         }
-
+        internal LibraryView LibraryView { get; private set; }
         internal Dynamo.UI.Views.HomePage homePage;
 
         /// <summary>
@@ -161,6 +160,7 @@ namespace Dynamo.Controls
             libraryView.HorizontalAlignment = HorizontalAlignment.Stretch;
             libraryView.HorizontalContentAlignment = HorizontalAlignment.Stretch;
             sidebarGrid.Children.Add(libraryView);
+            LibraryView = libraryView;
             var viewExtensions = new List<IViewExtension>();
             foreach (var dir in dynamoViewModel.Model.PathManager.ViewExtensionsDirectories)
             {

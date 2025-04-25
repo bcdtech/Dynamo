@@ -178,16 +178,7 @@
                             </MenuItem.ToolTip>
                         </MenuItem>
 
-                        <MenuItem
-                            Name="save3DImage"
-                            Command="{Binding ValidateWorkSpaceBeforeToExportAsImageCommand}"
-                            CommandParameter="{x:Static p:Resources.ScreenShotFrom3DParameter}"
-                            Focusable="False"
-                            Header="{x:Static p:Resources.ShortcutExportBackground3DPreview}">
-                            <MenuItem.ToolTip>
-                                <ToolTip Content="{x:Static p:Resources.DynamoViewToolbarExport3DButtonTooltip}" Style="{StaticResource GenericToolTipLight}" />
-                            </MenuItem.ToolTip>
-                        </MenuItem>
+                      
                     </MenuItem>
                     <MenuItem Name="NotificationCenter" Margin="-16,0,-30,0">
                         <MenuItem.Header>

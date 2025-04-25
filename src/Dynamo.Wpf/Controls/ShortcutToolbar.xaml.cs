@@ -83,11 +83,7 @@ namespace Dynamo.UI.Controls
             this.Icon.Source = new BitmapImage(new System.Uri(@"pack://application:,,,/Dynamo.Wpf;component/Assets/Images/image-icon-default.png"));
         }
 
-        private void LoginButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (!DynamoViewModel.IsIDSDKInitialized()) return;
 
-        }
 
 
 
