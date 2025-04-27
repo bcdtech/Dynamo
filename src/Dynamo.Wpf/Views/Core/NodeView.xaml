@@ -29,10 +29,11 @@
     </UserControl.Resources>
 
     <Grid
-        Name="grid"
+        Name="grid" Background="Purple"
         HorizontalAlignment="Left"
         x:FieldModifier="public"
         ContextMenuService.IsEnabled="false"
+       
         Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -282,7 +283,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Height="46px"
+            Height="26px"
             Canvas.ZIndex="2"
             CornerRadius="8,8,0,0">
             <Rectangle
@@ -347,8 +348,8 @@
             <!--  The Icon for this Node  -->
             <Rectangle
                 Name="nodeIcon"
-                Width="34"
-                Height="34">
+                Width="16"
+                Height="16">
                 <Rectangle.Style>
                     <Style TargetType="Rectangle">
                         <Setter Property="Fill">
@@ -432,20 +433,39 @@
             </Grid>
         </DockPanel>
 
-        <!--  INPUT PORTS  -->
+        <!--  INPUT PORTS Align Left  -->
         <ItemsControl
             Name="inputPortControl"
             Grid.Row="2"
             Grid.Column="0"
             Margin="-25,3,0,0"
             VerticalAlignment="Top"
-            HorizontalContentAlignment="Stretch"
+            HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
-            ItemsSource="{Binding Path=InPorts}"
+            ItemsSource="{Binding Path=InPortsLeft.View}"
             Style="{StaticResource InOutPortControlStyle}" />
 
-        <!--  OUTPUT PORTS  -->
+        <!--  INPUT PORTS Align Top  -->
         <ItemsControl
+            Name="inputPortControlTop"
+            Grid.Row="2"
+            Grid.Column="0"
+            Margin="0,3,0,0"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Stretch"
+            Canvas.ZIndex="6"
+            ItemsSource="{Binding Path=InPortsTop.View}"
+            >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+
+        <!--  OUTPUT PORTS Align Right  -->
+        <ItemsControl 
             Name="outputPortControl"
             Grid.Row="2"
             Grid.Column="2"
@@ -453,7 +473,26 @@
             VerticalAlignment="Top"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="4"
-            ItemsSource="{Binding Path=OutPorts}"
+            ItemsSource="{Binding Path=OutPortsRight.View}"
+            >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+        </ItemsControl>
+
+        <!--  OUTPUT PORTS Align Bottom  -->
+        <ItemsControl
+            Name="outputPortControlBottom"
+            Grid.Row="2"
+            Grid.Column="2"
+            Margin="{Binding OriginalName, Converter={StaticResource NodeOriginalNameToMarginConverter}}"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Stretch"
+            Canvas.ZIndex="4"
+            ItemsSource="{Binding Path=OutPortsRight.View}"
             Style="{StaticResource InOutPortControlStyle}" />
 
         <Grid
@@ -586,48 +625,7 @@
                 </Grid.Style>
             </Grid>
 
-            <!--  Button to open node context menu from lower right corner  -->
-            <Button x:Name="OptionsButton" Click="DisplayNodeContextMenu">
-                <Button.ToolTip>
-                    <ToolTip Content="{x:Static p:Resources.ContextMenu}" Style="{StaticResource GenericToolTipLight}" />
-                </Button.ToolTip>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Grid>
-                                        <Border
-                                            x:Name="DotsBackgroundBorder"
-                                            Width="24"
-                                            Height="24"
-                                            Background="Transparent"
-                                            CornerRadius="2" />
-                                        <Image
-                                            x:Name="DotsImage"
-                                            Width="16px"
-                                            Height="16px"
-                                            Margin="1.5,0,0,0"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Stretch="UniformToFill" />
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="{StaticResource NodeOptionsButtonBackground}" />
-                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/more-vertical_selected_16px.png" />
-                                        </Trigger>
-                                        <Trigger Property="IsMouseOver" Value="False">
-                                            <Setter TargetName="DotsBackgroundBorder" Property="Background" Value="Transparent" />
-                                            <Setter TargetName="DotsImage" Property="Source" Value="/Dynamo.Wpf;component/Assets/Images/more-vertical.png" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
+          
         </StackPanel>
 
         <Grid
@@ -781,7 +779,7 @@
             Margin="-3"
             Background="Transparent"
             BorderBrush="{StaticResource Blue300Brush}"
-            BorderThickness="4"
+            BorderThickness="2"
             Canvas.ZIndex="6"
             CornerRadius="10,10,0,0"
             IsHitTestVisible="False">

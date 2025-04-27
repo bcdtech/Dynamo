@@ -21,6 +21,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Point = System.Windows.Point;
 using Size = System.Windows.Size;
+using System.Windows.Data;
 
 namespace Dynamo.ViewModels
 {
@@ -127,7 +128,6 @@ namespace Dynamo.ViewModels
                 RaisePropertyChanged("InPorts");
             }
         }
-
         [JsonIgnore]
         public ObservableCollection<PortViewModel> OutPorts
         {
@@ -138,7 +138,14 @@ namespace Dynamo.ViewModels
                 RaisePropertyChanged("OutPorts");
             }
         }
-
+        [JsonIgnore]
+        public CollectionViewSource InPortsTop { get; set; }
+        [JsonIgnore]
+        public CollectionViewSource InPortsLeft { get; set; }
+        [JsonIgnore]
+        public CollectionViewSource OutPortsRight { get; set; }
+        [JsonIgnore]
+        public CollectionViewSource OutPortsBottom { get; set; }
         [JsonIgnore]
         public bool IsSelected
         {
@@ -1144,6 +1151,54 @@ namespace Dynamo.ViewModels
                 PortViewModel outportViewModel = SubscribeOutPortEvents(item);
                 OutPorts.Add(outportViewModel);
             }
+            InPortsLeft = new CollectionViewSource() { Source=InPorts};
+            InPortsTop = new CollectionViewSource() { Source = InPorts };
+            OutPortsRight = new CollectionViewSource() {Source=OutPorts };
+            OutPortsBottom = new CollectionViewSource() {Source = OutPorts};
+            InPortsLeft.Filter += (sender, e) =>
+            {
+                if(e.Item is PortViewModel port)
+                {
+                    e.Accepted = port.PortModel.Alinement == PortAlinement.Left;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            };
+            InPortsTop.Filter += (sender, e) =>
+            {
+                if (e.Item is PortViewModel port)
+                {
+                    e.Accepted = port.PortModel.Alinement == PortAlinement.Top;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            };
+            OutPortsRight.Filter += (sender, e) =>
+            {
+                if (e.Item is PortViewModel port)
+                {
+                    e.Accepted = port.PortModel.Alinement == PortAlinement.Right;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            };
+            OutPortsBottom.Filter += (sender, e) =>
+            {
+                if (e.Item is PortViewModel port)
+                {
+                    e.Accepted = port.PortModel.Alinement == PortAlinement.Bottom;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            };
         }
 
 

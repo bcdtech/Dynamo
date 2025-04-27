@@ -694,7 +694,7 @@
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />       
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
         <Setter Property="MinHeight" Value="20" />
         <Setter Property="Template">
             <Setter.Value>
@@ -6574,12 +6574,12 @@
                 <ControlTemplate>
                     <Border
                         x:Name="container"
+                        VerticalAlignment="Stretch"
                         Background="Transparent"
                         BorderBrush="#FF23A597"
                         BorderThickness="1"
-                        VerticalAlignment="Stretch"
                         CornerRadius="2">
-                        <Grid x:Name="inner" Background="#FF23A597" >
+                        <Grid x:Name="inner" Background="#FF23A597">
                             <TextBlock
                                 x:Name="text"
                                 HorizontalAlignment="Center"

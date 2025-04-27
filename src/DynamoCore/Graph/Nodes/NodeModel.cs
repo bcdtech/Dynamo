@@ -521,7 +521,7 @@ namespace Dynamo.Graph.Nodes
                 }
             }
         }
-
+        
         private string ShortenName
         {
             get

@@ -388,7 +388,7 @@ namespace Dynamo.Graph.Nodes
             }
             else
             {
-                Alinement = alinement;
+                Alinement = portPosition.Value;
             }
         }
 
