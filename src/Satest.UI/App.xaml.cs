@@ -1,5 +1,4 @@
 using System.Windows;
-using System.Windows.Input;
 
 namespace Satest.UI
 {
@@ -20,14 +19,12 @@ namespace Satest.UI
         {
 
             MessageBox.Show("发生了未知错误，查看日志");
-            ApplicationCommands.Save.Execute(null, null);
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
 
             MessageBox.Show("发生了未知错误，查看日志");
-            ApplicationCommands.Save.Execute(null, null);
 
 
         }

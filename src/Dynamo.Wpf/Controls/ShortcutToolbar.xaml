@@ -2,6 +2,7 @@
     x:Class="Dynamo.UI.Controls.ShortcutToolbar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Dynamo.Wpf.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.com/icons/"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,6 +11,7 @@
     Name="MenuUserControl"
     Width="Auto"
     Height="Auto"
+    d:Width="400"
     mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -19,232 +21,195 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border
-        Panel.ZIndex="2000"
-        BorderBrush="#FF3F4040"
-        BorderThickness="0,0,0,0">
+    <ToolBarTray HorizontalAlignment="Stretch" Panel.ZIndex="2000">
 
+        <ToolBar>
+            <ItemsControl x:Name="ShortcutItemsControl" ItemsSource="{Binding ElementName='MenuUserControl', Path=ShortcutBarItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding ShortcutCommand}" CommandParameter="{Binding ShortcutCommandParameter}">
+                            <Button.ToolTip>
+                                <ToolTip Content="{Binding ShortcutToolTip}" Style="{StaticResource GenericToolTipLight}" />
+                            </Button.ToolTip>
+                            <Button.Resources>
+                                <Image
+                                    x:Key="Normal"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgNormalSource}" />
+                                <Image
+                                    x:Key="Disabled"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgDisabledSource}" />
+                                <Image
+                                    x:Key="Hover"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgHoverSource}" />
+                            </Button.Resources>
+                            <Button.Style>
+                                <Style BasedOn="{StaticResource ShortCutButton}" TargetType="{x:Type Button}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="false" />
+                                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled}" Value="true" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Content" Value="{StaticResource Normal}" />
+                                        </MultiDataTrigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Content" Value="{StaticResource Disabled}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Content" Value="{StaticResource Hover}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel x:Name="ShortcutBarLeft" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ToolBar>
+        <ToolBar>
+            <Grid
+                Name="bottomBarGrid"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                DataContext="{Binding DynamoViewModel}"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
+                <WrapPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Orientation="Horizontal"
+                    Visibility="{Binding IsAbleToGoHome, Converter={StaticResource InverseBoolToVisibilityConverter}}">
 
-        <Border
-            Margin="11,4,0,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Center">
-            <Grid Name="ShortcutToolbarGrid">
-                <ItemsControl x:Name="ShortcutItemsControl" ItemsSource="{Binding ElementName='MenuUserControl', Path=ShortcutBarItems}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Command="{Binding ShortcutCommand}" CommandParameter="{Binding ShortcutCommandParameter}">
-                                <Button.ToolTip>
-                                    <ToolTip Content="{Binding ShortcutToolTip}" Style="{StaticResource GenericToolTipLight}" />
-                                </Button.ToolTip>
-                                <Button.Resources>
-                                    <Image
-                                        x:Key="Normal"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgNormalSource}" />
-                                    <Image
-                                        x:Key="Disabled"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgDisabledSource}" />
-                                    <Image
-                                        x:Key="Hover"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgHoverSource}" />
-                                </Button.Resources>
-                                <Button.Style>
-                                    <Style BasedOn="{StaticResource ShortCutButton}" TargetType="{x:Type Button}">
-                                        <Style.Triggers>
-                                            <MultiDataTrigger>
-                                                <MultiDataTrigger.Conditions>
-                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="false" />
-                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled}" Value="true" />
-                                                </MultiDataTrigger.Conditions>
-                                                <Setter Property="Content" Value="{StaticResource Normal}" />
-                                            </MultiDataTrigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Content" Value="{StaticResource Disabled}" />
-                                            </Trigger>
-                                            <Trigger Property="IsMouseOver" Value="true">
-                                                <Setter Property="Content" Value="{StaticResource Hover}" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel x:Name="ShortcutBarLeft" Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                    <controls:RunSettingsControl
+                        x:Name="RunSettingsControl"
+                        Margin="2"
+                        VerticalAlignment="Stretch"
+                        DataContext="{Binding Path=HomeSpaceViewModel.RunSettingsViewModel}" />
+                </WrapPanel>
 
-                <ItemsControl x:Name="ShortcutRightSideItemsControl" ItemsSource="{Binding ElementName='MenuUserControl', Path=ShortcutBarRightSideItems}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Command="{Binding ShortcutCommand}" CommandParameter="{Binding ShortcutCommandParameter}">
-                                <Button.ToolTip>
-                                    <ToolTip Content="{Binding ShortcutToolTip}" Style="{StaticResource GenericToolTipLight}" />
-                                </Button.ToolTip>
-                                <Button.Resources>
-                                    <Image
-                                        x:Key="Normal"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgNormalSource}" />
-                                    <Image
-                                        x:Key="Disabled"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgDisabledSource}" />
-                                    <Image
-                                        x:Key="Hover"
-                                        Width="16"
-                                        Height="16"
-                                        Source="{Binding ImgHoverSource}" />
-                                </Button.Resources>
-                                <Button.Style>
-                                    <Style BasedOn="{StaticResource ShortCutButton}" TargetType="{x:Type Button}">
-                                        <Style.Triggers>
-                                            <MultiDataTrigger>
-                                                <MultiDataTrigger.Conditions>
-                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="false" />
-                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled}" Value="true" />
-                                                </MultiDataTrigger.Conditions>
-                                                <Setter Property="Content" Value="{StaticResource Normal}" />
-                                            </MultiDataTrigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Content" Value="{StaticResource Disabled}" />
-                                            </Trigger>
-                                            <Trigger Property="IsMouseOver" Value="true">
-                                                <Setter Property="Content" Value="{StaticResource Hover}" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel x:Name="ShortcutBarRight" Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                <!--  NotificationControl for showing run-time notifications  -->
+                <controls:NotificationsControl  Grid.Column="1" />
+            </Grid>
+        </ToolBar>
+        <ToolBar>
+            <ItemsControl x:Name="ShortcutRightSideItemsControl" ItemsSource="{Binding ElementName='MenuUserControl', Path=ShortcutBarRightSideItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding ShortcutCommand}" CommandParameter="{Binding ShortcutCommandParameter}">
+                            <Button.ToolTip>
+                                <ToolTip Content="{Binding ShortcutToolTip}" Style="{StaticResource GenericToolTipLight}" />
+                            </Button.ToolTip>
+                            <Button.Resources>
+                                <Image
+                                    x:Key="Normal"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgNormalSource}" />
+                                <Image
+                                    x:Key="Disabled"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgDisabledSource}" />
+                                <Image
+                                    x:Key="Hover"
+                                    Width="16"
+                                    Height="16"
+                                    Source="{Binding ImgHoverSource}" />
+                            </Button.Resources>
+                            <Button.Style>
+                                <Style BasedOn="{StaticResource ShortCutButton}" TargetType="{x:Type Button}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="false" />
+                                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled}" Value="true" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Content" Value="{StaticResource Normal}" />
+                                        </MultiDataTrigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Content" Value="{StaticResource Disabled}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Content" Value="{StaticResource Hover}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel x:Name="ShortcutBarRight" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
 
-                <Menu
-                    Name="RightMenu"
-                    Margin="0,0,10,0"
-                    HorizontalAlignment="Right"
-                    IsMainMenu="True"
-                    Style="{StaticResource MainMenu}">
+            <Menu
+                Name="RightMenu"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Right"
+                IsMainMenu="True"
+                Style="{StaticResource MainMenu}">
+
+                <MenuItem
+                    Name="exportMenu"
+                    Margin="10,-3,-10,0"
+                    Cursor="Hand"
+                    Focusable="False"
+                    MouseEnter="exportMenu_MouseEnter"
+                    MouseLeave="exportMenu_MouseLeave">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                x:Name="Icon"
+                                Width="14px"
+                                Source="/Dynamo.Wpf;component/Assets/Images/image-icon-default.png" />
+                            <TextBlock
+                                x:Name="HeaderText"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource ArtifaktElementRegular}"
+                                Foreground="#DCDCDC"
+                                Text="{x:Static p:Resources.ShortcutExportAsImageMainMenu}"
+                                Visibility="{Binding ShowMenuItemText, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
+                        </StackPanel>
+                    </MenuItem.Header>
 
                     <MenuItem
-                        Name="exportMenu"
-                        Margin="10,-3,-10,0"
-                        Cursor="Hand"
+                        Name="saveImage"
+                        Command="{Binding ValidateWorkSpaceBeforeToExportAsImageCommand}"
                         Focusable="False"
-                        MouseEnter="exportMenu_MouseEnter"
-                        MouseLeave="exportMenu_MouseLeave">
-                        <MenuItem.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image
-                                    x:Name="Icon"
-                                    Width="14px"
-                                    Source="/Dynamo.Wpf;component/Assets/Images/image-icon-default.png" />
-                                <TextBlock
-                                    x:Name="HeaderText"
-                                    Margin="10,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontFamily="{StaticResource ArtifaktElementRegular}"
-                                    Foreground="#DCDCDC"
-                                    Text="{x:Static p:Resources.ShortcutExportAsImageMainMenu}"
-                                    Visibility="{Binding ShowMenuItemText, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
-                            </StackPanel>
-                        </MenuItem.Header>
-
-                        <MenuItem
-                            Name="saveImage"
-                            Command="{Binding ValidateWorkSpaceBeforeToExportAsImageCommand}"
-                            Focusable="False"
-                            Header="{x:Static p:Resources.ShortcutExportWorkspace}">
-                            <MenuItem.ToolTip>
-                                <ToolTip Content="{x:Static p:Resources.DynamoViewToolbarExportButtonTooltip}" Style="{StaticResource GenericToolTipLight}" />
-                            </MenuItem.ToolTip>
-                        </MenuItem>
-
-                      
+                        Header="{x:Static p:Resources.ShortcutExportWorkspace}">
+                        <MenuItem.ToolTip>
+                            <ToolTip Content="{x:Static p:Resources.DynamoViewToolbarExportButtonTooltip}" Style="{StaticResource GenericToolTipLight}" />
+                        </MenuItem.ToolTip>
                     </MenuItem>
-                    <MenuItem Name="NotificationCenter" Margin="-16,0,-30,0">
-                        <MenuItem.Header>
-                            <Button
-                                x:Name="notificationsButton"
-                                Margin="10,0,10,0"
-                                BorderBrush="Transparent"
-                                BorderThickness="0"
-                                Cursor="Hand">
-                                <Button.ToolTip>
-                                    <ToolTip Content="{x:Static p:Resources.NotificationCenterButtonTooltip}" Style="{StaticResource GenericToolTipLight}" />
-                                </Button.ToolTip>
-                                <Button.Style>
-                                    <Style TargetType="{x:Type Button}">
-                                        <Setter Property="Background" Value="{StaticResource DarkerGreyBrush}" />
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type Button}">
-                                                    <Border Background="{TemplateBinding Background}">
-                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="{StaticResource HighlightedBrush}" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                                <DockPanel>
-                                    <fa:FontAwesome
-                                        Margin="10,0,25,0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        DockPanel.Dock="Top"
-                                        FontSize="18px"
-                                        Foreground="{StaticResource PrimaryCharcoal300Brush}"
-                                        Icon="{Binding Path=DataContext.PreferenceSettings.EnableNotificationCenter, RelativeSource={RelativeSource AncestorType={x:Type Window}}, Converter={StaticResource BoolToFAIconNameConverter}}" />
-                                    <Border
-                                        Width="14"
-                                        Height="14"
-                                        Margin="10,0,0,0"
-                                        Padding="2"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Background="{StaticResource Blue400Brush}"
-                                        CornerRadius="2"
-                                        DockPanel.Dock="Bottom"
-                                        Visibility="{Binding IsNotificationsCounterVisible, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}">
-                                        <TextBlock
-                                            Name="NotificationCount"
-                                            FontFamily="{StaticResource ArtifaktElementRegular}"
-                                            FontSize="9"
-                                            FontWeight="DemiBold"
-                                            Foreground="White"
-                                            Text="{Binding NotificationsNumber}"
-                                            TextAlignment="Center" />
-                                    </Border>
-                                </DockPanel>
-                            </Button>
-                        </MenuItem.Header>
-                    </MenuItem>
-                </Menu>
-            </Grid>
-        </Border>
-    </Border>
+
+
+                </MenuItem>
+
+            </Menu>
+        </ToolBar>
+
+
+    </ToolBarTray>
 </UserControl>

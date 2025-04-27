@@ -50,7 +50,66 @@ namespace Dynamo.UI.Controls
 
             var shortcutToolbar = new ShortcutToolbarViewModel(dynamoViewModel);
             DataContext = shortcutToolbar;
+            var newScriptButton = new ShortcutBarItem
+            {
+                ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarNewButtonTooltip,
+                ShortcutCommand = dynamoViewModel.NewHomeWorkspaceCommand,
+                ShortcutCommandParameter = null,
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/new_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/new_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/new_normal.png",
+                Name = "New"
+            };
 
+            var openScriptButton = new ShortcutBarItem
+            {
+                ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarOpenButtonTooltip,
+                ShortcutCommand = dynamoViewModel.ShowOpenDialogAndOpenResultCommand,
+                ShortcutCommandParameter = null,
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/open_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/open_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/open_normal.png",
+                Name = "Open"
+            };
+
+            var saveButton = new ShortcutBarItem
+            {
+                ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarSaveButtonTooltip,
+                ShortcutCommand = dynamoViewModel.ShowSaveDialogIfNeededAndSaveResultCommand,
+                ShortcutCommandParameter = null,
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/save_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/save_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/save_normal.png",
+                Name = "Save"
+            };
+
+            var undoButton = new ShortcutBarItem
+            {
+                ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarUndoButtonTooltip,
+                ShortcutCommand = dynamoViewModel.UndoCommand,
+                ShortcutCommandParameter = null,
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/undo_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/undo_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/undo_normal.png",
+                Name = "Undo"
+            };
+
+            var redoButton = new ShortcutBarItem
+            {
+                ShortcutToolTip = Wpf.Properties.Resources.DynamoViewToolbarRedoButtonTooltip,
+                ShortcutCommand = dynamoViewModel.RedoCommand,
+                ShortcutCommandParameter = null,
+                ImgNormalSource = "/Dynamo.Wpf;component/Assets/Images/redo_normal.png",
+                ImgDisabledSource = "/Dynamo.Wpf;component/Assets/Images/redo_disabled.png",
+                ImgHoverSource = "/Dynamo.Wpf;component/Assets/Images/redo_normal.png",
+                Name = "Redo"
+            };
+
+            ShortcutBarItems.Add(newScriptButton);
+            ShortcutBarItems.Add(openScriptButton);
+            ShortcutBarItems.Add(saveButton);
+            ShortcutBarItems.Add(undoButton);
+            ShortcutBarItems.Add(redoButton);
 
             this.Loaded += ShortcutToolbar_Loaded;
         }
@@ -183,11 +242,7 @@ namespace Dynamo.UI.Controls
 
         internal bool IsNotificationCenterEnabled
         {
-            set
-            {
-                this.NotificationCenter.IsEnabled = value;
-                this.NotificationCenter.Opacity = value ? 1 : 0.5;
-            }
+            get; set;
         }
     }
 

@@ -759,34 +759,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Grid
-                Name="bottomBarGrid"
-                Grid.Column="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
 
-                <WrapPanel
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Orientation="Horizontal"
-                    Visibility="{Binding IsAbleToGoHome, Converter={StaticResource InverseBoolToVisibilityConverter}}">
-
-                    <controls1:RunSettingsControl
-                        x:Name="RunSettingsControl"
-                        Margin="2"
-                        VerticalAlignment="Stretch"
-                        DataContext="{Binding Path=HomeSpaceViewModel.RunSettingsViewModel}" />
-                </WrapPanel>
-
-                <!--  NotificationControl for showing run-time notifications  -->
-                <controls1:NotificationsControl Grid.Column="1" />
-            </Grid>
             <Border
                 Name="shortcutBarBorder"
                 Grid.Row="0"

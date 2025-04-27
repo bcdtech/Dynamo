@@ -22,7 +22,7 @@ namespace Satest.UI
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");
             //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
-            var model = StartupUtils.MakeModel(false, "zh-CN", true, "", new HostAnalyticsInfo { });
+            var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
             var path = Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
             var assembly = System.Reflection.Assembly.LoadFile(path);
             model.LoadNodeLibrary(assembly, true);
