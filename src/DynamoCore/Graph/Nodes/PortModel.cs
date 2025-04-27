@@ -1,18 +1,17 @@
+using Dynamo.Configuration;
+using Dynamo.Engine;
+using Dynamo.Graph.Connectors;
+using Dynamo.Graph.Nodes.ZeroTouch;
+using Dynamo.Graph.Workspaces;
+using Dynamo.Utilities;
+using Newtonsoft.Json;
+using ProtoCore.AST.AssociativeAST;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
-using Dynamo.Configuration;
-using Dynamo.Engine;
-using Dynamo.Graph.Connectors;
-using Dynamo.Graph.Nodes.ZeroTouch;
-using Dynamo.Graph.Workspaces;
-using Dynamo.Logging;
-using Dynamo.Utilities;
-using Newtonsoft.Json;
-using ProtoCore.AST.AssociativeAST;
 
 namespace Dynamo.Graph.Nodes
 {
@@ -22,7 +21,7 @@ namespace Dynamo.Graph.Nodes
     /// Interaction logic for dynPort.xaml
     /// </summary>
     public enum PortType { Input, Output };
-
+    public enum PortAlinement { Left, Top, Right, Bottom };
     /// <summary>
     /// PortModel represents Dynamo ports.
     /// </summary>
@@ -87,7 +86,7 @@ namespace Dynamo.Graph.Nodes
                 string useDefaultArgument = string.Empty;
                 if (!UsingDefaultValue && DefaultValue != null)
                     useDefaultArgument = " " + Properties.Resources.DefaultValueDisabled;
-                return toolTip.Contains(Properties.Resources.DefaultValueDisabled)? toolTip: toolTip + useDefaultArgument;
+                return toolTip.Contains(Properties.Resources.DefaultValueDisabled) ? toolTip : toolTip + useDefaultArgument;
             }
             set
             {
@@ -115,6 +114,11 @@ namespace Dynamo.Graph.Nodes
         {
             get;
             internal set;
+        }
+        public PortAlinement Alinement
+        {
+            get => alinement;
+            set => alinement = value;
         }
 
         /// <summary>
@@ -154,6 +158,8 @@ namespace Dynamo.Graph.Nodes
         }
 
         private Point2D center = new Point2D();
+        private PortAlinement alinement;
+
         /// <summary>
         /// Center is used by connected connectors to update their shape
         /// The "center" of a port is derived from the type of port and
@@ -171,7 +177,7 @@ namespace Dynamo.Graph.Nodes
                     return center;
                 }
                 // If it is a node port, calculate the center based on that node position.
-                else 
+                else
                 {
                     double halfHeight = Height * 0.5;
 
@@ -196,7 +202,7 @@ namespace Dynamo.Graph.Nodes
                     return new Point2D();
                 }
             }
-            internal set 
+            internal set
             {
                 if (center.Equals(value)) return;
 
@@ -208,7 +214,7 @@ namespace Dynamo.Graph.Nodes
         /// <summary>
         /// Controls whether this port is set to use it's default value (true) or yield a closure (false).
         /// </summary>
-        [DefaultValue(true)]            
+        [DefaultValue(true)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public bool UsingDefaultValue
         {
@@ -286,7 +292,7 @@ namespace Dynamo.Graph.Nodes
                 if (useLevels != value)
                 {
                     useLevels = value;
-                    
+
                     if (!useLevels) KeepListStructure = useLevels;
                     RaisePropertyChanged("UseLevels");
                 }
@@ -353,7 +359,8 @@ namespace Dynamo.Graph.Nodes
         /// <param name="portType">Type of the Port</param>
         /// <param name="owner">Parent Node</param>
         /// <param name="data">Information about port</param>
-        public PortModel(PortType portType, NodeModel owner, PortData data)
+        /// <param name="portPosition">port position</param>
+        public PortModel(PortType portType, NodeModel owner, PortData data, PortAlinement? portPosition = null)
         {
             PortType = portType;
             Owner = owner;
@@ -367,16 +374,29 @@ namespace Dynamo.Graph.Nodes
             LineIndex = data.LineIndex;
             toolTip = data.ToolTipString;
             Name = data.Name;
-            
+
             MarginThickness = new Thickness(0);
             Height = Math.Abs(data.Height) < 0.001 ? Configurations.PortHeightInPixels : data.Height;
+            if (portPosition == null)
+            {
+                Alinement = portType switch
+                {
+                    PortType.Input => PortAlinement.Top,
+                    PortType.Output => PortAlinement.Bottom,
+                    _ => PortAlinement.Top,
+                };
+            }
+            else
+            {
+                Alinement = alinement;
+            }
         }
 
         internal void RaisePortIsConnectedChanged()
         {
             RaisePropertyChanged(nameof(IsConnected));
         }
-        
+
         /// <summary>
         /// Deletes all connectors attached to this PortModel.
         /// </summary>
@@ -461,13 +481,13 @@ namespace Dynamo.Graph.Nodes
                 }
                 return type;
             }
-          
+
             if (Owner is CustomNodes.Function cusNode)
             {
                 var cd = cusNode.Controller.Definition;
                 var param = cd.Parameters.ElementAt(Index);
                 string type = param.Type.ToString();
-                
+
                 return type;
             }
 
@@ -505,7 +525,7 @@ namespace Dynamo.Graph.Nodes
                 var fd = ztNode.Controller.Definition;
 
                 string type = fd.ReturnType.ToString();
-              
+
                 return type;
             }
 
@@ -527,9 +547,9 @@ namespace Dynamo.Graph.Nodes
                 {
                     return outPortAttribute?.PortTypes.ElementAt(Index);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                   Log(e.Message);
+                    Log(e.Message);
                 }
             }
 
