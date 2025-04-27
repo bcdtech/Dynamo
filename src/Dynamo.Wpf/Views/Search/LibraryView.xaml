@@ -48,7 +48,7 @@
                                         </Grid.RowDefinitions>
 
                                         <Border x:Name="outerBorder" BorderBrush="{StaticResource LibraryItemHostBackground}">
-                                            <Grid Name="OuterGrid" Background="Transparent">
+                                            <Grid Name="OuterGrid" Background="Transparent" >
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="*" />

@@ -1,11 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-
 using Dynamo.Controls;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Dynamo.Wpf.Controls
 {
@@ -18,7 +17,7 @@ namespace Dynamo.Wpf.Controls
         {
             InitializeComponent();
 
-            this.Loaded += NotificationsControl_Loaded;  
+            this.Loaded += NotificationsControl_Loaded;
         }
 
         void NotificationsControl_Loaded(object sender, RoutedEventArgs e)
@@ -40,7 +39,8 @@ namespace Dynamo.Wpf.Controls
         /// <param name="e"></param>
         void window_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var hsvm = (HomeWorkspaceViewModel)((DynamoViewModel)DataContext).HomeSpaceViewModel;
+
+            var hsvm = (DataContext as DynamoViewModel)?.HomeSpaceViewModel as HomeWorkspaceViewModel;
             // Commented this after MAGN - 8423
             // hsvm.ClearWarning();
         }

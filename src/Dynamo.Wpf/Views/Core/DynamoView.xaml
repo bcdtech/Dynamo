@@ -747,7 +747,7 @@
         <Grid
             Name="shortcutsBarGrid"
             Grid.Row="1"
-            Grid.Column="1"
+            Grid.Column="0"
             Grid.ColumnSpan="5"
             VerticalAlignment="Top"
             Canvas.ZIndex="1">
@@ -807,7 +807,6 @@
             Grid.RowSpan="1"
             Grid.Column="2"
             Margin="0"
-            Background="#3c3c3c"
             BorderBrush="Black"
             BorderThickness="0"
             SizeChanged="Workspace_SizeChanged">
@@ -832,7 +831,7 @@
                                                 <RowDefinition Height="Auto" />
                                                 <RowDefinition Height="*" />
                                             </Grid.RowDefinitions>
-                                            <Border Grid.Row="0" Background="Transparent">
+                                            <Border Grid.Row="0" Background="{StaticResource DarkerGreyBrush}">
                                                 <Grid>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*" />
@@ -1573,7 +1572,7 @@
         <!--  Left Sidebar Library  -->
         <Grid
             Name="sidebarGrid"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.RowSpan="5"
             Grid.Column="0"
             Width="Auto"
