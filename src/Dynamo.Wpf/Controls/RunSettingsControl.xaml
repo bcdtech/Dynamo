@@ -38,7 +38,8 @@
         <StackPanel Orientation="Horizontal">
             <ComboBox
                 Name="RunTypesComboBox"
-                Width="200"
+                MinWidth="100"
+                Width="auto"
                 Margin="2.5,0,10,0"
                 HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Center"
@@ -102,6 +103,9 @@
                 Name="RunButton"
                 Width="100"
                 Margin="0,0,2.5,0"
+                Padding="0"
+                VerticalAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
                 Click="RunButton_OnClick"
                 Command="{Binding RunExpressionCommand}"
                 CommandParameter="{Binding Path=RunInDebug}"
@@ -137,7 +141,7 @@
 
             <CheckBox
                 Name="debugCheckBox"
-                Margin="10"
+                Margin="10 0 0 0"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 x:FieldModifier="public"

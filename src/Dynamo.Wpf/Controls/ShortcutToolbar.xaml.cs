@@ -34,7 +34,7 @@ namespace Dynamo.UI.Controls
         {
             get { return shortcutBarRightSideItems; }
         }
-        public readonly DynamoViewModel DynamoViewModel;
+        public DynamoViewModel DynamoViewModel { get; private set; }
 
         /// <summary>
         /// Construct a ShortcutToolbar.

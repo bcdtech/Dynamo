@@ -62,10 +62,6 @@
             Key="L"
             Command="{Binding Path=DataContext.GraphAutoLayoutCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
             Modifiers="Control" />
-        <KeyBinding
-            Key="I"
-            Command="{Binding Path=DataContext.BackgroundPreviewViewModel.ToggleIsolationModeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
-            Modifiers="Control" />
         <KeyBinding Key="Tab" Command="{Binding Path=DataContext.SelectNeighborsCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}" />
 
         <KeyBinding
@@ -96,12 +92,6 @@
             Key="V"
             Command="{Binding Path=DataContext.PasteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
             Modifiers="Control" />
-
-        <KeyBinding
-            Key="B"
-            Command="{Binding Path=DataContext.BackgroundPreviewViewModel.ToggleCanNavigateBackgroundCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
-            Modifiers="Control" />
-
         <KeyBinding
             Key="W"
             Command="{Binding Path=DataContext.AddNoteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
@@ -196,11 +186,6 @@
             Command="{Binding Path=DataContext.FitViewCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
             Modifiers="Ctrl" />
         <KeyBinding
-            Key="P"
-            Command="{Binding Path=DataContext.BackgroundPreviewViewModel.TogglePanCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
-            Modifiers="Ctrl" />
-
-        <KeyBinding
             Key="F5"
             Command="{Binding Path=DataContext.HomeSpaceViewModel.RunSettingsViewModel.CancelRunCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}"
             Modifiers="Shift" />
@@ -224,7 +209,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="40px" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Name="consoleRow" Height="{Binding ConsoleHeight, Mode=TwoWay, Converter={StaticResource ConsoleHeightConverter}}" />
@@ -653,32 +638,7 @@
                                 IsChecked="{Binding Path=IsShowingConnectorTooltip}" />
                         </MenuItem>
 
-                        <MenuItem Name="background3dMenu" Header="{x:Static p:Resources.DynamoViewViewMenu3DPreview}">
-
-                            <MenuItem Header="{x:Static p:Resources.DynamoViewViewMenuAvailablePreviews}" ItemsSource="{Binding Watch3DViewModels}">
-                                <MenuItem.ItemContainerStyle>
-                                    <Style TargetType="MenuItem">
-                                        <Setter Property="Header" Value="{Binding Name}" />
-                                        <Setter Property="IsCheckable" Value="True" />
-                                        <Setter Property="IsChecked" Value="{Binding Active}" />
-                                        <Setter Property="IsEnabled" Value="{Binding CanBeActivated}" />
-                                    </Style>
-                                </MenuItem.ItemContainerStyle>
-                            </MenuItem>
-
-                            <MenuItem
-                                Command="{Binding ToggleBackgroundGridVisibilityCommand}"
-                                Header="{x:Static p:Resources.DynamoViewViewMenuShowGrid}"
-                                IsChecked="{Binding PreferenceSettings.IsBackgroundGridVisible}"
-                                IsEnabled="True" />
-
-                            <MenuItem
-                                Command="{Binding Path=BackgroundPreviewViewModel.ToggleCanNavigateBackgroundCommand}"
-                                Header="{x:Static p:Resources.DynamoViewViewMenuPreviewNavigate}"
-                                InputGestureText="Ctrl + B"
-                                IsChecked="{Binding Path=BackgroundPreviewViewModel.CanNavigateBackground}"
-                                IsEnabled="{Binding BackgroundPreviewActive}" />
-                        </MenuItem>
+                       
                     </MenuItem>
 
 
@@ -749,7 +709,8 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            VerticalAlignment="Top"
+            VerticalAlignment="Center"
+            Margin="2"
             Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -779,8 +740,7 @@
             Grid.Column="2"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            Background="#232323"
-            IsHitTestVisible="{Binding BackgroundPreviewViewModel.CanNavigateBackground}">
+            Background="#232323">
             <Canvas
                 Name="backgroundCanvas"
                 Margin="0,0,0,0"
@@ -1778,40 +1738,6 @@
             DragCompleted="RightExtensionSidebar_DragCompleted"
             ResizeDirection="Auto" />
 
-        <!--  Start Page  -->
-        <Grid
-            x:Name="oldHomePageContainer"
-            Grid.Row="2"
-            Grid.RowSpan="4"
-            Grid.Column="0"
-            Grid.ColumnSpan="5"
-            Visibility="{Binding IsNewAppHomeEnabled, Converter={StaticResource InverseBoolToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
-            <ItemsControl Name="startPageItemsControl">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="{x:Type uictrls:StartPageViewModel}">
-                        <Grid>
-                            <Grid.Height>
-                                <Binding
-                                    Mode="OneWay"
-                                    Path="ActualHeight"
-                                    RelativeSource="{RelativeSource FindAncestor,
-                                                                    AncestorType={x:Type ItemsControl}}" />
-                            </Grid.Height>
-                            <uictrls:StartPageView />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.Visibility>
-                    <Binding
-                        Converter="{StaticResource BooleanToVisibilityConverter}"
-                        Mode="OneWay"
-                        Path="DataContext.ShowStartPage"
-                        RelativeSource="{RelativeSource FindAncestor,
-                                                        AncestorType={x:Type controls:DynamoView}}"
-                        UpdateSourceTrigger="Explicit" />
-                </ItemsControl.Visibility>
-            </ItemsControl>
-        </Grid>
         <!--  Do not delete newHomePageContainer grid as it is hosting the HomePage  -->
         <Grid
             x:Name="newHomePageContainer"

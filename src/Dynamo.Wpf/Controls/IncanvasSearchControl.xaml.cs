@@ -18,7 +18,6 @@ namespace Dynamo.UI.Controls
     public partial class InCanvasSearchControl : UserControl
     {
         ListBoxItem HighlightedItem;
-
         internal event Action<ShowHideFlags> RequestShowInCanvasSearch;
 
         public SearchViewModel ViewModel

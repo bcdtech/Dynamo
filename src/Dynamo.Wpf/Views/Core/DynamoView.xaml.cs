@@ -1050,17 +1050,17 @@ namespace Dynamo.Controls
             if (DynamoModel.IsTestMode) // No start screen in unit testing.
                 return;
 
-            if (startPage == null)
-            {
-                if (startPageItemsControl.Items.Count > 0)
-                {
-                    var message = "'startPageItemsControl' must be empty";
-                    throw new InvalidOperationException(message);
-                }
+            //if (startPage == null)
+            //{
+            //    if (startPageItemsControl.Items.Count > 0)
+            //    {
+            //        var message = "'startPageItemsControl' must be empty";
+            //        throw new InvalidOperationException(message);
+            //    }
 
-                startPage = new StartPageViewModel(dynamoViewModel, isFirstRun);
-                startPageItemsControl.Items.Add(startPage);
-            }
+            //    startPage = new StartPageViewModel(dynamoViewModel, isFirstRun);
+            //    startPageItemsControl.Items.Add(startPage);
+            //}
         }
 
         private void vm_RequestLayoutUpdate(object sender, EventArgs e)

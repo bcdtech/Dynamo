@@ -293,10 +293,7 @@
                                                     ClickMode="Press"
                                                     IsChecked="{Binding IsExpanded, Mode=OneWay}"
                                                     IsHitTestVisible="False"
-                                                    Style="{StaticResource LibraryExpandCollapseToggleStyle}">
-                                                    <ToggleButton.Margin>
-                                                        <Binding Converter="{StaticResource FullCategoryNameToMarginConverter}" Path="FullCategoryName" />
-                                                    </ToggleButton.Margin>
+                                                    Style="{StaticResource LibraryExpandCollapseToggleStyle}">                                                   
                                                 </ToggleButton>
 
                                                 <ContentPresenter
@@ -472,7 +469,7 @@
                                     </MultiDataTrigger.Setters>
                                 </MultiDataTrigger>
 
-                                <MultiDataTrigger>
+                                <!--<MultiDataTrigger>
                                     <MultiDataTrigger.Conditions>
                                         <Condition Binding="{Binding IsExpanded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" Value="True" />
                                         <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource TreeViewLineConverter}}" Value="True" />
@@ -480,7 +477,7 @@
                                     <MultiDataTrigger.Setters>
                                         <Setter Property="Margin" Value="{Binding ElementName=OuterButtongrid, Converter={StaticResource ClassViewMarginConverter}}" />
                                     </MultiDataTrigger.Setters>
-                                </MultiDataTrigger>
+                                </MultiDataTrigger>-->
 
                                 <!--<DataTrigger Binding="{Binding IsChecked, ElementName=Expander}" Value="True" >
                                     <Setter Property="Margin"

@@ -149,7 +149,7 @@
                 AllowsTransparency="True"
                 Placement="Right"
                 StaysOpen="True">
-                <uicontrols:ToolTipWindow />
+                <!--<uicontrols:ToolTipWindow />-->
             </Popup>
         </Border>
 

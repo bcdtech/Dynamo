@@ -37,10 +37,10 @@
                                     Name="ContextMenuPanel"
                                     Height="{Binding ElementName=MenuItems, Path=ActualHeight, Converter={StaticResource WorkspaceContextMenuHeightConverter}}"
                                     Margin="8,4,8,8">
-                                    <ui:InCanvasSearchControl
+                                    <!--<ui:InCanvasSearchControl
                                         Width="{Binding ElementName=ContextMenuPanel, Path=ActualWidth}"
                                         DataContext="{Binding InCanvasSearchViewModel}"
-                                        RequestShowInCanvasSearch="ShowHideContextMenu" />
+                                        RequestShowInCanvasSearch="ShowHideContextMenu" />-->
                                     <Border
                                         Name="MenuItems"
                                         Padding="0,3,0,3"
@@ -111,7 +111,6 @@
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding Path=DataContext.PreferenceSettings.IsBackgroundGridVisible, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}" Value="True" />
-                                <Condition Binding="{Binding Path=DataContext.BackgroundPreviewViewModel.Active, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}}" Value="False" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Visible" />
                         </MultiDataTrigger>
@@ -129,15 +128,6 @@
             ClipToBounds="True"
             Cursor="{Binding CurrentCursor}"
             ForceCursor="{Binding IsCursorForced}">
-
-            <controls:ZoomBorder.IsHitTestVisible>
-                <Binding
-                    Converter="{StaticResource InverseBooleanConverter}"
-                    Path="DataContext.BackgroundPreviewViewModel.CanNavigateBackground"
-                    RelativeSource="{RelativeSource FindAncestor,
-                                                    AncestorType={x:Type TabControl}}" />
-            </controls:ZoomBorder.IsHitTestVisible>
-
             <ItemsControl Name="WorkspaceElements" ItemsSource="{Binding WorkspaceElements}">
 
                 <!--  Resources for the ItemsControl can now be found in DataTemplates.xml  -->
@@ -157,13 +147,7 @@
                             <Canvas.Background>
                                 <SolidColorBrush Color="Transparent" />
                             </Canvas.Background>
-                            <Canvas.Opacity>
-                                <Binding
-                                    Converter="{StaticResource NavigationToOpacityConverter}"
-                                    Path="DataContext.BackgroundPreviewViewModel.CanNavigateBackground"
-                                    RelativeSource="{RelativeSource FindAncestor,
-                                                                    AncestorType={x:Type controls:DynamoView}}" />
-                            </Canvas.Opacity>
+                           
                         </controls:DragCanvas>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
@@ -249,9 +233,7 @@
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasPanButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
-                <ui:ImageCheckBox.Command>
-                    <Binding Path="DataContext.BackgroundPreviewViewModel.TogglePanCommand" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}" />
-                </ui:ImageCheckBox.Command>
+               
                 <ui:ImageCheckBox.IsChecked>
                     <Binding Mode="OneWay" Path="IsPanning" />
                 </ui:ImageCheckBox.IsChecked>
@@ -266,20 +248,10 @@
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasOrbitButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
-                <ui:ImageCheckBox.Command>
-                    <Binding Path="DataContext.BackgroundPreviewViewModel.ToggleOrbitCommand" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type controls:DynamoView}}" />
-                </ui:ImageCheckBox.Command>
+               
                 <ui:ImageCheckBox.IsChecked>
                     <Binding Mode="OneWay" Path="IsOrbiting" />
                 </ui:ImageCheckBox.IsChecked>
-                <ui:ImageCheckBox.Visibility>
-                    <Binding
-                        Converter="{StaticResource BooleanToVisibilityConverter}"
-                        ConverterParameter="Collapse"
-                        Path="DataContext.BackgroundPreviewViewModel.CanNavigateBackground"
-                        RelativeSource="{RelativeSource FindAncestor,
-                                                        AncestorType={x:Type controls:DynamoView}}" />
-                </ui:ImageCheckBox.Visibility>
             </ui:ImageCheckBox>
 
 
@@ -311,7 +283,7 @@
             IsOpen="False"
             Placement="MousePoint"
             StaysOpen="True">
-            <ui:InCanvasSearchControl RequestShowInCanvasSearch="ShowHideInCanvasControl" />
+            <!--<ui:InCanvasSearchControl RequestShowInCanvasSearch="ShowHideInCanvasControl" />-->
         </Popup>
 
         <Popup
@@ -767,19 +739,8 @@
                         Header="{x:Static p:Resources.UpdateAllPythonEngineMainMenuHeader}"
                         Visibility="{Binding Path=CanUpdatePythonEngine, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
 
-                    <!--  Switch to Geometry View  -->
-                    <MenuItem
-                        Command="{Binding DynamoViewModel.BackgroundPreviewViewModel.ToggleCanNavigateBackgroundCommand}"
-                        Header="{x:Static p:Resources.ContextMenuGeometryView}"
-                        Visibility="{Binding DynamoViewModel.BackgroundPreviewViewModel.Active, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
-
-                    <!--  Pan  -->
-                    <MenuItem Command="{Binding DynamoViewModel.BackgroundPreviewViewModel.TogglePanCommand}" Header="{x:Static p:Resources.ContextMenuPan}">
-                        <MenuItem.IsChecked>
-                            <Binding Mode="OneWay" Path="DynamoViewModel.BackgroundPreviewViewModel.IsPanning" />
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-
+               
+                  
                     <!--  Fit to Screen  -->
                     <MenuItem Command="{Binding DynamoViewModel.FitViewCommand}" Header="{x:Static p:Resources.ContextMenuFitToScreen}" />
 

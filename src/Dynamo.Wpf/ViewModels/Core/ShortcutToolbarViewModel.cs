@@ -14,7 +14,7 @@ namespace Dynamo.Wpf.ViewModels.Core
 
         private int notificationsNumber;
         private bool showMenuItemText;
-        public readonly DynamoViewModel DynamoViewModel;
+        public DynamoViewModel DynamoViewModel { get; private set; }
 
         public ShortcutToolbarViewModel(DynamoViewModel dynamoViewModel)
         {
