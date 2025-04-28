@@ -283,7 +283,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Height="26px"
+            Height="30px"
             Canvas.ZIndex="2"
             CornerRadius="8,8,0,0">
             <Rectangle
@@ -439,11 +439,18 @@
             Grid.Row="2"
             Grid.Column="0"
             Margin="-25,3,0,0"
-            VerticalAlignment="Top"
+          
+            VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
             ItemsSource="{Binding Path=InPortsLeft.View}"
-            Style="{StaticResource InOutPortControlStyle}" />
+            >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
 
         <!--  INPUT PORTS Align Top  -->
         <ItemsControl

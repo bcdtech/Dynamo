@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Dynamo.Properties;
 using Dynamo.Utilities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Dynamo.Configuration
 {
@@ -75,52 +74,52 @@ namespace Dynamo.Configuration
         /// <summary>
         /// Link to Dynamo site
         /// </summary>
-        public static string DynamoSiteLink = "http://dynamobim.org/";
+        public static string DynamoSiteLink = "";
 
         /// <summary>
         /// Link to Dynamo wiki
         /// </summary>
-        public static string DynamoWikiLink = "https://github.com/DynamoDS/Dynamo/wiki";
+        public static string DynamoWikiLink = "";
 
         /// <summary>
         /// Link to Dynamo forum
         /// </summary>
-        public static string DynamoBimForum = "http://dynamobim.org/forums/forum/dyn/";
+        public static string DynamoBimForum = "";
 
         /// <summary>
         /// DynamoTeam email
         /// </summary>
-        public static string DynamoTeamEmail = "mailto:team@dynamobim.org";
+        public static string DynamoTeamEmail = "";
 
         /// <summary>
         /// Link to Dynamo video tutorials
         /// </summary>
-        public static string DynamoVideoTutorials = "http://dynamobim.org/learn/#161";
+        public static string DynamoVideoTutorials = "";
 
         /// <summary>
         /// Link to Dynamo dictionary
         /// </summary>
-        public static string DynamoDictionary = "http://dictionary.dynamobim.com/2/";
+        public static string DynamoDictionary = "";
 
         /// <summary>
         /// Link to Dynamo primer
         /// </summary>
-        public static string DynamoPrimer = "http://primer2.dynamobim.org/";
+        public static string DynamoPrimer = "";
 
         /// <summary>
         /// Link to Dynamo download page
         /// </summary>
-        public static string DynamoDownloadLink = "http://dynamobim.org/download/";
+        public static string DynamoDownloadLink = "";
 
         /// <summary>
         /// Link to Dynamo's github repo
         /// </summary>
-        public static string GitHubDynamoLink = "https://github.com/DynamoDS/Dynamo";
+        public static string GitHubDynamoLink = "";
 
         /// <summary>
         /// Link to Dynamo's issues on github
         /// </summary>
-        public static string GitHubBugReportingLink = "https://github.com/DynamoDS/Dynamo/issues/new";
+        public static string GitHubBugReportingLink = "";
         #endregion
 
         #region Canvas Configurations

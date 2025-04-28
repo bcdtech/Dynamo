@@ -223,6 +223,7 @@ namespace Dynamo.ViewModels
             this.node.WorkspaceViewModel.PropertyChanged += WorkspacePropertyChanged;
 
             RefreshPortColors();
+
         }
 
         public override void Dispose()

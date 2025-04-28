@@ -1,13 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Xml;
 using Dynamo.Configuration;
 using Dynamo.Engine;
 using Dynamo.Engine.CodeGeneration;
@@ -25,6 +15,16 @@ using Newtonsoft.Json.Converters;
 using ProtoCore.AST.AssociativeAST;
 using ProtoCore.DSASM;
 using ProtoCore.Mirror;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Xml;
 using String = System.String;
 using StringNode = ProtoCore.AST.AssociativeAST.StringNode;
 
@@ -37,7 +37,7 @@ namespace Dynamo.Graph.Nodes
         internal Info(string message, ElementState state = ElementState.Active)
         {
             Message = message;
-            State =  state;
+            State = state;
         }
 
         public override bool Equals(object other)
@@ -105,7 +105,7 @@ namespace Dynamo.Graph.Nodes
         private readonly Dictionary<int, HashSet<Tuple<int, NodeModel>>> outputNodes;
         #endregion
 
-        internal const double HeaderHeight = 46;
+        internal const double HeaderHeight = 30;
         internal const double CustomNodeTopBorderHeight = 8;
         internal static string ExtensionNode = "ExtensionNode";
 
@@ -231,7 +231,7 @@ namespace Dynamo.Graph.Nodes
         /// <summary>
         /// Id for this node, must be unique within the graph.
         /// </summary>
-        [JsonProperty("Id",Order = 1)]
+        [JsonProperty("Id", Order = 1)]
         [JsonConverter(typeof(IdToGuidConverter))]
         public override Guid GUID
         {
@@ -521,7 +521,7 @@ namespace Dynamo.Graph.Nodes
                 }
             }
         }
-        
+
         private string ShortenName
         {
             get
@@ -891,11 +891,12 @@ namespace Dynamo.Graph.Nodes
         [JsonIgnore]
         public bool AreAllOutputsConnected
         {
-            get { 
-                return 
+            get
+            {
+                return
                     outPorts != null &&
                     outPorts.Count > 0 &&
-                    outPorts.All(p => p.IsConnected); 
+                    outPorts.All(p => p.IsConnected);
             }
         }
 
@@ -905,11 +906,12 @@ namespace Dynamo.Graph.Nodes
         [JsonIgnore]
         internal bool AreAllInputsDisconnected
         {
-            get { 
-                return 
+            get
+            {
+                return
                     inPorts != null &&
                     inPorts.Count > 0 &&
-                    inPorts.All(p => !p.IsConnected); 
+                    inPorts.All(p => !p.IsConnected);
             }
         }
 
@@ -1066,7 +1068,7 @@ namespace Dynamo.Graph.Nodes
                 };
             }
         }
-        
+
         /// A collection of error/warning/info messages, dismissed via a sub-menu in the node Context Menu.
         [JsonIgnore]
         public ObservableCollection<string> DismissedAlerts { get; set; } = new ObservableCollection<string>();
@@ -1811,7 +1813,7 @@ namespace Dynamo.Graph.Nodes
                 {
                     DynamoSelection.Instance.Selection.Add(p);
                 }
-            }                
+            }
 
             foreach (var c in inConnectors.Where(c => !DynamoSelection.Instance.Selection.Contains(c.Start.Owner)))
             {
@@ -1922,7 +1924,7 @@ namespace Dynamo.Graph.Nodes
             if (isPersistent)
             {
                 State = ElementState.PersistentWarning;
-                if(!Infos.Any(x => x.Message.Equals(p) && x.State == ElementState.PersistentWarning))
+                if (!Infos.Any(x => x.Message.Equals(p) && x.State == ElementState.PersistentWarning))
                 {
                     var texts = p.Split(new[] { "\n" }, StringSplitOptions.None);
                     var infoList = new List<Info>();
@@ -2231,7 +2233,7 @@ namespace Dynamo.Graph.Nodes
             var outData = startPort.Owner.OutPorts.IndexOf(startPort);
             ConnectInput(data, outData, startPort.Owner);
             startPort.Owner.ConnectOutput(outData, data, this);
-            
+
             var handler = PortConnected;
             if (null != handler) handler(port, connector);
             OnConnectorAdded(connector);
