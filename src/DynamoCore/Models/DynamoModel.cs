@@ -2850,6 +2850,9 @@ namespace Dynamo.Models
         {
             if (string.IsNullOrWhiteSpace(locale)) return;
 
+            //Validate that the provided locale against the supported locales
+            locale = Configurations.SupportedLocaleDic.FirstOrDefault(x => x.Value == locale).Value ?? Configurations.SupportedLocaleDic.FirstOrDefault().Value;
+
             // Setting the locale for Dynamo from loaded Preferences, with Default handled differently
             // between a non-in-process integration case (when HostAnalyticsInfo.HostName is unspecified)
             // and in-process integration case. In later case, Default setting means following host locale.
@@ -3455,6 +3458,7 @@ namespace Dynamo.Models
         internal void AddZeroTouchNodesToSearch(IEnumerable<FunctionGroup> functionGroups)
         {
             List<NodeSearchElement> nodes = new();
+
             foreach (var funcGroup in functionGroups)
             {
                 foreach (var functionDescriptor in funcGroup.Functions)
