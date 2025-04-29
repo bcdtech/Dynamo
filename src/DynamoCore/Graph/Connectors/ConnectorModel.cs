@@ -44,7 +44,7 @@ namespace Dynamo.Graph.Connectors
             set
             {
                 isHidden = value;
-                RaisePropertyChanged(nameof(IsHidden));
+                OnPropertyChanged(nameof(IsHidden));
             }
         }
         /// <summary>

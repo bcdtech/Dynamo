@@ -52,7 +52,7 @@ namespace CoreNodeModels
             {
                 isAutoMode = value;
                 OnNodeModified();
-                RaisePropertyChanged(nameof(IsAutoMode));
+                OnPropertyChanged(nameof(IsAutoMode));
             }
         }
 
@@ -68,7 +68,7 @@ namespace CoreNodeModels
             {
                 isList = value;
                 OnNodeModified();
-                RaisePropertyChanged(nameof(IsList));
+                OnPropertyChanged(nameof(IsList));
             }
         }
 
@@ -85,7 +85,7 @@ namespace CoreNodeModels
                 if (displayValue != value)
                 {
                     displayValue = value;
-                    RaisePropertyChanged(nameof(DisplayValue));
+                    OnPropertyChanged(nameof(DisplayValue));
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace CoreNodeModels
                 {
                     this.value = value ?? "";
                     MarkNodeAsModified();
-                    RaisePropertyChanged(nameof(Value));
+                    OnPropertyChanged(nameof(Value));
                 }
             }
         }

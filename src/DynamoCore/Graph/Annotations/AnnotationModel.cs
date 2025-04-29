@@ -74,7 +74,7 @@ namespace Dynamo.Graph.Annotations
                 if (width == value) return;
 
                 width = value;
-                RaisePropertyChanged("Width");
+                OnPropertyChanged("Width");
             }
         }
 
@@ -94,7 +94,7 @@ namespace Dynamo.Graph.Annotations
                 if (height == value) return;
 
                 height = value;
-                RaisePropertyChanged("Height");
+                OnPropertyChanged("Height");
             }
         }
 
@@ -109,7 +109,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 modelAreaHeight = value;
-                RaisePropertyChanged(nameof(ModelAreaHeight));
+                OnPropertyChanged(nameof(ModelAreaHeight));
             }
         }
 
@@ -124,7 +124,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 text = value;
-                RaisePropertyChanged("Text");
+                OnPropertyChanged("Text");
             }
         }
 
@@ -138,7 +138,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 annotationText = value;               
-                RaisePropertyChanged("AnnotationText");
+                OnPropertyChanged("AnnotationText");
             }
 
         }
@@ -153,7 +153,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 annotationDescriptionText = value;
-                RaisePropertyChanged(nameof(AnnotationDescriptionText));
+                OnPropertyChanged(nameof(AnnotationDescriptionText));
             }
         }
 
@@ -167,7 +167,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 background = value;
-                RaisePropertyChanged("Background");
+                OnPropertyChanged("Background");
             }
         }
 
@@ -216,7 +216,7 @@ namespace Dynamo.Graph.Annotations
                     }
                 }
                 UpdateBoundaryFromSelection();
-                RaisePropertyChanged(nameof(Nodes));
+                OnPropertyChanged(nameof(Nodes));
             }
         }
 
@@ -288,7 +288,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 fontSize = value;
-                RaisePropertyChanged(nameof(FontSize));
+                OnPropertyChanged(nameof(FontSize));
             }
         }
 
@@ -305,7 +305,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 groupStyleId = value;
-                RaisePropertyChanged(nameof(GroupStyleId));
+                OnPropertyChanged(nameof(GroupStyleId));
             }
         }
 
@@ -322,7 +322,7 @@ namespace Dynamo.Graph.Annotations
             set
             {
                 pinnedNode = value;
-                RaisePropertyChanged(nameof(PinnedNode));
+                OnPropertyChanged(nameof(PinnedNode));
             }
         }
 
@@ -393,7 +393,7 @@ namespace Dynamo.Graph.Annotations
             internal set
             {
                 groupState = value;
-                RaisePropertyChanged(nameof(GroupState));
+                OnPropertyChanged(nameof(GroupState));
             }
         }
 
@@ -418,7 +418,7 @@ namespace Dynamo.Graph.Annotations
                 if (value != isVisible)
                 {
                     isVisible = value;
-                    RaisePropertyChanged(nameof(IsVisible));
+                    OnPropertyChanged(nameof(IsVisible));
                 }
             }
         }
@@ -439,7 +439,7 @@ namespace Dynamo.Graph.Annotations
                 if (value != isFrozen)
                 {
                     isFrozen = value;
-                    RaisePropertyChanged(nameof(IsFrozen));
+                    OnPropertyChanged(nameof(IsFrozen));
                 }
             }
         }
@@ -632,7 +632,7 @@ namespace Dynamo.Graph.Annotations
 
                 if (positionChanged)
                 {
-                    RaisePropertyChanged(nameof(Position));
+                    OnPropertyChanged(nameof(Position));
                 }
             }
             else
@@ -829,12 +829,12 @@ namespace Dynamo.Graph.Annotations
 
             //On any Undo Operation, current values are restored to previous values.
             //These properties should be Raised, so that they get the correct value on Undo.
-            RaisePropertyChanged(nameof(Background));
-            RaisePropertyChanged(nameof(FontSize));           
-            RaisePropertyChanged(nameof(GroupStyleId));
-            RaisePropertyChanged(nameof(AnnotationText));
-            RaisePropertyChanged(nameof(Nodes));
-            RaisePropertyChanged(nameof(IsExpanded));
+            OnPropertyChanged(nameof(Background));
+            OnPropertyChanged(nameof(FontSize));           
+            OnPropertyChanged(nameof(GroupStyleId));
+            OnPropertyChanged(nameof(AnnotationText));
+            OnPropertyChanged(nameof(Nodes));
+            OnPropertyChanged(nameof(IsExpanded));
             this.ReportPosition();
         }
 

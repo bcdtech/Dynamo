@@ -25,7 +25,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isCollapsed = value;
-                RaisePropertyChanged(nameof(IsCollapsed));
+                OnPropertyChanged(nameof(IsCollapsed));
             }
         }
 
@@ -41,7 +41,7 @@ namespace Dynamo.ViewModels
             set
             {
                 currentPosition = value;
-                RaisePropertyChanged(nameof(CurrentPosition));
+                OnPropertyChanged(nameof(CurrentPosition));
             }
         }
 

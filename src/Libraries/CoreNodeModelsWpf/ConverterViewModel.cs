@@ -95,25 +95,25 @@ namespace CoreNodeModelsWpf
             switch (e.PropertyName)
             {
                 case "SelectedMetricConversion":
-                    RaisePropertyChanged("SelectedMetricConversion");
+                    OnPropertyChanged("SelectedMetricConversion");
                     break;
                 case "SelectedFromConversionSource":
-                    RaisePropertyChanged("SelectedFromConversionSource");
+                    OnPropertyChanged("SelectedFromConversionSource");
                     break;
                 case "SelectedToConversionSource":
-                    RaisePropertyChanged("SelectedToConversionSource");
+                    OnPropertyChanged("SelectedToConversionSource");
                     break;
                 case "SelectedFromConversion":
-                    RaisePropertyChanged("SelectedFromConversion");
+                    OnPropertyChanged("SelectedFromConversion");
                     break;
                 case "SelectedToConversion":                    
-                    RaisePropertyChanged("SelectedToConversion");
+                    OnPropertyChanged("SelectedToConversion");
                     break;
                 case "IsSelectionFromBoxEnabled":
-                    RaisePropertyChanged("IsSelectionFromBoxEnabled");
+                    OnPropertyChanged("IsSelectionFromBoxEnabled");
                     break;
                 case "SelectionFromBoxToolTip":
-                    RaisePropertyChanged("SelectionFromBoxToolTip");
+                    OnPropertyChanged("SelectionFromBoxToolTip");
                     break;
             }
         }

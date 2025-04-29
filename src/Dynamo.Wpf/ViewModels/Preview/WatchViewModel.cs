@@ -67,7 +67,7 @@ namespace Dynamo.ViewModels
             set
             {
                 children = value;
-                RaisePropertyChanged("Children");
+                OnPropertyChanged("Children");
             }
         }
 
@@ -80,7 +80,7 @@ namespace Dynamo.ViewModels
             set
             {
                 label = value;
-                RaisePropertyChanged("NodeLabel");
+                OnPropertyChanged("NodeLabel");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Dynamo.ViewModels
             set
             {
                 link = value;
-                RaisePropertyChanged("Link");
+                OnPropertyChanged("Link");
             }
         }
 
@@ -125,7 +125,7 @@ namespace Dynamo.ViewModels
             set
             {
                 path = value;
-                RaisePropertyChanged("Path");
+                OnPropertyChanged("Path");
             }
         }
 
@@ -141,7 +141,7 @@ namespace Dynamo.ViewModels
             set
             {
                 showRawData = value;
-                RaisePropertyChanged("ShowRawData");
+                OnPropertyChanged("ShowRawData");
             }
         }
 
@@ -158,7 +158,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isOneRowContent = value;
-                RaisePropertyChanged("IsOneRowContent");
+                OnPropertyChanged("IsOneRowContent");
             }
         }
 
@@ -171,7 +171,7 @@ namespace Dynamo.ViewModels
             set
             {
                 numberOfItems = value;
-                RaisePropertyChanged("NumberOfItems");
+                OnPropertyChanged("NumberOfItems");
             }
         }
 
@@ -187,7 +187,7 @@ namespace Dynamo.ViewModels
                 if (isCollection != value)
                 {
                     isCollection = value;
-                    RaisePropertyChanged(nameof(IsCollection));
+                    OnPropertyChanged(nameof(IsCollection));
                 }
             }
         }
@@ -203,7 +203,7 @@ namespace Dynamo.ViewModels
                 if (levels != value)
                 {
                     levels = value;
-                    RaisePropertyChanged(nameof(Levels));
+                    OnPropertyChanged(nameof(Levels));
                 }
             }
         }
@@ -220,7 +220,7 @@ namespace Dynamo.ViewModels
         public string ValueType
         {
             get { return valueType; }
-            set { valueType = value; RaisePropertyChanged(nameof(ValueType)); }
+            set { valueType = value; OnPropertyChanged(nameof(ValueType)); }
         }
 
         #endregion

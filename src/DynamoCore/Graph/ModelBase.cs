@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Xml;
 using Dynamo.Core;
@@ -115,7 +115,7 @@ namespace Dynamo.Graph
             set
             {
                 x = value;
-                RaisePropertyChanged("X");
+                OnPropertyChanged("X");
             }
         }
 
@@ -138,7 +138,7 @@ namespace Dynamo.Graph
             set
             {
                 y = value;
-                RaisePropertyChanged("Y");
+                OnPropertyChanged("Y");
             }
         }
 
@@ -208,7 +208,7 @@ namespace Dynamo.Graph
             set
             {
                 isSelected = value;
-                RaisePropertyChanged("IsSelected");
+                OnPropertyChanged("IsSelected");
             }
         }
 
@@ -229,7 +229,7 @@ namespace Dynamo.Graph
             set
             {
                 guid = value;
-                RaisePropertyChanged("GUID");
+                OnPropertyChanged("GUID");
             }
         }
 
@@ -265,7 +265,7 @@ namespace Dynamo.Graph
         /// </summary>
         public void ReportPosition()
         {
-            RaisePropertyChanged("Position");
+            OnPropertyChanged("Position");
         }
 
         /// <summary>
@@ -278,7 +278,7 @@ namespace Dynamo.Graph
         {
             width = w;
             height = h;
-            RaisePropertyChanged("Position");
+            OnPropertyChanged("Position");
         }
 
         /// <summary>

@@ -7,8 +7,8 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Logging;
 using Dynamo.Models;
 using Dynamo.Selection;
-using Dynamo.Wpf.ViewModels.Core;
 using Dynamo.Wpf.Extensions;
+using Dynamo.Wpf.ViewModels.Core;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -18,11 +18,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Media;
 using Point = System.Windows.Point;
 using Size = System.Windows.Size;
-using System.Windows.Data;
-
 namespace Dynamo.ViewModels
 {
     /// <summary>
@@ -125,7 +124,7 @@ namespace Dynamo.ViewModels
             set
             {
                 inPorts = value;
-                RaisePropertyChanged("InPorts");
+                OnPropertyChanged("InPorts");
             }
         }
         [JsonIgnore]
@@ -135,7 +134,7 @@ namespace Dynamo.ViewModels
             set
             {
                 outPorts = value;
-                RaisePropertyChanged("OutPorts");
+                OnPropertyChanged("OutPorts");
             }
         }
         [JsonIgnore]
@@ -178,7 +177,7 @@ namespace Dynamo.ViewModels
                     DynamoViewModel.ExecuteCommand(new DynamoModel.UpdateModelValueCommand(
                         Guid.Empty, NodeModel.GUID, nameof(IsSetAsInput), value.ToString()));
 
-                    RaisePropertyChanged(nameof(IsSetAsInput));
+                    OnPropertyChanged(nameof(IsSetAsInput));
                     Analytics.TrackEvent(Actions.Set, Categories.NodeContextMenuOperations, "AsInput");
                 }
             }
@@ -207,7 +206,7 @@ namespace Dynamo.ViewModels
                     DynamoViewModel.ExecuteCommand(new DynamoModel.UpdateModelValueCommand(
                         Guid.Empty, NodeModel.GUID, nameof(IsSetAsOutput), value.ToString()));
 
-                    RaisePropertyChanged(nameof(IsSetAsOutput));
+                    OnPropertyChanged(nameof(IsSetAsOutput));
                     Analytics.TrackEvent(Actions.Set, Categories.NodeContextMenuOperations, "AsOutput");
                 }
             }
@@ -265,7 +264,7 @@ namespace Dynamo.ViewModels
                 if (isRenamed != value)
                 {
                     isRenamed = value;
-                    RaisePropertyChanged(nameof(IsRenamed));
+                    OnPropertyChanged(nameof(IsRenamed));
                 }
             }
         }
@@ -308,7 +307,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeLogic.X = value;
-                RaisePropertyChanged("Left");
+                OnPropertyChanged("Left");
             }
         }
 
@@ -322,7 +321,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeLogic.Y = value;
-                RaisePropertyChanged("Top");
+                OnPropertyChanged("Top");
             }
         }
 
@@ -346,7 +345,7 @@ namespace Dynamo.ViewModels
             set
             {
                 zIndex = value;
-                RaisePropertyChanged("ZIndex");
+                OnPropertyChanged("ZIndex");
                 if (ErrorBubble == null) return;
                 ErrorBubble.ZIndex = zIndex + 1;
             }
@@ -397,7 +396,7 @@ namespace Dynamo.ViewModels
                 if (warningBarColor != value)
                 {
                     warningBarColor = value;
-                    RaisePropertyChanged(nameof(WarningBarColor));
+                    OnPropertyChanged(nameof(WarningBarColor));
                 }
             }
         }
@@ -415,7 +414,7 @@ namespace Dynamo.ViewModels
                 if (nodeOverlayColor != value)
                 {
                     nodeOverlayColor = value;
-                    RaisePropertyChanged(nameof(NodeOverlayColor));
+                    OnPropertyChanged(nameof(NodeOverlayColor));
                 }
             }
         }
@@ -470,7 +469,7 @@ namespace Dynamo.ViewModels
                     DynamoViewModel.ExecuteCommand(new DynamoModel.UpdateModelValueCommand(
                     Guid.Empty, NodeModel.GUID, nameof(nodeLogic.DisplayLabels), value.ToString()));
 
-                    RaisePropertyChanged(nameof(IsDisplayingLabels));
+                    OnPropertyChanged(nameof(IsDisplayingLabels));
                     Analytics.TrackEvent(Actions.Show, Categories.NodeContextMenuOperations, "Labels");
                 }
             }
@@ -497,7 +496,7 @@ namespace Dynamo.ViewModels
             set
             {
                 astText = value;
-                RaisePropertyChanged("ASTText");
+                OnPropertyChanged("ASTText");
             }
         }
 
@@ -531,8 +530,8 @@ namespace Dynamo.ViewModels
             set
             {
                 showExectionPreview = value;
-                RaisePropertyChanged("ShowExecutionPreview");
-                RaisePropertyChanged("PreviewState");
+                OnPropertyChanged("ShowExecutionPreview");
+                OnPropertyChanged("PreviewState");
             }
         }
 
@@ -573,7 +572,7 @@ namespace Dynamo.ViewModels
                 }
 
                 nodeHoveringState = value;
-                RaisePropertyChanged(nameof(NodeHoveringState));
+                OnPropertyChanged(nameof(NodeHoveringState));
             }
         }
 
@@ -617,8 +616,8 @@ namespace Dynamo.ViewModels
         {
             get
             {
-                RaisePropertyChanged("IsFrozenExplicitly");
-                RaisePropertyChanged("CanToggleFrozen");
+                OnPropertyChanged("IsFrozenExplicitly");
+                OnPropertyChanged("CanToggleFrozen");
                 return NodeModel.IsFrozen;
             }
             set
@@ -720,7 +719,7 @@ namespace Dynamo.ViewModels
             set
             {
                 imageSource = value;
-                RaisePropertyChanged(nameof(ImageSource));
+                OnPropertyChanged(nameof(ImageSource));
             }
         }
 
@@ -731,7 +730,7 @@ namespace Dynamo.ViewModels
             set
             {
                 imgGlyphOneSource = value;
-                RaisePropertyChanged(nameof(ImgGlyphOneSource));
+                OnPropertyChanged(nameof(ImgGlyphOneSource));
             }
         }
 
@@ -742,7 +741,7 @@ namespace Dynamo.ViewModels
             set
             {
                 imgGlyphTwoSource = value;
-                RaisePropertyChanged(nameof(ImgGlyphTwoSource));
+                OnPropertyChanged(nameof(ImgGlyphTwoSource));
             }
         }
 
@@ -753,7 +752,7 @@ namespace Dynamo.ViewModels
             set
             {
                 imgGlyphThreeSource = value;
-                RaisePropertyChanged(nameof(ImgGlyphThreeSource));
+                OnPropertyChanged(nameof(ImgGlyphThreeSource));
             }
         }
 
@@ -778,7 +777,7 @@ namespace Dynamo.ViewModels
                 base.IsCollapsed = value;
                 if (ErrorBubble == null) return;
                 ErrorBubble.IsCollapsed = value;
-                RaisePropertyChanged(nameof(NodeWarningBarVisible));
+                OnPropertyChanged(nameof(NodeWarningBarVisible));
             }
         }
 
@@ -792,7 +791,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isNodeInCollapsedGroup = value;
-                RaisePropertyChanged(nameof(IsNodeInCollapsedGroup));
+                OnPropertyChanged(nameof(IsNodeInCollapsedGroup));
             }
         }
 
@@ -939,9 +938,9 @@ namespace Dynamo.ViewModels
         /// <param name="e"></param>
         private void UpdateOverlays(object sender, EventArgs e)
         {
-            RaisePropertyChanged(nameof(NodeWarningBarVisible));
-            RaisePropertyChanged(nameof(NodeOverlayVisible));
-            RaisePropertyChanged(nameof(NodeOverlayColor));
+            OnPropertyChanged(nameof(NodeWarningBarVisible));
+            OnPropertyChanged(nameof(NodeOverlayVisible));
+            OnPropertyChanged(nameof(NodeOverlayColor));
         }
 
         /// <summary>
@@ -1019,8 +1018,8 @@ namespace Dynamo.ViewModels
                 DismissedAlerts.Add(infoBubbleDataPacket.Message);
             }
 
-            RaisePropertyChanged(nameof(DismissedAlerts));
-            RaisePropertyChanged(nameof(NumberOfDismissedAlerts));
+            OnPropertyChanged(nameof(DismissedAlerts));
+            OnPropertyChanged(nameof(NumberOfDismissedAlerts));
 
             UpdateModelDismissedAlertsCount();
         }
@@ -1085,15 +1084,15 @@ namespace Dynamo.ViewModels
             AddToGroupCommand.RaiseCanExecuteChanged();
             UngroupCommand.RaiseCanExecuteChanged();
             ToggleIsFrozenCommand.RaiseCanExecuteChanged();
-            RaisePropertyChanged("IsFrozenExplicitly");
-            RaisePropertyChanged("CanToggleFrozen");
+            OnPropertyChanged("IsFrozenExplicitly");
+            OnPropertyChanged("CanToggleFrozen");
         }
 
         void DebugSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "ShowDebugASTs")
             {
-                RaisePropertyChanged("ShowDebugASTs");
+                OnPropertyChanged("ShowDebugASTs");
             }
         }
 
@@ -1151,13 +1150,13 @@ namespace Dynamo.ViewModels
                 PortViewModel outportViewModel = SubscribeOutPortEvents(item);
                 OutPorts.Add(outportViewModel);
             }
-            InPortsLeft = new CollectionViewSource() { Source=InPorts};
+            InPortsLeft = new CollectionViewSource() { Source = InPorts };
             InPortsTop = new CollectionViewSource() { Source = InPorts };
-            OutPortsRight = new CollectionViewSource() {Source=OutPorts };
-            OutPortsBottom = new CollectionViewSource() {Source = OutPorts};
+            OutPortsRight = new CollectionViewSource() { Source = OutPorts };
+            OutPortsBottom = new CollectionViewSource() { Source = OutPorts };
             InPortsLeft.Filter += (sender, e) =>
             {
-                if(e.Item is PortViewModel port)
+                if (e.Item is PortViewModel port)
                 {
                     e.Accepted = port.PortModel.Alinement == PortAlinement.Left;
                 }
@@ -1212,7 +1211,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "CurrentWorkspace":
-                    RaisePropertyChanged("NodeVisibility");
+                    OnPropertyChanged("NodeVisibility");
                     break;
             }
         }
@@ -1227,68 +1226,68 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "Name":
-                    RaisePropertyChanged("Name");
+                    OnPropertyChanged("Name");
                     break;
                 case "X":
-                    RaisePropertyChanged("Left");
+                    OnPropertyChanged("Left");
                     UpdateErrorBubblePosition();
                     break;
                 case "Y":
-                    RaisePropertyChanged("Top");
+                    OnPropertyChanged("Top");
                     UpdateErrorBubblePosition();
                     break;
                 case "InteractionEnabled":
-                    RaisePropertyChanged("IsInteractionEnabled");
+                    OnPropertyChanged("IsInteractionEnabled");
                     break;
                 case "IsSelected":
-                    RaisePropertyChanged("IsSelected");
-                    RaisePropertyChanged("PreviewState");
+                    OnPropertyChanged("IsSelected");
+                    OnPropertyChanged("PreviewState");
                     break;
                 case "State":
-                    RaisePropertyChanged("State");
+                    OnPropertyChanged("State");
                     HandleColorOverlayChange();
-                    RaisePropertyChanged(nameof(NodeWarningBarVisible));
+                    OnPropertyChanged(nameof(NodeWarningBarVisible));
                     break;
                 case "ArgumentLacing":
-                    RaisePropertyChanged("ArgumentLacing");
+                    OnPropertyChanged("ArgumentLacing");
                     break;
                 case "IsVisible":
-                    RaisePropertyChanged("IsVisible");
+                    OnPropertyChanged("IsVisible");
                     HandleColorOverlayChange();
-                    RaisePropertyChanged(nameof(NodeWarningBarVisible));
+                    OnPropertyChanged(nameof(NodeWarningBarVisible));
                     break;
                 case "Width":
-                    RaisePropertyChanged("Width");
+                    OnPropertyChanged("Width");
                     UpdateErrorBubbleWidth();
                     UpdateErrorBubblePosition();
                     break;
                 case "Height":
-                    RaisePropertyChanged("Height");
+                    OnPropertyChanged("Height");
                     UpdateErrorBubblePosition();
                     break;
                 case nameof(NodeModel.DisplayLabels):
-                    RaisePropertyChanged(nameof(IsDisplayingLabels));
+                    OnPropertyChanged(nameof(IsDisplayingLabels));
                     break;
                 case nameof(NodeModel.IsSetAsInput):
-                    RaisePropertyChanged(nameof(IsSetAsInput));
+                    OnPropertyChanged(nameof(IsSetAsInput));
                     break;
                 case nameof(NodeModel.IsSetAsOutput):
-                    RaisePropertyChanged(nameof(IsSetAsOutput));
+                    OnPropertyChanged(nameof(IsSetAsOutput));
                     break;
                 case "Position":
                     UpdateErrorBubblePosition();
                     break;
                 case "ForceReExecuteOfNode":
-                    RaisePropertyChanged("WillForceReExecuteOfNode");
+                    OnPropertyChanged("WillForceReExecuteOfNode");
                     break;
                 case "CanUpdatePeriodically":
-                    RaisePropertyChanged("EnablePeriodicUpdate");
-                    RaisePropertyChanged("PeriodicUpdateVisibility");
+                    OnPropertyChanged("EnablePeriodicUpdate");
+                    OnPropertyChanged("PeriodicUpdateVisibility");
                     break;
                 case "IsFrozen":
                     RaiseFrozenPropertyChanged();
                     HandleColorOverlayChange();
-                    RaisePropertyChanged(nameof(NodeOverlayVisible));
+                    OnPropertyChanged(nameof(NodeOverlayVisible));
                     break;
             }
         }
@@ -1304,7 +1303,7 @@ namespace Dynamo.ViewModels
             {
                 case nameof(ErrorBubble.DoesNodeDisplayMessages):
                     HandleColorOverlayChange();
-                    RaisePropertyChanged(nameof(NodeWarningBarVisible));
+                    OnPropertyChanged(nameof(NodeWarningBarVisible));
                     break;
             }
         }
@@ -2040,7 +2039,7 @@ namespace Dynamo.ViewModels
 
         private void RaiseFrozenPropertyChanged()
         {
-            RaisePropertyChanged("IsFrozen");
+            OnPropertyChanged("IsFrozen");
             RaisePropertyChangedOnDownStreamNodes();
         }
 
@@ -2058,7 +2057,7 @@ namespace Dynamo.ViewModels
                 var current = this.WorkspaceViewModel.Nodes.FirstOrDefault(x => x.NodeLogic == inode);
                 if (current != null)
                 {
-                    current.RaisePropertyChanged("IsFrozen");
+                    current.OnPropertyChanged("IsFrozen");
                     current.HandleColorOverlayChange();
                 }
             }

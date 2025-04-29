@@ -43,7 +43,7 @@ namespace CoreNodeModels.Input
             set
             {
                 isVisibleDropDownTextBlock = value;
-                RaisePropertyChanged(nameof(IsVisibleDropDownTextBlock));
+                OnPropertyChanged(nameof(IsVisibleDropDownTextBlock));
             }
         }
 

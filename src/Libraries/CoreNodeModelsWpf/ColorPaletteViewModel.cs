@@ -21,7 +21,7 @@ namespace Dynamo.Wpf
             set
             {
                 selectedColor = value;
-                RaisePropertyChanged(nameof(SelectedColor));
+                OnPropertyChanged(nameof(SelectedColor));
             }
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Dynamo.Wpf
             set
             {
                 selectedColorValue = value;
-                RaisePropertyChanged(nameof(SelectedColorValue));
+                OnPropertyChanged(nameof(SelectedColorValue));
             }
         }
 
@@ -52,7 +52,7 @@ namespace Dynamo.Wpf
             set
             {
                 isColorPickerShown = value;
-                RaisePropertyChanged(nameof(IsColorPickerShown));
+                OnPropertyChanged(nameof(IsColorPickerShown));
             }
         }
     }

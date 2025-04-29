@@ -61,7 +61,7 @@ namespace SampleNodes
                 // Raise a property changed notification
                 // to alert the UI that an element needs
                 // an update.
-                RaisePropertyChanged("ButtonText");
+                OnPropertyChanged("ButtonText");
             }
         }
 
@@ -149,7 +149,7 @@ namespace SampleNodes
         {
             ButtonText = defaultButtonText;
             WindowText = defaultWindowText;
-            RaisePropertyChanged("ButtonText");
+            OnPropertyChanged("ButtonText");
         }
 
         #endregion

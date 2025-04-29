@@ -45,7 +45,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _model = value;
-                RaisePropertyChanged("Model");
+                OnPropertyChanged("Model");
             }
         }
 
@@ -59,7 +59,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _model.X = value;
-                RaisePropertyChanged("Left");
+                OnPropertyChanged("Left");
             }
         }
 
@@ -73,7 +73,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _model.Y = value;
-                RaisePropertyChanged("Top");
+                OnPropertyChanged("Top");
             }
         }
 
@@ -85,7 +85,7 @@ namespace Dynamo.ViewModels
         {
 
             get { return zIndex; }
-            set { zIndex = value; RaisePropertyChanged("ZIndex"); }
+            set { zIndex = value; OnPropertyChanged("ZIndex"); }
         }
 
         [JsonIgnore]
@@ -112,7 +112,7 @@ namespace Dynamo.ViewModels
         public bool IsOnEditMode
         {
             get { return isOnEditMode; }
-            set { isOnEditMode = value; RaisePropertyChanged(nameof(IsOnEditMode)); }
+            set { isOnEditMode = value; OnPropertyChanged(nameof(IsOnEditMode)); }
         }
 
         /// <summary>
@@ -226,19 +226,19 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "X":
-                    RaisePropertyChanged("Left");
+                    OnPropertyChanged("Left");
                     break;
                 case "Y":
-                    RaisePropertyChanged("Top");
+                    OnPropertyChanged("Top");
                     break;
                 case "Text":
-                    RaisePropertyChanged("Text");
+                    OnPropertyChanged("Text");
                     break;
                 case "IsSelected":
-                    RaisePropertyChanged("IsSelected");
+                    OnPropertyChanged("IsSelected");
                     break;
                 case nameof(NoteModel.PinnedNode):
-                    RaisePropertyChanged(nameof(this.PinnedNode));
+                    OnPropertyChanged(nameof(this.PinnedNode));
                     PinToNodeCommand.RaiseCanExecuteChanged();
                     UnpinFromNodeCommand.RaiseCanExecuteChanged();
                     break;

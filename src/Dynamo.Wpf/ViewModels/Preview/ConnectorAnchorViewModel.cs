@@ -77,7 +77,7 @@ namespace Dynamo.ViewModels
             set
             {
                 currentPosition = value;
-                RaisePropertyChanged(nameof(CurrentPosition));
+                OnPropertyChanged(nameof(CurrentPosition));
             }
         }
 
@@ -93,7 +93,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isHalftone = value;
-                RaisePropertyChanged(nameof(IsHalftone));
+                OnPropertyChanged(nameof(IsHalftone));
             }
         }
 
@@ -107,7 +107,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isTemporarilyVisible = value;
-                RaisePropertyChanged(nameof(IsTemporarilyDisplayed));
+                OnPropertyChanged(nameof(IsTemporarilyDisplayed));
             }
         }
 
@@ -123,7 +123,7 @@ namespace Dynamo.ViewModels
             set
             {
                 pinIconPreviewOn = value;
-                RaisePropertyChanged(nameof(PinIconPreviewOn));
+                OnPropertyChanged(nameof(PinIconPreviewOn));
             }
         }
         ///Is the mouse over one of watch icon? Flag to switch color(binding) of watch button.
@@ -136,7 +136,7 @@ namespace Dynamo.ViewModels
             set
             {
                 watchIconPreviewOn = value;
-                RaisePropertyChanged(nameof(WatchIconPreviewOn));
+                OnPropertyChanged(nameof(WatchIconPreviewOn));
             }
         }
 
@@ -156,7 +156,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isDataFlowCollection = value;
-                RaisePropertyChanged(nameof(IsDataFlowCollection));
+                OnPropertyChanged(nameof(IsDataFlowCollection));
             }
         }
 
@@ -184,7 +184,7 @@ namespace Dynamo.ViewModels
             set
             {
                 canShowTooltip = value;
-                RaisePropertyChanged(nameof(CanShowTooltip));
+                OnPropertyChanged(nameof(CanShowTooltip));
             }
         }
 
@@ -198,7 +198,7 @@ namespace Dynamo.ViewModels
             set
             {
                 canDisplayIcons = value;
-                RaisePropertyChanged(nameof(CanDisplayIcons));
+                OnPropertyChanged(nameof(CanDisplayIcons));
             }
         }
         /// <summary>
@@ -215,7 +215,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dataTooltipText = value;
-                RaisePropertyChanged(nameof(DataToolTipText));
+                OnPropertyChanged(nameof(DataToolTipText));
             }
         }
         #endregion

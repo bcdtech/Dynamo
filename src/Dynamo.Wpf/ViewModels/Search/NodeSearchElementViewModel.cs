@@ -63,7 +63,7 @@ namespace Dynamo.Wpf.ViewModels
 
         private void ModelOnVisibilityChanged()
         {
-            RaisePropertyChanged("Visibility");
+            OnPropertyChanged("Visibility");
         }
 
         public override void Dispose()
@@ -120,7 +120,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value.Equals(isSelected)) return;
                 isSelected = value;
-                RaisePropertyChanged("IsSelected");
+                OnPropertyChanged("IsSelected");
             }
         }
 
@@ -579,7 +579,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value == path) return;
                 path = value;
-                RaisePropertyChanged("Path");
+                OnPropertyChanged("Path");
             }
         }
 

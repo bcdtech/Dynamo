@@ -41,7 +41,7 @@ namespace UnitsUI
             set
             {
                 Measure.Value = value;
-                RaisePropertyChanged(nameof(Value));
+                OnPropertyChanged(nameof(Value));
             }
         }
 
@@ -51,7 +51,7 @@ namespace UnitsUI
 
         internal void ForceValueRaisePropertyChanged()
         {
-            RaisePropertyChanged(nameof(Value));
+            OnPropertyChanged(nameof(Value));
         }
 
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
@@ -308,7 +308,7 @@ namespace UnitsUI
             private set
             {
                 items = value;
-                RaisePropertyChanged(nameof(Items));
+                OnPropertyChanged(nameof(Items));
             }
         }
 
@@ -323,7 +323,7 @@ namespace UnitsUI
             set
             {
                 selectedUnit = value;
-                RaisePropertyChanged(nameof(SelectedUnit));
+                OnPropertyChanged(nameof(SelectedUnit));
             }
         }
 
@@ -459,7 +459,7 @@ namespace UnitsUI
             private set
             {
                 quantityConversionSource = value;
-                RaisePropertyChanged(nameof(QuantityConversionSource));
+                OnPropertyChanged(nameof(QuantityConversionSource));
             }
         }
 
@@ -474,7 +474,7 @@ namespace UnitsUI
             set
             {
                 selectedFromConversionSource = value;
-                RaisePropertyChanged(nameof(SelectedFromConversionSource));
+                OnPropertyChanged(nameof(SelectedFromConversionSource));
             }
         }
 
@@ -489,7 +489,7 @@ namespace UnitsUI
             set
             {
                 selectedToConversionSource = value;
-                RaisePropertyChanged(nameof(SelectedToConversionSource));
+                OnPropertyChanged(nameof(SelectedToConversionSource));
             }
         }
         /// <summary>
@@ -510,7 +510,7 @@ namespace UnitsUI
                 SelectedFromConversion = SelectedFromConversionSource?.First();
                 SelectedToConversion = SelectedToConversionSource?.First();
 
-                RaisePropertyChanged(nameof(SelectedQuantityConversion));
+                OnPropertyChanged(nameof(SelectedQuantityConversion));
             }
         }
         /// <summary>
@@ -525,7 +525,7 @@ namespace UnitsUI
             {
                 selectedFromConversion = value;
                 this.OnNodeModified();
-                RaisePropertyChanged(nameof(SelectedFromConversion));
+                OnPropertyChanged(nameof(SelectedFromConversion));
             }
         }
         /// <summary>
@@ -540,7 +540,7 @@ namespace UnitsUI
             {
                 selectedToConversion = value;
                 this.OnNodeModified();
-                RaisePropertyChanged(nameof(SelectedToConversion));
+                OnPropertyChanged(nameof(SelectedToConversion));
             }
         }
 

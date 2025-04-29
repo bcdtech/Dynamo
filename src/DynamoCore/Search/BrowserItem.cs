@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -58,7 +58,7 @@ namespace Dynamo.Search
             set
             {
                 _height = value;
-                RaisePropertyChanged("Height");
+                OnPropertyChanged("Height");
             }
         }
 
@@ -115,7 +115,7 @@ namespace Dynamo.Search
             set
             {
                 _visibility = value;
-                RaisePropertyChanged("Visibility");
+                OnPropertyChanged("Visibility");
             }
         }
 
@@ -130,7 +130,7 @@ namespace Dynamo.Search
             set
             {
                 _isSelected = value;
-                RaisePropertyChanged("IsSelected");
+                OnPropertyChanged("IsSelected");
             }
         }
 
@@ -145,7 +145,7 @@ namespace Dynamo.Search
             set
             {
                 _isExpanded = value;
-                RaisePropertyChanged("IsExpanded");
+                OnPropertyChanged("IsExpanded");
             }
         }
 

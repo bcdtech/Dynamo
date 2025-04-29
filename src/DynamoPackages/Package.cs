@@ -144,42 +144,42 @@ namespace Dynamo.PackageManager
                 // this implies the user would like to rescan additional files
                 EnumerateAdditionalFiles();
                 typesVisibleInManager = value;
-                RaisePropertyChanged("TypesVisibleInManager");
+                OnPropertyChanged("TypesVisibleInManager");
             }
         }
 
         private string rootDirectory;
-        public string RootDirectory { get { return rootDirectory; } set { rootDirectory = value; RaisePropertyChanged("RootDirectory"); } }
+        public string RootDirectory { get { return rootDirectory; } set { rootDirectory = value; OnPropertyChanged("RootDirectory"); } }
 
         private string description = "";
-        public string Description { get { return description; } set { description = value; RaisePropertyChanged("Description"); } }
+        public string Description { get { return description; } set { description = value; OnPropertyChanged("Description"); } }
 
         private string versionName = "";
-        public string VersionName { get { return versionName; } set { versionName = value; RaisePropertyChanged("VersionName"); } }
+        public string VersionName { get { return versionName; } set { versionName = value; OnPropertyChanged("VersionName"); } }
 
         private string engineVersion = "";
-        public string EngineVersion { get { return engineVersion; } set { engineVersion = value; RaisePropertyChanged("EngineVersion"); } }
+        public string EngineVersion { get { return engineVersion; } set { engineVersion = value; OnPropertyChanged("EngineVersion"); } }
 
         private string license = "";
-        public string License { get { return license; } set { license = value; RaisePropertyChanged("License"); } }
+        public string License { get { return license; } set { license = value; OnPropertyChanged("License"); } }
 
         private string contents = "";
-        public string Contents { get { return contents; } set { contents = value; RaisePropertyChanged("Contents"); } }
+        public string Contents { get { return contents; } set { contents = value; OnPropertyChanged("Contents"); } }
 
         private IEnumerable<string> _keywords = new List<string>();
-        public IEnumerable<string> Keywords { get { return _keywords; } set { _keywords = value; RaisePropertyChanged("Keywords"); } }
+        public IEnumerable<string> Keywords { get { return _keywords; } set { _keywords = value; OnPropertyChanged("Keywords"); } }
 
         private IEnumerable<string> hostDependencies = new List<string>();
         /// <summary>
         /// Package Host Dependencies, e.g. specifying "Revit" in the list means this package can be guaranteed to work in this host environment only
         /// </summary>
-        public IEnumerable<string> HostDependencies { get { return hostDependencies; } set { hostDependencies = value; RaisePropertyChanged("HostDependencies"); } }
+        public IEnumerable<string> HostDependencies { get { return hostDependencies; } set { hostDependencies = value; OnPropertyChanged("HostDependencies"); } }
 
         private string copyrightHolder = "";
-        public string CopyrightHolder { get { return copyrightHolder; } set { copyrightHolder = value; RaisePropertyChanged("CopyrightHolder"); } }
+        public string CopyrightHolder { get { return copyrightHolder; } set { copyrightHolder = value; OnPropertyChanged("CopyrightHolder"); } }
 
         private string copyrightYear = "";
-        public string CopyrightYear { get { return copyrightYear; } set { copyrightYear = value; RaisePropertyChanged("CopyrightYear"); } }
+        public string CopyrightYear { get { return copyrightYear; } set { copyrightYear = value; OnPropertyChanged("CopyrightYear"); } }
 
         internal bool BuiltInPackage
         {
@@ -189,7 +189,7 @@ namespace Dynamo.PackageManager
         public PackageLoadState LoadState = new PackageLoadState();
 
         private string _group = "";
-        public string Group { get { return _group; } set { _group = value; RaisePropertyChanged("Group"); } }
+        public string Group { get { return _group; } set { _group = value; OnPropertyChanged("Group"); } }
 
 
         /// <summary>
@@ -548,7 +548,7 @@ namespace Dynamo.PackageManager
             {
                 prefs.PackageDirectoriesToUninstall.Add(RootDirectory);
             }
-            RaisePropertyChanged(nameof(LoadState));
+            OnPropertyChanged(nameof(LoadState));
         }
 
         /// <summary>
@@ -562,7 +562,7 @@ namespace Dynamo.PackageManager
             LoadState.ResetScheduledState();
 
             prefs.PackageDirectoriesToUninstall.RemoveAll(x => x.Equals(RootDirectory));
-            RaisePropertyChanged(nameof(LoadState));
+            OnPropertyChanged(nameof(LoadState));
         }
 
         /// <summary>
@@ -572,7 +572,7 @@ namespace Dynamo.PackageManager
         internal void MarkForUnload()
         {
             LoadState.SetScheduledForUnload();
-            RaisePropertyChanged(nameof(LoadState));
+            OnPropertyChanged(nameof(LoadState));
         }
 
         /// <summary>
@@ -583,13 +583,13 @@ namespace Dynamo.PackageManager
         internal void UnmarkForUnload()
         {
             LoadState.ResetScheduledState();
-            RaisePropertyChanged(nameof(LoadState));
+            OnPropertyChanged(nameof(LoadState));
         }
 
         internal void SetAsLoaded()
         {
             LoadState.SetAsLoaded();
-            RaisePropertyChanged(nameof(LoadState));
+            OnPropertyChanged(nameof(LoadState));
         }
 
         internal void UninstallCore(CustomNodeManager customNodeManager, PackageLoader packageLoader, IPreferences prefs)
@@ -608,7 +608,7 @@ namespace Dynamo.PackageManager
                     LoadState.SetAsUnloaded();
                     Analytics.TrackEvent(Actions.BuiltInPackageConflict, Categories.PackageManagerOperations, $"{Name } {versionName} set unloaded");
 
-                    RaisePropertyChanged(nameof(LoadState));
+                    OnPropertyChanged(nameof(LoadState));
 
                     if (!prefs.PackageDirectoriesToUninstall.Contains(RootDirectory))
                     {

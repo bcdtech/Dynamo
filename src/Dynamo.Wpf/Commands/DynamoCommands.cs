@@ -151,7 +151,7 @@ namespace Dynamo.ViewModels
 
                 case "SwitchTabCommand":
                     if (command.IsInPlaybackMode)
-                        RaisePropertyChanged("CurrentWorkspaceIndex");
+                        OnPropertyChanged("CurrentWorkspaceIndex");
                     break;
 
                 case "RunCancelCommand":

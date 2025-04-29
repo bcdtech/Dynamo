@@ -42,7 +42,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 notificationsNumber = value;
-                RaisePropertyChanged(nameof(IsNotificationsCounterVisible));
+                OnPropertyChanged(nameof(IsNotificationsCounterVisible));
             }
         }
 
@@ -72,7 +72,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 showMenuItemText = value;
-                RaisePropertyChanged(nameof(ShowMenuItemText));
+                OnPropertyChanged(nameof(ShowMenuItemText));
             }
         }
 

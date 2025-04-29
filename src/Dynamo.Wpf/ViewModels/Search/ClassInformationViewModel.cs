@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Dynamo.Configuration;
 using Dynamo.Search.SearchElements;
@@ -25,7 +25,7 @@ namespace Dynamo.Wpf.ViewModels
                 // If a caller sets the 'ClassDetailsVisibility' to 'false',
                 // then it is intended that we hide away the class details.
                 hideClassDetails = !value;
-                RaisePropertyChanged("ClassDetailsVisibility");
+                OnPropertyChanged("ClassDetailsVisibility");
             }
 
             get
@@ -60,7 +60,7 @@ namespace Dynamo.Wpf.ViewModels
             set
             {
                 currentDisplayMode = value;
-                RaisePropertyChanged("CurrentDisplayMode");
+                OnPropertyChanged("CurrentDisplayMode");
             }
         }
 
@@ -87,8 +87,8 @@ namespace Dynamo.Wpf.ViewModels
             set
             {
                 hiddenSecondaryMembersCount = value;
-                RaisePropertyChanged("HiddenSecondaryMembersCount");
-                RaisePropertyChanged("MoreButtonText");
+                OnPropertyChanged("HiddenSecondaryMembersCount");
+                OnPropertyChanged("MoreButtonText");
             }
         }
 

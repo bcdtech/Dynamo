@@ -23,14 +23,14 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeLabel = value;
-                RaisePropertyChanged("NodeLabel");
+                OnPropertyChanged("NodeLabel");
             }
         }
 
         public string ValueType
         {
             get { return valueType; }
-            set { valueType = value; RaisePropertyChanged(nameof(ValueType)); }
+            set { valueType = value; OnPropertyChanged(nameof(ValueType)); }
         }
 
         private int numberOfItems;
@@ -43,8 +43,8 @@ namespace Dynamo.ViewModels
             set
             {
                 numberOfItems = value;
-                RaisePropertyChanged("NumberOfItems");
-                RaisePropertyChanged("ShowNumberOfItems");
+                OnPropertyChanged("NumberOfItems");
+                OnPropertyChanged("ShowNumberOfItems");
             }
         }
 

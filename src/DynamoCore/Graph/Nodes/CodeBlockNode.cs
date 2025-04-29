@@ -289,7 +289,7 @@ namespace Dynamo.Graph.Nodes
                 //Recreate connectors that can be reused
                 LoadAndCreateConnectors(inportConnections, outportConnections, inportPins, outportPins, SaveContext.None);
 
-                RaisePropertyChanged("Code");
+                OnPropertyChanged("Code");
 
                 ReportPosition();
 
@@ -641,7 +641,7 @@ namespace Dynamo.Graph.Nodes
             string errorMessage;
             handler(out errorMessage, out warningMessage);
 
-            RaisePropertyChanged("Code");
+            OnPropertyChanged("Code");
 
             ClearErrorsAndWarnings();
             if (!string.IsNullOrEmpty(errorMessage))

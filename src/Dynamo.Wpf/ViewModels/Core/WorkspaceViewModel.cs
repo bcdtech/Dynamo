@@ -256,7 +256,7 @@ namespace Dynamo.ViewModels
         public Cursor CurrentCursor
         {
             get { return currentCursor; }
-            set { currentCursor = value; RaisePropertyChanged("CurrentCursor"); }
+            set { currentCursor = value; OnPropertyChanged("CurrentCursor"); }
         }
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace Dynamo.ViewModels
         public bool IsCursorForced
         {
             get { return isCursorForced; }
-            set { isCursorForced = value; RaisePropertyChanged("IsCursorForced"); }
+            set { isCursorForced = value; OnPropertyChanged("IsCursorForced"); }
         }
 
         [JsonIgnore]
@@ -449,7 +449,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _watches = value;
-                RaisePropertyChanged("Watch3DViewModels");
+                OnPropertyChanged("Watch3DViewModels");
             }
         }
 
@@ -462,7 +462,7 @@ namespace Dynamo.ViewModels
             set
             {
                 this.Model.Zoom = value;
-                RaisePropertyChanged("Zoom");
+                OnPropertyChanged("Zoom");
             }
         }
 
@@ -482,7 +482,7 @@ namespace Dynamo.ViewModels
                 if (stopNodeViewOpacityAnimations != value)
                 {
                     stopNodeViewOpacityAnimations = value;
-                    RaisePropertyChanged(nameof(StopNodeViewOpacityAnimations));
+                    OnPropertyChanged(nameof(StopNodeViewOpacityAnimations));
                 }
             }
         }
@@ -512,7 +512,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _canFindNodesFromElements = value;
-                RaisePropertyChanged("CanFindNodesFromElements");
+                OnPropertyChanged("CanFindNodesFromElements");
             }
         }
 
@@ -1030,7 +1030,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "Name":
-                    RaisePropertyChanged("Name");
+                    OnPropertyChanged("Name");
                     break;
                 case "X":
                     break;
@@ -1038,17 +1038,17 @@ namespace Dynamo.ViewModels
                     break;
                 case "Zoom":
                     this.OnZoomChanged(this, new ZoomEventArgs(this.Zoom));
-                    RaisePropertyChanged("Zoom");
+                    OnPropertyChanged("Zoom");
                     break;
                 case "IsCurrentSpace":
-                    RaisePropertyChanged("IsCurrentSpace");
-                    RaisePropertyChanged("IsHomeSpace");
+                    OnPropertyChanged("IsCurrentSpace");
+                    OnPropertyChanged("IsHomeSpace");
                     break;
                 case "HasUnsavedChanges":
-                    RaisePropertyChanged("HasUnsavedChanges");
+                    OnPropertyChanged("HasUnsavedChanges");
                     break;
                 case "FileName":
-                    RaisePropertyChanged("FileName");
+                    OnPropertyChanged("FileName");
                     break;
             }
         }
@@ -1457,7 +1457,7 @@ namespace Dynamo.ViewModels
                 modelGuids, "ArgumentLacing", (string)parameter);
 
             DynamoViewModel.Model.ExecuteCommand(command);
-            RaisePropertyChanged("SelectionArgumentLacing");
+            OnPropertyChanged("SelectionArgumentLacing");
         }
 
         private void Hide(object parameters)
@@ -1820,7 +1820,7 @@ namespace Dynamo.ViewModels
         /// <param name="o"></param>
         internal void UnpinAllPreviewBubbles(object o)
         {
-            RaisePropertyChanged("UnpinAllPreviewBubbles");
+            OnPropertyChanged("UnpinAllPreviewBubbles");
 
             UnpinAllPreviewBubblesTriggered?.Invoke(this, EventArgs.Empty);
         }
@@ -1854,7 +1854,7 @@ namespace Dynamo.ViewModels
 
         internal void Loaded()
         {
-            RaisePropertyChanged("IsHomeSpace");
+            OnPropertyChanged("IsHomeSpace");
 
             // New workspace or swapped workspace to follow it offset and zoom
             this.Model.OnCurrentOffsetChanged(this, new PointEventArgs(new Point2D(this.X, this.Y)));
@@ -1868,11 +1868,11 @@ namespace Dynamo.ViewModels
             SetArgumentLacingCommand.RaiseCanExecuteChanged();
             ShowAllWiresCommand.RaiseCanExecuteChanged();
             HideAllWiresCommand.RaiseCanExecuteChanged();
-            RaisePropertyChanged("HasSelection");
-            RaisePropertyChanged("IsGeometryOperationEnabled");
-            RaisePropertyChanged("AnyNodeVisible");
-            RaisePropertyChanged("SelectionArgumentLacing");
-            RaisePropertyChanged("CanUpdatePythonEngine");
+            OnPropertyChanged("HasSelection");
+            OnPropertyChanged("IsGeometryOperationEnabled");
+            OnPropertyChanged("AnyNodeVisible");
+            OnPropertyChanged("SelectionArgumentLacing");
+            OnPropertyChanged("CanUpdatePythonEngine");
         }
 
         /// <summary>

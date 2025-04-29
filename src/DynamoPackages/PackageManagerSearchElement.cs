@@ -60,7 +60,7 @@ namespace Dynamo.PackageManager
         public int Votes
         {
             get { return _votes; }
-            set { _votes = value; RaisePropertyChanged("Votes"); }
+            set { _votes = value; OnPropertyChanged("Votes"); }
         }
         public bool IsDeprecated { get { return this.Header.deprecated; } }
         public int Downloads { get { return this.Header.downloads; } }
@@ -82,7 +82,7 @@ namespace Dynamo.PackageManager
                 {
                     latestCompatibleVersion = value;
 
-                    RaisePropertyChanged(nameof(LatestCompatibleVersion));
+                    OnPropertyChanged(nameof(LatestCompatibleVersion));
                 }
             }
         }
@@ -185,7 +185,7 @@ namespace Dynamo.PackageManager
             internal set
             {
                 hasUpvote = value;
-                RaisePropertyChanged(nameof(HasUpvote));
+                OnPropertyChanged(nameof(HasUpvote));
             }
         }
 
@@ -200,7 +200,7 @@ namespace Dynamo.PackageManager
             {
                 versionDetails = value;
                 LatestCompatibleVersion = GetLatestCompatibleVersion();
-                RaisePropertyChanged(nameof(VersionDetails));
+                OnPropertyChanged(nameof(VersionDetails));
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 
 namespace Dynamo.Core
@@ -20,7 +20,7 @@ namespace Dynamo.Core
         /// Raises this object's PropertyChanged event.
         /// </summary>
         /// <param name="propertyName">The property that has a new value.</param>
-        protected virtual void RaisePropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             //TODO profile this?
             if (!PropertyChangeManager.ShouldRaiseNotification(propertyName))
@@ -44,7 +44,7 @@ namespace Dynamo.Core
 
             foreach (var name in propertyNames)
             {
-                RaisePropertyChanged(name);
+                OnPropertyChanged(name);
             }
         }
     }

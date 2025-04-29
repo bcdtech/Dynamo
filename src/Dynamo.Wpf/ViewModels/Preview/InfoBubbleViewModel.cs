@@ -137,7 +137,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeInfoShowLessMessageVisible = value;
-                RaisePropertyChanged(nameof(NodeInfoShowLessMessageVisible));
+                OnPropertyChanged(nameof(NodeInfoShowLessMessageVisible));
             }
         }
 
@@ -151,7 +151,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeWarningsShowLessMessageVisible = value;
-                RaisePropertyChanged(nameof(NodeWarningsShowLessMessageVisible));
+                OnPropertyChanged(nameof(NodeWarningsShowLessMessageVisible));
             }
         }
 
@@ -165,7 +165,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeErrorsShowLessMessageVisible = value;
-                RaisePropertyChanged(nameof(NodeErrorsShowLessMessageVisible));
+                OnPropertyChanged(nameof(NodeErrorsShowLessMessageVisible));
             }
         }
 
@@ -173,7 +173,7 @@ namespace Dynamo.ViewModels
         public string Content
         {
             get { return content; }
-            set { content = value; RaisePropertyChanged("Content"); }
+            set { content = value; OnPropertyChanged("Content"); }
         }
 
         public DynamoViewModel DynamoViewModel { get; private set; }
@@ -185,7 +185,7 @@ namespace Dynamo.ViewModels
             set
             {
                 zIndex = value;
-                RaisePropertyChanged(nameof(ZIndex));
+                OnPropertyChanged(nameof(ZIndex));
             }
         }
 
@@ -198,14 +198,14 @@ namespace Dynamo.ViewModels
             set
             {
                 bubbleWidth = value;
-                RaisePropertyChanged(nameof(BubbleWidth));
+                OnPropertyChanged(nameof(BubbleWidth));
             }
         }
 
         public Style InfoBubbleStyle
         {
             get { return infoBubbleStyle; }
-            set { infoBubbleStyle = value; RaisePropertyChanged("InfoBubbleStyle"); }
+            set { infoBubbleStyle = value; OnPropertyChanged("InfoBubbleStyle"); }
         }
 
         [Obsolete]
@@ -214,34 +214,34 @@ namespace Dynamo.ViewModels
         public Direction ConnectingDirection
         {
             get { return connectingDirection; }
-            set { connectingDirection = value; RaisePropertyChanged("ConnectingDirection"); }
+            set { connectingDirection = value; OnPropertyChanged("ConnectingDirection"); }
         }
 
         public Uri DocumentationLink
         {
             get { return documentationLink; }
-            set { documentationLink = value; RaisePropertyChanged(nameof(DocumentationLink)); }
+            set { documentationLink = value; OnPropertyChanged(nameof(DocumentationLink)); }
         }
 
         [Obsolete]
         public Point TargetTopLeft
         {
             get { return targetTopLeft; }
-            set { targetTopLeft = value; RaisePropertyChanged("TargetTopLeft"); }
+            set { targetTopLeft = value; OnPropertyChanged("TargetTopLeft"); }
         }
         
         [Obsolete]
         public Point TargetBotRight
         {
             get { return targetBotRight; }
-            set { targetBotRight = value; RaisePropertyChanged("TargetBotRight"); }
+            set { targetBotRight = value; OnPropertyChanged("TargetBotRight"); }
         }
 
         [Obsolete]
         public Direction LimitedDirection
         {
             get { return limitedDirection; }
-            set { limitedDirection = value; RaisePropertyChanged("LimitedDirection"); }
+            set { limitedDirection = value; OnPropertyChanged("LimitedDirection"); }
         }
 
         [Obsolete]
@@ -260,7 +260,7 @@ namespace Dynamo.ViewModels
         public State InfoBubbleState
         {
             get { return infoBubbleState; }
-            set { infoBubbleState = value; RaisePropertyChanged("InfoBubbleState"); }
+            set { infoBubbleState = value; OnPropertyChanged("InfoBubbleState"); }
         }
 
         private bool isCollapsed;
@@ -274,8 +274,8 @@ namespace Dynamo.ViewModels
             set
             {
                 isCollapsed = value;
-                RaisePropertyChanged(nameof(IsCollapsed));
-                RaisePropertyChanged(nameof(DoesNodeDisplayMessages));
+                OnPropertyChanged(nameof(IsCollapsed));
+                OnPropertyChanged(nameof(DoesNodeDisplayMessages));
             }
         }
 
@@ -331,7 +331,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeInfoSectionExpanded = value;
-                RaisePropertyChanged(nameof(NodeInfoSectionExpanded));
+                OnPropertyChanged(nameof(NodeInfoSectionExpanded));
             }
         }
 
@@ -344,7 +344,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeWarningsSectionExpanded = value;
-                RaisePropertyChanged(nameof(NodeWarningsSectionExpanded));
+                OnPropertyChanged(nameof(NodeWarningsSectionExpanded));
             }
         }
 
@@ -357,7 +357,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeErrorsSectionExpanded = value;
-                RaisePropertyChanged(nameof(NodeErrorsSectionExpanded));
+                OnPropertyChanged(nameof(NodeErrorsSectionExpanded));
             }
         }
 
@@ -377,7 +377,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeInfoVisibilityState = value;
-                RaisePropertyChanged(nameof(NodeInfoVisibilityState));
+                OnPropertyChanged(nameof(NodeInfoVisibilityState));
                 
                 RefreshNodeInformationalStateDisplay();
             }
@@ -393,7 +393,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeWarningsVisibilityState = value;
-                RaisePropertyChanged(nameof(NodeWarningsVisibilityState));
+                OnPropertyChanged(nameof(NodeWarningsVisibilityState));
                 RefreshNodeInformationalStateDisplay();
             }
         }
@@ -408,7 +408,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nodeErrorsVisibilityState = value;
-                RaisePropertyChanged(nameof(NodeErrorsVisibilityState));
+                OnPropertyChanged(nameof(NodeErrorsVisibilityState));
                 RefreshNodeInformationalStateDisplay();
             }
         }
@@ -730,9 +730,9 @@ namespace Dynamo.ViewModels
         /// </summary>
         private void UpdateUserFacingCollectionVisibility()
         {
-            RaisePropertyChanged(nameof(NodeInfoVisible));
-            RaisePropertyChanged(nameof(NodeWarningsVisible));
-            RaisePropertyChanged(nameof(NodeErrorsVisible));
+            OnPropertyChanged(nameof(NodeInfoVisible));
+            OnPropertyChanged(nameof(NodeWarningsVisible));
+            OnPropertyChanged(nameof(NodeErrorsVisible));
         }
 
         /// <summary>
@@ -784,9 +784,9 @@ namespace Dynamo.ViewModels
         /// </summary>
         private void UpdateShowMoreButtonVisibility()
         {
-            RaisePropertyChanged(nameof(NodeInfoShowMoreButtonVisible));
-            RaisePropertyChanged(nameof(NodeWarningsShowMoreButtonVisible));
-            RaisePropertyChanged(nameof(NodeErrorsShowMoreButtonVisible));
+            OnPropertyChanged(nameof(NodeInfoShowMoreButtonVisible));
+            OnPropertyChanged(nameof(NodeWarningsShowMoreButtonVisible));
+            OnPropertyChanged(nameof(NodeErrorsShowMoreButtonVisible));
         }
 
         /// <summary>
@@ -795,9 +795,9 @@ namespace Dynamo.ViewModels
         /// </summary>
         private void UpdateNodeMessageIteratorsVisibility()
         {
-            RaisePropertyChanged(nameof(NodeInfoIteratorVisible));
-            RaisePropertyChanged(nameof(NodeWarningsIteratorVisible));
-            RaisePropertyChanged(nameof(NodeErrorsIteratorVisible));
+            OnPropertyChanged(nameof(NodeInfoIteratorVisible));
+            OnPropertyChanged(nameof(NodeWarningsIteratorVisible));
+            OnPropertyChanged(nameof(NodeErrorsIteratorVisible));
         }
 
         /// <summary>
@@ -812,17 +812,17 @@ namespace Dynamo.ViewModels
             if (NodeInfoVisibilityState == NodeMessageVisibility.ShowAllMessages && nonDismissedInfoMessageCount < 2)
             {
                 NodeInfoVisibilityState = NodeMessageVisibility.CollapseMessages;
-                RaisePropertyChanged(nameof(NodeInfoIteratorVisible));
+                OnPropertyChanged(nameof(NodeInfoIteratorVisible));
             }
             if (NodeWarningsVisibilityState == NodeMessageVisibility.ShowAllMessages && nonDismissedWarningMessageCount < 2)
             {
                 NodeWarningsVisibilityState = NodeMessageVisibility.CollapseMessages;
-                RaisePropertyChanged(nameof(NodeWarningsIteratorVisible));
+                OnPropertyChanged(nameof(NodeWarningsIteratorVisible));
             }
             if (NodeErrorsVisibilityState == NodeMessageVisibility.ShowAllMessages && errorsCount < 2)
             {
                 NodeErrorsVisibilityState = NodeMessageVisibility.CollapseMessages;
-                RaisePropertyChanged(nameof(NodeErrorsIteratorVisible));
+                OnPropertyChanged(nameof(NodeErrorsIteratorVisible));
             }
         }
 
@@ -865,7 +865,7 @@ namespace Dynamo.ViewModels
             // If there are no items to show at a particular message level, the bubble's visibility is collapsed.
             UpdateUserFacingCollectionVisibility();
             
-            RaisePropertyChanged(nameof(DoesNodeDisplayMessages));
+            OnPropertyChanged(nameof(DoesNodeDisplayMessages));
         }
 
         /// <summary>

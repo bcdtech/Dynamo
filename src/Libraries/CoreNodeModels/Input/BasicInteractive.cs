@@ -32,7 +32,7 @@ namespace CoreNodeModels.Input
                     {
                         ClearDirtyFlag();
                     }
-                    RaisePropertyChanged("Value");
+                    OnPropertyChanged("Value");
                 }               
             }
         }

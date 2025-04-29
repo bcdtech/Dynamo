@@ -103,7 +103,7 @@ namespace CoreNodeModels.Input
             set
             {
                 base.Value = value;
-                RaisePropertyChanged("Value");
+                OnPropertyChanged("Value");
             }
         }
 
@@ -302,7 +302,7 @@ namespace CoreNodeModels.Input
             set
             {
                 base.Value = value;              
-                RaisePropertyChanged(nameof(Value));
+                OnPropertyChanged(nameof(Value));
             }
         }
 

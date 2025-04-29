@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Xml;
 using Dynamo.Graph.Nodes;
@@ -32,7 +32,7 @@ namespace Dynamo.Graph.Notes
             set
             {
                 text = value;
-                RaisePropertyChanged("Text");
+                OnPropertyChanged("Text");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Dynamo.Graph.Notes
             set
             {
                 pinnedNode = value;
-                RaisePropertyChanged(nameof(PinnedNode));
+                OnPropertyChanged(nameof(PinnedNode));
             }
         }
 
@@ -63,7 +63,7 @@ namespace Dynamo.Graph.Notes
             set
             {
                 pinnedNodeGuid = value;
-                RaisePropertyChanged(nameof(PinnedNodeGuid));
+                OnPropertyChanged(nameof(PinnedNodeGuid));
             }
         }
 
@@ -74,7 +74,7 @@ namespace Dynamo.Graph.Notes
             set
             {
                 undoAction = value;
-                RaisePropertyChanged(nameof(UndoRedoAction));
+                OnPropertyChanged(nameof(UndoRedoAction));
             }
         }
 

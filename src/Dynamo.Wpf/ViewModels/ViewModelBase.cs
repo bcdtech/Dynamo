@@ -1,9 +1,9 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
-using NotificationObject = Dynamo.Core.NotificationObject;
 
 namespace Dynamo.ViewModels
 {
-    public abstract class ViewModelBase : NotificationObject, IDisposable
+    public abstract class ViewModelBase : ObservableObject, IDisposable
     {
         [JsonIgnore]
         public bool IsDebugBuild
@@ -31,7 +31,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isCollapsed = value;
-                RaisePropertyChanged(nameof(IsCollapsed));
+                OnPropertyChanged(nameof(IsCollapsed));
             }
         }
 

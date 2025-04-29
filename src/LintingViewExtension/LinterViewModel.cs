@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -261,14 +261,14 @@ namespace Dynamo.LintingViewExtension
 
         private void OnCurrentWorkspaceChanged(IWorkspaceModel obj)
         {
-            RaisePropertyChanged(nameof(CanChangeLinter));
+            OnPropertyChanged(nameof(CanChangeLinter));
         }
 
         private void OnLinterManagerPropertyChange(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(linterManager.ActiveLinter))
             {
-                RaisePropertyChanged(nameof(ActiveLinter));
+                OnPropertyChanged(nameof(ActiveLinter));
             }
         }
         

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -62,7 +62,7 @@ namespace Dynamo.Linting
                 linterExtension.Activate(fullActivation);
             }
 
-            RaisePropertyChanged(nameof(ActiveLinter));
+            OnPropertyChanged(nameof(ActiveLinter));
         }
 
         #endregion
@@ -115,7 +115,7 @@ namespace Dynamo.Linting
 
             AvailableLinters.Add(extensionDescriptor);
 
-            RaisePropertyChanged(nameof(AvailableLinters));
+            OnPropertyChanged(nameof(AvailableLinters));
         }
 
         private void OnRuleEvaluated(IRuleEvaluationResult result)

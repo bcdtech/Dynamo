@@ -54,7 +54,7 @@ namespace Dynamo.Graph.Workspaces
                 if (graphRunInProgress == value) return;
 
                 graphRunInProgress = value;
-                RaisePropertyChanged(nameof(GraphRunInProgress));
+                OnPropertyChanged(nameof(GraphRunInProgress));
             }
         }
 
@@ -119,7 +119,7 @@ namespace Dynamo.Graph.Workspaces
                     return;
 
                 graphDocumentationURL = value;
-                RaisePropertyChanged(nameof(GraphDocumentationURL));
+                OnPropertyChanged(nameof(GraphDocumentationURL));
             }
         }
 
@@ -157,7 +157,7 @@ namespace Dynamo.Graph.Workspaces
                     // if value is not a valid Base64 string this will throw, and we return null.
                     byte[] data = Convert.FromBase64String(value);
                     thumbnail = value;
-                    RaisePropertyChanged(nameof(Thumbnail));
+                    OnPropertyChanged(nameof(Thumbnail));
                 }
                 catch
                 {

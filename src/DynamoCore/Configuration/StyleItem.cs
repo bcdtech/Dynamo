@@ -21,7 +21,7 @@ namespace Dynamo.Configuration
             set
             {
                 name = value;
-                RaisePropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -32,7 +32,7 @@ namespace Dynamo.Configuration
             set
             {
                 hexColorString = value;
-                RaisePropertyChanged(nameof(HexColorString));
+                OnPropertyChanged(nameof(HexColorString));
             }
         }
 
@@ -45,7 +45,7 @@ namespace Dynamo.Configuration
             set
             {
                 isDefault = value;
-                RaisePropertyChanged(nameof(IsDefault));
+                OnPropertyChanged(nameof(IsDefault));
             }
         }
 
@@ -58,7 +58,7 @@ namespace Dynamo.Configuration
             set
             {
                 fontSize = value;
-                RaisePropertyChanged(nameof(FontSize));
+                OnPropertyChanged(nameof(FontSize));
             }
         }
 
@@ -71,7 +71,7 @@ namespace Dynamo.Configuration
             set
             {
                 groupStyleId = value;
-                RaisePropertyChanged(nameof(GroupStyleId));
+                OnPropertyChanged(nameof(GroupStyleId));
             }
         }
     }

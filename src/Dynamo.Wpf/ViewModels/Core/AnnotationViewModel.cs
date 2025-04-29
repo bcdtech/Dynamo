@@ -40,7 +40,7 @@ namespace Dynamo.ViewModels
             set
             {
                 annotationModel = value;
-                RaisePropertyChanged("AnnotationModel");
+                OnPropertyChanged("AnnotationModel");
             }
         }
 
@@ -301,7 +301,7 @@ namespace Dynamo.ViewModels
                 }
 
                 nodeHoveringState = value;
-                RaisePropertyChanged(nameof(NodeHoveringState));
+                OnPropertyChanged(nameof(NodeHoveringState));
             }
         }
 
@@ -316,7 +316,7 @@ namespace Dynamo.ViewModels
             set
             {
                 nestedGroups = value;
-                RaisePropertyChanged(nameof(NestedGroups));
+                OnPropertyChanged(nameof(NestedGroups));
             }
         }
 
@@ -365,7 +365,7 @@ namespace Dynamo.ViewModels
             set
             {
                 groupStyleList = value;
-                RaisePropertyChanged(nameof(GroupStyleList));
+                OnPropertyChanged(nameof(GroupStyleList));
             }
         }
         #endregion
@@ -547,7 +547,7 @@ namespace Dynamo.ViewModels
             this.WorkspaceViewModel.DynamoViewModel.ExecuteCommand(
                 new DynamoModel.SelectModelCommand(annotationGuid, Keyboard.Modifiers.AsDynamoType()));
             WorkspaceViewModel.DynamoViewModel.UngroupModelCommand.Execute(null);
-            RaisePropertyChanged(nameof(ZIndex));
+            OnPropertyChanged(nameof(ZIndex));
             Analytics.TrackEvent(Actions.RemovedFrom, Categories.GroupOperations, "Group");
         }
 
@@ -573,7 +573,7 @@ namespace Dynamo.ViewModels
                 this.AnnotationModel.AddToTargetAnnotationModel(node);
             }
 
-            RaisePropertyChanged(nameof(ZIndex));
+            OnPropertyChanged(nameof(ZIndex));
             Analytics.TrackEvent(Actions.RemovedFrom, Categories.GroupOperations, "Group");
         }
 
@@ -641,7 +641,7 @@ namespace Dynamo.ViewModels
             {
                 foreach (var annotationViewModel in viewModelBases.OfType<AnnotationViewModel>())
                 {
-                    annotationViewModel.RaisePropertyChanged(nameof(ZIndex));
+                    annotationViewModel.OnPropertyChanged(nameof(ZIndex));
                     AddToCutGeometryDictionary(annotationViewModel);
                 }
             }
@@ -1064,11 +1064,11 @@ namespace Dynamo.ViewModels
                 this.SetGroupInputPorts();
                 this.SetGroupOutPorts();
                 this.CollapseGroupContents(true);
-                RaisePropertyChanged(nameof(NodeContentCount));
+                OnPropertyChanged(nameof(NodeContentCount));
             }
             WorkspaceViewModel.HasUnsavedChanges = true;
             (AddGroupToGroupCommand as IRelayCommand)?.NotifyCanExecuteChanged();
-            RaisePropertyChanged(nameof(IsExpanded));
+            OnPropertyChanged(nameof(IsExpanded));
             RedrawConnectors();
             ReportNodesPosition();
         }
@@ -1179,34 +1179,34 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "X":
-                    RaisePropertyChanged("Left");
+                    OnPropertyChanged("Left");
                     break;
                 case "Y":
-                    RaisePropertyChanged("Top");
+                    OnPropertyChanged("Top");
                     break;
                 case "Width":
-                    RaisePropertyChanged("Width");
-                    RaisePropertyChanged(nameof(ModelAreaRect));
+                    OnPropertyChanged("Width");
+                    OnPropertyChanged(nameof(ModelAreaRect));
                     UpdateAllGroupedGroups();
                     break;
                 case "Height":
-                    RaisePropertyChanged("Height");
+                    OnPropertyChanged("Height");
                     UpdateAllGroupedGroups();
                     break;
                 case nameof(AnnotationDescriptionText):
-                    RaisePropertyChanged(nameof(AnnotationDescriptionText));
+                    OnPropertyChanged(nameof(AnnotationDescriptionText));
                     break;
                 case "AnnotationText":
-                    RaisePropertyChanged("AnnotationText");
+                    OnPropertyChanged("AnnotationText");
                     break;
                 case "Background":
-                    RaisePropertyChanged("Background");
+                    OnPropertyChanged("Background");
                     break;
                 case "IsSelected":
-                    RaisePropertyChanged("PreviewState");
+                    OnPropertyChanged("PreviewState");
                     break;
                 case "FontSize":
-                    RaisePropertyChanged("FontSize");
+                    OnPropertyChanged("FontSize");
                     break;
                 case "SelectedModels":
                     this.AnnotationModel.UpdateBoundaryFromSelection();
@@ -1216,13 +1216,13 @@ namespace Dynamo.ViewModels
                     HandleNodesCollectionChanges();
                     break;
                 case nameof(AnnotationModel.ModelAreaHeight):
-                    RaisePropertyChanged(nameof(ModelAreaHeight));
-                    RaisePropertyChanged(nameof(ModelAreaRect));
-                    RaisePropertyChanged(nameof(Width));
+                    OnPropertyChanged(nameof(ModelAreaHeight));
+                    OnPropertyChanged(nameof(ModelAreaRect));
+                    OnPropertyChanged(nameof(Width));
                     break;
                 case nameof(AnnotationModel.Position):
-                    RaisePropertyChanged(nameof(ModelAreaRect));
-                    RaisePropertyChanged(nameof(AnnotationModel.Position));
+                    OnPropertyChanged(nameof(ModelAreaRect));
+                    OnPropertyChanged(nameof(AnnotationModel.Position));
                     UpdateProxyPortsPosition();
                     break;
                 case nameof(IsExpanded):
@@ -1235,13 +1235,13 @@ namespace Dynamo.ViewModels
         private void OnModelRemovedFromGroup(object sender, EventArgs e)
         {
             Analytics.TrackEvent(Actions.RemovedFrom, Categories.GroupOperations, "Node");
-            RaisePropertyChanged(nameof(ZIndex));
+            OnPropertyChanged(nameof(ZIndex));
         }
 
         private void OnModelAddedToGroup(object sender, EventArgs e)
         {
             Analytics.TrackEvent(Actions.AddedTo, Categories.GroupOperations, "Group");
-            RaisePropertyChanged(nameof(ZIndex));
+            OnPropertyChanged(nameof(ZIndex));
         }
 
         private void UpdateAllGroupedGroups()

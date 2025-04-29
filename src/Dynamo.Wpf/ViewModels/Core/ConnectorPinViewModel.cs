@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using Dynamo.Configuration;
 using Dynamo.Graph;
 using Dynamo.Logging;
@@ -80,7 +80,7 @@ namespace Dynamo.ViewModels
         {
 
             get { return zIndex; }
-            set { zIndex = value; RaisePropertyChanged(nameof(ZIndex)); }
+            set { zIndex = value; OnPropertyChanged(nameof(ZIndex)); }
         }
 
         private ConnectorPinModel model;
@@ -95,7 +95,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model = value;
-                RaisePropertyChanged(nameof(Model));
+                OnPropertyChanged(nameof(Model));
             }
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.X = value;
-                RaisePropertyChanged(nameof(Left));
+                OnPropertyChanged(nameof(Left));
             }
         }
 
@@ -136,7 +136,7 @@ namespace Dynamo.ViewModels
                 //Through trial and error using the OneThirdWidth value to offset the pin location works 
                 //better than using OneHalf.
                 model.Y = value + OneThirdWidth;
-                RaisePropertyChanged(nameof(Top));
+                OnPropertyChanged(nameof(Top));
             }
         }
         private bool isHoveredOver = false;
@@ -157,7 +157,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isHoveredOver = value;
-                RaisePropertyChanged(nameof(IsHoveredOver));
+                OnPropertyChanged(nameof(IsHoveredOver));
             }
         }
 
@@ -183,7 +183,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isCollapsed = value;
-                RaisePropertyChanged(nameof(IsCollapsed));
+                OnPropertyChanged(nameof(IsCollapsed));
             }
         }
 
@@ -199,7 +199,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isHidden = value;
-                RaisePropertyChanged(nameof(IsHidden));
+                OnPropertyChanged(nameof(IsHidden));
             }
         }
 
@@ -219,7 +219,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isTemporarilyVisible = value;
-                RaisePropertyChanged(nameof(IsTemporarilyVisible));
+                OnPropertyChanged(nameof(IsTemporarilyVisible));
             }
         }
 
@@ -235,7 +235,7 @@ namespace Dynamo.ViewModels
             {
                 if (isInGroup == value) return;
                 isInGroup = value;
-                RaisePropertyChanged(nameof(IsInGroup));
+                OnPropertyChanged(nameof(IsInGroup));
 
                 // Update the command's state whenever the group status changes
                 (RemovePinFromGroupCommand as IRelayCommand)?.NotifyCanExecuteChanged();
@@ -346,16 +346,16 @@ namespace Dynamo.ViewModels
                 case nameof(ConnectorPinModel.X):
                     OnRequestRedraw(this, EventArgs.Empty);
                     //RaisePropertyChanged(nameof(CenterX));
-                    RaisePropertyChanged(nameof(Left));
+                    OnPropertyChanged(nameof(Left));
                     break;
                 case nameof(ConnectorPinModel.Y):
                     OnRequestRedraw(this, EventArgs.Empty);
                     //RaisePropertyChanged(nameof(CenterY));
-                    RaisePropertyChanged(nameof(Top));
+                    OnPropertyChanged(nameof(Top));
                     break;
                 case nameof(ConnectorPinModel.IsSelected):
                     OnRequestSelect(this, EventArgs.Empty);
-                    RaisePropertyChanged(nameof(IsSelected));
+                    OnPropertyChanged(nameof(IsSelected));
                     break;
             }
         }

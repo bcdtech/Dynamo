@@ -640,7 +640,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 lastSaved = value;
-                RaisePropertyChanged("LastSaved");
+                OnPropertyChanged("LastSaved");
             }
         }
 
@@ -720,7 +720,7 @@ namespace Dynamo.Graph.Workspaces
                     }
                 }
 
-                RaisePropertyChanged(nameof(NodeLibraryDependencies));
+                OnPropertyChanged(nameof(NodeLibraryDependencies));
             }
         }
 
@@ -754,7 +754,7 @@ namespace Dynamo.Graph.Workspaces
                     }
                 }
 
-                RaisePropertyChanged(nameof(NodeLocalDefinitions));
+                OnPropertyChanged(nameof(NodeLocalDefinitions));
             }
         }
 
@@ -788,7 +788,7 @@ namespace Dynamo.Graph.Workspaces
                     }
                 }
 
-                RaisePropertyChanged(nameof(ExternalFiles));
+                OnPropertyChanged(nameof(ExternalFiles));
             }
         }
 
@@ -1036,7 +1036,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 author = value;
-                RaisePropertyChanged(nameof(Author));
+                OnPropertyChanged(nameof(Author));
             }
         }
 
@@ -1049,7 +1049,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 description = value;
-                RaisePropertyChanged("Description");
+                OnPropertyChanged("Description");
             }
         }
 
@@ -1074,7 +1074,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 hasUnsavedChanges = value;
-                RaisePropertyChanged("HasUnsavedChanges");
+                OnPropertyChanged("HasUnsavedChanges");
             }
         }
 
@@ -1208,7 +1208,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 fileName = value;
-                RaisePropertyChanged("FileName");
+                OnPropertyChanged("FileName");
             }
         }
 
@@ -1238,7 +1238,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 name = value;
-                RaisePropertyChanged("Name");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -1252,7 +1252,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 x = value;
-                RaisePropertyChanged("X");
+                OnPropertyChanged("X");
             }
         }
 
@@ -1266,7 +1266,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 y = value;
-                RaisePropertyChanged("Y");
+                OnPropertyChanged("Y");
             }
         }
 
@@ -1281,7 +1281,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 zoom = value;
-                RaisePropertyChanged("Zoom");
+                OnPropertyChanged("Zoom");
             }
         }
 
@@ -1296,7 +1296,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 height = value;
-                RaisePropertyChanged("Height");
+                OnPropertyChanged("Height");
             }
         }
 
@@ -1311,7 +1311,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 width = value;
-                RaisePropertyChanged("Width");
+                OnPropertyChanged("Width");
             }
         }
 
@@ -1999,7 +1999,7 @@ namespace Dynamo.Graph.Workspaces
         /// </summary>
         public void ReportPosition()
         {
-            RaisePropertyChanged("Position");
+            OnPropertyChanged("Position");
         }
 
         /// <summary>

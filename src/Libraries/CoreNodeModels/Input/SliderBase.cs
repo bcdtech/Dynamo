@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Dynamo.Graph.Nodes;
@@ -30,7 +30,7 @@ namespace CoreNodeModels.Input
                     Value = max;
                 }
 
-                RaisePropertyChanged("Max");
+                OnPropertyChanged("Max");
             }
         }
 
@@ -52,7 +52,7 @@ namespace CoreNodeModels.Input
                     Value = min;
                 }
 
-                RaisePropertyChanged("Min");
+                OnPropertyChanged("Min");
             }
         }
 
@@ -75,7 +75,7 @@ namespace CoreNodeModels.Input
                     this.Min = Value;
                 }
 
-                RaisePropertyChanged("Step");
+                OnPropertyChanged("Step");
             }
         }
 

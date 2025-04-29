@@ -146,7 +146,7 @@ namespace Dynamo.Models
 
         private void RaisePropertyChangeWithDebug(string propertyName)
         {
-            RaisePropertyChanged(propertyName);
+            OnPropertyChanged(propertyName);
         }
 
         #endregion

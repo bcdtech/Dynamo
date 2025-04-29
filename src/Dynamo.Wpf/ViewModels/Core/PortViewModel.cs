@@ -168,7 +168,7 @@ namespace Dynamo.ViewModels
             set
             {
                 showUseLevelMenu = value;
-                RaisePropertyChanged(nameof(ShowUseLevelMenu));
+                OnPropertyChanged(nameof(ShowUseLevelMenu));
             }
         }
 
@@ -186,7 +186,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portBorderBrushColor = value;
-                RaisePropertyChanged(nameof(PortBorderBrushColor));
+                OnPropertyChanged(nameof(PortBorderBrushColor));
             }
         }
 
@@ -200,7 +200,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portBackgroundColor = value;
-                RaisePropertyChanged(nameof(PortBackgroundColor));
+                OnPropertyChanged(nameof(PortBackgroundColor));
             }
         }
 
@@ -389,7 +389,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "ActiveConnector":
-                    RaisePropertyChanged(nameof(IsHitTestVisible));
+                    OnPropertyChanged(nameof(IsHitTestVisible));
                     break;
                 default:
                     break;
@@ -401,14 +401,14 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(IsSelected):
-                    RaisePropertyChanged(nameof(IsSelected));
+                    OnPropertyChanged(nameof(IsSelected));
                     break;
                 case nameof(State):
-                    RaisePropertyChanged(nameof(State));
+                    OnPropertyChanged(nameof(State));
                     RefreshPortColors();
                     break;
                 case nameof(ToolTipContent):
-                    RaisePropertyChanged(nameof(ToolTipContent));
+                    OnPropertyChanged(nameof(ToolTipContent));
                     break;
                 case nameof(node.IsVisible):
                     RefreshPortColors();
@@ -424,26 +424,26 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "ToolTip":
-                    RaisePropertyChanged(nameof(ToolTipContent));
+                    OnPropertyChanged(nameof(ToolTipContent));
                     break;
                 case nameof(PortType):
-                    RaisePropertyChanged(nameof(PortType));
+                    OnPropertyChanged(nameof(PortType));
                     break;
                 case nameof(PortName):
-                    RaisePropertyChanged(nameof(PortName));
+                    OnPropertyChanged(nameof(PortName));
                     break;
                 case nameof(IsConnected):
-                    RaisePropertyChanged(nameof(IsConnected));
+                    OnPropertyChanged(nameof(IsConnected));
                     RefreshPortColors();
                     break;
                 case nameof(IsEnabled):
-                    RaisePropertyChanged(nameof(IsEnabled));
+                    OnPropertyChanged(nameof(IsEnabled));
                     break;
                 case nameof(Center):
-                    RaisePropertyChanged(nameof(Center));
+                    OnPropertyChanged(nameof(Center));
                     break;
                 case nameof(MarginThickness):
-                    RaisePropertyChanged(nameof(MarginThickness));
+                    OnPropertyChanged(nameof(MarginThickness));
                     break;
                 case nameof(UsingDefaultValue):
                     RefreshPortColors();

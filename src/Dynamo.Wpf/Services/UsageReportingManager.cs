@@ -61,7 +61,7 @@ namespace Dynamo.Services
             private set
             {
                 dynamoViewModel.Model.PreferenceSettings.IsFirstRun = value;
-                RaisePropertyChanged("FirstRun");
+                OnPropertyChanged("FirstRun");
             }
         }
 

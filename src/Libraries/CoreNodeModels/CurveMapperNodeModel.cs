@@ -179,8 +179,8 @@ namespace CoreNodeModels
                 if (minLimitX != value)
                 {
                     minLimitX = value;
-                    this.RaisePropertyChanged(nameof(MinLimitX));
-                    this.RaisePropertyChanged(nameof(MidValueX));
+                    this.OnPropertyChanged(nameof(MinLimitX));
+                    this.OnPropertyChanged(nameof(MidValueX));
                 }
             }
         }
@@ -195,8 +195,8 @@ namespace CoreNodeModels
                 if (maxLimitX != value)
                 {
                     maxLimitX = value;
-                    this.RaisePropertyChanged(nameof(MaxLimitX));
-                    this.RaisePropertyChanged(nameof(MidValueX));
+                    this.OnPropertyChanged(nameof(MaxLimitX));
+                    this.OnPropertyChanged(nameof(MidValueX));
                 }
             }
         }
@@ -211,8 +211,8 @@ namespace CoreNodeModels
                 if (minLimitY != value)
                 {
                     minLimitY = value;
-                    this.RaisePropertyChanged(nameof(MinLimitY));
-                    this.RaisePropertyChanged(nameof(MidValueY));
+                    this.OnPropertyChanged(nameof(MinLimitY));
+                    this.OnPropertyChanged(nameof(MidValueY));
                 }
             }
         }
@@ -227,8 +227,8 @@ namespace CoreNodeModels
                 if (maxLimitY != value)
                 {
                     maxLimitY = value;
-                    this.RaisePropertyChanged(nameof(MaxLimitY));
-                    this.RaisePropertyChanged(nameof(MidValueY));
+                    this.OnPropertyChanged(nameof(MaxLimitY));
+                    this.OnPropertyChanged(nameof(MidValueY));
                 }
             }
         }
@@ -243,7 +243,7 @@ namespace CoreNodeModels
                 if (pointsCount != value)
                 {
                     pointsCount = value;
-                    this.RaisePropertyChanged(nameof(PointsCount));
+                    this.OnPropertyChanged(nameof(PointsCount));
                 }
             }
         }
@@ -296,7 +296,7 @@ namespace CoreNodeModels
                     dynamicCanvasSize = System.Math.Max(value, defaultCanvasSize);
 
                     ScaleAllControlPoints(oldSize, dynamicCanvasSize);
-                    RaisePropertyChanged(nameof(DynamicCanvasSize));
+                    OnPropertyChanged(nameof(DynamicCanvasSize));
                     GenerateRenderValues();
                 }
             }
@@ -320,7 +320,7 @@ namespace CoreNodeModels
                     .Cast<GraphTypes>()
                     .FirstOrDefault(e => GetEnumDescription(e) == value);
 
-                RaisePropertyChanged(nameof(SelectedGraphTypeDescription));
+                OnPropertyChanged(nameof(SelectedGraphTypeDescription));
             }
         }
 
@@ -333,7 +333,7 @@ namespace CoreNodeModels
             {
                 selectedGraphType = value;
                 GenerateRenderValues();
-                RaisePropertyChanged(nameof(SelectedGraphType));
+                OnPropertyChanged(nameof(SelectedGraphType));
             }
         }
 
@@ -347,7 +347,7 @@ namespace CoreNodeModels
                 if (isLocked != value)
                 {
                     isLocked = value;
-                    RaisePropertyChanged(nameof(IsLocked));
+                    OnPropertyChanged(nameof(IsLocked));
                 }
             }
         }
@@ -362,7 +362,7 @@ namespace CoreNodeModels
                 if (isResizing != value)
                 {
                     isResizing = value;
-                    RaisePropertyChanged(nameof(IsResizing));
+                    OnPropertyChanged(nameof(IsResizing));
                 }
             }
         }
@@ -619,7 +619,7 @@ namespace CoreNodeModels
 
             foreach (var propertyName in propertyNames)
             {
-                RaisePropertyChanged(propertyName);
+                OnPropertyChanged(propertyName);
             }
 
             GenerateRenderValues();
@@ -667,8 +667,8 @@ namespace CoreNodeModels
                     break;
             }
 
-            RaisePropertyChanged(nameof(GaussianCurveControlPointData3));
-            RaisePropertyChanged(nameof(GaussianCurveControlPointData4));
+            OnPropertyChanged(nameof(GaussianCurveControlPointData3));
+            OnPropertyChanged(nameof(GaussianCurveControlPointData4));
         }
 
         #endregion
@@ -806,7 +806,7 @@ namespace CoreNodeModels
             // Notify property changes to update UI
             foreach (var propertyName in new[] { nameof(MinLimitX), nameof(MaxLimitX), nameof(MinLimitY), nameof(MaxLimitY), nameof(PointsCount) })
             {
-                RaisePropertyChanged(propertyName);
+                OnPropertyChanged(propertyName);
             }
         }
 

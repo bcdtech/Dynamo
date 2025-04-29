@@ -85,7 +85,7 @@ namespace Dynamo.ViewModels
             set
             {
                 autocompleteMLTitle = value;
-                RaisePropertyChanged(nameof(AutocompleteMLTitle));
+                OnPropertyChanged(nameof(AutocompleteMLTitle));
             }
         }
 
@@ -98,7 +98,7 @@ namespace Dynamo.ViewModels
             set
             {
                 autocompleteMLMessage = value;
-                RaisePropertyChanged(nameof(AutocompleteMLMessage));
+                OnPropertyChanged(nameof(AutocompleteMLMessage));
             }
         }
 
@@ -111,7 +111,7 @@ namespace Dynamo.ViewModels
             set
             {
                 displayAutocompleteMLStaticPage = value;
-                RaisePropertyChanged(nameof(DisplayAutocompleteMLStaticPage));
+                OnPropertyChanged(nameof(DisplayAutocompleteMLStaticPage));
             }
         }
 
@@ -124,7 +124,7 @@ namespace Dynamo.ViewModels
             set
             {
                 displayLowConfidence = value;
-                RaisePropertyChanged(nameof(DisplayLowConfidence));
+                OnPropertyChanged(nameof(DisplayLowConfidence));
             }
         }
 

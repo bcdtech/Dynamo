@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Xml;
 using Autodesk.DesignScript.Runtime;
@@ -50,7 +50,7 @@ namespace CoreNodeModels
             set
             {
                 selectedFromConversionSource = value;
-                RaisePropertyChanged("SelectedFromConversionSource");
+                OnPropertyChanged("SelectedFromConversionSource");
             }
         }
 
@@ -61,7 +61,7 @@ namespace CoreNodeModels
             set
             {
                 selectedToConversionSource = value;
-                RaisePropertyChanged("SelectedToConversionSource");
+                OnPropertyChanged("SelectedToConversionSource");
             }
         }
 
@@ -79,7 +79,7 @@ namespace CoreNodeModels
                 SelectedFromConversion = Conversions.ConversionDefaults[(ConversionMetricUnit)Enum.Parse(typeof(ConversionMetricUnit), value.ToString())];
                 SelectedToConversion = Conversions.ConversionDefaults[(ConversionMetricUnit)Enum.Parse(typeof(ConversionMetricUnit), value.ToString())];
 
-                 RaisePropertyChanged("SelectedMetricConversion");
+                 OnPropertyChanged("SelectedMetricConversion");
             }
         }
 
@@ -91,7 +91,7 @@ namespace CoreNodeModels
             {
                 selectedFromConversion = (ConversionUnit) Enum.Parse(typeof (ConversionUnit), value.ToString());
                 this.OnNodeModified();
-                RaisePropertyChanged("SelectedFromConversion");
+                OnPropertyChanged("SelectedFromConversion");
             }
         }
 
@@ -103,7 +103,7 @@ namespace CoreNodeModels
             {
                 selectedToConversion = (ConversionUnit) Enum.Parse(typeof (ConversionUnit), value.ToString());
                 this.OnNodeModified();
-                RaisePropertyChanged("SelectedToConversion");
+                OnPropertyChanged("SelectedToConversion");
             }
         }
 
@@ -114,7 +114,7 @@ namespace CoreNodeModels
             set
             {
                 isSelectionFromBoxEnabled = value;
-                RaisePropertyChanged("IsSelectionFromBoxEnabled");
+                OnPropertyChanged("IsSelectionFromBoxEnabled");
             }
         }
 
@@ -125,7 +125,7 @@ namespace CoreNodeModels
             set
             {
                 selectionFromBoxToolTip = value;
-                RaisePropertyChanged("SelectionFromBoxToolTip");
+                OnPropertyChanged("SelectionFromBoxToolTip");
             }
         }
 

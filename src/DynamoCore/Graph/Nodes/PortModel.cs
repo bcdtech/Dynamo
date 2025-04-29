@@ -91,7 +91,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 toolTip = value;
-                RaisePropertyChanged("ToolTip");
+                OnPropertyChanged("ToolTip");
             }
         }
 
@@ -153,7 +153,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 isEnabled = value;
-                RaisePropertyChanged("IsEnabled");
+                OnPropertyChanged("IsEnabled");
             }
         }
 
@@ -207,7 +207,7 @@ namespace Dynamo.Graph.Nodes
                 if (center.Equals(value)) return;
 
                 center = value;
-                RaisePropertyChanged(nameof(Center));
+                OnPropertyChanged(nameof(Center));
             }
         }
 
@@ -224,8 +224,8 @@ namespace Dynamo.Graph.Nodes
                 if (usingDefaultValue != value)
                 {
                     usingDefaultValue = value;
-                    RaisePropertyChanged("UsingDefaultValue");
-                    RaisePropertyChanged("ToolTip");
+                    OnPropertyChanged("UsingDefaultValue");
+                    OnPropertyChanged("ToolTip");
                 }
             }
         }
@@ -272,7 +272,7 @@ namespace Dynamo.Graph.Nodes
                 if (level != value)
                 {
                     level = value;
-                    RaisePropertyChanged("Level");
+                    OnPropertyChanged("Level");
                 }
             }
         }
@@ -294,7 +294,7 @@ namespace Dynamo.Graph.Nodes
                     useLevels = value;
 
                     if (!useLevels) KeepListStructure = useLevels;
-                    RaisePropertyChanged("UseLevels");
+                    OnPropertyChanged("UseLevels");
                 }
             }
         }
@@ -315,7 +315,7 @@ namespace Dynamo.Graph.Nodes
                 if (keepListStructure != value)
                 {
                     keepListStructure = value;
-                    RaisePropertyChanged(nameof(KeepListStructure));
+                    OnPropertyChanged(nameof(KeepListStructure));
                 }
             }
         }
@@ -394,7 +394,7 @@ namespace Dynamo.Graph.Nodes
 
         internal void RaisePortIsConnectedChanged()
         {
-            RaisePropertyChanged(nameof(IsConnected));
+            OnPropertyChanged(nameof(IsConnected));
         }
 
         /// <summary>

@@ -62,7 +62,7 @@ namespace ViewModels.Core
                 if(scaleSize != value)
                 {
                     scaleSize = value;
-                    RaisePropertyChanged(nameof(ScaleSize));
+                    OnPropertyChanged(nameof(ScaleSize));
                 }               
             }
         }

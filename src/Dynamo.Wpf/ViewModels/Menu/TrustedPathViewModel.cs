@@ -120,7 +120,7 @@ namespace Dynamo.ViewModels
             TrustedLocations.Insert(TrustedLocations.Count, args.Path);
             CommitChanges(null);
             RaiseCanExecuteChanged();
-            RaisePropertyChanged(nameof(TrustedPathViewModel.Action.Insert));
+            OnPropertyChanged(nameof(TrustedPathViewModel.Action.Insert));
         }
 
         private void ShowFileDialog(TrustedPathEventArgs e)
@@ -153,7 +153,7 @@ namespace Dynamo.ViewModels
 
             TrustedLocations[index] = args.Path;
             CommitChanges(null);
-            RaisePropertyChanged(nameof(TrustedPathViewModel.Action.Update));
+            OnPropertyChanged(nameof(TrustedPathViewModel.Action.Update));
         }
 
         private void RemovePathAt(int index)
@@ -161,7 +161,7 @@ namespace Dynamo.ViewModels
             TrustedLocations.RemoveAt(index);
             CommitChanges(null);
             RaiseCanExecuteChanged();
-            RaisePropertyChanged(nameof(TrustedPathViewModel.Action.Remove));
+            OnPropertyChanged(nameof(TrustedPathViewModel.Action.Remove));
         }
 
         private void CommitChanges(object param)
@@ -172,7 +172,7 @@ namespace Dynamo.ViewModels
         internal void InitializeTrustedLocations()
         {
             TrustedLocations = new ObservableCollection<string>(settings?.TrustedLocations ?? new List<string>());
-            RaisePropertyChanged(string.Empty);
+            OnPropertyChanged(string.Empty);
         }
         /// <summary>
         /// Actions the user can do to the model since it's a List

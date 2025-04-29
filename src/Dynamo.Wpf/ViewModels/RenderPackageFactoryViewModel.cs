@@ -21,7 +21,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (factory.TessellationParameters.ShowEdges == value) return;
                 factory.TessellationParameters.ShowEdges = value;
-                RaisePropertyChanged("ShowEdges");
+                OnPropertyChanged("ShowEdges");
             }
         }
 
@@ -32,7 +32,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (factory.TessellationParameters.UseRenderInstancing == value) return;
                 factory.TessellationParameters.UseRenderInstancing = value;
-                RaisePropertyChanged("UseRenderInstancing");
+                OnPropertyChanged("UseRenderInstancing");
             }
         }
 
@@ -49,7 +49,7 @@ namespace Dynamo.Wpf.ViewModels
                 else
                     factory.TessellationParameters.Tolerance = -1;
 
-                RaisePropertyChanged("MaxTessellationDivisions");
+                OnPropertyChanged("MaxTessellationDivisions");
             }
         }
 

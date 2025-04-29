@@ -73,8 +73,8 @@ namespace CoreNodeModels
 
                 SetSelectionNodeState();
 
-                RaisePropertyChanged("SelectionResults");
-                RaisePropertyChanged("Text");
+                OnPropertyChanged("SelectionResults");
+                OnPropertyChanged("Text");
             }
         }
 
@@ -118,7 +118,7 @@ namespace CoreNodeModels
             set
             {
                 canSelect = value;
-                RaisePropertyChanged("CanSelect");
+                OnPropertyChanged("CanSelect");
             }
         }
 
@@ -327,7 +327,7 @@ namespace CoreNodeModels
             UpdateSelection(loadedSelection);
 
             OnNodeModified();
-            RaisePropertyChanged("SelectionResults");
+            OnPropertyChanged("SelectionResults");
         }
 
         protected override bool UpdateValueCore(UpdateValueParams updateValueParams)

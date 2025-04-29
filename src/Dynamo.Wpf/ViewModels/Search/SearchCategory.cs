@@ -34,7 +34,7 @@ namespace Dynamo.Wpf.ViewModels
             set
             {
                 isSelected = value;
-                RaisePropertyChanged("IsSelected");
+                OnPropertyChanged("IsSelected");
             }
         }
 

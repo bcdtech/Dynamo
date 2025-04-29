@@ -1,4 +1,4 @@
-﻿using Dynamo.Core;
+using Dynamo.Core;
 
 namespace Dynamo.Configuration
 {
@@ -20,7 +20,7 @@ namespace Dynamo.Configuration
             set
             {
                 verboseLogging = value;
-                RaisePropertyChanged("VerboseLogging");
+                OnPropertyChanged("VerboseLogging");
             }
         }
 
@@ -33,7 +33,7 @@ namespace Dynamo.Configuration
             set
             {
                 showDebugASTs = value;
-                RaisePropertyChanged("ShowDebugASTs");
+                OnPropertyChanged("ShowDebugASTs");
             }
         }
     }

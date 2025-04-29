@@ -71,7 +71,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isCustomColorSelectionEnabled = value;
-                RaisePropertyChanged(nameof(IsCustomColorSelectionEnabled));
+                OnPropertyChanged(nameof(IsCustomColorSelectionEnabled));
             }
         }
 
@@ -84,7 +84,7 @@ namespace Dynamo.ViewModels
             set
             {
                 colorPickerSelectedColor = value;
-                RaisePropertyChanged(nameof(ColorPickerSelectedColor));
+                OnPropertyChanged(nameof(ColorPickerSelectedColor));
             }
         }
 
@@ -100,7 +100,7 @@ namespace Dynamo.ViewModels
             set
             {
                 basicColors = value;
-                RaisePropertyChanged(nameof(BasicColors));
+                OnPropertyChanged(nameof(BasicColors));
             }
         }
 
@@ -116,7 +116,7 @@ namespace Dynamo.ViewModels
             set
             {
                 customColors = value;
-                RaisePropertyChanged(nameof(CustomColors));
+                OnPropertyChanged(nameof(CustomColors));
             }
         }
 

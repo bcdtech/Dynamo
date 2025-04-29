@@ -39,7 +39,7 @@ namespace CoreNodeModels.Logic
                     this.value = value;
                     ClearDirtyFlag();
                     OnNodeModified();
-                    RaisePropertyChanged(nameof(Value));
+                    OnPropertyChanged(nameof(Value));
                 }
             }
         }

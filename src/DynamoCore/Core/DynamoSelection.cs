@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using Dynamo.Core;
@@ -49,7 +49,7 @@ namespace Dynamo.Selection
             set
             {
                 selection = value;
-                RaisePropertyChanged("Selection");
+                OnPropertyChanged("Selection");
             }
         }
 

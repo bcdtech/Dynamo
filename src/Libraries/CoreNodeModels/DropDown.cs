@@ -59,7 +59,7 @@ namespace CoreNodeModels
             set
             {
                 items = value;
-                RaisePropertyChanged(nameof(Items));
+                OnPropertyChanged(nameof(Items));
             }
         }
 
@@ -106,8 +106,8 @@ namespace CoreNodeModels
                     selectedString = GetSelectedStringFromItem(Items.ElementAt(value));
                 }
 
-                RaisePropertyChanged("SelectedIndex");
-                RaisePropertyChanged("SelectedString");
+                OnPropertyChanged("SelectedIndex");
+                OnPropertyChanged("SelectedString");
             }
         }
 
@@ -136,12 +136,12 @@ namespace CoreNodeModels
                     if (item != null)
                     {
                         selectedIndex = Items.IndexOf(item);
-                        RaisePropertyChanged(nameof(SelectedIndex));
+                        OnPropertyChanged(nameof(SelectedIndex));
                     }
                 }
 
                 selectedString = value;
-                RaisePropertyChanged(nameof(SelectedString));
+                OnPropertyChanged(nameof(SelectedString));
             }
         }
 

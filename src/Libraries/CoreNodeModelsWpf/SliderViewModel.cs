@@ -97,20 +97,20 @@ namespace CoreNodeModelsWpf
             switch (e.PropertyName)
             {
                 case "Max":
-                    RaisePropertyChanged("Max");
-                    RaisePropertyChanged("MaxText");
+                    OnPropertyChanged("Max");
+                    OnPropertyChanged("MaxText");
                     break;
                 case "Min":
-                    RaisePropertyChanged("Min");
-                    RaisePropertyChanged("MinText");
+                    OnPropertyChanged("Min");
+                    OnPropertyChanged("MinText");
                     break;
                 case "Value":
-                    RaisePropertyChanged("Value");
-                    RaisePropertyChanged("ValueText");
+                    OnPropertyChanged("Value");
+                    OnPropertyChanged("ValueText");
                     break;
                 case "Step":
-                    RaisePropertyChanged("Step");
-                    RaisePropertyChanged("StepText");
+                    OnPropertyChanged("Step");
+                    OnPropertyChanged("StepText");
                     break;
             }
         }

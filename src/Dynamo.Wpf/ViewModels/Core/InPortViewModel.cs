@@ -59,7 +59,7 @@ namespace Dynamo.ViewModels
             set
             {
                 showUseLevelMenu = value;
-                RaisePropertyChanged(nameof(ShowUseLevelMenu));
+                OnPropertyChanged(nameof(ShowUseLevelMenu));
             }
         }
 
@@ -143,7 +143,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portValueMarkerColor = value;
-                RaisePropertyChanged(nameof(PortValueMarkerColor));
+                OnPropertyChanged(nameof(PortValueMarkerColor));
             }
         }
 
@@ -157,7 +157,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portDefaultValueMarkerVisible = value;
-                RaisePropertyChanged(nameof(PortDefaultValueMarkerVisible));
+                OnPropertyChanged(nameof(PortDefaultValueMarkerVisible));
             }
         }
 
@@ -200,30 +200,30 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(port.DefaultValue):
-                    RaisePropertyChanged(nameof(port.DefaultValue));
+                    OnPropertyChanged(nameof(port.DefaultValue));
                     break;
                 case nameof(UsingDefaultValue):
-                    RaisePropertyChanged(nameof(UsingDefaultValue));
+                    OnPropertyChanged(nameof(UsingDefaultValue));
                     RefreshPortDefaultValueMarkerVisible();
                     break;
                 case nameof(DefaultValueEnabled):
                     RefreshPortDefaultValueMarkerVisible();
                     break;
                 case nameof(UseLevels):
-                    RaisePropertyChanged(nameof(UseLevels));
+                    OnPropertyChanged(nameof(UseLevels));
                     break;
                 case nameof(Level):
-                    RaisePropertyChanged(nameof(Level));
+                    OnPropertyChanged(nameof(Level));
                     break;
                 case nameof(KeepListStructure):
-                    RaisePropertyChanged(nameof(ShouldKeepListStructure));
+                    OnPropertyChanged(nameof(ShouldKeepListStructure));
                     break;
                 case nameof(IsConnected):
-                    RaisePropertyChanged(nameof(IsConnected));
+                    OnPropertyChanged(nameof(IsConnected));
                     RefreshAllInportsColors();
                     break;
                 case nameof(IsPythonNodePort):
-                    RaisePropertyChanged(nameof(IsPythonNodePort));
+                    OnPropertyChanged(nameof(IsPythonNodePort));
                     break;
             }
         }
@@ -256,7 +256,7 @@ namespace Dynamo.ViewModels
                 Guid.Empty, node.NodeLogic.GUID, "UseLevels", string.Format("{0}:{1}", port.Index, useLevel));
 
             node.WorkspaceViewModel.DynamoViewModel.ExecuteCommand(command);
-            RaisePropertyChanged(nameof(UseLevelSpinnerVisible));
+            OnPropertyChanged(nameof(UseLevelSpinnerVisible));
         }
 
         /// <summary>
@@ -339,7 +339,7 @@ namespace Dynamo.ViewModels
             port.Name = dialog.PortName;
             port.ToolTip = dialog.Description;
 
-            RaisePropertyChanged(nameof(PortName));
+            OnPropertyChanged(nameof(PortName));
         }
 
         private List<string> ListOutportNames(ObservableCollection<PortViewModel> outPorts)

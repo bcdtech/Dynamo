@@ -70,7 +70,7 @@ namespace Dynamo.ViewModels
         public bool BrowserVisibility
         {
             get { return browserVisibility; }
-            set { browserVisibility = value; RaisePropertyChanged("BrowserVisibility"); }
+            set { browserVisibility = value; OnPropertyChanged("BrowserVisibility"); }
         }
 
         internal int searchDelayTimeout = 150;
@@ -95,9 +95,9 @@ namespace Dynamo.ViewModels
             {
                 searchText = value;
 
-                RaisePropertyChanged("SearchText");
-                RaisePropertyChanged("BrowserRootCategories");
-                RaisePropertyChanged("CurrentMode");
+                OnPropertyChanged("SearchText");
+                OnPropertyChanged("BrowserRootCategories");
+                OnPropertyChanged("CurrentMode");
 
                 // The searchText is set multiple times before the control becomes visible and interactable.
                 // To prevent any debounces from triggering at some unexpected point before or after the control
@@ -132,7 +132,7 @@ namespace Dynamo.ViewModels
             set
             {
                 searchIconAlignment = value;
-                RaisePropertyChanged("SearchIconAlignment");
+                OnPropertyChanged("SearchIconAlignment");
             }
         }
 
@@ -149,7 +149,7 @@ namespace Dynamo.ViewModels
             set
             {
                 visible = value;
-                RaisePropertyChanged("Visible");
+                OnPropertyChanged("Visible");
             }
         }
 
@@ -189,7 +189,7 @@ namespace Dynamo.ViewModels
                     && dynamoViewModel.Model.PreferenceSettings.ShowDetailedLayout != value)
                 {
                     dynamoViewModel.Model.PreferenceSettings.ShowDetailedLayout = value;
-                    RaisePropertyChanged("IsDetailedMode");
+                    OnPropertyChanged("IsDetailedMode");
                 }
             }
         }
@@ -212,7 +212,7 @@ namespace Dynamo.ViewModels
             set
             {
                 filteredResults = ToggleSelect(value);
-                RaisePropertyChanged(nameof(FilteredResults));
+                OnPropertyChanged(nameof(FilteredResults));
             }
         }
 
@@ -229,7 +229,7 @@ namespace Dynamo.ViewModels
             set
             {
                 filteredHighConfidenceResults = ToggleSelect(value);
-                RaisePropertyChanged(nameof(FilteredHighConfidenceResults));
+                OnPropertyChanged(nameof(FilteredHighConfidenceResults));
             }
         }
 
@@ -247,7 +247,7 @@ namespace Dynamo.ViewModels
             set
             {
                 filteredLowConfidenceResults = ToggleSelect(value);
-                RaisePropertyChanged(nameof(FilteredLowConfidenceResults));
+                OnPropertyChanged(nameof(FilteredLowConfidenceResults));
             }
         }
 
@@ -321,7 +321,7 @@ namespace Dynamo.ViewModels
             private set
             {
                 searchCategories = value;
-                RaisePropertyChanged("SearchCategories");
+                OnPropertyChanged("SearchCategories");
             }
         }
 
@@ -329,7 +329,7 @@ namespace Dynamo.ViewModels
         public bool SearchScrollBarVisibility
         {
             get { return searchScrollBarVisibility; }
-            set { searchScrollBarVisibility = value; RaisePropertyChanged("SearchScrollBarVisibility"); }
+            set { searchScrollBarVisibility = value; OnPropertyChanged("SearchScrollBarVisibility"); }
         }
 
         public Typeface RegularTypeface { get; private set; }
@@ -485,7 +485,7 @@ namespace Dynamo.ViewModels
         private void AddEntry(NodeSearchElement entry)
         {
             InsertEntry(MakeNodeSearchElementVM(entry), entry.Categories);
-            RaisePropertyChanged("BrowserRootCategories");
+            OnPropertyChanged("BrowserRootCategories");
         }
 
         private IEnumerable<RootNodeCategoryViewModel> CategorizeEntries(IEnumerable<NodeSearchElement> entries, LayoutSpecification layoutSpecification, bool expanded)
@@ -922,7 +922,7 @@ namespace Dynamo.ViewModels
                 _ = SearchAndUpdateResultsTask(SearchText);
             }
 
-            RaisePropertyChanged("IsAnySearchResult");
+            OnPropertyChanged("IsAnySearchResult");
         }
 
         internal Task SearchAndUpdateResultsTask(string query)

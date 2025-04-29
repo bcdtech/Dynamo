@@ -235,7 +235,7 @@ namespace Dynamo.UI
                 if (header == null)
                 {
                     header = Signature;
-                    RaisePropertyChanged("Header");
+                    OnPropertyChanged("Header");
                 }
                 return header;
             }

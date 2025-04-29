@@ -24,7 +24,7 @@ namespace Dynamo.PackageManager
 
 
         private string _errorString = "";
-        public string ErrorString { get { return _errorString; } set { _errorString = value; RaisePropertyChanged("ErrorString"); } }
+        public string ErrorString { get { return _errorString; } set { _errorString = value; OnPropertyChanged("ErrorString"); } }
 
         private State _uploadState = State.Ready;
 
@@ -34,7 +34,7 @@ namespace Dynamo.PackageManager
             set
             {
                 _uploadState = value;
-                RaisePropertyChanged("UploadState");
+                OnPropertyChanged("UploadState");
             }
         }
 

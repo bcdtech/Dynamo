@@ -98,7 +98,7 @@ namespace Dynamo.Logging
                 lock (this.guardMutex)
                 {
                     _warningLevel = value;
-                    RaisePropertyChanged("WarningLevel");
+                    OnPropertyChanged("WarningLevel");
                 }
             }
         }
@@ -115,7 +115,7 @@ namespace Dynamo.Logging
                 {
 
                     _warning = value;
-                    RaisePropertyChanged("Warning");
+                    OnPropertyChanged("Warning");
                 }
             }
         }
@@ -225,7 +225,7 @@ namespace Dynamo.Logging
                             try
                             {
                                 ConsoleWriter.AppendLine(string.Format("{0}", message));
-                                RaisePropertyChanged("ConsoleWriter");
+                                OnPropertyChanged("ConsoleWriter");
                             }
                             catch
                             {
@@ -243,7 +243,7 @@ namespace Dynamo.Logging
                                 ConsoleWriter.AppendLine(string.Format("{0}", message));
                                 FileWriter.WriteLine(string.Format("{0} : {1}", DateTime.UtcNow.ToString("u"), message));
                                 FileWriter.Flush();
-                                RaisePropertyChanged("ConsoleWriter");
+                                OnPropertyChanged("ConsoleWriter");
                             }
                             catch
                             {
@@ -271,7 +271,7 @@ namespace Dynamo.Logging
 
                 if (reportModification)
                 {
-                    RaisePropertyChanged("LogText");
+                    OnPropertyChanged("LogText");
                 }
             }
         }
@@ -405,7 +405,7 @@ namespace Dynamo.Logging
             lock (this.guardMutex)
             {
                 ConsoleWriter.Clear();
-                RaisePropertyChanged("LogText");
+                OnPropertyChanged("LogText");
             }
         }
 

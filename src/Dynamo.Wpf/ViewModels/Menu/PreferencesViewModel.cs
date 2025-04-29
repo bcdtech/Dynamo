@@ -84,7 +84,7 @@ namespace Dynamo.ViewModels
                 {
                     defaultGeometryScaling = value;
                     SelectedDefaultScaleFactor = GeometryScalingOptions.ConvertUIToScaleFactor((int)defaultGeometryScaling);
-                    RaisePropertyChanged(nameof(DefaultGeometryScaling));
+                    OnPropertyChanged(nameof(DefaultGeometryScaling));
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferencesTabs = value;
-                RaisePropertyChanged(nameof(PreferencesTabs));
+                OnPropertyChanged(nameof(PreferencesTabs));
             }
         }
 
@@ -117,7 +117,7 @@ namespace Dynamo.ViewModels
             set
             {
                 savedChangesLabel = value;
-                RaisePropertyChanged(nameof(SavedChangesLabel));
+                OnPropertyChanged(nameof(SavedChangesLabel));
             }
         }
 
@@ -133,7 +133,7 @@ namespace Dynamo.ViewModels
             set
             {
                 savedChangesTooltip = value;
-                RaisePropertyChanged(nameof(SavedChangesTooltip));
+                OnPropertyChanged(nameof(SavedChangesTooltip));
 
             }
         }
@@ -154,7 +154,7 @@ namespace Dynamo.ViewModels
                 if (selectedLanguage != value)
                 {
                     selectedLanguage = value;
-                    RaisePropertyChanged(nameof(SelectedLanguage));
+                    OnPropertyChanged(nameof(SelectedLanguage));
                     if (Configurations.SupportedLocaleDic.TryGetValue(selectedLanguage, out string locale))
                     {
                         preferenceSettings.Locale = locale;
@@ -177,7 +177,7 @@ namespace Dynamo.ViewModels
                 if (selectedUnits != value)
                 {
                     selectedUnits = value;
-                    RaisePropertyChanged(nameof(SelectedUnits));
+                    OnPropertyChanged(nameof(SelectedUnits));
 
                     if (UseHostScaleUnits && IsDynamoRevit) return;
 
@@ -217,7 +217,7 @@ namespace Dynamo.ViewModels
             {
                 selectedNumberFormat = value;
                 preferenceSettings.NumberFormat = value;
-                RaisePropertyChanged(nameof(SelectedNumberFormat));
+                OnPropertyChanged(nameof(SelectedNumberFormat));
             }
         }
 
@@ -233,7 +233,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.DefaultScaleFactor = value;
-                RaisePropertyChanged(nameof(SelectedDefaultScaleFactor));
+                OnPropertyChanged(nameof(SelectedDefaultScaleFactor));
             }
         }
 
@@ -250,7 +250,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.BackupInterval = value * 60000;
-                RaisePropertyChanged(nameof(BackupIntervalInMinutes));
+                OnPropertyChanged(nameof(BackupIntervalInMinutes));
             }
         }
 
@@ -266,8 +266,8 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.BackupLocation = value;
-                RaisePropertyChanged(nameof(BackupLocation));
-                RaisePropertyChanged(nameof(CanResetBackupLocation));
+                OnPropertyChanged(nameof(BackupLocation));
+                OnPropertyChanged(nameof(CanResetBackupLocation));
             }
         }
 
@@ -294,8 +294,8 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.TemplateFilePath = value;
-                RaisePropertyChanged(nameof(TemplateLocation));
-                RaisePropertyChanged(nameof(CanResetTemplateLocation));
+                OnPropertyChanged(nameof(TemplateLocation));
+                OnPropertyChanged(nameof(CanResetTemplateLocation));
             }
         }
 
@@ -322,7 +322,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.MaxNumRecentFiles = value;
-                RaisePropertyChanged(nameof(MaxNumRecentFiles));
+                OnPropertyChanged(nameof(MaxNumRecentFiles));
             }
         }
 
@@ -347,7 +347,7 @@ namespace Dynamo.ViewModels
                     preferenceSettings.DefaultRunType = RunType.Automatic;
                     runSettingsIsChecked = RunType.Automatic;
                 }
-                RaisePropertyChanged(nameof(RunSettingsIsChecked));
+                OnPropertyChanged(nameof(RunSettingsIsChecked));
             }
         }
 
@@ -364,7 +364,7 @@ namespace Dynamo.ViewModels
             {
                 preferenceSettings.ShowRunPreview = value;
                 dynamoViewModel.ShowRunPreview = value;
-                RaisePropertyChanged(nameof(RunPreviewIsChecked));
+                OnPropertyChanged(nameof(RunPreviewIsChecked));
             }
         }
 
@@ -380,7 +380,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.EnableStaticSplashScreen = value;
-                RaisePropertyChanged(nameof(StaticSplashScreenEnabled));
+                OnPropertyChanged(nameof(StaticSplashScreenEnabled));
             }
         }
 
@@ -396,7 +396,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.IsTimeStampIncludedInExportFilePath = value;
-                RaisePropertyChanged(nameof(IsTimeStampIncludedInExportFilePath));
+                OnPropertyChanged(nameof(IsTimeStampIncludedInExportFilePath));
             }
         }
 
@@ -423,7 +423,7 @@ namespace Dynamo.ViewModels
             set
             {
                 languagesList = value;
-                RaisePropertyChanged(nameof(LanguagesList));
+                OnPropertyChanged(nameof(LanguagesList));
             }
         }
 
@@ -439,7 +439,7 @@ namespace Dynamo.ViewModels
             set
             {
                 unitList = value;
-                RaisePropertyChanged(nameof(UnitList));
+                OnPropertyChanged(nameof(UnitList));
             }
         }
 
@@ -472,7 +472,7 @@ namespace Dynamo.ViewModels
             set
             {
                 packagePathsForInstall = value;
-                RaisePropertyChanged(nameof(PackagePathsForInstall));
+                OnPropertyChanged(nameof(PackagePathsForInstall));
             }
         }
 
@@ -490,7 +490,7 @@ namespace Dynamo.ViewModels
                 if (selectedPackagePathForInstall != value)
                 {
                     selectedPackagePathForInstall = value;
-                    RaisePropertyChanged(nameof(SelectedPackagePathForInstall));
+                    OnPropertyChanged(nameof(SelectedPackagePathForInstall));
                 }
             }
         }
@@ -508,7 +508,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.DisableBuiltinPackages = value;
-                RaisePropertyChanged(nameof(DisableBuiltInPackages));
+                OnPropertyChanged(nameof(DisableBuiltInPackages));
             }
         }
 
@@ -526,7 +526,7 @@ namespace Dynamo.ViewModels
             {
                 preferenceSettings.DisableCustomPackageLocations = value;
 
-                RaisePropertyChanged(nameof(DisableCustomPackages));
+                OnPropertyChanged(nameof(DisableCustomPackages));
             }
         }
 
@@ -561,7 +561,7 @@ namespace Dynamo.ViewModels
             set
             {
                 groupStyleFontSizeList = value;
-                RaisePropertyChanged(nameof(GroupStyleFontSizeList));
+                OnPropertyChanged(nameof(GroupStyleFontSizeList));
             }
         }
 
@@ -577,7 +577,7 @@ namespace Dynamo.ViewModels
             set
             {
                 numberFormatList = value;
-                RaisePropertyChanged(nameof(NumberFormatList));
+                OnPropertyChanged(nameof(NumberFormatList));
             }
         }
         #endregion
@@ -593,7 +593,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.GroupStyleItemsList = value.ToList<GroupStyleItem>();
-                RaisePropertyChanged(nameof(StyleItemsList));
+                OnPropertyChanged(nameof(StyleItemsList));
             }
         }
 
@@ -611,7 +611,7 @@ namespace Dynamo.ViewModels
                 GroupStyleId = style.GroupStyleId,
                 IsDefault = style.IsDefault
             });
-            RaisePropertyChanged(nameof(StyleItemsList));
+            OnPropertyChanged(nameof(StyleItemsList));
         }
 
         /// <summary>
@@ -626,7 +626,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isWarningEnabled = value;
-                RaisePropertyChanged(nameof(IsWarningEnabled));
+                OnPropertyChanged(nameof(IsWarningEnabled));
             }
         }
 
@@ -642,7 +642,7 @@ namespace Dynamo.ViewModels
             set
             {
                 currentWarningMessage = value;
-                RaisePropertyChanged(nameof(CurrentWarningMessage));
+                OnPropertyChanged(nameof(CurrentWarningMessage));
             }
         }
 
@@ -658,7 +658,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isSaveButtonEnabled = value;
-                RaisePropertyChanged(nameof(IsSaveButtonEnabled));
+                OnPropertyChanged(nameof(IsSaveButtonEnabled));
             }
         }
 
@@ -675,7 +675,7 @@ namespace Dynamo.ViewModels
             set
             {
                 addStyleControl = value;
-                RaisePropertyChanged(nameof(AddStyleControl));
+                OnPropertyChanged(nameof(AddStyleControl));
             }
         }
 
@@ -691,7 +691,7 @@ namespace Dynamo.ViewModels
             set
             {
                 optionsGeometryScale = value;
-                RaisePropertyChanged(nameof(OptionsGeometryScale));
+                OnPropertyChanged(nameof(OptionsGeometryScale));
             }
         }
 
@@ -707,7 +707,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dynamoViewModel.RenderPackageFactoryViewModel.ShowEdges = value;
-                RaisePropertyChanged(nameof(ShowEdges));
+                OnPropertyChanged(nameof(ShowEdges));
             }
         }
 
@@ -723,7 +723,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dynamoViewModel.RenderPackageFactoryViewModel.UseRenderInstancing = value;
-                RaisePropertyChanged(nameof(UseRenderInstancing));
+                OnPropertyChanged(nameof(UseRenderInstancing));
             }
         }
 
@@ -739,7 +739,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dynamoViewModel.Model.PreferenceSettings.UseHardwareAcceleration = value;
-                RaisePropertyChanged(nameof(UseHardwareAcceleration));
+                OnPropertyChanged(nameof(UseHardwareAcceleration));
             }
         }
 
@@ -763,7 +763,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dynamoViewModel.RenderPackageFactoryViewModel.MaxTessellationDivisions = value;
-                RaisePropertyChanged(nameof(TessellationDivisions));
+                OnPropertyChanged(nameof(TessellationDivisions));
             }
         }
 
@@ -779,7 +779,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.ShowPreviewBubbles = value;
-                RaisePropertyChanged(nameof(ShowPreviewBubbles));
+                OnPropertyChanged(nameof(ShowPreviewBubbles));
             }
         }
 
@@ -796,9 +796,9 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.UseHostScaleUnits = value;
-                RaisePropertyChanged(nameof(EnableManualScaleOverrides));
-                RaisePropertyChanged(nameof(UseHostScaleUnits));
-                RaisePropertyChanged(nameof(HostGenericScaleUnits));
+                OnPropertyChanged(nameof(EnableManualScaleOverrides));
+                OnPropertyChanged(nameof(UseHostScaleUnits));
+                OnPropertyChanged(nameof(HostGenericScaleUnits));
 
                 var hostUnits = preferenceSettings.CurrentHostUnits;
                 var result = Enum.TryParse(preferenceSettings.GraphicScaleUnit, out Configurations.Units dynamoUnits);
@@ -877,7 +877,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.ShowCodeBlockLineNumber = value;
-                RaisePropertyChanged(nameof(ShowCodeBlockLineNumber));
+                OnPropertyChanged(nameof(ShowCodeBlockLineNumber));
             }
         }
 
@@ -893,7 +893,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isVisibleAddStyleBorder = value;
-                RaisePropertyChanged(nameof(IsVisibleAddStyleBorder));
+                OnPropertyChanged(nameof(IsVisibleAddStyleBorder));
             }
         }
 
@@ -909,7 +909,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isEnabledAddStyleButton = value;
-                RaisePropertyChanged(nameof(IsEnabledAddStyleButton));
+                OnPropertyChanged(nameof(IsEnabledAddStyleButton));
             }
         }
         #endregion
@@ -928,7 +928,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.PythonTemplateFilePath = value;
-                RaisePropertyChanged(nameof(PythonTemplateFilePath));
+                OnPropertyChanged(nameof(PythonTemplateFilePath));
             }
         }
 
@@ -944,7 +944,7 @@ namespace Dynamo.ViewModels
             set
             {
                 pythonEngineList = value;
-                RaisePropertyChanged(nameof(PythonEnginesList));
+                OnPropertyChanged(nameof(PythonEnginesList));
             }
         }
 
@@ -963,7 +963,7 @@ namespace Dynamo.ViewModels
             {
                 pythonScriptEditorTextOptions.ShowWhiteSpaceCharacters(value);
                 preferenceSettings.ShowTabsAndSpacesInScriptEditor = value;
-                RaisePropertyChanged(nameof(ShowWhitespaceIsChecked));
+                OnPropertyChanged(nameof(ShowWhitespaceIsChecked));
             }
         }
 
@@ -979,7 +979,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.EnableNotificationCenter = value;
-                RaisePropertyChanged(nameof(NotificationCenterIsChecked));
+                OnPropertyChanged(nameof(NotificationCenterIsChecked));
             }
         }
 
@@ -996,7 +996,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.EnablePersistExtensions = value;
-                RaisePropertyChanged(nameof(PersistExtensionsIsChecked));
+                OnPropertyChanged(nameof(PersistExtensionsIsChecked));
             }
         }
 
@@ -1051,9 +1051,9 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.EnableNodeAutoComplete = value;
-                RaisePropertyChanged(nameof(NodeAutocompleteIsChecked));
-                RaisePropertyChanged(nameof(EnableHideNodesToggle));
-                RaisePropertyChanged(nameof(EnableConfidenceLevelSlider));
+                OnPropertyChanged(nameof(NodeAutocompleteIsChecked));
+                OnPropertyChanged(nameof(EnableHideNodesToggle));
+                OnPropertyChanged(nameof(EnableConfidenceLevelSlider));
             }
         }
 
@@ -1091,10 +1091,10 @@ namespace Dynamo.ViewModels
                 }
 
                 dynamoViewModel.HomeSpaceViewModel.NodeAutoCompleteSearchViewModel.ResetAutoCompleteSearchViewState();
-                RaisePropertyChanged(nameof(nodeAutocompleteSuggestion));
-                RaisePropertyChanged(nameof(NodeAutocompleteMachineLearningIsChecked));
-                RaisePropertyChanged(nameof(EnableHideNodesToggle));
-                RaisePropertyChanged(nameof(EnableConfidenceLevelSlider));
+                OnPropertyChanged(nameof(nodeAutocompleteSuggestion));
+                OnPropertyChanged(nameof(NodeAutocompleteMachineLearningIsChecked));
+                OnPropertyChanged(nameof(EnableHideNodesToggle));
+                OnPropertyChanged(nameof(EnableConfidenceLevelSlider));
             }
         }
 
@@ -1133,7 +1133,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.MLRecommendationNumberOfResults = value;
-                RaisePropertyChanged(nameof(MLRecommendationNumberOfResults));
+                OnPropertyChanged(nameof(MLRecommendationNumberOfResults));
             }
         }
 
@@ -1149,8 +1149,8 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.HideNodesBelowSpecificConfidenceLevel = value;
-                RaisePropertyChanged(nameof(HideNodesBelowSpecificConfidenceLevelIsChecked));
-                RaisePropertyChanged(nameof(EnableConfidenceLevelSlider));
+                OnPropertyChanged(nameof(HideNodesBelowSpecificConfidenceLevelIsChecked));
+                OnPropertyChanged(nameof(EnableConfidenceLevelSlider));
             }
         }
 
@@ -1166,7 +1166,7 @@ namespace Dynamo.ViewModels
             set
             {
                 preferenceSettings.MLRecommendationConfidenceLevel = value;
-                RaisePropertyChanged(nameof(MLRecommendationConfidenceLevel));
+                OnPropertyChanged(nameof(MLRecommendationConfidenceLevel));
             }
         }
 
@@ -1207,7 +1207,7 @@ namespace Dynamo.ViewModels
             set
             {
                 HideUnhideNamespace(!value, "ProtoGeometry.dll", "Autodesk.DesignScript.Geometry.TSpline");
-                RaisePropertyChanged(nameof(EnableTSplineIsChecked));
+                OnPropertyChanged(nameof(EnableTSplineIsChecked));
             }
         }
 
@@ -1224,7 +1224,7 @@ namespace Dynamo.ViewModels
             set
             {
                 HideUnhideNamespace(!value, "ProtoGeometry.dll", "Autodesk.DesignScript.Geometry.PanelSurface");
-                RaisePropertyChanged(nameof(EnablePanelingIsChecked));
+                OnPropertyChanged(nameof(EnablePanelingIsChecked));
             }
         }
 
@@ -1348,7 +1348,7 @@ namespace Dynamo.ViewModels
             dynamoViewModel.IsShowingConnectorTooltip = preferenceSettings.ShowConnectorToolTip;
 
             preferenceSettings.SanitizeValues();
-            RaisePropertyChanged(string.Empty);
+            OnPropertyChanged(string.Empty);
             return true;
         }
 
@@ -1745,7 +1745,7 @@ namespace Dynamo.ViewModels
         {
             GroupStyleItem itemToRemovePreferences = preferenceSettings.GroupStyleItemsList.FirstOrDefault(x => x.Name.Equals(styleName));
             preferenceSettings.GroupStyleItemsList.Remove(itemToRemovePreferences);
-            RaisePropertyChanged(nameof(StyleItemsList));
+            OnPropertyChanged(nameof(StyleItemsList));
             UpdateSavedChangesLabel();
         }
 

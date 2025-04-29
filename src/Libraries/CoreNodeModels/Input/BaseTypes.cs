@@ -49,7 +49,7 @@ namespace CoreNodeModels.Input
                 if (_serializedWidth != value)
                 {
                     _serializedWidth = value;
-                    RaisePropertyChanged(nameof(SerializedWidth)); // Notify change
+                    OnPropertyChanged(nameof(SerializedWidth)); // Notify change
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace CoreNodeModels.Input
                 if (_serializedHeight != value)
                 {
                     _serializedHeight = value;
-                    RaisePropertyChanged(nameof(SerializedHeight)); // Notify change
+                    OnPropertyChanged(nameof(SerializedHeight)); // Notify change
                 }
             }
         }
@@ -242,7 +242,7 @@ namespace CoreNodeModels.Input
             switch (e.PropertyName)
             {
                 case "NumberFormat":
-                    RaisePropertyChanged("Value");
+                    OnPropertyChanged("Value");
                     break;
             }
         }
@@ -299,7 +299,7 @@ namespace CoreNodeModels.Input
                     ClearDirtyFlag();
                 }
                 
-                RaisePropertyChanged("Value");
+                OnPropertyChanged("Value");
             }
         }
 

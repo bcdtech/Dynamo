@@ -31,8 +31,8 @@ namespace Dynamo.Wpf.ViewModels
             set
             {
                 enabled = value;
-                RaisePropertyChanged("Enabled");
-                RaisePropertyChanged("ToolTipText");
+                OnPropertyChanged("Enabled");
+                OnPropertyChanged("ToolTipText");
             }
         }
 
@@ -45,7 +45,7 @@ namespace Dynamo.Wpf.ViewModels
             internal set
             {
                 isSelected = value;
-                RaisePropertyChanged(nameof(IsSelected));
+                OnPropertyChanged(nameof(IsSelected));
             }
         }
 
@@ -211,7 +211,7 @@ namespace Dynamo.Wpf.ViewModels
                     workspaceViewModel.CheckAndSetPeriodicRunCapability();
                 }
 
-                RaisePropertyChanged("RunInDebug");
+                OnPropertyChanged("RunInDebug");
             }
         }
 
@@ -309,8 +309,8 @@ namespace Dynamo.Wpf.ViewModels
         /// </summary>
         void NotifyOfGraphRunChanged()
         {
-            RaisePropertyChanged(nameof(RunButtonEnabled));
-            RaisePropertyChanged(nameof(RunButtonToolTip));
+            OnPropertyChanged(nameof(RunButtonEnabled));
+            OnPropertyChanged(nameof(RunButtonToolTip));
 
             if (string.IsNullOrEmpty(DynamoModel.HostAnalyticsInfo.HostName))
             {
@@ -334,26 +334,26 @@ namespace Dynamo.Wpf.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(RunSettings.RunEnabled):
-                    RaisePropertyChanged("RunEnabled");
+                    OnPropertyChanged("RunEnabled");
                     NotifyOfGraphRunChanged();
                     break;
                 case "RunPeriod":
                 case "RunType":
-                    RaisePropertyChanged("RunPeriod");
-                    RaisePropertyChanged("RunEnabled");
-                    RaisePropertyChanged("RunButtonToolTip");
-                    RaisePropertyChanged("RunPeriodInputVisibility");
-                    RaisePropertyChanged("RunButtonEnabled");
-                    RaisePropertyChanged("RunTypeItems");
-                    RaisePropertyChanged("SelectedRunTypeItem");
-                    RaisePropertyChanged("RunButtonVisibility");
+                    OnPropertyChanged("RunPeriod");
+                    OnPropertyChanged("RunEnabled");
+                    OnPropertyChanged("RunButtonToolTip");
+                    OnPropertyChanged("RunPeriodInputVisibility");
+                    OnPropertyChanged("RunButtonEnabled");
+                    OnPropertyChanged("RunTypeItems");
+                    OnPropertyChanged("SelectedRunTypeItem");
+                    OnPropertyChanged("RunButtonVisibility");
                     RunTypeChangedRun(null);
                     break;
                 case "RunTypesEnabled":
-                    RaisePropertyChanged("RunTypesEnabled");
+                    OnPropertyChanged("RunTypesEnabled");
                     break;
                 case "RunTypesComboBoxToolTipIsEnabled":
-                    RaisePropertyChanged("RunTypesComboBoxToolTip");
+                    OnPropertyChanged("RunTypesComboBoxToolTip");
                     break;
             }
         }

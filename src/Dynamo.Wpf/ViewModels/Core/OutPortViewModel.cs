@@ -49,7 +49,7 @@ namespace Dynamo.ViewModels
             set
             {
                 showContextMenu = value;
-                RaisePropertyChanged(nameof(ShowContextMenu));
+                OnPropertyChanged(nameof(ShowContextMenu));
             }
         }
 
@@ -78,7 +78,7 @@ namespace Dynamo.ViewModels
             set
             {
                 showHideWiresButtonContent = value;
-                RaisePropertyChanged(nameof(ShowHideWiresButtonContent));
+                OnPropertyChanged(nameof(ShowHideWiresButtonContent));
             }
         }
 
@@ -95,7 +95,7 @@ namespace Dynamo.ViewModels
             set
             {
                 areConnectorsHidden = value;
-                RaisePropertyChanged(nameof(AreConnectorsHidden));
+                OnPropertyChanged(nameof(AreConnectorsHidden));
             }
         }
 
@@ -108,7 +108,7 @@ namespace Dynamo.ViewModels
             set
             {
                 hideWiresButtonEnabled = value;
-                RaisePropertyChanged(nameof(HideWiresButtonEnabled));
+                OnPropertyChanged(nameof(HideWiresButtonEnabled));
             }
         }
 
@@ -121,7 +121,7 @@ namespace Dynamo.ViewModels
             set
             {
                 renameNodeButtonEnabled = value;
-                RaisePropertyChanged(nameof(RenameNodeButtonEnabled));
+                OnPropertyChanged(nameof(RenameNodeButtonEnabled));
             }
         }
 
@@ -134,7 +134,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portValueMarkerColor = value;
-                RaisePropertyChanged(nameof(PortValueMarkerColor));
+                OnPropertyChanged(nameof(PortValueMarkerColor));
             }
         }
 
@@ -145,7 +145,7 @@ namespace Dynamo.ViewModels
             set
             {
                 portDefaultValueMarkerVisible = value;
-                RaisePropertyChanged(nameof(PortDefaultValueMarkerVisible));
+                OnPropertyChanged(nameof(PortDefaultValueMarkerVisible));
             }
         }
 
@@ -186,13 +186,13 @@ namespace Dynamo.ViewModels
                 ? Wpf.Properties.Resources.ShowWiresPopupMenuItem
                 : Wpf.Properties.Resources.HideWiresPopupMenuItem;
 
-            RaisePropertyChanged(nameof(ShowHideWiresButtonContent));
+            OnPropertyChanged(nameof(ShowHideWiresButtonContent));
         }
 
         internal void EnableRenamePort()
         {
             RenameNodeButtonEnabled = true;
-            RaisePropertyChanged(nameof(RenameNodeButtonEnabled));
+            OnPropertyChanged(nameof(RenameNodeButtonEnabled));
         }
 
         #endregion
@@ -359,7 +359,7 @@ namespace Dynamo.ViewModels
             port.Name = dialog.PortName;
             port.ToolTip = dialog.Description;
 
-            RaisePropertyChanged(nameof(PortName));
+            OnPropertyChanged(nameof(PortName));
         }
 
         private List<string> ListOutportNames(ObservableCollection<PortViewModel> outPorts)

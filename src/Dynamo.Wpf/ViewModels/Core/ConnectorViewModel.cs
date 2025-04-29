@@ -77,8 +77,8 @@ namespace Dynamo.ViewModels
                 if (value.Equals(panelX)) return;
                 panelX = value;
                 MousePosition = new Point(panelX, PanelY);
-                RaisePropertyChanged(nameof(PanelX));
-                RaisePropertyChanged(nameof(MousePosition));
+                OnPropertyChanged(nameof(PanelX));
+                OnPropertyChanged(nameof(MousePosition));
             }
         }
 
@@ -93,8 +93,8 @@ namespace Dynamo.ViewModels
                 if (value.Equals(panelY)) return;
                 panelY = value;
                 MousePosition = new Point(PanelX, panelY);
-                RaisePropertyChanged(nameof(PanelY));
-                RaisePropertyChanged(nameof(MousePosition));
+                OnPropertyChanged(nameof(PanelY));
+                OnPropertyChanged(nameof(MousePosition));
             }
         }
 
@@ -110,7 +110,7 @@ namespace Dynamo.ViewModels
             set
             {
                 mousePosition = value;
-                RaisePropertyChanged(nameof(MousePosition));
+                OnPropertyChanged(nameof(MousePosition));
             }
         }
 
@@ -121,7 +121,7 @@ namespace Dynamo.ViewModels
         public ConnectorAnchorViewModel ConnectorAnchorViewModel
         {
             get { return connectorAnchorViewModel; }
-            private set { connectorAnchorViewModel = value; RaisePropertyChanged(nameof(ConnectorAnchorViewModel)); }
+            private set { connectorAnchorViewModel = value; OnPropertyChanged(nameof(ConnectorAnchorViewModel)); }
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Dynamo.ViewModels
         public ConnectorContextMenuViewModel ConnectorContextMenuViewModel
         {
             get { return connectorContextMenuViewModel; }
-            private set { connectorContextMenuViewModel = value; RaisePropertyChanged(nameof(ConnectorContextMenuViewModel)); }
+            private set { connectorContextMenuViewModel = value; OnPropertyChanged(nameof(ConnectorContextMenuViewModel)); }
         }
         /// <summary>
         /// Used to point to the active start port corresponding to this connector
@@ -154,7 +154,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isConnecting = value;
-                RaisePropertyChanged(nameof(IsConnecting));
+                OnPropertyChanged(nameof(IsConnecting));
             }
         }
 
@@ -172,9 +172,9 @@ namespace Dynamo.ViewModels
                 }
 
                 isCollapsed = value;
-                RaisePropertyChanged(nameof(IsCollapsed));
+                OnPropertyChanged(nameof(IsCollapsed));
                 SetCollapseOfPins(IsCollapsed);
-                RaisePropertyChanged(nameof(ZIndex));
+                OnPropertyChanged(nameof(ZIndex));
             }
         }
 
@@ -189,7 +189,7 @@ namespace Dynamo.ViewModels
                 }
 
                 isHidden = value;
-                RaisePropertyChanged(nameof(IsHidden));
+                OnPropertyChanged(nameof(IsHidden));
                 SetVisibilityOfPins(IsHidden);
                 SetPartialVisibilityOfPins(IsHidden);
             }
@@ -205,7 +205,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isTemporarilyVisible = value;
-                RaisePropertyChanged(nameof(IsTemporarilyDisplayed));
+                OnPropertyChanged(nameof(IsTemporarilyDisplayed));
                 SetPartialVisibilityOfPins(isTemporarilyVisible);
                 if (connectorAnchorViewModel != null)
                     connectorAnchorViewModel.IsTemporarilyDisplayed = isTemporarilyVisible;
@@ -252,7 +252,7 @@ namespace Dynamo.ViewModels
             set
             {
                 connectorDataToolTip = value;
-                RaisePropertyChanged(nameof(ConnectorDataTooltip));
+                OnPropertyChanged(nameof(ConnectorDataTooltip));
             }
         }
         /// <summary>
@@ -270,7 +270,7 @@ namespace Dynamo.ViewModels
             set
             {
                 canShowConnectorTooltip = value;
-                RaisePropertyChanged(nameof(CanShowConnectorTooltip));
+                OnPropertyChanged(nameof(CanShowConnectorTooltip));
             }
         }
 
@@ -287,7 +287,7 @@ namespace Dynamo.ViewModels
             set
             {
                 isDataFlowCollection = value;
-                RaisePropertyChanged(nameof(IsDataFlowCollection));
+                OnPropertyChanged(nameof(IsDataFlowCollection));
             }
         }
 
@@ -303,7 +303,7 @@ namespace Dynamo.ViewModels
             set
             {
                 mouseHoverOn = value;
-                RaisePropertyChanged(nameof(MouseHoverOn));
+                OnPropertyChanged(nameof(MouseHoverOn));
             }
         }
 
@@ -319,8 +319,8 @@ namespace Dynamo.ViewModels
             set
             {
                 connectorAnchorViewModelExists = value;
-                RaisePropertyChanged(nameof(ConnectorAnchorViewModelExists));
-                RaisePropertyChanged(nameof(PreviewState));
+                OnPropertyChanged(nameof(ConnectorAnchorViewModelExists));
+                OnPropertyChanged(nameof(PreviewState));
             }
         }
         /// <summary>
@@ -352,7 +352,7 @@ namespace Dynamo.ViewModels
             protected set
             {
                 zIndex = value;
-                RaisePropertyChanged(nameof(ZIndex));
+                OnPropertyChanged(nameof(ZIndex));
             }
 
         }
@@ -421,7 +421,7 @@ namespace Dynamo.ViewModels
             set
             {
                 curvePoint1 = value;
-                RaisePropertyChanged(nameof(CurvePoint1));
+                OnPropertyChanged(nameof(CurvePoint1));
             }
         }
 
@@ -431,7 +431,7 @@ namespace Dynamo.ViewModels
             set
             {
                 curvePoint2 = value;
-                RaisePropertyChanged(nameof(CurvePoint2));
+                OnPropertyChanged(nameof(CurvePoint2));
             }
         }
 
@@ -441,7 +441,7 @@ namespace Dynamo.ViewModels
             set
             {
                 curvePoint3 = value;
-                RaisePropertyChanged(nameof(CurvePoint3));
+                OnPropertyChanged(nameof(CurvePoint3));
             }
         }
 
@@ -451,7 +451,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dotTop = value;
-                RaisePropertyChanged(nameof(DotTop));
+                OnPropertyChanged(nameof(DotTop));
             }
         }
 
@@ -461,7 +461,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dotLeft = value;
-                RaisePropertyChanged(nameof(DotLeft));
+                OnPropertyChanged(nameof(DotLeft));
             }
         }
 
@@ -471,7 +471,7 @@ namespace Dynamo.ViewModels
             set
             {
                 endDotSize = value;
-                RaisePropertyChanged(nameof(EndDotSize));
+                OnPropertyChanged(nameof(EndDotSize));
             }
         }
 
@@ -527,7 +527,7 @@ namespace Dynamo.ViewModels
             set
             {
                 previewState = value;
-                RaisePropertyChanged(nameof(PreviewState));
+                OnPropertyChanged(nameof(PreviewState));
             }
         }
 
@@ -544,7 +544,7 @@ namespace Dynamo.ViewModels
             set
             {
                 anyPinSelected = value;
-                RaisePropertyChanged(nameof(AnyPinSelected));
+                OnPropertyChanged(nameof(AnyPinSelected));
             }
         }
         public bool IsFrozen
@@ -562,7 +562,7 @@ namespace Dynamo.ViewModels
             set
             {
                 _computedPathGeometry = value;
-                RaisePropertyChanged(nameof(ComputedBezierPathGeometry));
+                OnPropertyChanged(nameof(ComputedBezierPathGeometry));
             }
         }
 
@@ -572,7 +572,7 @@ namespace Dynamo.ViewModels
             set
             {
                 dynamicStrokeThickness = value;
-                RaisePropertyChanged(nameof(DynamicStrokeThickness));
+                OnPropertyChanged(nameof(DynamicStrokeThickness));
             }
         }
 
@@ -795,7 +795,7 @@ namespace Dynamo.ViewModels
             timer.Stop();
             timer = null;
             ConnectorAnchorViewModel = null;
-            RaisePropertyChanged(nameof(ConnectorAnchorViewModel));
+            OnPropertyChanged(nameof(ConnectorAnchorViewModel));
         }
 
         /// <summary>
@@ -1255,13 +1255,13 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(NodeViewModel.ShowExecutionPreview):
-                    RaisePropertyChanged(nameof(PreviewState));
+                    OnPropertyChanged(nameof(PreviewState));
                     break;
                 case nameof(NodeViewModel.IsFrozen):
-                    RaisePropertyChanged(nameof(IsFrozen));
+                    OnPropertyChanged(nameof(IsFrozen));
                     break;
                 case nameof(NodeViewModel.IsNodeInCollapsedGroup):
-                    RaisePropertyChanged(nameof(ZIndex));
+                    OnPropertyChanged(nameof(ZIndex));
                     break;
                 default: break;
             }
@@ -1272,7 +1272,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(NodeViewModel.IsNodeInCollapsedGroup):
-                    RaisePropertyChanged(nameof(ZIndex));
+                    OnPropertyChanged(nameof(ZIndex));
                     break;
                 default: break;
             }
@@ -1283,7 +1283,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(PortModel.Center):
-                    RaisePropertyChanged(nameof(CurvePoint0));
+                    OnPropertyChanged(nameof(CurvePoint0));
                     Redraw();
                     break;
             }
@@ -1294,7 +1294,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(PortModel.Center):
-                    RaisePropertyChanged(nameof(CurvePoint3));
+                    OnPropertyChanged(nameof(CurvePoint3));
                     Redraw();
                     break;
             }
@@ -1311,20 +1311,20 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(NodeModel.IsSelected):
-                    RaisePropertyChanged(nameof(PreviewState));
+                    OnPropertyChanged(nameof(PreviewState));
                     IsTemporarilyDisplayed = model.Start.Owner.IsSelected
                         && IsHidden ? true : false;
                     break;
                 case nameof(NodeModel.Position):
-                    RaisePropertyChanged(nameof(CurvePoint0));
+                    OnPropertyChanged(nameof(CurvePoint0));
                     Redraw();
                     break;
                 case nameof(NodeModel.Width):
-                    RaisePropertyChanged(nameof(CurvePoint0));
+                    OnPropertyChanged(nameof(CurvePoint0));
                     Redraw();
                     break;
                 case nameof(NodeViewModel.ShowExecutionPreview):
-                    RaisePropertyChanged(nameof(PreviewState));
+                    OnPropertyChanged(nameof(PreviewState));
                     break;
                 case nameof(NodeModel.CachedValue):
                     UpdateConnectorDataToolTip();
@@ -1345,20 +1345,20 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(NodeModel.IsSelected):
-                    RaisePropertyChanged(nameof(PreviewState));
+                    OnPropertyChanged(nameof(PreviewState));
                     IsTemporarilyDisplayed = model.End.Owner.IsSelected
                         && IsHidden ? true : false;
                     break;
                 case nameof(NodeModel.Position):
-                    RaisePropertyChanged(nameof(CurvePoint0));
+                    OnPropertyChanged(nameof(CurvePoint0));
                     Redraw();
                     break;
                 case nameof(NodeModel.Width):
-                    RaisePropertyChanged(nameof(CurvePoint0));
+                    OnPropertyChanged(nameof(CurvePoint0));
                     Redraw();
                     break;
                 case nameof(NodeViewModel.ShowExecutionPreview):
-                    RaisePropertyChanged(nameof(PreviewState));
+                    OnPropertyChanged(nameof(PreviewState));
                     break;
             }
         }
@@ -1470,7 +1470,7 @@ namespace Dynamo.ViewModels
                 }
 
                 this.SetCollapsedByNodeViewModel();
-                RaisePropertyChanged(nameof(ZIndex));
+                OnPropertyChanged(nameof(ZIndex));
             }
             catch (Exception ex)
             {

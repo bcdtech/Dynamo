@@ -94,7 +94,7 @@ namespace Dynamo.ViewModels
             set
             {
                 sideBarTabItems = value;
-                RaisePropertyChanged(nameof(SideBarTabItems));
+                OnPropertyChanged(nameof(SideBarTabItems));
             }
         }
 
@@ -104,7 +104,7 @@ namespace Dynamo.ViewModels
             set
             {
                 workspaces = value;
-                RaisePropertyChanged("Workspaces");
+                OnPropertyChanged("Workspaces");
             }
         }
 
@@ -139,7 +139,7 @@ namespace Dynamo.ViewModels
             set
             {
                 transformOrigin = value;
-                RaisePropertyChanged("TransformOrigin");
+                OnPropertyChanged("TransformOrigin");
             }
         }
 
@@ -225,8 +225,8 @@ namespace Dynamo.ViewModels
         {
             WorkspaceActualWidth = width;
             WorkspaceActualHeight = height;
-            RaisePropertyChanged("WorkspaceActualHeight");
-            RaisePropertyChanged("WorkspaceActualWidth");
+            OnPropertyChanged("WorkspaceActualHeight");
+            OnPropertyChanged("WorkspaceActualWidth");
         }
 
 
@@ -298,7 +298,7 @@ namespace Dynamo.ViewModels
             set
             {
                 editName = value;
-                RaisePropertyChanged("EditName");
+                OnPropertyChanged("EditName");
             }
         }
 
@@ -321,7 +321,7 @@ namespace Dynamo.ViewModels
                 showStartPage = value;
                 if (showStartPage) Logging.Analytics.TrackScreenView("StartPage");
 
-                RaisePropertyChanged("ShowStartPage");
+                OnPropertyChanged("ShowStartPage");
                 if (DisplayStartPageCommand != null)
                     DisplayStartPageCommand.RaiseCanExecuteChanged();
 
@@ -348,7 +348,7 @@ namespace Dynamo.ViewModels
             {
                 model.PreferenceSettings.ConsoleHeight = value;
 
-                RaisePropertyChanged("ConsoleHeight");
+                OnPropertyChanged("ConsoleHeight");
             }
         }
 
@@ -364,7 +364,7 @@ namespace Dynamo.ViewModels
                 if (minLeftMarignOffset != value)
                 {
                     minLeftMarignOffset = value;
-                    RaisePropertyChanged(nameof(MinLeftMarginOffset));
+                    OnPropertyChanged(nameof(MinLeftMarginOffset));
                 }
             }
         }
@@ -382,7 +382,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.PreferenceSettings.ShowPreviewBubbles = value;
-                RaisePropertyChanged("ShowPreviewBubbles");
+                OnPropertyChanged("ShowPreviewBubbles");
             }
         }
 
@@ -399,7 +399,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.PreferenceSettings.ShowCodeBlockLineNumber = value;
-                RaisePropertyChanged(nameof(ShowCodeBlockLineNumber));
+                OnPropertyChanged(nameof(ShowCodeBlockLineNumber));
             }
         }
 
@@ -429,7 +429,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.PreferenceSettings.LibraryWidth = value;
-                RaisePropertyChanged("LibraryWidth");
+                OnPropertyChanged("LibraryWidth");
             }
         }
 
@@ -442,7 +442,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.IsShowingConnectors = value;
-                RaisePropertyChanged(nameof(IsShowingConnectors));
+                OnPropertyChanged(nameof(IsShowingConnectors));
             }
         }
         /// <summary>
@@ -458,7 +458,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.IsShowingConnectorTooltip = value;
-                RaisePropertyChanged(nameof(IsShowingConnectorTooltip));
+                OnPropertyChanged(nameof(IsShowingConnectorTooltip));
             }
         }
 
@@ -473,7 +473,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.ConnectorType = value;
-                RaisePropertyChanged("ConnectorType");
+                OnPropertyChanged("ConnectorType");
             }
         }
 
@@ -485,7 +485,7 @@ namespace Dynamo.ViewModels
             set
             {
                 recentFiles = value;
-                RaisePropertyChanged("RecentFiles");
+                OnPropertyChanged("RecentFiles");
             }
         }
 
@@ -508,7 +508,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.DebugSettings.VerboseLogging = value;
-                RaisePropertyChanged("VerboseLogging");
+                OnPropertyChanged("VerboseLogging");
             }
         }
 
@@ -518,7 +518,7 @@ namespace Dynamo.ViewModels
             set
             {
                 model.DebugSettings.ShowDebugASTs = value;
-                RaisePropertyChanged("ShowDebugASTs");
+                OnPropertyChanged("ShowDebugASTs");
             }
         }
 
@@ -543,7 +543,7 @@ namespace Dynamo.ViewModels
             {
                 showRunPreview = value;
                 HomeSpace.GetExecutingNodes(showRunPreview);
-                RaisePropertyChanged("ShowRunPreview");
+                OnPropertyChanged("ShowRunPreview");
             }
         }
 
@@ -590,7 +590,7 @@ namespace Dynamo.ViewModels
             {
                 PythonScriptEditorTextOptions.ShowWhiteSpaceCharacters(value);
                 model.PreferenceSettings.ShowTabsAndSpacesInScriptEditor = value;
-                RaisePropertyChanged(nameof(ShowTabsAndSpacesInScriptEditor));
+                OnPropertyChanged(nameof(ShowTabsAndSpacesInScriptEditor));
             }
         }
 
@@ -1160,7 +1160,7 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "CollectInfoOption":
-                    RaisePropertyChanged("CollectInfoOption");
+                    OnPropertyChanged("CollectInfoOption");
                     break;
             }
         }
@@ -1181,8 +1181,8 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "LogText":
-                    RaisePropertyChanged("LogText");
-                    RaisePropertyChanged("WarningText");
+                    OnPropertyChanged("LogText");
+                    OnPropertyChanged("WarningText");
                     break;
             }
 
@@ -1193,21 +1193,21 @@ namespace Dynamo.ViewModels
             switch (e.PropertyName)
             {
                 case "CurrentWorkspace":
-                    RaisePropertyChanged("IsAbleToGoHome");
-                    RaisePropertyChanged("CurrentSpace");
-                    RaisePropertyChanged("BackgroundColor");
-                    RaisePropertyChanged("CurrentWorkspaceIndex");
-                    RaisePropertyChanged("ViewingHomespace");
+                    OnPropertyChanged("IsAbleToGoHome");
+                    OnPropertyChanged("CurrentSpace");
+                    OnPropertyChanged("BackgroundColor");
+                    OnPropertyChanged("CurrentWorkspaceIndex");
+                    OnPropertyChanged("ViewingHomespace");
                     if (this.PublishCurrentWorkspaceCommand != null)
                         this.PublishCurrentWorkspaceCommand.RaiseCanExecuteChanged();
-                    RaisePropertyChanged("IsPanning");
-                    RaisePropertyChanged("IsOrbiting");
+                    OnPropertyChanged("IsPanning");
+                    OnPropertyChanged("IsOrbiting");
                     //RaisePropertyChanged("RunEnabled");
 
                     break;
 
                 case "EnablePresetOptions":
-                    RaisePropertyChanged("EnablePresetOptions");
+                    OnPropertyChanged("EnablePresetOptions");
                     break;
             }
         }
@@ -1485,7 +1485,7 @@ namespace Dynamo.ViewModels
                 // we need to raise a property change notification for the
                 // homespace view model, so the RunSettingsControl's bindings
                 // get updated.
-                RaisePropertyChanged("HomeSpaceViewModel");
+                OnPropertyChanged("HomeSpaceViewModel");
             }
             else
             {
@@ -1517,7 +1517,7 @@ namespace Dynamo.ViewModels
 
         private void OnRuleEvaluationResultsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            RaisePropertyChanged(nameof(LinterIssuesCount));
+            OnPropertyChanged(nameof(LinterIssuesCount));
         }
 
         internal void AddToRecentFiles(string path)
@@ -2510,13 +2510,13 @@ namespace Dynamo.ViewModels
                 }
 
                 //Presets created - this will enable the Restore / Delete presets
-                RaisePropertyChanged("EnablePresetOptions");
+                OnPropertyChanged("EnablePresetOptions");
             }
 
         }
         private bool CanShowNewPresetStateDialog(object parameter)
         {
-            RaisePropertyChanged("EnablePresetOptions");
+            OnPropertyChanged("EnablePresetOptions");
             return DynamoSelection.Instance.Selection.Count > 0;
         }
 

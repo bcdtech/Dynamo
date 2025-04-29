@@ -469,7 +469,7 @@ namespace Dynamo.Graph.Nodes.CustomNodes
                 }
 
                 OnNodeModified();
-                RaisePropertyChanged(nameof(InputSymbol));
+                OnPropertyChanged(nameof(InputSymbol));
             }
         }
 
@@ -698,7 +698,7 @@ namespace Dynamo.Graph.Nodes.CustomNodes
                 }
 
                 OnNodeModified();
-                RaisePropertyChanged("Symbol");
+                OnPropertyChanged("Symbol");
             }
         }
 

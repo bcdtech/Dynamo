@@ -36,7 +36,7 @@ namespace Dynamo.Graph.Workspaces
                 OnFunctionIdChanged(oldId);
                 OnDefinitionUpdated();
                 OnInfoChanged();
-                RaisePropertyChanged("CustomNodeId");
+                OnPropertyChanged("CustomNodeId");
             }
         }
 
@@ -200,7 +200,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 category = value;
-                RaisePropertyChanged("Category");
+                OnPropertyChanged("Category");
             }
         }
 
@@ -215,7 +215,7 @@ namespace Dynamo.Graph.Workspaces
             set
             {
                 description = value;
-                RaisePropertyChanged("Description");
+                OnPropertyChanged("Description");
             }
         }
 

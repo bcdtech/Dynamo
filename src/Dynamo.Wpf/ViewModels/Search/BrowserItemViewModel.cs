@@ -128,7 +128,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value == name) return;
                 name = value;
-                RaisePropertyChanged("Name");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -139,7 +139,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value == fullCategoryName) return;
                 fullCategoryName = value;
-                RaisePropertyChanged("FullCategoryName");
+                OnPropertyChanged("FullCategoryName");
             }
         }
 
@@ -174,7 +174,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value == elementType) return;
                 elementType = value;
-                RaisePropertyChanged("ElementType");
+                OnPropertyChanged("ElementType");
             }
         }
 
@@ -218,7 +218,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value.Equals(visibility)) return;
                 visibility = value;
-                RaisePropertyChanged("Visibility");
+                OnPropertyChanged("Visibility");
             }
         }
 
@@ -229,7 +229,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value.Equals(isSelected)) return;
                 isSelected = value;
-                RaisePropertyChanged("IsSelected");
+                OnPropertyChanged("IsSelected");
             }
         }
 
@@ -248,7 +248,7 @@ namespace Dynamo.Wpf.ViewModels
             {
                 if (value.Equals(isExpanded)) return;
                 isExpanded = value;
-                RaisePropertyChanged("IsExpanded");
+                OnPropertyChanged("IsExpanded");
             }
         }
 
@@ -426,7 +426,7 @@ namespace Dynamo.Wpf.ViewModels
         private void ItemOnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
         {
             if (propertyChangedEventArgs.PropertyName == "Visibility")
-                RaisePropertyChanged("Visibility");
+                OnPropertyChanged("Visibility");
         }
 
         protected virtual void Expand()

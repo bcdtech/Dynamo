@@ -336,7 +336,7 @@ namespace Dynamo.ViewModels
                 this.activeConnectors = null;
             }
 
-            this.RaisePropertyChanged("ActiveConnector");
+            this.OnPropertyChanged("ActiveConnector");
         }
 
         private void RecordSelectionForUndo(Point2D mousePoint)
@@ -618,11 +618,11 @@ namespace Dynamo.ViewModels
 
                 if (previousState == State.PanMode || newState == State.PanMode)
                 {
-                    owningWorkspace.RaisePropertyChanged(nameof(IsPanning));
+                    owningWorkspace.OnPropertyChanged(nameof(IsPanning));
                 }
                 if (previousState == State.OrbitMode || newState == State.OrbitMode)
                 {
-                    owningWorkspace.RaisePropertyChanged(nameof(IsOrbiting));
+                    owningWorkspace.OnPropertyChanged(nameof(IsOrbiting));
                 }
             }
 

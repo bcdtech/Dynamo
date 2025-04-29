@@ -282,7 +282,7 @@ namespace Dynamo.Graph.Nodes
                 if (isVisible != value)
                 {
                     isVisible = value;
-                    RaisePropertyChanged("IsVisible");
+                    OnPropertyChanged("IsVisible");
                 }
             }
         }
@@ -322,7 +322,7 @@ namespace Dynamo.Graph.Nodes
                 if (isSetAsInput != value)
                 {
                     isSetAsInput = value;
-                    RaisePropertyChanged(nameof(IsSetAsInput));
+                    OnPropertyChanged(nameof(IsSetAsInput));
                 }
             }
         }
@@ -361,7 +361,7 @@ namespace Dynamo.Graph.Nodes
                 if (isSetAsOutput != value)
                 {
                     isSetAsOutput = value;
-                    RaisePropertyChanged(nameof(IsSetAsOutput));
+                    OnPropertyChanged(nameof(IsSetAsOutput));
                 }
             }
         }
@@ -383,7 +383,7 @@ namespace Dynamo.Graph.Nodes
                 if (state == value) return;
 
                 state = value;
-                RaisePropertyChanged(nameof(State));
+                OnPropertyChanged(nameof(State));
             }
         }
 
@@ -449,7 +449,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 name = value;
-                RaisePropertyChanged("Name");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -514,7 +514,7 @@ namespace Dynamo.Graph.Nodes
                 if (argumentLacing != value)
                 {
                     argumentLacing = value;
-                    RaisePropertyChanged("ArgumentLacing");
+                    OnPropertyChanged("ArgumentLacing");
 
                     // Mark node for update
                     OnNodeModified();
@@ -571,7 +571,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 category = value;
-                RaisePropertyChanged("Category");
+                OnPropertyChanged("Category");
             }
         }
 
@@ -733,7 +733,7 @@ namespace Dynamo.Graph.Nodes
                     cachedValue = value;
                 }
 
-                RaisePropertyChanged("CachedValue");
+                OnPropertyChanged("CachedValue");
             }
         }
 
@@ -785,7 +785,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 description = value;
-                RaisePropertyChanged("Description");
+                OnPropertyChanged("Description");
             }
         }
 
@@ -806,7 +806,7 @@ namespace Dynamo.Graph.Nodes
             set
             {
                 canUpdatePeriodically = value;
-                RaisePropertyChanged("CanUpdatePeriodically");
+                OnPropertyChanged("CanUpdatePeriodically");
             }
         }
 
@@ -872,7 +872,7 @@ namespace Dynamo.Graph.Nodes
                     return;
 
                 displayLabels = value;
-                RaisePropertyChanged("DisplayLabels");
+                OnPropertyChanged("DisplayLabels");
             }
         }
 
@@ -984,7 +984,7 @@ namespace Dynamo.Graph.Nodes
                     {
                         MarkDownStreamNodesAsModified(this);
                         OnNodeModified();
-                        RaisePropertyChanged(nameof(IsFrozen));
+                        OnPropertyChanged(nameof(IsFrozen));
                     }
                 }
                 //If the node is frozen, then do not execute the graph immediately.
@@ -993,7 +993,7 @@ namespace Dynamo.Graph.Nodes
                 {
                     ComputeUpstreamOnDownstreamNodes();
                     OnUpdateASTCollection();
-                    RaisePropertyChanged(nameof(IsFrozen));
+                    OnPropertyChanged(nameof(IsFrozen));
                 }
             }
         }
@@ -1091,7 +1091,7 @@ namespace Dynamo.Graph.Nodes
                 if (dismissedAlertsCount != value)
                 {
                     dismissedAlertsCount = value;
-                    RaisePropertyChanged(nameof(DismissedAlertsCount));
+                    OnPropertyChanged(nameof(DismissedAlertsCount));
                 }
             }
         }
@@ -1164,7 +1164,7 @@ namespace Dynamo.Graph.Nodes
                 }
             }
 
-            RaisePropertyChanged("IsFrozen");
+            OnPropertyChanged("IsFrozen");
         }
 
         private void MarkDownStreamNodesAsModified(NodeModel node)
@@ -1228,7 +1228,7 @@ namespace Dynamo.Graph.Nodes
                 switch (args.PropertyName)
                 {
                     case ("OverrideName"):
-                        RaisePropertyChanged("Name");
+                        OnPropertyChanged("Name");
                         break;
                 }
             };
@@ -1315,7 +1315,7 @@ namespace Dynamo.Graph.Nodes
                 switch (args.PropertyName)
                 {
                     case ("OverrideName"):
-                        RaisePropertyChanged("Name");
+                        OnPropertyChanged("Name");
                         break;
                 }
             };
@@ -2610,12 +2610,12 @@ namespace Dynamo.Graph.Nodes
                 // operations like file loading or copy-paste have the models created
                 // in different ways and their views will always be up-to-date with
                 // respect to their models.
-                RaisePropertyChanged("InteractionEnabled");
-                RaisePropertyChanged(nameof(State));
-                RaisePropertyChanged(nameof(Name));
-                RaisePropertyChanged(nameof(ArgumentLacing));
-                RaisePropertyChanged(nameof(IsVisible));
-                RaisePropertyChanged(nameof(DisplayLabels));
+                OnPropertyChanged("InteractionEnabled");
+                OnPropertyChanged(nameof(State));
+                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(ArgumentLacing));
+                OnPropertyChanged(nameof(IsVisible));
+                OnPropertyChanged(nameof(DisplayLabels));
 
                 // Notify listeners that the position of the node has changed,
                 // then all connected connectors will also redraw themselves.

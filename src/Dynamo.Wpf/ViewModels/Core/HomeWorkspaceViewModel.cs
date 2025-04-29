@@ -50,7 +50,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 curentNotificationLevel = value;
-                RaisePropertyChanged("CurrentNotificationLevel");
+                OnPropertyChanged("CurrentNotificationLevel");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 currentNotificationMessage = value;
-                RaisePropertyChanged("CurrentNotificationMessage");
+                OnPropertyChanged("CurrentNotificationMessage");
             }
         }
 
@@ -99,7 +99,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 footerNotificationItems = value;
-                RaisePropertyChanged(nameof(FooterNotificationItems));
+                OnPropertyChanged(nameof(FooterNotificationItems));
             }
         }
 
@@ -388,7 +388,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             // If any property changes on the run settings object
             // Raise a property change notification for the RunSettingsViewModel
             // property
-            RaisePropertyChanged("RunSettingsViewModel");
+            OnPropertyChanged("RunSettingsViewModel");
         }
 
         private void StartPeriodicTimer(object parameter)
@@ -585,7 +585,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 _notificationCount = value;
-                RaisePropertyChanged(nameof(NotificationCount));
+                OnPropertyChanged(nameof(NotificationCount));
             }
         }
 
@@ -598,7 +598,7 @@ namespace Dynamo.Wpf.ViewModels.Core
             set
             {
                 _notificationImage = value;
-                RaisePropertyChanged(nameof(NotificationImage));
+                OnPropertyChanged(nameof(NotificationImage));
             }
         }
         /// <summary>

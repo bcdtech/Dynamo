@@ -281,7 +281,7 @@ namespace Dynamo.Configuration
                 if (value == isBackgroundGridVisible) return;
                 isBackgroundGridVisible = value;
 
-                RaisePropertyChanged(nameof(IsBackgroundGridVisible));
+                OnPropertyChanged(nameof(IsBackgroundGridVisible));
             }
         }
 
@@ -299,7 +299,7 @@ namespace Dynamo.Configuration
                 if (value == gridScaleFactor) return;
                 gridScaleFactor = value;
 
-                RaisePropertyChanged(nameof(GridScaleFactor));
+                OnPropertyChanged(nameof(GridScaleFactor));
             }
         }
 
@@ -317,7 +317,7 @@ namespace Dynamo.Configuration
                 if (value == currentHostUnits) return;
                 currentHostUnits = value;
 
-                RaisePropertyChanged(nameof(CurrentHostUnits));
+                OnPropertyChanged(nameof(CurrentHostUnits));
             }
         }
 
@@ -335,7 +335,7 @@ namespace Dynamo.Configuration
                 if (value == defaultScaleFactor) return;
                 defaultScaleFactor = value;
 
-                RaisePropertyChanged(nameof(DefaultScaleFactor));
+                OnPropertyChanged(nameof(DefaultScaleFactor));
             }
         }
 
@@ -421,7 +421,7 @@ namespace Dynamo.Configuration
             set
             {
                 numberFormat = value;
-                RaisePropertyChanged("NumberFormat");
+                OnPropertyChanged("NumberFormat");
             }
         }
 
@@ -441,7 +441,7 @@ namespace Dynamo.Configuration
                 {
                     maxNumRecentFiles = DefaultMaxNumRecentFiles;
                 }
-                RaisePropertyChanged("MaxNumRecentFiles");
+                OnPropertyChanged("MaxNumRecentFiles");
             }
         }
 
@@ -459,7 +459,7 @@ namespace Dynamo.Configuration
             set
             {
                 backupLocation = value;
-                RaisePropertyChanged(nameof(BackupLocation));
+                OnPropertyChanged(nameof(BackupLocation));
             }
         }
 
@@ -472,7 +472,7 @@ namespace Dynamo.Configuration
             set
             {
                 templateFilePath = value;
-                RaisePropertyChanged(nameof(TemplateFilePath));
+                OnPropertyChanged(nameof(TemplateFilePath));
             }
         }
 
@@ -704,7 +704,7 @@ namespace Dynamo.Configuration
             set
             {
                 isNotificationCenterEnabled = value;
-                RaisePropertyChanged(nameof(EnableNotificationCenter));
+                OnPropertyChanged(nameof(EnableNotificationCenter));
             }
         }
 
@@ -720,7 +720,7 @@ namespace Dynamo.Configuration
             set
             {
                 isEnablePersistExtensionsEnabled = value;
-                RaisePropertyChanged(nameof(EnablePersistExtensions));
+                OnPropertyChanged(nameof(EnablePersistExtensions));
             }
         }
 
@@ -831,7 +831,7 @@ namespace Dynamo.Configuration
             set
             {
                 disableBuiltinPackages = value;
-                RaisePropertyChanged(nameof(DisableBuiltinPackages));
+                OnPropertyChanged(nameof(DisableBuiltinPackages));
             }
         }
 
@@ -845,7 +845,7 @@ namespace Dynamo.Configuration
             set
             {
                 disableCustomPackageLocations = value;
-                RaisePropertyChanged(nameof(DisableCustomPackageLocations));
+                OnPropertyChanged(nameof(DisableCustomPackageLocations));
             }
         }
         /// <summary>

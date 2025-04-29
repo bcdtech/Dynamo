@@ -24,7 +24,7 @@ namespace Dynamo.PackageManager
         /// <summary>
         /// Error message that resulted from an unsuccessful installation
         /// </summary>
-        public string ErrorString { get { return _errorString; } set { _errorString = value; RaisePropertyChanged("ErrorString"); } }
+        public string ErrorString { get { return _errorString; } set { _errorString = value; OnPropertyChanged("ErrorString"); } }
 
         private State _downloadState = State.Uninitialized;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Dynamo.PackageManager
             set
             {
                 _downloadState = value;
-                RaisePropertyChanged("DownloadState");
+                OnPropertyChanged("DownloadState");
             }
         }
 
@@ -54,13 +54,13 @@ namespace Dynamo.PackageManager
         /// <summary>
         /// Path where the package is downloaded to
         /// </summary>
-        public string DownloadPath { get { return _downloadPath; } set { _downloadPath = value; RaisePropertyChanged("DownloadPath"); } }
+        public string DownloadPath { get { return _downloadPath; } set { _downloadPath = value; OnPropertyChanged("DownloadPath"); } }
 
         private string _versionName;
         /// <summary>
         /// Version of the package
         /// </summary>
-        public string VersionName { get { return _versionName; } set { _versionName = value; RaisePropertyChanged("VersionName"); } }
+        public string VersionName { get { return _versionName; } set { _versionName = value; OnPropertyChanged("VersionName"); } }
 
         /// <summary>
         /// Creates an empty view model for a package installation 
