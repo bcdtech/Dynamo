@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:configuration="clr-namespace:Dynamo.Configuration;assembly=DynamoCore"
-    xmlns:controls="clr-namespace:Dynamo.Views"
+    xmlns:controls="clr-namespace:Dynamo.Controls"
+    xmlns:views="clr-namespace:Dynamo.Views"
+    
     xmlns:dp="clr-namespace:Dynamo.Properties;assembly=DynamoCore"
     xmlns:dp1="clr-namespace:Dynamo.Properties;assembly=DynamoCore"
     xmlns:dynui="clr-namespace:Dynamo.UI.Controls"
@@ -19,7 +21,9 @@
     MouseLeftButtonDown="topControl_MouseLeftButtonDown"
     MouseRightButtonDown="DisplayNodeContextMenu"
     PreviewMouseLeftButtonDown="OnPreviewMouseLeftButtonDown"
-    PreviewMouseMove="OnNodeViewMouseMove">
+    PreviewMouseMove="OnNodeViewMouseMove"
+    
+    >
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -381,7 +385,7 @@
                 FontWeight="Medium"
                 Foreground="{StaticResource PrimaryCharcoal200Brush}"
                 IsHitTestVisible="False"
-                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
+                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                 TextAlignment="Center"
                 Visibility="Visible" />
@@ -439,12 +443,16 @@
             Grid.Row="2"
             Grid.Column="0"
             Margin="-25,3,0,0"
-          
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
             ItemsSource="{Binding Path=InPortsLeft.View}"
             >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:InPortView/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="1"/>
@@ -538,7 +546,7 @@
             Canvas.ZIndex="4"
             FlowDirection="LeftToRight"
             Orientation="Horizontal"
-            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}">
+            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}">
             <Grid x:Name="ExperimentalGlyph" Visibility="{Binding Path=IsExperimental, Converter={StaticResource BooleanToVisibilityCollapsedConverter}, Mode=OneWay}">
                 <fa:ImageAwesome
                     Width="16px"
@@ -592,7 +600,7 @@
                 FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="10px"
                 Foreground="{StaticResource NodeLacingGlyphBackground}"
-                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
+                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
                 ToolTipService.ShowDuration="30000"
                 Visibility="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToVisibilityConverter}}">
                 <Label.ToolTip>
@@ -614,7 +622,7 @@
                         FontFamily="{StaticResource ArtifaktElementRegular}"
                         FontSize="10px"
                         Foreground="Black"
-                        Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}" />
+                        Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}" />
                 </Border>
                 <Grid.Style>
                     <Style TargetType="Grid">
@@ -672,8 +680,8 @@
             Canvas.ZIndex="6"
             CornerRadius="8,8,0,0"
             IsHitTestVisible="False"
-            Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
-            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
+            Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
+            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
             Visibility="{Binding Path=IsFrozen, Converter={StaticResource BooleanToVisibilityCollapsedConverter}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <!--  Displays when the node cluster is Preivew state and Zoom is above 0.4  -->
@@ -687,8 +695,8 @@
             Canvas.ZIndex="6"
             CornerRadius="8,8,0,0"
             IsHitTestVisible="False"
-            Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
-            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
+            Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
+            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
             Visibility="{Binding Path=IsTransient, Converter={StaticResource BooleanToVisibilityCollapsedConverter}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <!--  Displays when the node is Frozen/Warning/Error state and Zoom is below 0.4  -->
@@ -703,8 +711,8 @@
             CornerRadius="8,8,0,0"
             IsHitTestVisible="False"
             Opacity="0.5"
-            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeInPreview}}"
-            Visibility="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource ZoomToVisibilityCollapsedConverter}}" />
+            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeInPreview}}"
+            Visibility="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToVisibilityCollapsedConverter}}" />
 
         <!--  Grid containing the State overlay Glyphs in Zoomed Out state  -->
         <Grid
@@ -719,8 +727,8 @@
             VerticalAlignment="Stretch"
             Canvas.ZIndex="7"
             IsHitTestVisible="False"
-            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeInControl}}"
-            Visibility="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource ZoomToVisibilityCollapsedConverter}}">
+            Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeInControl}}"
+            Visibility="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToVisibilityCollapsedConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="{Binding ImgGlyphThreeSource, Mode=OneWay, Converter={StaticResource EmptyToZeroLengthConverter}, UpdateSourceTrigger=PropertyChanged}" />
                 <RowDefinition />
