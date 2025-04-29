@@ -1,41 +1,31 @@
+using Dynamo.Configuration;
+using Dynamo.Engine;
+using Dynamo.Graph;
+using Dynamo.Graph.Connectors;
+using Dynamo.Graph.Nodes;
+using Dynamo.Graph.Nodes.CustomNodes;
+using Dynamo.Graph.Nodes.ZeroTouch;
+using Dynamo.Graph.Workspaces;
+using Dynamo.Logging;
+using Dynamo.Models;
+using Dynamo.Properties;
+using Dynamo.Search;
+using Dynamo.Search.SearchElements;
+using Dynamo.Utilities;
+using Dynamo.ViewModels;
+using Dynamo.Wpf.ViewModels;
+using Newtonsoft.Json;
+using ProtoCore.AST.AssociativeAST;
+using ProtoCore.Mirror;
+using ProtoCore.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Dynamo.Configuration;
-using Dynamo.Engine;
-using Dynamo.Graph.Connectors;
-using Dynamo.Graph.Nodes;
-using Dynamo.Graph.Nodes.CustomNodes;
-using Dynamo.Graph.Nodes.ZeroTouch;
-using Dynamo.Logging;
-using Dynamo.Models;
-using Dynamo.PackageManager;
-using Dynamo.Properties;
-using Dynamo.Search;
-using Dynamo.Search.SearchElements;
-using Dynamo.Utilities;
-using Dynamo.Wpf.ViewModels;
-using Greg;
-using J2N.Text;
-using Lucene.Net.Documents;
-using Lucene.Net.QueryParsers.Classic;
-using Lucene.Net.Search;
-using Newtonsoft.Json;
-using ProtoCore.AST.AssociativeAST;
-using ProtoCore.Mirror;
-using ProtoCore.Utils;
-using RestSharp;
-using Dynamo.Wpf.Utilities;
-using Dynamo.ViewModels;
-using System.Reflection;
-using Dynamo.Controls;
-using Dynamo.Core;
-using Dynamo.Graph.Workspaces;
-using Dynamo.Graph;
 
 namespace Dynamo.NodeAutoComplete.ViewModels
 {
@@ -164,7 +154,7 @@ namespace Dynamo.NodeAutoComplete.ViewModels
             }
             set
             {
-                if(selectedIndex != value && value >= 0)
+                if (selectedIndex != value && value >= 0)
                 {
                     ReAddNode(value);
                 }
@@ -178,12 +168,12 @@ namespace Dynamo.NodeAutoComplete.ViewModels
 
         private void ReAddNode(int index)
         {
-            if(FullResults == null)
+            if (FullResults == null)
             {
                 return;
             }
             var results = QualifiedResults.ToList();
-            if(index >=  0 && index  < results.Count)
+            if (index >= 0 && index < results.Count)
             {
                 AddCluster(results[index]);
             }
@@ -428,7 +418,7 @@ namespace Dynamo.NodeAutoComplete.ViewModels
 
                 if (startNode.Equals(nodeInfo) || endNode.Equals(nodeInfo) || upstreamAndDownstreamNodes.Contains(startNode) || upstreamAndDownstreamNodes.Contains(endNode))
                 {
-                    var startPortName = (startNode is VariableInputNode || startNode is DSVarArgFunction) ? ParseVariableInputPortName(connector.Start.Name): connector.Start.Name;
+                    var startPortName = (startNode is VariableInputNode || startNode is DSVarArgFunction) ? ParseVariableInputPortName(connector.Start.Name) : connector.Start.Name;
                     var endPortName = (endNode is VariableInputNode || endNode is DSVarArgFunction) ? ParseVariableInputPortName(connector.End.Name) : connector.End.Name;
 
                     var connectorRequest = new ConnectionItem
@@ -614,13 +604,13 @@ namespace Dynamo.NodeAutoComplete.ViewModels
                 {
                     var uri = DynamoUtilities.PathHelper.GetServiceBackendAddress(this, nodeAutocompleteMLEndpoint);
                     var client = new RestClient(uri);
-                    var request = new RestRequest(string.Empty,Method.Post);
+                    var request = new RestRequest(string.Empty, Method.Post);
                     var tkn = tokenprovider?.GetAccessToken();
                     if (string.IsNullOrEmpty(tkn))
                     {
                         throw new Exception("Authentication required.");
                     }
-                    request.AddHeader("Authorization",$"Bearer {tkn}");
+                    request.AddHeader("Authorization", $"Bearer {tkn}");
                     request = request.AddJsonBody(requestJSON);
                     request.RequestFormat = DataFormat.Json;
                     RestResponse response = client.Execute(request);
@@ -835,7 +825,7 @@ namespace Dynamo.NodeAutoComplete.ViewModels
 
             //node to connect to from query node
             var entryNodeId = ClusterResultItem.Topology.Nodes.Any() ? ClusterResultItem.Topology.Nodes.ToList()[ClusterResultItem.EntryNodeIndex].Id : string.Empty;
-            
+
             //store our nodes and wires to allow for one undo
             List<ModelBase> newNodesAndWires = new List<ModelBase>();
             Dictionary<string, NodeViewModel> createdNodes = new Dictionary<string, NodeViewModel>();
@@ -844,7 +834,7 @@ namespace Dynamo.NodeAutoComplete.ViewModels
             foreach (var nodeStack in nodeStacks)
             {
                 xoffset += node.NodeModel.Width;
-                foreach(var newNode in nodeStack)
+                foreach (var newNode in nodeStack)
                 {
                     // Retrieve assembly name and node full name from type.id.
                     var typeInfo = wsViewModel.NodeAutoCompleteSearchViewModel.GetInfoFromTypeId(newNode.Type.Id);
@@ -856,7 +846,7 @@ namespace Dynamo.NodeAutoComplete.ViewModels
                     wsViewModel.Model.UndoRecorder.PopFromUndoGroup();
 
                     var nodeFromCluster = wsViewModel.Nodes.LastOrDefault();
-                    createdNodes.Add(newNode.Id,nodeFromCluster);
+                    createdNodes.Add(newNode.Id, nodeFromCluster);
                     newNodesAndWires.Add(nodeFromCluster.NodeModel);
 
                     nodeFromCluster.IsHidden = true;

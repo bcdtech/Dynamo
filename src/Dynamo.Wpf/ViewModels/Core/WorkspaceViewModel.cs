@@ -11,9 +11,9 @@ using Dynamo.Models;
 using Dynamo.Selection;
 using Dynamo.UI.Prompts;
 using Dynamo.Utilities;
+using Dynamo.Wpf.Extensions;
 using Dynamo.Wpf.ViewModels;
 using Dynamo.Wpf.ViewModels.Core;
-using Dynamo.Wpf.Extensions;
 using DynamoUtilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -840,7 +840,10 @@ namespace Dynamo.ViewModels
 
         void CopyPasteChanged(object sender, EventArgs e)
         {
-            RaisePropertyChanged("CanPaste", "CanCopy", "CanCopyOrPaste");
+            OnPropertyChanged("CanPaste");
+            OnPropertyChanged("CanCopy");
+            OnPropertyChanged("CanCopyOrPaste");
+
             (PasteCommand as IRelayCommand)?.NotifyCanExecuteChanged();
         }
 
