@@ -8,7 +8,6 @@ using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 using Dynamo.Wpf.Utilities;
-using Dynamo.Wpf.Extensions;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
@@ -813,4 +812,5 @@ namespace Dynamo.Controls
         }
 
     }
+
 }

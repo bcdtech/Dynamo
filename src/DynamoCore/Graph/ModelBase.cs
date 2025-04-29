@@ -114,6 +114,7 @@ namespace Dynamo.Graph
             set
             {
                 x = value;
+                OnPropertyChanged();
             }
         }
 
@@ -135,6 +136,8 @@ namespace Dynamo.Graph
             set
             {
                 y = value;
+                OnPropertyChanged();
+
             }
         }
 
