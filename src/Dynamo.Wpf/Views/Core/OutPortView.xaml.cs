@@ -3,23 +3,23 @@ using Dynamo.Utilities;
 using Dynamo.ViewModels;
 using System.Diagnostics;
 using System.Windows;
+
 namespace Dynamo.Controls
 {
     /// <summary>
-    /// Interaction logic for InPortView.xaml
+    /// Interaction logic for OutPortView.xaml
     /// </summary>
-    public partial class InPortView : IViewModelView<InPortViewModel>
+    public partial class OutPortView : IViewModelView<OutPortViewModel>
     {
-        public InPortView()
+        public OutPortView()
         {
             InitializeComponent();
         }
 
-        public InPortViewModel ViewModel => this.DataContext as InPortViewModel;
+        public OutPortViewModel ViewModel => this.DataContext as OutPortViewModel;
         public void UpdateCenter()
         {
-            //var center = new Point(this.ActualWidth / 2, this.ActualHeight / 2);
-            var center = new Point(0, this.ActualHeight / 2);
+            var center = new Point(this.ActualWidth, this.ActualHeight / 2);
 
             Debug.WriteLine($"orginal position:{center}");
             var container = this.FindUpVisualTree<DragCanvas>();

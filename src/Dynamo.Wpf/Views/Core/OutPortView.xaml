@@ -1,21 +1,46 @@
-<ResourceDictionary
+<UserControl
+    x:Class="Dynamo.Controls.OutPortView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:configuration="clr-namespace:Dynamo.Configuration;assembly=DynamoCore"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dynui="clr-namespace:Dynamo.UI.Controls"
     xmlns:interactivity="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:ui="clr-namespace:Dynamo.UI"
-    xmlns:viewModels="clr-namespace:Dynamo.ViewModels"
-    xmlns:views="clr-namespace:Dynamo.UI.Views">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml" />
-        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
+    xmlns:local="clr-namespace:Dynamo.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml" />
+                <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
 
-    </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <!--  Grid that contains the entire port  -->
+    <Grid>
+        <Grid Name="PortSnappingGrid">
+            <!--  Transparent rectangle used for port snapping, overhangs the edge of the port  -->
+            <Rectangle
+                x:Name="PortSnapping"               
+                Margin="0,0,-25,0"
+                Canvas.ZIndex="1"                
+                IsHitTestVisible="{Binding IsHitTestVisible}"
+                SnapsToDevicePixels="True">
+                <interactivity:Interaction.Triggers>
+                    <interactivity:EventTrigger EventName="MouseEnter">
+                        <interactivity:InvokeCommandAction Command="{Binding Path=MouseEnterCommand}" CommandParameter="{Binding}" />
+                    </interactivity:EventTrigger>
+                    <interactivity:EventTrigger EventName="MouseLeave">
+                        <interactivity:InvokeCommandAction Command="{Binding Path=MouseLeaveCommand}" CommandParameter="{Binding}" />
+                    </interactivity:EventTrigger>
+                </interactivity:Interaction.Triggers>
+            </Rectangle>
 
-    <DataTemplate DataType="{x:Type viewModels:OutPortViewModel}">
-
-        <!--  Grid that contains the entire port  -->
+        </Grid>
         <Grid
             Name="MainGrid"
             HorizontalAlignment="Right"
@@ -24,7 +49,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Name="PortNameColumn" Width="*" />
                 <ColumnDefinition Name="ValueMarkerColumn" Width="5px" />
-                <ColumnDefinition Name="PortSnappingColumn" Width="25px" />
             </Grid.ColumnDefinitions>
             <interactivity:Interaction.Triggers>
                 <!--  Bind Connect command to left click  -->
@@ -53,25 +77,6 @@
                 </Style>
             </Grid.Style>
 
-            <!--  Transparent rectangle used for port snapping, overhangs the edge of the port  -->
-            <Rectangle
-                x:Name="PortSnapping"
-                Grid.Column="0"
-                Grid.ColumnSpan="7"
-                Margin="-25,0,0,0"
-                Canvas.ZIndex="1"
-                Fill="Transparent"
-                IsHitTestVisible="{Binding IsHitTestVisible}"
-                SnapsToDevicePixels="True">
-                <interactivity:Interaction.Triggers>
-                    <interactivity:EventTrigger EventName="MouseEnter">
-                        <interactivity:InvokeCommandAction Command="{Binding Path=MouseEnterCommand}" CommandParameter="{Binding}" />
-                    </interactivity:EventTrigger>
-                    <interactivity:EventTrigger EventName="MouseLeave">
-                        <interactivity:InvokeCommandAction Command="{Binding Path=MouseLeaveCommand}" CommandParameter="{Binding}" />
-                    </interactivity:EventTrigger>
-                </interactivity:Interaction.Triggers>
-            </Rectangle>
 
             <!--  Sets the port background color  -->
             <Border
@@ -101,7 +106,7 @@
                 </Border.Style>
             </Border>
 
-            <!--  A small marker on the left of the port, indicating whether it's been honored  -->
+            <!--  A small marker on the right of the port, indicating whether it's been honored  -->
             <Rectangle
                 x:Name="PortValueMarker"
                 Grid.Column="1"
@@ -208,5 +213,6 @@
 
             </Border>
         </Grid>
-    </DataTemplate>
-</ResourceDictionary>
+    </Grid>
+
+</UserControl>

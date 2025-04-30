@@ -23,11 +23,7 @@
 
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/ToolbarStyleDictionary.xaml" />
-
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Connectors.xaml" />
-        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/InPorts.xaml" />
-        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/OutPorts.xaml" />
-        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Ports.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 

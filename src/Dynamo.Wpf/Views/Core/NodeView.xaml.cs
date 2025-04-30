@@ -122,10 +122,26 @@ namespace Dynamo.Controls
             nodeBorder.SizeChanged += OnSizeChanged;
             DataContextChanged += OnDataContextChanged;
 
-
             Panel.SetZIndex(this, 1);
         }
-
+        private void OnNodeViewLoaded(object sender, RoutedEventArgs e)
+        {
+            // We no longer cache the DataContext (NodeViewModel) here because 
+            // OnNodeViewLoaded gets called at a much later time and we need the 
+            // ViewModel to be valid earlier (e.g. OnSizeChanged is called before
+            // OnNodeViewLoaded, and it needs ViewModel for size computation).
+            // 
+            // ViewModel = this.DataContext as NodeViewModel;
+            ViewModel.NodeLogic.DispatchedToUI += NodeLogic_DispatchedToUI;
+            ViewModel.RequestShowNodeHelp += ViewModel_RequestShowNodeHelp;
+            ViewModel.RequestShowNodeRename += ViewModel_RequestShowNodeRename;
+            ViewModel.RequestsSelection += ViewModel_RequestsSelection;
+            ViewModel.RequestAutoCompletePopupPlacementTarget += ViewModel_RequestAutoCompletePopupPlacementTarget;
+            ViewModel.RequestPortContextMenuPopupPlacementTarget += ViewModel_RequestPortContextMenuPlacementTarget;
+            ViewModel.NodeLogic.PropertyChanged += NodeLogic_PropertyChanged;
+            ViewModel.NodeModel.ConnectorAdded += NodeModel_ConnectorAdded;
+            MouseLeave += NodeView_MouseLeave;
+        }
         private void OnNodeViewUnloaded(object sender, RoutedEventArgs e)
         {
             ViewModel.NodeLogic.DispatchedToUI -= NodeLogic_DispatchedToUI;
@@ -197,24 +213,7 @@ namespace Dynamo.Controls
             nodeBorder.RenderSize = size;
         }
 
-        private void OnNodeViewLoaded(object sender, RoutedEventArgs e)
-        {
-            // We no longer cache the DataContext (NodeViewModel) here because 
-            // OnNodeViewLoaded gets called at a much later time and we need the 
-            // ViewModel to be valid earlier (e.g. OnSizeChanged is called before
-            // OnNodeViewLoaded, and it needs ViewModel for size computation).
-            // 
-            // ViewModel = this.DataContext as NodeViewModel;
-            ViewModel.NodeLogic.DispatchedToUI += NodeLogic_DispatchedToUI;
-            ViewModel.RequestShowNodeHelp += ViewModel_RequestShowNodeHelp;
-            ViewModel.RequestShowNodeRename += ViewModel_RequestShowNodeRename;
-            ViewModel.RequestsSelection += ViewModel_RequestsSelection;
-            ViewModel.RequestAutoCompletePopupPlacementTarget += ViewModel_RequestAutoCompletePopupPlacementTarget;
-            ViewModel.RequestPortContextMenuPopupPlacementTarget += ViewModel_RequestPortContextMenuPlacementTarget;
-            ViewModel.NodeLogic.PropertyChanged += NodeLogic_PropertyChanged;
-            ViewModel.NodeModel.ConnectorAdded += NodeModel_ConnectorAdded;
-            MouseLeave += NodeView_MouseLeave;
-        }
+
 
         private void NodeModel_ConnectorAdded(Graph.Connectors.ConnectorModel obj)
         {
@@ -245,9 +244,27 @@ namespace Dynamo.Controls
                 case "IsSetAsOutput":
                     (this.DataContext as NodeViewModel).DynamoViewModel.CurrentSpace.HasUnsavedChanges = true;
                     break;
+                case nameof(NodeModel.X):
+                    UpdatePortCenter();
+                    break;
+                case nameof(NodeModel.Y):
+                    UpdatePortCenter();
+                    break;
             }
         }
-
+        private void UpdatePortCenter()
+        {
+            var inputPorts = this.ChildrenOfType<InPortView>();
+            if (inputPorts.Any())
+            {
+                foreach (var port in inputPorts) { port.UpdateCenter(); }
+            }
+            var outPorts = this.ChildrenOfType<OutPortView>();
+            if (outPorts.Any())
+            {
+                foreach (var port in outPorts) { port.UpdateCenter(); }
+            }
+        }
         /// <summary>
         /// Called when the NodeModel's CachedValue property is updated
         /// </summary>
@@ -810,6 +827,7 @@ namespace Dynamo.Controls
             grid.ContextMenu.Items.Clear();
             e.Handled = true;
         }
+
 
     }
 

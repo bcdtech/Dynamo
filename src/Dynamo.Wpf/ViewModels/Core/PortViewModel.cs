@@ -35,7 +35,7 @@ namespace Dynamo.ViewModels
         {
             get { return port; }
         }
-
+        public PortAlinement Alinement => port.Alinement;
         /// <summary>
         /// The content of tooltip.
         /// </summary>
@@ -110,7 +110,13 @@ namespace Dynamo.ViewModels
         /// </summary>
         public Point Center
         {
-            get { return port.Center.AsWindowsType(); }
+            get => port.Center.AsWindowsType();
+            set
+            {
+                port.Center = value.AsDynamoType();
+                OnPropertyChanged(nameof(Center));
+
+            }
         }
 
         /// <summary>

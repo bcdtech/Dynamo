@@ -4,14 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:configuration="clr-namespace:Dynamo.Configuration;assembly=DynamoCore"
     xmlns:controls="clr-namespace:Dynamo.Controls"
-    xmlns:views="clr-namespace:Dynamo.Views"
-    
     xmlns:dp="clr-namespace:Dynamo.Properties;assembly=DynamoCore"
     xmlns:dp1="clr-namespace:Dynamo.Properties;assembly=DynamoCore"
     xmlns:dynui="clr-namespace:Dynamo.UI.Controls"
     xmlns:fa="clr-namespace:FontAwesome5;assembly=FontAwesome5.Net"
     xmlns:p="clr-namespace:Dynamo.Wpf.Properties"
     xmlns:ui="clr-namespace:Dynamo.UI"
+    xmlns:views="clr-namespace:Dynamo.Views"
     Name="topControl"
     Width="Auto"
     Height="Auto"
@@ -21,9 +20,7 @@
     MouseLeftButtonDown="topControl_MouseLeftButtonDown"
     MouseRightButtonDown="DisplayNodeContextMenu"
     PreviewMouseLeftButtonDown="OnPreviewMouseLeftButtonDown"
-    PreviewMouseMove="OnNodeViewMouseMove"
-    
-    >
+    PreviewMouseMove="OnNodeViewMouseMove">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -33,11 +30,11 @@
     </UserControl.Resources>
 
     <Grid
-        Name="grid" Background="Purple"
+        Name="grid"
         HorizontalAlignment="Left"
         x:FieldModifier="public"
+        Background="Purple"
         ContextMenuService.IsEnabled="false"
-       
         Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -442,20 +439,19 @@
             Name="inputPortControl"
             Grid.Row="2"
             Grid.Column="0"
-            Margin="-25,3,0,0"
+            Margin="0"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
-            ItemsSource="{Binding Path=InPortsLeft.View}"
-            >
+            ItemsSource="{Binding Path=InPortsLeft.View}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <controls:InPortView/>
+                    <controls:InPortView />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="1"/>
+                    <UniformGrid Columns="1" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
@@ -469,33 +465,41 @@
             VerticalAlignment="Top"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="6"
-            ItemsSource="{Binding Path=InPortsTop.View}"
-            >
+            ItemsSource="{Binding Path=InPortsTop.View}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:InPortView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Rows="1"/>
+                    <UniformGrid Rows="1" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
 
         <!--  OUTPUT PORTS Align Right  -->
-        <ItemsControl 
+        <ItemsControl
             Name="outputPortControl"
             Grid.Row="2"
             Grid.Column="2"
-            Margin="{Binding OriginalName, Converter={StaticResource NodeOriginalNameToMarginConverter}}"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Right"
             Canvas.ZIndex="4"
-            ItemsSource="{Binding Path=OutPortsRight.View}"
-            >
+            ItemsSource="{Binding Path=OutPortsRight.View}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:OutPortView />
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="1"/>
+                    <UniformGrid Columns="1" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-            
+
         </ItemsControl>
 
         <!--  OUTPUT PORTS Align Bottom  -->
@@ -504,11 +508,21 @@
             Grid.Row="2"
             Grid.Column="2"
             Margin="{Binding OriginalName, Converter={StaticResource NodeOriginalNameToMarginConverter}}"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="4"
-            ItemsSource="{Binding Path=OutPortsRight.View}"
-            Style="{StaticResource InOutPortControlStyle}" />
+            ItemsSource="{Binding Path=OutPortsBottom.View}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:OutPortView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
 
         <Grid
             Name="centralGrid"
@@ -640,7 +654,7 @@
                 </Grid.Style>
             </Grid>
 
-          
+
         </StackPanel>
 
         <Grid

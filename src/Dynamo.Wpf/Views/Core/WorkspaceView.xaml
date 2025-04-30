@@ -147,7 +147,7 @@
                             <Canvas.Background>
                                 <SolidColorBrush Color="Transparent" />
                             </Canvas.Background>
-                           
+
                         </controls:DragCanvas>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
@@ -233,7 +233,7 @@
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasPanButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
-               
+
                 <ui:ImageCheckBox.IsChecked>
                     <Binding Mode="OneWay" Path="IsPanning" />
                 </ui:ImageCheckBox.IsChecked>
@@ -248,7 +248,7 @@
                 <ui:ImageCheckBox.ToolTip>
                     <ToolTip Content="{x:Static p:Resources.InCanvasOrbitButtonToolTip}" Style="{StaticResource GenericToolTipLight}" />
                 </ui:ImageCheckBox.ToolTip>
-               
+
                 <ui:ImageCheckBox.IsChecked>
                     <Binding Mode="OneWay" Path="IsOrbiting" />
                 </ui:ImageCheckBox.IsChecked>
@@ -739,8 +739,8 @@
                         Header="{x:Static p:Resources.UpdateAllPythonEngineMainMenuHeader}"
                         Visibility="{Binding Path=CanUpdatePythonEngine, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}" />
 
-               
-                  
+
+
                     <!--  Fit to Screen  -->
                     <MenuItem Command="{Binding DynamoViewModel.FitViewCommand}" Header="{x:Static p:Resources.ContextMenuFitToScreen}" />
 

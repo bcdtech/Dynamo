@@ -1,6 +1,5 @@
 using Dynamo.Graph;
 using Dynamo.Utilities;
-using System.Diagnostics;
 
 namespace Dynamo.ViewModels
 {
@@ -49,9 +48,6 @@ namespace Dynamo.ViewModels
                 // Make sure the nodes do not go beyond the region.
                 double x = mouseCursor.X - deltaX;
                 double y = mouseCursor.Y - deltaY;
-                Debug.WriteLine(mouseCursor);
-                Debug.WriteLine($"{x}----------{y}");
-
                 locatable.X = x;
                 locatable.Y = y;
                 locatable.ReportPosition();

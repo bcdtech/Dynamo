@@ -8,7 +8,7 @@ namespace Dynamo.Utilities
     static class WpfUtilities
     {
         // walk up the visual tree to find object of type T, starting from initial object
-        public static T FindUpVisualTree<T>(DependencyObject initial) where T : DependencyObject
+        public static T FindUpVisualTree<T>(this DependencyObject initial) where T : DependencyObject
         {
             DependencyObject current = initial;
 

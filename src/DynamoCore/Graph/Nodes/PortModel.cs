@@ -171,43 +171,12 @@ namespace Dynamo.Graph.Nodes
         {
             get
             {
-                // If it is a proxy port, return the center as it is already set in the Annotion Model.
-                if (IsProxyPort)
-                {
-                    return center;
-                }
-                // If it is a node port, calculate the center based on that node position.
-                else
-                {
-                    double halfHeight = Height * 0.5;
-
-                    double offset = Owner.GetPortVerticalOffset(this);
-                    double y = Owner.Y + NodeModel.HeaderHeight + halfHeight + offset + 9;
-
-                    switch (PortType)
-                    {
-                        case PortType.Input:
-                            return new Point2D(Owner.X, y);
-                        case PortType.Output:
-                            if (Owner is CodeBlockNodeModel)
-                            {
-                                // Special case because code block outputs are smaller than regular outputs.
-                                // This ensures the output port of the first code block output aligns with
-                                // the first input port of any node.
-                                return new Point2D(Owner.X + Owner.Width, y + 9);
-                            }
-                            return new Point2D(Owner.X + Owner.Width, y);
-                    }
-
-                    return new Point2D();
-                }
+                return center;
             }
-            internal set
+            set
             {
                 if (center.Equals(value)) return;
-
                 center = value;
-                OnPropertyChanged(nameof(Center));
             }
         }
 
