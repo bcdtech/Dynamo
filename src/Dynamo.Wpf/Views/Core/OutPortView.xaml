@@ -22,6 +22,9 @@
     </UserControl.Resources>
     <!--  Grid that contains the entire port  -->
     <Grid>
+        <Grid.LayoutTransform>
+            <RotateTransform Angle="{Binding PortAlignment,Converter={StaticResource OutPortAlignmentConverter}}"/>
+        </Grid.LayoutTransform>
         <Grid Name="PortSnappingGrid">
             <!--  Transparent rectangle used for port snapping, overhangs the edge of the port  -->
             <Rectangle

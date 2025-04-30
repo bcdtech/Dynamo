@@ -35,7 +35,7 @@ namespace Dynamo.ViewModels
         {
             get { return port; }
         }
-        public PortAlinement Alinement => port.Alinement;
+        public PortAlinement PortAlinement => port.Alinement;
         /// <summary>
         /// The content of tooltip.
         /// </summary>

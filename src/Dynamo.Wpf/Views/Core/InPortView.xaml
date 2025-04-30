@@ -19,10 +19,13 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
+        <Grid.LayoutTransform>
+            <RotateTransform Angle="{Binding PortAlignment,Converter={StaticResource InPortAlignmentConverter}}"/>
+        </Grid.LayoutTransform>
         <Grid Name="PortSnapingGrid">
             <!--  Enables Port Snapping  -->
             <Rectangle
-                x:Name="PortSnapping"              
+                x:Name="PortSnapping"
                 Margin="-25,0,0,0"
                 Canvas.ZIndex="1"
                 IsHitTestVisible="{Binding IsHitTestVisible}"
@@ -39,7 +42,6 @@
         </Grid>
         <Grid
             Name="MainGrid"
-           
             Background="Transparent"
             IsHitTestVisible="True">
             <Grid.ColumnDefinitions>
