@@ -14,16 +14,22 @@ namespace Dynamo.Controls
         public OutPortView()
         {
             InitializeComponent();
+            Loaded += OutPortView_Loaded    ;
+        }
+
+        private void OutPortView_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateCenter();
         }
 
         public OutPortViewModel ViewModel => this.DataContext as OutPortViewModel;
         public void UpdateCenter()
         {
-            var center = new Point(this.ActualWidth, this.ActualHeight / 2);
+            var center = new Point(MainGrid.ActualWidth, MainGrid.ActualHeight / 2);
 
             Debug.WriteLine($"orginal position:{center}");
             var container = this.FindUpVisualTree<DragCanvas>();
-            var transform = this.TransformToAncestor(container);
+            var transform = MainGrid.TransformToAncestor(container);
             ViewModel.Center = transform.Transform(center);
             Debug.WriteLine($"transformed position:{ViewModel.Center}");
 

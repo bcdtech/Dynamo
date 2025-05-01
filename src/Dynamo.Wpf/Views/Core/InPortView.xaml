@@ -97,7 +97,7 @@
                 x:Name="PortNameTextBox"
                 Grid.Column="2"
                 Width="Auto"
-                Margin="0,1,5,0"
+                Margin="0,1,1,0"
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource ArtifaktElementRegular}"
                 FontSize="12px"

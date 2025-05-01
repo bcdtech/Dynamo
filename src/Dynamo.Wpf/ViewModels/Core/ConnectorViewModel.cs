@@ -1194,7 +1194,7 @@ namespace Dynamo.ViewModels
             //);
 
             DynamicStrokeThickness = Math.Max(
-                3, 3 * (1 / workspaceViewModel.Zoom) * 2
+                2, 2 * (1 / workspaceViewModel.Zoom) * 2
             );
         }
 
@@ -1510,19 +1510,12 @@ namespace Dynamo.ViewModels
             }
 
             CurvePoint3 = p2;
-            double distance = Math.Sqrt(Math.Pow(CurvePoint3.X - CurvePoint0.X, 2) + Math.Pow(CurvePoint3.Y - CurvePoint0.Y, 2));
-            double offset = .45 * distance;
+            var  distance = Math.Sqrt(Math.Pow(CurvePoint3.X - CurvePoint0.X, 2) + Math.Pow(CurvePoint3.Y - CurvePoint0.Y, 2));
 
-            CurvePoint1 = new Point(CurvePoint0.X + offset, CurvePoint0.Y);
-            CurvePoint2 = new Point(p2.X - offset, p2.Y);
-
-            //if connector is dragged from an input port
-            if (ActiveStartPort != null && ActiveStartPort.PortType == PortType.Input)
-            {
-                CurvePoint1 = new Point(CurvePoint0.X - offset, CurvePoint1.Y); ;
-                CurvePoint2 = new Point(p2.X + offset, p2.Y);
-            }
-
+            var dx = Math.Sign((CurvePoint3.X - CurvePoint0.X))*distance * 0.45;
+            var dy =Math.Sign( (CurvePoint3.Y - CurvePoint0.Y))*distance * 0.45;
+            CurvePoint1 = new Point(CurvePoint0.X +dx, CurvePoint0.Y);
+            CurvePoint2 = new Point(CurvePoint3.X - dx, CurvePoint3.Y);
             dotTop = CurvePoint3.Y - EndDotSize / 2;
             dotLeft = CurvePoint3.X - EndDotSize / 2;
 

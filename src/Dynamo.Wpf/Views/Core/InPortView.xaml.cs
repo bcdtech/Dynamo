@@ -13,6 +13,12 @@ namespace Dynamo.Controls
         public InPortView()
         {
             InitializeComponent();
+            Loaded += InPortView_Loaded;
+        }
+
+        private void InPortView_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateCenter();
         }
 
         public InPortViewModel ViewModel => this.DataContext as InPortViewModel;

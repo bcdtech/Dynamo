@@ -32,21 +32,20 @@
     <Grid
         Name="grid"
         HorizontalAlignment="Left"
-        x:FieldModifier="public"
-        Background="Purple"
+        x:FieldModifier="public"       
         ContextMenuService.IsEnabled="false"
         Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" MinHeight="24" />
+            <RowDefinition Height="auto" MinHeight="24" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" MinWidth="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" MinWidth="20" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
@@ -433,13 +432,11 @@
                 </Grid.ToolTip>
             </Grid>
         </DockPanel>
-
         <!--  INPUT PORTS Align Left  -->
         <ItemsControl
             Name="inputPortControl"
-            Grid.Row="2"
-            Grid.Column="0"
             Margin="0"
+            Grid.Column="0" Grid.Row="2"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
@@ -459,9 +456,8 @@
         <!--  INPUT PORTS Align Top  -->
         <ItemsControl
             Name="inputPortControlTop"
-            Grid.Row="2"
-            Grid.Column="0"
             Margin="0,3,0,0"
+            Grid.Column="1" Grid.Row="1"
             VerticalAlignment="Top"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="6"
@@ -482,8 +478,7 @@
         <!--  OUTPUT PORTS Align Right  -->
         <ItemsControl
             Name="outputPortControl"
-            Grid.Row="2"
-            Grid.Column="2"
+            Grid.Column="2" Grid.Row="2"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Right"
             Canvas.ZIndex="4"
@@ -505,9 +500,7 @@
         <!--  OUTPUT PORTS Align Bottom  -->
         <ItemsControl
             Name="outputPortControlBottom"
-            Grid.Row="2"
-            Grid.Column="2"
-            Margin="{Binding OriginalName, Converter={StaticResource NodeOriginalNameToMarginConverter}}"
+            Grid.Column="1" Grid.Row="3"
             VerticalAlignment="Bottom"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="4"
@@ -523,6 +516,7 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+
 
         <Grid
             Name="centralGrid"
@@ -805,7 +799,7 @@
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.ColumnSpan="3"
-            Margin="-3"
+            Margin="-1"
             Background="Transparent"
             BorderBrush="{StaticResource Blue300Brush}"
             BorderThickness="2"

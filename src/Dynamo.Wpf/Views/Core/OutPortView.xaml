@@ -50,8 +50,10 @@
             Background="Transparent"
             IsHitTestVisible="True">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Name="PortNameColumn" Width="*" />
-                <ColumnDefinition Name="ValueMarkerColumn" Width="5px" />
+                <ColumnDefinition Name="PortNameColumn" Width="20" />
+                <ColumnDefinition  Width="*" />
+
+                <ColumnDefinition Name="ValueMarkerColumn" Width="4" />
             </Grid.ColumnDefinitions>
             <interactivity:Interaction.Triggers>
                 <!--  Bind Connect command to left click  -->
@@ -112,12 +114,12 @@
             <!--  A small marker on the right of the port, indicating whether it's been honored  -->
             <Rectangle
                 x:Name="PortValueMarker"
-                Grid.Column="1"
-                Height="27px"
+                Grid.Column="2"
+                Height="29px"
                 VerticalAlignment="Center"
                 IsHitTestVisible="False"
                 SnapsToDevicePixels="True"
-                Visibility="{Binding PortDefaultValueMarkerVisible, Converter={StaticResource BooleanToVisibilityCollapsedConverter}}">
+                >
                 <Rectangle.Style>
                     <Style TargetType="Rectangle">
                         <Style.Triggers>
@@ -144,13 +146,13 @@
                     Name="PortNameTextBox"
                     VerticalAlignment="Center"
                     FontFamily="{StaticResource ArtifaktElementRegular}"
-                    FontSize="12px"
+                    FontSize="14px"
                     Foreground="#DCDCDC"
                     IsHitTestVisible="False"
                     Text="{Binding Path=PortName}">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
-                            <Setter Property="Margin" Value="13,3,10,0" />
+                            <Setter Property="Margin" Value="6,3,6,0" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsPortCondensed}" Value="True">
                                     <Setter Property="Margin" Value="12,1,0,0" />
