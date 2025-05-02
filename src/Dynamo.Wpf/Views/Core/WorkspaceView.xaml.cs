@@ -51,7 +51,7 @@ namespace Dynamo.Views
             ResizeHorizontal
         }
 
-        private DragCanvas workBench;
+        private DesignerCanvas workBench;
         private readonly DataTemplate draggedSelectionTemplate;
         private DraggedAdorner draggedAdorner;
         private object draggedData;
@@ -324,7 +324,7 @@ namespace Dynamo.Views
                 var bounds = new Rect();
 
                 double minX = 0.0, minY = 0.0;
-                var dragCanvas = WpfUtilities.ChildOfType<DragCanvas>(this);
+                var dragCanvas = WpfUtilities.ChildOfType<DesignerCanvas>(this);
                 var childrenCount = VisualTreeHelper.GetChildrenCount(dragCanvas);
                 for (int index = 0; index < childrenCount; ++index)
                 {
@@ -892,7 +892,7 @@ namespace Dynamo.Views
                      SystemParameters.MinimumHorizontalDragDistance) &&
                     (Math.Abs(currentMousePosition.Y - startMousePosition.Y) >
                      SystemParameters.MinimumVerticalDragDistance) &&
-                    e.OriginalSource is DragCanvas;
+                    e.OriginalSource is DesignerCanvas;
 
                 if (canDrag)
                 {
@@ -1026,7 +1026,7 @@ namespace Dynamo.Views
 
         private void workBench_OnLoaded(object sender, RoutedEventArgs e)
         {
-            workBench = sender as DragCanvas;
+            workBench = sender as DesignerCanvas;
             workBench.owningWorkspace = this;
         }
 

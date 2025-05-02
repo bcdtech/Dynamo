@@ -21,15 +21,26 @@ namespace Dynamo.Controls
             UpdateCenter();
         }
 
+
+        public bool  IsCondensed
+        {
+            get { return (bool )GetValue(IsCondensedProperty); }
+            set { SetValue(IsCondensedProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsCondensed.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsCondensedProperty =
+            DependencyProperty.Register("IsCondensed", typeof(bool ), typeof(InPortView), new PropertyMetadata(false));
+
+
         public InPortViewModel ViewModel => this.DataContext as InPortViewModel;
         public void UpdateCenter()
         {
-            //var center = new Point(this.ActualWidth / 2, this.ActualHeight / 2);
-            var center = new Point(0, this.ActualHeight / 2);
+            var center = new Point(0, MainGrid.ActualHeight / 2);
 
             Debug.WriteLine($"orginal position:{center}");
-            var container = this.FindUpVisualTree<DragCanvas>();
-            var transform = this.TransformToAncestor(container);
+            var container = this.FindUpVisualTree<DesignerCanvas>();
+            var transform = MainGrid.TransformToAncestor(container);
             ViewModel.Center = transform.Transform(center);
             Debug.WriteLine($"transformed position:{ViewModel.Center}");
 

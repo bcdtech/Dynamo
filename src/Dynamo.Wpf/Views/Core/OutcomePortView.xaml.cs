@@ -1,23 +1,34 @@
-using Dynamo.UI;
 using Dynamo.Utilities;
 using Dynamo.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Dynamo.Controls
 {
     /// <summary>
-    /// Interaction logic for OutPortView.xaml
+    /// Interaction logic for OutcomePortView.xaml
     /// </summary>
-    public partial class OutPortView : IViewModelView<OutPortViewModel>
+    public partial class OutcomePortView : UserControl
     {
-        public OutPortView()
+        public OutcomePortView()
         {
             InitializeComponent();
             Loaded += OutPortView_Loaded;
-            
-        }
 
+        }
         private void OutPortView_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateCenter();
@@ -26,10 +37,13 @@ namespace Dynamo.Controls
         public OutPortViewModel ViewModel => this.DataContext as OutPortViewModel;
         public void UpdateCenter()
         {
-            var center = new Point(MainGrid.ActualWidth, MainGrid.ActualHeight / 2);
+            var center = new Point(MainGrid.ActualWidth/2, MainGrid.ActualHeight);
+
             var container = this.FindUpVisualTree<DesignerCanvas>();
             var transform = MainGrid.TransformToAncestor(container);
+
             ViewModel.Center = transform.Transform(center);
+
         }
     }
 }

@@ -141,7 +141,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </Border>
-              
+
                 <StackPanel
                     x:Name="LowConfidenceSpace"
                     Margin="0,10,0,20"

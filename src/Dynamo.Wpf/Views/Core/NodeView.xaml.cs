@@ -259,10 +259,28 @@ namespace Dynamo.Controls
             {
                 foreach (var port in inputPorts) { port.UpdateCenter(); }
             }
+            var incomes = this.ChildrenOfType<IncomePortView>();
+            if (incomes.Any())
+            {
+                foreach (var port in incomes)
+                {
+                    port.UpdateCenter();
+                }
+
+            }
             var outPorts = this.ChildrenOfType<OutPortView>();
             if (outPorts.Any())
             {
                 foreach (var port in outPorts) { port.UpdateCenter(); }
+            }
+            var outcomes = this.ChildrenOfType<OutcomePortView>();
+            if (outcomes.Any())
+            {
+                foreach (var port in outcomes)
+                {
+                    port.UpdateCenter();
+                }
+
             }
         }
         /// <summary>
@@ -568,7 +586,7 @@ namespace Dynamo.Controls
 
             // If mouse in over node/preview control or preview control is pined, we can not hide preview control.
             if (IsMouseOver || PreviewControl.IsMouseOver || PreviewControl.StaysOpen || IsMouseInsidePreview(e) ||
-                (Mouse.Captured is DragCanvas && IsMouseInsideNodeOrPreview(e.GetPosition(this)))) return;
+                (Mouse.Captured is DesignerCanvas && IsMouseInsideNodeOrPreview(e.GetPosition(this)))) return;
 
             // If it's expanded, then first condense it.
             if (PreviewControl.IsExpanded)
@@ -620,7 +638,7 @@ namespace Dynamo.Controls
                         if (!IsMouseOver)
                         {
                             // If mouse is captured by DragCanvas and mouse is still over node, preview should stay open.
-                            if (!(Mouse.Captured is DragCanvas && IsMouseInsideNodeOrPreview(Mouse.GetPosition(this))))
+                            if (!(Mouse.Captured is DesignerCanvas && IsMouseInsideNodeOrPreview(Mouse.GetPosition(this))))
                             {
                                 preview.TransitionToState(PreviewControl.State.Hidden);
                             }

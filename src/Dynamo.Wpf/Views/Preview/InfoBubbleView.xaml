@@ -45,7 +45,7 @@
 
     </UserControl.Resources>
     <Canvas x:Name="mainCanvas">
-        <Grid x:Name="mainGrid" Margin="10">           
+        <Grid x:Name="mainGrid" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />

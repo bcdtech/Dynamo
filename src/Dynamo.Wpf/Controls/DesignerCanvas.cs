@@ -8,7 +8,7 @@ namespace Dynamo.Controls
     /// <summary>
     /// A Canvas which manages dragging of the UIElements it contains.  
     /// </summary>
-    public class DragCanvas : Canvas
+    public class DesignerCanvas : Canvas
     {
         #region Data
 

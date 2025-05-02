@@ -48,7 +48,7 @@
                                         </Grid.RowDefinitions>
 
                                         <Border x:Name="outerBorder" BorderBrush="{StaticResource LibraryItemHostBackground}">
-                                            <Grid Name="OuterGrid" Background="Transparent" >
+                                            <Grid Name="OuterGrid" Background="Transparent">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="*" />
@@ -293,8 +293,7 @@
                                                     ClickMode="Press"
                                                     IsChecked="{Binding IsExpanded, Mode=OneWay}"
                                                     IsHitTestVisible="False"
-                                                    Style="{StaticResource LibraryExpandCollapseToggleStyle}">                                                   
-                                                </ToggleButton>
+                                                    Style="{StaticResource LibraryExpandCollapseToggleStyle}" />
 
                                                 <ContentPresenter
                                                     x:Name="NestedPART_Header"

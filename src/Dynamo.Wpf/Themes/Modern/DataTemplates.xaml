@@ -28,4 +28,27 @@
         <nodes:AnnotationView />
     </DataTemplate>
 
+    <DataTemplate x:Key="InputPortView" DataType="{x:Type viewModels:InPortViewModel}">
+        <controls:InPortView />
+    </DataTemplate>
+
+    <DataTemplate x:Key="IncomePortView" DataType="{x:Type viewModels:InPortViewModel}">
+        <controls:IncomePortView />
+    </DataTemplate>
+
+    <DataTemplate x:Key="OutputPortView" DataType="{x:Type viewModels:OutPortViewModel}">
+        <controls:OutPortView />
+    </DataTemplate>
+    <DataTemplate x:Key="OutcomePortView" DataType="{x:Type viewModels:OutPortViewModel}">
+        <controls:OutcomePortView />
+    </DataTemplate>
+    <viewModels:PortDataTemplateSelector
+        x:Key="PortDataTemplateSelector"
+        IncomeDataTemplate="{StaticResource IncomePortView}"
+        InputDataTemplate="{StaticResource InputPortView}"
+        OutcomeDataTemplate="{StaticResource OutcomePortView}"
+        OutputDataTemplate="{StaticResource OutputPortView}"
+        />
+
+
 </ResourceDictionary>

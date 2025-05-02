@@ -1514,8 +1514,23 @@ namespace Dynamo.ViewModels
 
             var dx = Math.Sign((CurvePoint3.X - CurvePoint0.X))*distance * 0.45;
             var dy =Math.Sign( (CurvePoint3.Y - CurvePoint0.Y))*distance * 0.45;
-            CurvePoint1 = new Point(CurvePoint0.X +dx, CurvePoint0.Y);
+            CurvePoint1 = new Point(CurvePoint0.X + dx, CurvePoint0.Y);
             CurvePoint2 = new Point(CurvePoint3.X - dx, CurvePoint3.Y);
+            if (ActiveStartPort != null)
+            {
+                if (ActiveStartPort.Alignment == PortAlignment.Left || ActiveStartPort.Alignment == PortAlignment.Right)
+                {
+                    CurvePoint1 = new Point(CurvePoint0.X + dx, CurvePoint0.Y);
+                    CurvePoint2 = new Point(CurvePoint3.X - dx, CurvePoint3.Y);
+                }
+                else
+                {
+                    CurvePoint1 = new Point(CurvePoint0.X, CurvePoint0.Y + dy);
+                    CurvePoint2 = new Point(CurvePoint3.X, CurvePoint3.Y - dy);
+                }
+            }
+            
+           
             dotTop = CurvePoint3.Y - EndDotSize / 2;
             dotLeft = CurvePoint3.X - EndDotSize / 2;
 

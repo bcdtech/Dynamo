@@ -155,7 +155,7 @@
                 StrokeThickness="3"
                 Style="{StaticResource SConnector}"
                 Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}, UpdateSourceTrigger=PropertyChanged}" />
-            <Path 
+            <Path
                 Canvas.ZIndex="-1"
                 Data="{Binding ComputedBezierPathGeometry, UpdateSourceTrigger=PropertyChanged}"
                 Stroke="Transparent"
