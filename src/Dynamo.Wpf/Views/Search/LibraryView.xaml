@@ -504,14 +504,18 @@
             <!--  This data template is used to show single member.  -->
             <HierarchicalDataTemplate x:Key="MemberControlTemplate" ItemsSource="{Binding TreeViewItems}">
 
-                <StackPanel
+                <Grid
                     Name="ImageAndNodeName"
                     Width="50"
                     Height="50"
                     VerticalAlignment="Center"
-                    Orientation="Vertical"
                     Margin="2"
                     >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
                     <Image
                         Name="SmallIcon"
                         Width="24"
@@ -519,17 +523,19 @@
                         Margin="2,0,2,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="{Binding SmallIcon}" />
+                        Source="{Binding SmallIcon}"
+                        Visibility="{Binding SmallIcon,Converter={StaticResource NullValueToCollapsedConverter}}"/>
                     <TextBlock
                         Name="memberName"
                         Margin="0,0,0,0"
+                        Grid.Row="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="13"
                         Foreground="{StaticResource CommonSidebarTextColor}"
                         Text="{Binding Name}" />
-                    <StackPanel.Style>
-                        <Style TargetType="{x:Type StackPanel}">
+                    <Grid.Style>
+                        <Style TargetType="{x:Type Grid}">
                             <Setter Property="Background" Value="#202020" />
 
 
@@ -539,8 +545,8 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-                    </StackPanel.Style>
-                </StackPanel>
+                    </Grid.Style>
+                </Grid>
 
             </HierarchicalDataTemplate>
 

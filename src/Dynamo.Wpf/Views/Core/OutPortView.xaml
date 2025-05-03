@@ -70,6 +70,7 @@
             x:Name="PortBackgroundBorder"
             Grid.Column="0"
             Grid.ColumnSpan="2"
+            VerticalAlignment="Stretch"
             SnapsToDevicePixels="True">
             <Border.Style>
                 <Style TargetType="Border">
@@ -96,7 +97,7 @@
             Name="PortNameGrid"
             Grid.Column="0"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Stretch"
             IsEnabled="{Binding Path=IsEnabled}"
             IsHitTestVisible="True"
             ToolTipService.ShowDuration="60000">
