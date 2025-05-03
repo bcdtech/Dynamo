@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dynui="clr-namespace:Dynamo.UI.Controls"
     xmlns:interactivity="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:local="clr-namespace:Dynamo.Wpf.Views"
+    xmlns:local="clr-namespace:Dynamo.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="40"
     d:DesignWidth="40"
@@ -21,10 +21,11 @@
     </UserControl.Resources>
     <Grid
         Name="MainGrid"
-        Margin="2,0,0,0"
+        MaxWidth="40"
+        Margin="2,0,2,0"
         IsHitTestVisible="True">
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="PortSnapingRow" Height="auto" />
+            <RowDefinition x:Name="PortSnapingRow" Height="0" />
             <RowDefinition x:Name="ValueMarkerRow" Height="3px" />
             <RowDefinition x:Name="PortNameRow" />
         </Grid.RowDefinitions>
@@ -47,6 +48,41 @@
 
 
         <Grid Name="PortSnapingGrid" Margin="0,-18,0,0">
+            <Viewbox Stretch="Uniform" StretchDirection="Both" Margin="0 0 0 -6">
+                <Grid Width="20" Height="20">
+                    <Ellipse
+                        x:Name="port"
+                        Width="12"
+                        Height="12"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">
+                        <Ellipse.Style>
+                            <Style TargetType="Ellipse">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Connected}" Value="true">
+                                        <DataTrigger.Setters />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
+                    <Path
+                        Width="8"
+                        Height="4"
+                        Margin="0 -8 0 0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M 0 4 L 8 4 L 4 0 Z"
+                        Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">
+                        <Path.LayoutTransform>
+                            <RotateTransform Angle="180"/>
+                        </Path.LayoutTransform>
+                    </Path>
+
+
+                </Grid>
+            </Viewbox>
             <!--  Enables Port Snapping  -->
             <Rectangle
                 x:Name="PortSnapping"

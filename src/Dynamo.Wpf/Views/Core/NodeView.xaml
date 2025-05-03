@@ -457,6 +457,7 @@
             Grid.Column="1"
             Margin="3,0,3,0"
             VerticalAlignment="Top"
+            HorizontalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="6"
             ItemTemplateSelector="{StaticResource PortDataTemplateSelector}"
@@ -589,7 +590,7 @@
                     Stretch="UniformToFill" />
             </Grid>
             <Label
-                x:Name="LacingIconGlyph"
+                x:Name="LacingIconGlyph" 
                 Margin="0,1,-2,-1"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
