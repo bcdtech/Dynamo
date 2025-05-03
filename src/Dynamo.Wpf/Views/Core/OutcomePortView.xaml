@@ -10,7 +10,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="40"
     d:DesignWidth="40"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    x:Name="outcome">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -68,12 +69,19 @@
                 Margin="0,-6,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">
+                >
                 <Ellipse.Style>
                     <Style TargetType="Ellipse">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Connected}" Value="true">
-                                <DataTrigger.Setters />
+                            <DataTrigger Binding="{Binding IsConnected,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                <DataTrigger.Setters>
+                                    <Setter Property="Fill" Value="OrangeRed"/>
+                                </DataTrigger.Setters>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsConnected,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <DataTrigger.Setters>
+                                    <Setter Property="Fill" Value="DarkGreen"/>
+                                </DataTrigger.Setters>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
@@ -93,10 +101,26 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Data="M 0 4 L 8 4 L 4 0 Z"
-                        Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">
+                        >
                         <Path.LayoutTransform>
                             <RotateTransform Angle="180" />
                         </Path.LayoutTransform>
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsConnected,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Fill" Value="OrangeRed"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsConnected,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Fill" Value="DarkGreen"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
                     </Path>
 
 
@@ -146,7 +170,7 @@
 
         <Rectangle
             x:Name="PortValueMarker"
-            Grid.Row="1"
+            Grid.Row="1" Visibility="Hidden"
             VerticalAlignment="Stretch"
             Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}"
             IsHitTestVisible="False"

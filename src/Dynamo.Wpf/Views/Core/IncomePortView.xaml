@@ -117,7 +117,7 @@
         <!--  A small marker on the left of the port, indicating whether it's been honored  -->
         <Rectangle
             x:Name="PortValueMarker"
-            Grid.Row="1"
+            Grid.Row="1" Visibility="Hidden"
             VerticalAlignment="Stretch"
             Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}"
             IsHitTestVisible="False"
