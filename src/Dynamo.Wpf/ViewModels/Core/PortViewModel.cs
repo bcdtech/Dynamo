@@ -26,8 +26,13 @@ namespace Dynamo.ViewModels
         protected static readonly SolidColorBrush PortBackgroundColorPreviewOff = new SolidColorBrush(Color.FromRgb(102, 102, 102));
         protected static readonly SolidColorBrush PortBackgroundColorDefault = new SolidColorBrush(Color.FromRgb(60, 60, 60));
         protected static readonly SolidColorBrush PortBorderBrushColorDefault = new SolidColorBrush(Color.FromRgb(161, 161, 161));
+        protected static SolidColorBrush PortValueMarkerBlue = new SolidColorBrush(Color.FromRgb(106, 192, 231));
+        protected static SolidColorBrush PortValueMarkerRed = new SolidColorBrush(Color.FromRgb(235, 85, 85));
+        protected static SolidColorBrush PortValueMarkerGrey = new SolidColorBrush(Color.FromRgb(153, 153, 153));
         private SolidColorBrush portBorderBrushColor = PortBorderBrushColorDefault;
         private SolidColorBrush portBackgroundColor = PortBackgroundColorDefault;
+        private SolidColorBrush portValueMarkerColor = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
+
         /// <summary>
         /// Port model.
         /// </summary>
@@ -217,7 +222,18 @@ namespace Dynamo.ViewModels
                 OnPropertyChanged(nameof(PortBackgroundColor));
             }
         }
-
+        /// <summary>
+        /// Sets the color of the small rectangular marker on each input port.
+        /// </summary>
+        public SolidColorBrush PortValueMarkerColor
+        {
+            get => portValueMarkerColor;
+            set
+            {
+                portValueMarkerColor = value;
+                OnPropertyChanged(nameof(PortValueMarkerColor));
+            }
+        }
         #endregion
 
         #region events

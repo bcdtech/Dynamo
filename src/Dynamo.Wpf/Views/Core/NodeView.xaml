@@ -339,16 +339,15 @@
             Name="nodeHeaderContent"
             Grid.Row="1"
             Grid.ColumnSpan="3"
-            Margin="4,2"
-            HorizontalAlignment="Stretch"
+            Margin="4"
             VerticalAlignment="Top"
             Panel.ZIndex="3"
             FlowDirection="LeftToRight">
             <!--  The Icon for this Node  -->
             <Rectangle
                 Name="nodeIcon"
-                Width="16"
-                Height="16">
+                Width="20"
+                Height="20">
                 <Rectangle.Style>
                     <Style TargetType="Rectangle">
                         <Setter Property="Fill">
