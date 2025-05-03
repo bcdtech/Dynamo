@@ -47,7 +47,7 @@
 
 
 
-        <Grid Name="PortSnapingGrid" Margin="0,-18,0,0">
+        <Grid Name="PortSnapingGrid" Margin="0,-18,0,0" ClipToBounds="True">
             <Viewbox Stretch="Uniform" StretchDirection="Both" Margin="0 0 0 -6">
                 <Grid Width="20" Height="20">
                     <Ellipse
@@ -104,7 +104,7 @@
             x:Name="PortBackgroundBorder"
             Grid.Row="1"
             Grid.RowSpan="6"
-            Background="{Binding PortBackgroundColor, UpdateSourceTrigger=PropertyChanged}"
+            Background="Transparent"
             BorderBrush="{Binding PortBorderBrushColor, UpdateSourceTrigger=PropertyChanged}"
             BorderThickness="0"
             CornerRadius="0,0,3,3"
@@ -123,7 +123,7 @@
 
         <!--  The name of this port  -->
         <TextBlock
-            x:Name="PortNameTextBox"
+            x:Name="PortNameTextBox" Visibility="Hidden"
             Grid.Row="2"
             Margin="3"
             HorizontalAlignment="Center"

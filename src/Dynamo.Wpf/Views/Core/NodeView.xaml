@@ -599,7 +599,7 @@
                 Foreground="{StaticResource NodeLacingGlyphBackground}"
                 Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
                 ToolTipService.ShowDuration="30000"
-                FontSize="100px"                
+                FontSize="10px"                
                 Visibility="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToVisibilityConverter}}">
                 <Label.ToolTip>
                     <ToolTip Content="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToTooltipConverter}}" Style="{StaticResource GenericToolTipLight}" />

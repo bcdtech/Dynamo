@@ -1529,9 +1529,14 @@ namespace Dynamo.ViewModels
                     CurvePoint1 = new Point(CurvePoint0.X, CurvePoint0.Y + dy);
                 }
             }
+            else
+            {
+                CurvePoint1 = new Point(CurvePoint0.X + dx, CurvePoint0.Y);
+
+            }
             if (endPort != null)
             {
-                if(endPort.Alignment==PortAlignment.Left||endPort.Alignment == PortAlignment.Right)
+                if (endPort.Alignment == PortAlignment.Left || endPort.Alignment == PortAlignment.Right)
                 {
                     CurvePoint2 = new Point(CurvePoint3.X - dx, CurvePoint3.Y);
                 }
