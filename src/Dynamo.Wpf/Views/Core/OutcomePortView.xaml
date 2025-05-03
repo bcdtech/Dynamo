@@ -58,13 +58,14 @@
             SnapsToDevicePixels="True" />
         <Grid
             Name="PortSnapingGrid"
-            Grid.Row="2" ClipToBounds="True"
-            Margin="0,0,0,-16">
+            Grid.Row="2"
+            Margin="0,0,0,-16"
+            ClipToBounds="True">
             <Ellipse
                 x:Name="port"
                 Width="14"
                 Height="14"
-                Margin="0 -6 0 0"
+                Margin="0,-6,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">

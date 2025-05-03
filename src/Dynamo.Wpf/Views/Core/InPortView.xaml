@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/DynamoConverters.xaml" />
                 <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
@@ -95,7 +95,7 @@
 
             <!--  The name of this port  -->
             <TextBlock
-                x:Name="PortNameTextBox" 
+                x:Name="PortNameTextBox"
                 Grid.Column="3"
                 Width="Auto"
                 Margin="0,1,1,0"
@@ -104,7 +104,7 @@
                 FontSize="12px"
                 Foreground="#DCDCDC"
                 IsHitTestVisible="False"
-                Text="{Binding Path=PortName}"/>
+                Text="{Binding Path=PortName}" />
 
             <!--  The small '>' marker users click on to open the port context menu  -->
             <TextBlock

@@ -47,8 +47,7 @@
         IncomeDataTemplate="{StaticResource IncomePortView}"
         InputDataTemplate="{StaticResource InputPortView}"
         OutcomeDataTemplate="{StaticResource OutcomePortView}"
-        OutputDataTemplate="{StaticResource OutputPortView}"
-        />
+        OutputDataTemplate="{StaticResource OutputPortView}" />
 
 
 </ResourceDictionary>
