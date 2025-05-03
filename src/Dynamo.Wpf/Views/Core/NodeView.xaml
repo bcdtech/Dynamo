@@ -39,7 +39,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="auto"  />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -435,7 +435,7 @@
             Name="inputPortControl"
             Grid.Row="2"
             Grid.Column="0"
-            Margin="0"
+            Margin="0 5 0 5"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
@@ -453,7 +453,8 @@
         <ItemsControl
             Name="IncomePortControlTop"
             Grid.Row="1"
-            Grid.Column="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
             Margin="3,0,3,0"
             VerticalAlignment="Top"
             HorizontalAlignment="Center"
@@ -492,7 +493,8 @@
         <ItemsControl
             Name="OutcomePortControlBottom"
             Grid.Row="3"
-            Grid.Column="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
             VerticalAlignment="Bottom"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="4"
@@ -533,7 +535,7 @@
         </Grid>
 
         <StackPanel
-            Name="GlyphStackPanel"
+            Name="GlyphStackPanel" Visibility="Collapsed"
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="3"

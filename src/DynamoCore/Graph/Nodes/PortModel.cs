@@ -350,8 +350,8 @@ namespace Dynamo.Graph.Nodes
             {
                 Alignment = portType switch
                 {
-                    PortType.Input => PortAlignment.Top,
-                    PortType.Output => PortAlignment.Bottom,
+                    PortType.Input => PortAlignment.Left,
+                    PortType.Output => PortAlignment.Right,
                     _ => PortAlignment.Top,
                 };
             }

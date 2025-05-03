@@ -123,6 +123,25 @@
 
 
 
+
+
+        <!--  A rectangular marker indicating that the port has a default value  -->
+
+        <!--  The name of this port  -->
+        <TextBlock
+            x:Name="PortNameTextBox"
+            Grid.Row="0"
+            Width="Auto"
+            Margin="-30,3,-30,3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontFamily="{StaticResource ArtifaktElementRegular}"
+            FontSize="12px"
+            Foreground="#DCDCDC"
+            IsHitTestVisible="False"
+            Text="{Binding Path=PortName}"
+            Visibility="Hidden" />
+
         <!--  A small marker on the left of the port, indicating whether it's been honored  -->
 
         <Rectangle
@@ -132,24 +151,6 @@
             Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}"
             IsHitTestVisible="False"
             SnapsToDevicePixels="True" />
-
-        <!--  A rectangular marker indicating that the port has a default value  -->
-
-        <!--  The name of this port  -->
-        <TextBlock
-            x:Name="PortNameTextBox"
-            Grid.Row="0"
-            Width="Auto"
-            Margin="3"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontFamily="{StaticResource ArtifaktElementRegular}"
-            FontSize="12px"
-            Foreground="#DCDCDC"
-            IsHitTestVisible="False"
-            Text="{Binding Path=PortName}" />
-
-
 
         <!--  A semi-transparent border, which displays when the user's mouse moves over the port  -->
         <Border
@@ -162,8 +163,8 @@
             SnapsToDevicePixels="True">
             <Border.Style>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="3,0,3,0" />
-                    <Setter Property="BorderThickness" Value="1,1,0,1" />
+                    <Setter Property="CornerRadius" Value="3,3,0,0" />
+                    <Setter Property="BorderThickness" Value="1,1,1,0" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="White" />
@@ -171,13 +172,7 @@
                         <Trigger Property="IsMouseOver" Value="False">
                             <Setter Property="Background" Value="Transparent" />
                         </Trigger>
-                        <DataTrigger Binding="{Binding Path=IsPortCondensed}" Value="True">
-                            <Setter Property="CornerRadius" Value="0" />
-                            <Setter Property="BorderThickness" Value="0" />
-                            <Setter Property="Height" Value="{Binding Source={x:Static configuration:Configurations.CodeBlockOutputPortHeightInPixels}}" />
-                            <Setter Property="Width" Value="20px" />
-                            <Setter Property="Margin" Value="5,0,0,0" />
-                        </DataTrigger>
+
                     </Style.Triggers>
                 </Style>
             </Border.Style>

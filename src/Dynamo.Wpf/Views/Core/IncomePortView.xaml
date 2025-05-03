@@ -47,8 +47,14 @@
 
 
 
-        <Grid Name="PortSnapingGrid" Margin="0,-18,0,0" ClipToBounds="True">
-            <Viewbox Stretch="Uniform" StretchDirection="Both" Margin="0 0 0 -6">
+        <Grid
+            Name="PortSnapingGrid"
+            Margin="0,-18,0,0"
+            ClipToBounds="True">
+            <Viewbox
+                Margin="0,0,0,-6"
+                Stretch="Uniform"
+                StretchDirection="Both">
                 <Grid Width="20" Height="20">
                     <Ellipse
                         x:Name="port"
@@ -70,14 +76,12 @@
                     <Path
                         Width="8"
                         Height="4"
-                        Margin="0 -8 0 0"
+                        Margin="0,-8,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="M 0 4 L 8 4 L 4 0 Z"
                         Fill="{Binding PortValueMarkerColor, UpdateSourceTrigger=PropertyChanged}">
-                        <Path.LayoutTransform>
-                            <RotateTransform Angle="180"/>
-                        </Path.LayoutTransform>
+                      
                     </Path>
 
 
@@ -123,16 +127,17 @@
 
         <!--  The name of this port  -->
         <TextBlock
-            x:Name="PortNameTextBox" Visibility="Hidden"
+            x:Name="PortNameTextBox"
             Grid.Row="2"
-            Margin="3"
+            Margin="-30 3 -30 3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontFamily="{StaticResource ArtifaktElementRegular}"
             FontSize="12px"
             Foreground="#DCDCDC"
             IsHitTestVisible="False"
-            Text="{Binding Path=PortName}" />
+            Text="{Binding Path=PortName}"
+            Visibility="Hidden" />
 
 
 
