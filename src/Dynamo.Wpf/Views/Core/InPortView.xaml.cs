@@ -38,11 +38,9 @@ namespace Dynamo.Controls
         {
             var center = new Point(0, MainGrid.ActualHeight / 2);
 
-            Debug.WriteLine($"orginal position:{center}");
             var container = this.FindUpVisualTree<DesignerCanvas>();
             var transform = MainGrid.TransformToAncestor(container);
             ViewModel.Center = transform.Transform(center);
-            Debug.WriteLine($"transformed position:{ViewModel.Center}");
 
         }
     }
