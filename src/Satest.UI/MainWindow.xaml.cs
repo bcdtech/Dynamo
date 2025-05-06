@@ -5,6 +5,7 @@ using Dynamo.Wpf.Interfaces;
 using System.IO;
 using System.Reflection;
 using System.Windows;
+using static Dynamo.ViewModels.SearchViewModel;
 namespace Satest.UI
 {
     /// <summary>
@@ -49,7 +50,14 @@ namespace Satest.UI
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
             dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);
+            Loaded += (sender, e) =>
+            {
+                viewModel.NewHomeWorkspaceCommand.Execute(null);
+
+            };
         }
+
+       
 
         private void mainGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
