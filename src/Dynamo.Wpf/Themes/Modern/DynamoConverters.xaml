@@ -190,7 +190,8 @@
     <controls:BooleanNegationConverter x:Key="BooleanNegationConverter" />
     <controls:LeftMarginConverter x:Key="LeftMarginConverter" />
     <controls:NumberFormatterConverter x:Key="NumberFormatterConverter" />
-    <controls:InPortAlignmentConverter x:Key="InPortAlignmentConverter"/>
-    <controls:OutPortAlignmentConverter x:Key="OutPortAlignmentConverter"/>
-
+    <controls:InPortAlignmentConverter x:Key="InPortAlignmentConverter" />
+    <controls:OutPortAlignmentConverter x:Key="OutPortAlignmentConverter" />
+    <controls:CountShiftConverter x:Key="CountShiftConverter" />
+    <controls:RulerUnitConverter x:Key="RulerUnitConverter" />
 </ResourceDictionary>

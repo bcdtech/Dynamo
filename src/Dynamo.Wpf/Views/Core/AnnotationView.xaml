@@ -23,7 +23,6 @@
     IsHitTestVisible="True"
     MouseLeftButtonDown="AnnotationView_OnMouseLeftButtonDown"
     MouseRightButtonDown="AnnotationView_OnMouseRightButtonDown"
-    
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -336,8 +335,7 @@
         Name="AnnotationGrid"
         Height="Auto"
         IsHitTestVisible="True"
-        Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}}"
-        >
+        Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityCollapsedConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />

@@ -175,7 +175,7 @@
                         Text="{Binding BodyText, UpdateSourceTrigger=PropertyChanged}"
                         TextWrapping="Wrap" />
                 </ScrollViewer>
-                
+
 
                 <!--  Buttons  -->
                 <DockPanel

@@ -17,7 +17,6 @@
     d:DesignHeight="100"
     d:DesignWidth="200"
     MouseDown="OnNoteMouseDown"
-    
     mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>

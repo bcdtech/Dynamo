@@ -234,7 +234,10 @@ namespace Dynamo.ViewModels
                   runPeriod);
             }
         }
-
+        public DiagramOption DiagramOption
+        {
+            get; set;
+        } = new DiagramOption();
 
         /// <summary>
         /// ViewModel that is used in InCanvasSearch in context menu and called by Shift+DoubleClick.

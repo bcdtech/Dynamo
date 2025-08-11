@@ -38,8 +38,8 @@
         <StackPanel Orientation="Horizontal">
             <ComboBox
                 Name="RunTypesComboBox"
-                MinWidth="100"
                 Width="auto"
+                MinWidth="100"
                 Margin="2.5,0,10,0"
                 HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Center"
@@ -141,7 +141,7 @@
 
             <CheckBox
                 Name="debugCheckBox"
-                Margin="10 0 0 0"
+                Margin="10,0,0,0"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 x:FieldModifier="public"

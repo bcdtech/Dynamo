@@ -83,23 +83,19 @@
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                DataContext="{Binding DynamoViewModel}"
-                >
-                <WrapPanel
-                  
-                    Orientation="Horizontal"
-                    Visibility="{Binding IsAbleToGoHome, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                DataContext="{Binding DynamoViewModel}">
+                <WrapPanel Orientation="Horizontal" Visibility="{Binding IsAbleToGoHome, Converter={StaticResource InverseBoolToVisibilityConverter}}">
 
                     <controls:RunSettingsControl
                         x:Name="RunSettingsControl"
-                        Margin="2 0 0 0"
+                        Margin="2,0,0,0"
                         VerticalAlignment="Stretch"
                         DataContext="{Binding Path=HomeSpaceViewModel.RunSettingsViewModel}" />
                     <!--  NotificationControl for showing run-time notifications  -->
-                    <controls:NotificationsControl  Grid.Column="1" />
+                    <controls:NotificationsControl Grid.Column="1" />
                 </WrapPanel>
 
-                
+
             </Grid>
         </ToolBar>
         <ToolBar Height="36">

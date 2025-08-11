@@ -223,13 +223,15 @@
     <DataTemplate x:Key="MemberTemplate">
         <StackPanel
             Name="ImageAndNodeName"
-            Width="70"
-            Height="70"
+            Width="60"
+            Height="55"
             Margin="3"
+            Background="#202020"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Orientation="Vertical">
-            <StackPanel Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.DisplayIcon, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Visibility="{Binding Path=AutoCompletionNodeMachineLearningInfo.DisplayIcon, Converter={StaticResource BooleanToVisibilityConverter}}"
+                       >
                 <TextBlock
                     MinWidth="25"
                     MaxWidth="33"
@@ -251,8 +253,8 @@
             <Image
                 Width="24"
                 Height="36"
-                Margin="2,0,16,0"
-                HorizontalAlignment="Left"
+                Margin="2,0,2,0"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Source="{Binding SmallIcon}" />
             <Grid Margin="0,0,0,0">
@@ -270,9 +272,9 @@
                 <TextBlock
                     Name="memberName"
                     Grid.Column="1"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    FontSize="13">
+                    FontSize="11">
                     <Run Foreground="{StaticResource CommonSidebarTextColor}" Text="{Binding Name, Mode=OneWay}" />
                     <Run Foreground="#808285" Text="{Binding Parameters, Mode=OneWay}" />
                 </TextBlock>

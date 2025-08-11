@@ -1859,27 +1859,24 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid
-                        x:Name="container"
-                        Width="{TemplateBinding Width}"
-                        Height="{TemplateBinding Height}"
-                        Background="Transparent">
-                        <Border
-                            x:Name="roundedBorder"
-                            HorizontalAlignment="Stretch"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="4">
-                            <TextBlock
-                                x:Name="text"
-                                Margin="0,1,0,0"
-                                Padding="0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontSize="{TemplateBinding FontSize}"
-                                FontWeight="Bold"
-                                Foreground="{TemplateBinding Foreground}"
-                                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
-                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
+                    <Grid x:Name="container"
+                          Width="{TemplateBinding Width}"
+                          Height="{TemplateBinding Height}"
+                          Background="Transparent">
+                        <Border x:Name="roundedBorder"
+                                HorizontalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4">
+                            <TextBlock x:Name="text"
+                                       Margin="0,1,0,0"
+                                       Padding="0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       FontWeight="Bold"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Style="{Binding Path=DataContext.NodeCountOptimizationEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
+                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -1910,24 +1907,22 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid x:Name="container" Background="Transparent">
-                        <Border
-                            x:Name="roundedBorder"
-                            Width="22px"
-                            Height="22px"
-                            HorizontalAlignment="Stretch"
-                            Background="#4D4D4D"
-                            CornerRadius="4">
-                            <TextBlock
-                                x:Name="text"
-                                Margin="0,1,0,0"
-                                Padding="0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontSize="28px"
-                                FontWeight="Bold"
-                                Foreground="#999999"
-                                Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
-                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
+                        <Border x:Name="roundedBorder"
+                                Width="22px"
+                                Height="22px"
+                                HorizontalAlignment="Stretch"
+                                Background="#4D4D4D"
+                                CornerRadius="4">
+                            <TextBlock x:Name="text"
+                                       Margin="0,1,0,0"
+                                       Padding="0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="28px"
+                                       FontWeight="Bold"
+                                       Foreground="#999999"
+                                       Style="{Binding Path=DataContext.NodeCountOptimizationEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
+                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>

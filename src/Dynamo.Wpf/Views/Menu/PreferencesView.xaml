@@ -1994,7 +1994,7 @@
 
                             </ScrollViewer>
                         </TabItem>
-                     
+
 
                         <!--  Security Settings Tab  -->
                         <TabItem Header="{x:Static p:Resources.PreferencesSecuritySettingsTab}" Style="{StaticResource LeftTab}">

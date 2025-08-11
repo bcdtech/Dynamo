@@ -8,14 +8,14 @@ namespace Dynamo.Controls
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var alignment = (PortAlinement)value;
+            var alignment = (PortAlignment)value;
             return alignment switch
             {
 
-                PortAlinement.Left => 0,
-                PortAlinement.Top => 90,
-                PortAlinement.Right => 180,
-                PortAlinement.Bottom => 270,
+                PortAlignment.Left => 0,
+                PortAlignment.Top => 90,
+                PortAlignment.Right => 180,
+                PortAlignment.Bottom => 270,
                 _ => 0
             };
         }

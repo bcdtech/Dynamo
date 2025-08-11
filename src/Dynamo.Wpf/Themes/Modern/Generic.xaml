@@ -24,6 +24,8 @@
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Fonts.xaml" />
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/ToolbarStyleDictionary.xaml" />
         <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/Connectors.xaml" />
+        <ResourceDictionary Source="/Dynamo.Wpf;component/Themes/Modern/ZoomBox.xaml" />
+
     </ResourceDictionary.MergedDictionaries>
 
 
@@ -2053,7 +2055,7 @@
                             Visibility="Hidden" />
                         <TextBlock
                             x:Name="PART_ReadOnlyTextBlock"
-                            Margin="10,0,20,0"
+                            Margin="20,0,20,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Focusable="True"

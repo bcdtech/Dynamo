@@ -5,7 +5,7 @@ using Dynamo.Wpf.Interfaces;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-namespace SATe.Client.UI
+namespace Satest.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +22,7 @@ namespace SATe.Client.UI
             //var rm = new ResourceManager("DSCoreNodesImages", assembly);
             //var img = rm.GetObject("Color.Small");
             //Assembly[] nodeAssemblies = [Assembly.LoadFrom("CoreNodeModels.dll"), Assembly.LoadFrom("CoreNodeModelsWpf.dll")];
-            var model = StartupUtils.MakeModel(false, "", true, "", new HostAnalyticsInfo { });
+            var model = StartupUtils.MakeModel(false, "en-US", true, "", new HostAnalyticsInfo { });
             var path = Path.Combine(Environment.CurrentDirectory, "SampleNodesZeroTouch.dll");
             var assembly = System.Reflection.Assembly.LoadFile(path);
             model.LoadNodeLibrary(assembly, true);
@@ -49,7 +49,14 @@ namespace SATe.Client.UI
             dynamoView.HorizontalAlignment = HorizontalAlignment.Stretch;
             dynamoView.VerticalAlignment = VerticalAlignment.Stretch;
             mainGrid.Children.Add(dynamoView);
+            Loaded += (sender, e) =>
+            {
+                viewModel.NewHomeWorkspaceCommand.Execute(null);
+
+            };
         }
+
+       
 
         private void mainGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

@@ -106,7 +106,7 @@
         <controls:InfiniteGridView x:Name="infiniteGridView" IsHitTestVisible="False">
             <controls:InfiniteGridView.Style>
                 <Style TargetType="controls:InfiniteGridView">
-                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Visibility" Value="Hidden" />
                     <Style.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -121,49 +121,121 @@
 
         <!--  Assigning a ZoomBorder.Background so that it can receive mouse input  -->
 
-        <controls:ZoomBorder
-            x:Name="zoomBorder"
-            Background="Transparent"
-            BorderThickness="0"
-            ClipToBounds="True"
-            Cursor="{Binding CurrentCursor}"
-            ForceCursor="{Binding IsCursorForced}">
-            <ItemsControl Name="WorkspaceElements" ItemsSource="{Binding WorkspaceElements}">
 
-                <!--  Resources for the ItemsControl can now be found in DataTemplates.xml  -->
+        <Grid>
+            <ScrollViewer
+                x:Name="designerScrollViewer"
+                Background="Gray"
+                Focusable="False"
+                HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Auto">
+                <DockPanel x:Name="panel">
+                    <controls:Ruler
+                        x:Name="hruler"
+                        Margin="21,0,0,0"
+                        AutoSize="True"
+                        ClipToBounds="True"
+                        DockPanel.Dock="Top"
+                        Unit="{Binding DiagramOption.LayoutOption.PageUnit, Converter={StaticResource RulerUnitConverter}}"
+                        Zoom="{Binding ZoomValue}">
+                        <controls:Ruler.CountShift>
+                            <MultiBinding Converter="{StaticResource CountShiftConverter}" ConverterParameter="X">
+                                <Binding ElementName="diagram" Path="." />
+                                <Binding Path="DelayZoomValue" />
+                                <Binding Path="DiagramOption.LayoutOption.PageUnit" />
+                                <Binding ElementName="designerScrollViewer" Path="ActualWidth" />
+                                <Binding ElementName="panel" Path="ActualWidth" />
+                                <Binding ElementName="diagram" Path="ActualWidth" />
+                            </MultiBinding>
+                        </controls:Ruler.CountShift>
+                    </controls:Ruler>
+                    <controls:Ruler
+                        x:Name="vruler"
+                        AutoSize="True"
+                        ClipToBounds="True"
+                        Marks="Up"
+                        RenderTransformOrigin="0,0"
+                        Unit="{Binding DiagramOption.LayoutOption.PageUnit, Converter={StaticResource RulerUnitConverter}}"
+                        Zoom="{Binding ZoomValue}">
+                        <controls:Ruler.LayoutTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                <SkewTransform AngleX="0" AngleY="0" />
+                                <RotateTransform Angle="90" />
+                                <TranslateTransform X="23" />
+                            </TransformGroup>
+                        </controls:Ruler.LayoutTransform>
+                        <controls:Ruler.CountShift>
+                            <MultiBinding Converter="{StaticResource CountShiftConverter}" ConverterParameter="Y">
+                                <Binding ElementName="diagram" Path="." />
+                                <Binding Path="DelayZoomValue" />
+                                <Binding Path="DiagramOption.LayoutOption.PageUnit" />
+                                <Binding ElementName="designerScrollViewer" Path="ActualHeight" />
+                                <Binding ElementName="panel" Path="ActualHeight" />
+                                <Binding ElementName="diagram" Path="ActualHeight" />
+                            </MultiBinding>
+                        </controls:Ruler.CountShift>
+                    </controls:Ruler>
+                    <controls:ZoomBorder
+                        x:Name="zoomBorder"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        ClipToBounds="True"
+                        Cursor="{Binding CurrentCursor}"
+                        ForceCursor="{Binding IsCursorForced}">
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <controls:DragCanvas
-                            x:Name="DragCanvas"
-                            Width="0"
-                            Height="0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            IsItemsHost="True"
-                            Loaded="workBench_OnLoaded"
-                            UseLayoutRounding="True"
-                            Visibility="Visible">
-                            <Canvas.Background>
-                                <SolidColorBrush Color="Transparent" />
-                            </Canvas.Background>
+                        <Grid x:Name="diagram" Margin="50">
+                            <ItemsControl Name="WorkspaceElements" ItemsSource="{Binding WorkspaceElements}">
 
-                        </controls:DragCanvas>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                                <!--  Resources for the ItemsControl can now be found in DataTemplates.xml  -->
 
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Canvas.Left" Value="{Binding Left}" />
-                        <Setter Property="Canvas.Top" Value="{Binding Top}" />
-                        <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
 
-            </ItemsControl>
+                                        <controls:DesignerCanvas
+                                            x:Name="DragCanvas"
+                                            IsItemsHost="True"
+                                            Loaded="workBench_OnLoaded"
+                                            UseLayoutRounding="True"
+                                            Visibility="Visible">
+                                            <Canvas.Background>
+                                                <SolidColorBrush Color="Transparent" />
+                                            </Canvas.Background>
 
-        </controls:ZoomBorder>
+                                        </controls:DesignerCanvas>
 
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="Canvas.Left" Value="{Binding Left}" />
+                                        <Setter Property="Canvas.Top" Value="{Binding Top}" />
+                                        <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}" />
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
+
+                            </ItemsControl>
+                        </Grid>
+
+                    </controls:ZoomBorder>
+
+
+                </DockPanel>
+            </ScrollViewer>
+            <!--<controls:ZoomBox
+        x:Name="zoomBox"
+        Width="180"
+        Margin="20,0,0,20"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Bottom"
+        DesignerCanvas="{Binding ElementName=diagram}"
+        FitViewModel="{Binding FitViewModel}"
+        MaximumZoomValue="{Binding MaximumZoomValue, Mode=TwoWay}"
+        MinimumZoomValue="{Binding MinimumZoomValue, Mode=TwoWay}"
+        OffSet="True"
+        ZoomValue="{Binding ZoomValue, Mode=TwoWay}" />-->
+        </Grid>
         <Canvas
             Name="selectionCanvas"
             HorizontalAlignment="Stretch"

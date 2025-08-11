@@ -21,14 +21,11 @@ namespace Dynamo.ViewModels
         private bool showUseLevelMenu;
         private bool isPythonNodePort;
 
-        private SolidColorBrush portValueMarkerColor = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
 
         private bool portDefaultValueMarkerVisible;
         private bool isFunctionNode;
 
-        internal static SolidColorBrush PortValueMarkerBlue = new SolidColorBrush(Color.FromRgb(106, 192, 231));
-        internal static SolidColorBrush PortValueMarkerRed = new SolidColorBrush(Color.FromRgb(235, 85, 85));
-        private static SolidColorBrush PortValueMarkerGrey = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+       
 
         private static readonly SolidColorBrush PortBackgroundColorKeepListStructure = new SolidColorBrush(Color.FromRgb(83, 126, 145));
         private static readonly SolidColorBrush PortBorderBrushColorKeepListStructure = new SolidColorBrush(Color.FromRgb(168, 181, 187));
@@ -134,18 +131,7 @@ namespace Dynamo.ViewModels
             }
         }
 
-        /// <summary>
-        /// Sets the color of the small rectangular marker on each input port.
-        /// </summary>
-        public SolidColorBrush PortValueMarkerColor
-        {
-            get => portValueMarkerColor;
-            set
-            {
-                portValueMarkerColor = value;
-                OnPropertyChanged(nameof(PortValueMarkerColor));
-            }
-        }
+       
 
         /// <summary>
         /// Determines whether the blue circular marker to the left of this port is visible.

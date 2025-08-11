@@ -1,27 +1,27 @@
 using Dynamo.Graph.Nodes;
+using DynamoUnits;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Dynamo.Controls
-{
-    public class OutPortAlignmentConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var alignment = (PortAlinement)value;
-            return alignment switch
-            {
-                PortAlinement.Right => 0,
-                PortAlinement.Bottom => 90,
-                PortAlinement.Left => 180,
-                PortAlinement.Top => 270,
-                _ => 0
-            };
-        }
+namespace Dynamo.Controls;
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+public class OutPortAlignmentConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        var alignment = (PortAlignment)value;
+        return alignment switch
         {
-            throw new NotImplementedException();
-        }
+            PortAlignment.Right => 0,
+            PortAlignment.Bottom => 90,
+            PortAlignment.Left => 180,
+            PortAlignment.Top => 270,
+            _ => 0
+        };
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

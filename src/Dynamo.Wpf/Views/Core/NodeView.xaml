@@ -33,20 +33,19 @@
         Name="grid"
         HorizontalAlignment="Left"
         x:FieldModifier="public"
-        Background="Purple"
         ContextMenuService.IsEnabled="false"
         Visibility="{Binding IsCollapsed, Converter={StaticResource InverseBoolToVisibilityConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" MinHeight="24" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" MinWidth="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" MinWidth="20" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
@@ -253,7 +252,7 @@
             VerticalAlignment="Bottom"
             Background="#747474"
             Canvas.ZIndex="0"
-            CornerRadius="6,6,0,0">
+            CornerRadius="3,3,0,0">
             <Border.Visibility>
                 <Binding
                     Converter="{StaticResource BooleanToVisibilityConverter}"
@@ -270,7 +269,7 @@
             Grid.RowSpan="4"
             Grid.ColumnSpan="3"
             Canvas.ZIndex="1"
-            CornerRadius="8,8,0,0">
+            CornerRadius="4,4,0,0">
             <Border.Style>
                 <Style TargetType="Border">
                     <Setter Property="Background" Value="{StaticResource DarkerGreyBrush}" />
@@ -284,9 +283,8 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Height="30px"
             Canvas.ZIndex="2"
-            CornerRadius="8,8,0,0">
+            CornerRadius="4,4,0,0">
             <Rectangle
                 Fill="Transparent"
                 IsHitTestVisible="True"
@@ -341,16 +339,15 @@
             Name="nodeHeaderContent"
             Grid.Row="1"
             Grid.ColumnSpan="3"
-            Margin="6"
-            HorizontalAlignment="Stretch"
+            Margin="4"
             VerticalAlignment="Top"
             Panel.ZIndex="3"
             FlowDirection="LeftToRight">
             <!--  The Icon for this Node  -->
             <Rectangle
                 Name="nodeIcon"
-                Width="16"
-                Height="16">
+                Width="20"
+                Height="20">
                 <Rectangle.Style>
                     <Style TargetType="Rectangle">
                         <Setter Property="Fill">
@@ -374,11 +371,11 @@
 
             <TextBlock
                 Name="NameBlock"
-                Margin="6,3,6,0"
+                Margin="3,1,2,0"
                 VerticalAlignment="Center"
                 Background="{x:Null}"
                 FontFamily="{StaticResource ArtifaktElementRegular}"
-                FontSize="16px"
+                FontSize="14px"
                 FontWeight="Medium"
                 Foreground="{StaticResource PrimaryCharcoal200Brush}"
                 IsHitTestVisible="False"
@@ -433,22 +430,18 @@
                 </Grid.ToolTip>
             </Grid>
         </DockPanel>
-
         <!--  INPUT PORTS Align Left  -->
         <ItemsControl
             Name="inputPortControl"
             Grid.Row="2"
             Grid.Column="0"
-            Margin="0"
+            Margin="0 5 0 5"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Left"
             Canvas.ZIndex="6"
+            ItemTemplateSelector="{StaticResource PortDataTemplateSelector}"
             ItemsSource="{Binding Path=InPortsLeft.View}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <controls:InPortView />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="1" />
@@ -458,19 +451,18 @@
 
         <!--  INPUT PORTS Align Top  -->
         <ItemsControl
-            Name="inputPortControlTop"
-            Grid.Row="2"
+            Name="IncomePortControlTop"
+            Grid.Row="1"
             Grid.Column="0"
-            Margin="0,3,0,0"
+            Grid.ColumnSpan="3"
+            Margin="3,0,3,0"
             VerticalAlignment="Top"
+            HorizontalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="6"
+            ItemTemplateSelector="{StaticResource PortDataTemplateSelector}"
             ItemsSource="{Binding Path=InPortsTop.View}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <controls:InPortView />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="1" />
@@ -481,19 +473,14 @@
 
         <!--  OUTPUT PORTS Align Right  -->
         <ItemsControl
-            Name="outputPortControl"
+            Name="OutputPortControl"
             Grid.Row="2"
             Grid.Column="2"
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Right"
             Canvas.ZIndex="4"
+            ItemTemplateSelector="{StaticResource PortDataTemplateSelector}"
             ItemsSource="{Binding Path=OutPortsRight.View}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <controls:OutPortView />
-
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="1" />
@@ -504,25 +491,23 @@
 
         <!--  OUTPUT PORTS Align Bottom  -->
         <ItemsControl
-            Name="outputPortControlBottom"
-            Grid.Row="2"
-            Grid.Column="2"
-            Margin="{Binding OriginalName, Converter={StaticResource NodeOriginalNameToMarginConverter}}"
+            Name="OutcomePortControlBottom"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
             VerticalAlignment="Bottom"
             HorizontalContentAlignment="Stretch"
             Canvas.ZIndex="4"
+            ItemTemplateSelector="{StaticResource PortDataTemplateSelector}"
             ItemsSource="{Binding Path=OutPortsBottom.View}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <controls:OutPortView />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="1" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+
 
         <Grid
             Name="centralGrid"
@@ -550,7 +535,7 @@
         </Grid>
 
         <StackPanel
-            Name="GlyphStackPanel"
+            Name="GlyphStackPanel" Visibility="Collapsed"
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="3"
@@ -606,16 +591,16 @@
                     Stretch="UniformToFill" />
             </Grid>
             <Label
-                x:Name="LacingIconGlyph"
-                Margin="0,1,2,-1"
+                x:Name="LacingIconGlyph" 
+                Margin="0,1,-2,-1"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Content="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToAbbreviationConverter}}"
                 FontFamily="{StaticResource ArtifaktElementRegular}"
-                FontSize="10px"
                 Foreground="{StaticResource NodeLacingGlyphBackground}"
                 Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeControl}}"
                 ToolTipService.ShowDuration="30000"
+                FontSize="10px"                
                 Visibility="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToVisibilityConverter}}">
                 <Label.ToolTip>
                     <ToolTip Content="{Binding Path=ArgumentLacing, Converter={StaticResource LacingToTooltipConverter}}" Style="{StaticResource GenericToolTipLight}" />
@@ -679,7 +664,7 @@
             BorderBrush="{StaticResource WorkspaceBackgroundHomeBrush}"
             BorderThickness="1"
             Canvas.ZIndex="5"
-            CornerRadius="8,8,0,0"
+            CornerRadius="4,4,0,0"
             IsHitTestVisible="False"
             SnapsToDevicePixels="True" />
 
@@ -692,7 +677,7 @@
             Margin="-8"
             Background="{StaticResource NodeFrozenOverlayColor}"
             Canvas.ZIndex="6"
-            CornerRadius="8,8,0,0"
+            CornerRadius="4,4,0,0"
             IsHitTestVisible="False"
             Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
             Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
@@ -707,7 +692,7 @@
             Margin="-8"
             Background="{StaticResource NodeTransientOverlayColor}"
             Canvas.ZIndex="6"
-            CornerRadius="8,8,0,0"
+            CornerRadius="4,4,0,0"
             IsHitTestVisible="False"
             Opacity="{Binding Path=DataContext.Zoom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource ZoomToOpacityConverter}}"
             Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeOutPreview}}"
@@ -722,7 +707,7 @@
             Margin="-8"
             Background="{Binding NodeOverlayColor, UpdateSourceTrigger=PropertyChanged}"
             Canvas.ZIndex="6"
-            CornerRadius="8,8,0,0"
+            CornerRadius="4,4,0,0"
             IsHitTestVisible="False"
             Opacity="0.5"
             Style="{Binding Path=DataContext.StopNodeViewOpacityAnimations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:WorkspaceView}}, Converter={StaticResource SZoomFadeInPreview}}"
@@ -805,12 +790,12 @@
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.ColumnSpan="3"
-            Margin="-3"
+            Margin="-1"
             Background="Transparent"
             BorderBrush="{StaticResource Blue300Brush}"
             BorderThickness="2"
             Canvas.ZIndex="6"
-            CornerRadius="10,10,0,0"
+            CornerRadius="4,4,0,0"
             IsHitTestVisible="False">
             <Border.Visibility>
                 <Binding

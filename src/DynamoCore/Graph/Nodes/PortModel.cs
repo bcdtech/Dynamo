@@ -21,7 +21,7 @@ namespace Dynamo.Graph.Nodes
     /// Interaction logic for dynPort.xaml
     /// </summary>
     public enum PortType { Input, Output };
-    public enum PortAlinement { Left, Top, Right, Bottom };
+    public enum PortAlignment { Left, Top, Right, Bottom };
     /// <summary>
     /// PortModel represents Dynamo ports.
     /// </summary>
@@ -115,7 +115,7 @@ namespace Dynamo.Graph.Nodes
             get;
             internal set;
         }
-        public PortAlinement Alinement
+        public PortAlignment Alignment
         {
             get => alinement;
             set => alinement = value;
@@ -158,7 +158,7 @@ namespace Dynamo.Graph.Nodes
         }
 
         private Point2D center = new Point2D();
-        private PortAlinement alinement;
+        private PortAlignment alinement;
 
         /// <summary>
         /// Center is used by connected connectors to update their shape
@@ -306,6 +306,21 @@ namespace Dynamo.Graph.Nodes
 
         internal bool IsProxyPort { get; set; } = false;
 
+        /// <summary>
+        /// Return a value indicating whether this port is connected to a transient node.
+        /// </summary>
+        internal bool HasTransientConnections()
+        {
+            foreach(var connector in Connectors)
+            {
+                var connectedNode = PortType == PortType.Input ? connector?.Start?.Owner : connector?.End?.Owner;
+                if (connectedNode?.IsTransient is true)
+                    return true;
+            }
+
+            return false;
+        }
+
         [JsonConstructor]
         internal PortModel(string name, string toolTip)
         {
@@ -329,7 +344,7 @@ namespace Dynamo.Graph.Nodes
         /// <param name="owner">Parent Node</param>
         /// <param name="data">Information about port</param>
         /// <param name="portPosition">port position</param>
-        public PortModel(PortType portType, NodeModel owner, PortData data, PortAlinement? portPosition = null)
+        public PortModel(PortType portType, NodeModel owner, PortData data, PortAlignment? portPosition = null)
         {
             PortType = portType;
             Owner = owner;
@@ -348,16 +363,16 @@ namespace Dynamo.Graph.Nodes
             Height = Math.Abs(data.Height) < 0.001 ? Configurations.PortHeightInPixels : data.Height;
             if (portPosition == null)
             {
-                Alinement = portType switch
+                Alignment = portType switch
                 {
-                    PortType.Input => PortAlinement.Top,
-                    PortType.Output => PortAlinement.Bottom,
-                    _ => PortAlinement.Top,
+                    PortType.Input => PortAlignment.Left,
+                    PortType.Output => PortAlignment.Right,
+                    _ => PortAlignment.Top,
                 };
             }
             else
             {
-                Alinement = portPosition.Value;
+                Alignment = portPosition.Value;
             }
         }
 

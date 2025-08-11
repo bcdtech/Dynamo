@@ -1158,7 +1158,7 @@ namespace Dynamo.ViewModels
             {
                 if (e.Item is PortViewModel port)
                 {
-                    e.Accepted = port.PortModel.Alinement == PortAlinement.Left;
+                    e.Accepted = port.PortModel.Alignment == PortAlignment.Left;
                 }
                 else
                 {
@@ -1169,7 +1169,7 @@ namespace Dynamo.ViewModels
             {
                 if (e.Item is PortViewModel port)
                 {
-                    e.Accepted = port.PortModel.Alinement == PortAlinement.Top;
+                    e.Accepted = port.PortModel.Alignment == PortAlignment.Top;
                 }
                 else
                 {
@@ -1180,7 +1180,7 @@ namespace Dynamo.ViewModels
             {
                 if (e.Item is PortViewModel port)
                 {
-                    e.Accepted = port.PortModel.Alinement == PortAlinement.Right;
+                    e.Accepted = port.PortModel.Alignment == PortAlignment.Right;
                 }
                 else
                 {
@@ -1191,7 +1191,7 @@ namespace Dynamo.ViewModels
             {
                 if (e.Item is PortViewModel port)
                 {
-                    e.Accepted = port.PortModel.Alinement == PortAlinement.Bottom;
+                    e.Accepted = port.PortModel.Alignment == PortAlignment.Bottom;
                 }
                 else
                 {
