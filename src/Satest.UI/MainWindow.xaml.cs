@@ -5,7 +5,7 @@ using Dynamo.Wpf.Interfaces;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-namespace Satest.UI
+namespace SATe.Client.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -29,7 +29,7 @@ namespace Satest.UI
             //var cmdLineArgs = StartupUtils.CommandLineArguments.Parse([]);
 
             //var model = StartupUtils.MakeCLIModel(cmdLineArgs);
-            var resource = "Satest.UI.Assets.LayoutSpecs.json";
+            var resource = "SATe.Client.UI.Assets.LayoutSpecs.json";
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
             var layoutSpecification = LayoutSpecification.FromJSONStream(stream);
             var startConfiguration = new DynamoViewModel.StartConfiguration()

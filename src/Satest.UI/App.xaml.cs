@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Satest.UI
+namespace SATe.Client.UI
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -14,7 +14,7 @@ namespace Satest.UI
 
         }
         public static App Instance => App.Current as App;
-      
+
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
