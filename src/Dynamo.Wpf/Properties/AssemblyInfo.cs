@@ -17,5 +17,5 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("53390349-7e7a-4e68-a8fd-2a56fec78b77")]
 [assembly: InternalsVisibleTo("CoreNodeModelsWpf")]
-[assembly: InternalsVisibleTo("SATe.Client.UI")]
+[assembly: InternalsVisibleTo("SATe.UI")]
 

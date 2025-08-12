@@ -59,7 +59,7 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("Notifications")]
 [assembly: InternalsVisibleTo("NodeAutoCompleteViewExtension")]
 [assembly: InternalsVisibleTo("Dynamo.Wpf")]
-[assembly: InternalsVisibleTo("SATe.Client.UI")]
+[assembly: InternalsVisibleTo("SATe.UI")]
 
 
 // Disable PublicAPIAnalyzer errors for this type as they're already added to the public API text file
